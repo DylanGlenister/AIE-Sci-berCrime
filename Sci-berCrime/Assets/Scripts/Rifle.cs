@@ -11,6 +11,9 @@ public class Rifle : GunBase
     public float fireTimer = 0.0f;
     public int damage;
 
+    public GameObject bullet;
+    public GameObject bulletSpawn;
+
     // The background updating for the gun
     public override void GunUpdate()
     {
@@ -29,6 +32,8 @@ public class Rifle : GunBase
         if (fireTimer == 0)
         {
             Debug.Log(parent.name + " Rifle Fire!");
+            GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, parent.transform.rotation) as GameObject;
+            Destroy(newBullet, 2);
             fireTimer = fireDelay;
         }
     }

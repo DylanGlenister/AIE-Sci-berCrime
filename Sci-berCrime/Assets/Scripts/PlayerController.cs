@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public GunBase gunPrimary;
     public GunBase gunSecondary;
     public GunBase gunTertiary;
+    public GunBase gunQuadary;
 
     // Currently selected gun
     public GunBase currentGun;
@@ -84,7 +85,14 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("P1 Weapon Swap"))
             {
-
+                if (currentGun == gunPrimary)
+                    currentGun = gunSecondary;
+                else if (currentGun == gunSecondary)
+                    currentGun = gunTertiary;
+                else if (currentGun == gunTertiary)
+                    currentGun = gunQuadary;
+                else
+                    currentGun = gunPrimary;
             }
 
             // Calls a specific update function for the currently active gun
@@ -97,7 +105,12 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("P2 Weapon Swap"))
             {
-
+                if (currentGun = gunPrimary)
+                    currentGun = gunSecondary;
+                else if (currentGun = gunSecondary)
+                    currentGun = gunTertiary;
+                else
+                    currentGun = gunPrimary;
             }
 
             // Calls a specific update function for the currently active gun
@@ -107,14 +120,14 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && currentGun != gunPrimary)
-            currentGun = gunPrimary;
+        //if (Input.GetKeyDown(KeyCode.Alpha1) && currentGun != gunPrimary)
+        //    currentGun = gunPrimary;
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && currentGun != gunSecondary)
-            currentGun = gunSecondary;
+        //if (Input.GetKeyDown(KeyCode.Alpha2) && currentGun != gunSecondary)
+        //    currentGun = gunSecondary;
 
-        if (Input.GetKeyDown(KeyCode.Alpha3) && currentGun != gunTertiary)
-            currentGun = gunTertiary;
+        //if (Input.GetKeyDown(KeyCode.Alpha3) && currentGun != gunTertiary)
+        //    currentGun = gunTertiary;
 
         // Call an update function for each of the equiped guns
         if (gunPrimary)
@@ -123,6 +136,8 @@ public class PlayerController : MonoBehaviour
             gunSecondary.GunUpdate();
         if (gunTertiary)
             gunTertiary.GunUpdate();
+        if (gunQuadary)
+            gunQuadary.GunUpdate();
     }
 
     private void OnCollisionEnter(Collision collision)
