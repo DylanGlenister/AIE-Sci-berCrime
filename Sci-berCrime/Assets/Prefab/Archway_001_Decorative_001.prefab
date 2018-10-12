@@ -37,6 +37,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4246094838020340}
+  - component: {fileID: 65355954929405456}
+  - component: {fileID: 65458395581157024}
   m_Layer: 0
   m_Name: Archway_001_Decorative_001
   m_TagString: Untagged
@@ -51,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1516011435995158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 326.5006, y: -33.03009, z: 35.57595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4506280445759332}
@@ -113,6 +115,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1378470462986344}
   m_Mesh: {fileID: 4300000, guid: ea732c3b8104e0a4cbf24e3d897fb888, type: 3}
+--- !u!65 &65355954929405456
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516011435995158}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5754395, y: 5.0555077, z: 0.9457054}
+  m_Center: {x: -0.0073547363, y: 0.045274734, z: 1.4451809}
+--- !u!65 &65458395581157024
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516011435995158}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5754395, y: 5.0555077, z: 0.935936}
+  m_Center: {x: -0.0073547363, y: 0.045274734, z: -1.4092636}
 --- !u!95 &95567171614918306
 Animator:
   serializedVersion: 3

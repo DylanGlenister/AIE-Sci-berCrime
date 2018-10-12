@@ -19,6 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4970715299294166}
+  - component: {fileID: 65267782686731318}
+  - component: {fileID: 65352818628393350}
+  - component: {fileID: 65051735662771588}
+  - component: {fileID: 65258623196131134}
   m_Layer: 0
   m_Name: Bridge_001_Ramp_001
   m_TagString: Untagged
@@ -93,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1089204713896762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 382.58386, y: -35.769257, z: 53.915146}
+  m_LocalPosition: {x: 323.53116, y: -33.516922, z: 38.81079}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4002717515964662}
@@ -141,6 +145,54 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1818580091278436}
   m_Mesh: {fileID: 4300000, guid: 96993b4756720514189c4d744dd2ef8f, type: 3}
+--- !u!65 &65051735662771588
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089204713896762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5092468, y: 2.0221748, z: 1.06073}
+  m_Center: {x: -3.7338715, y: -0.9787655, z: 4.656086}
+--- !u!65 &65258623196131134
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089204713896762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5259705, y: 2.0221748, z: 1.06073}
+  m_Center: {x: 3.233017, y: -0.9787655, z: 4.656086}
+--- !u!65 &65267782686731318
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089204713896762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5092468, y: 2.0221748, z: 1.1905632}
+  m_Center: {x: -3.7338715, y: -0.9787655, z: -6.8204784}
+--- !u!65 &65352818628393350
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089204713896762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4596252, y: 2.0221748, z: 1.1905632}
+  m_Center: {x: 3.2555084, y: -0.9787655, z: -6.8204784}
 --- !u!95 &95447636884585234
 Animator:
   serializedVersion: 3
