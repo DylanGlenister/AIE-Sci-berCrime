@@ -4,44 +4,44 @@ using UnityEngine;
 
 public class EnemySpawnController : MonoBehaviour
 {
-    public bool spawningEnabled = true;
+    public bool m_bSpawningEnabled = true;
 
-    public int enemyMax = 200;
-    public int enemyCount;
+    public int m_iEnemyMax = 200;
+    public int m_iEnemyCount;
 
-    public float spawnDelay = 0.001f;
-    public float spawnTimer;
+    public float m_fSpawnDelay = 1f;
+    public float m_fSpawnTimer;
 
-    private List<GameObject> m_list = new List<GameObject>();
+    private List<GameObject> m_lEnemyList = new List<GameObject>();
 
     // Reference to the enemy prefab
-    public GameObject enemyPrefab;
+    public GameObject m_goEnemyPrefab;
 
     // Gameobjects at the positions they spawn at
-    public GameObject spawnLocation;
+    public GameObject m_goSpawnLocation;
 
     void Start()
     {
-        spawnTimer = spawnDelay;
+        m_fSpawnTimer = m_fSpawnDelay;
     }
 
     void Update()
     {
-        if (spawningEnabled)
+        if (m_bSpawningEnabled)
         {
-            if (m_list.Count >= enemyMax)
+            if (m_lEnemyList.Count >= m_iEnemyMax)
                 return;
 
-            spawnTimer -= Time.deltaTime;
-            spawnTimer = Mathf.Max(spawnTimer, 0);
+            m_fSpawnTimer -= Time.deltaTime;
+            m_fSpawnTimer = Mathf.Max(m_fSpawnTimer, 0);
 
-            if (spawnTimer == 0)
+            if (m_fSpawnTimer == 0)
             {
-                GameObject newEnemy = Instantiate(enemyPrefab, spawnLocation.transform.position, spawnLocation.transform.rotation);
-                m_list.Add(newEnemy);
-                spawnTimer = spawnDelay;
-                Debug.Log("Enemy #" + m_list.Count + " has spawned");
-                enemyCount += 1;
+                GameObject newEnemy = Instantiate(m_goEnemyPrefab, m_goSpawnLocation.transform.position, m_goSpawnLocation.transform.rotation);
+                m_lEnemyList.Add(newEnemy);
+                m_fSpawnTimer = m_fSpawnDelay;
+                Debug.Log("Enemy #" + m_lEnemyList.Count + " has spawned");
+                m_iEnemyCount += 1;
             }
         }
     }

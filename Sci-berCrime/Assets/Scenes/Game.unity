@@ -467,15 +467,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec198f62567cf814babe9a87982b09ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireGun: 32
-  playerOne: 1
-  movementSpeed: 50
-  faceTarget: {fileID: 579789196}
-  gunPrimary: {fileID: 261477904}
-  gunSecondary: {fileID: 261477901}
-  gunTertiary: {fileID: 261477902}
-  gunQuadary: {fileID: 261477903}
-  currentGun: {fileID: 261477904}
+  m_bPlayerOne: 1
+  m_iHealth: 100
+  m_fMovementSpeed: 50
+  m_goAimTarget: {fileID: 579789196}
+  m_goGunPrimary: {fileID: 261477904}
+  m_goGunSecondary: {fileID: 261477901}
+  m_goGunTertiary: {fileID: 261477902}
+  m_goGunQuadary: {fileID: 261477903}
+  m_goCurrentGun: {fileID: 261477904}
 --- !u!54 &261477900
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -504,13 +504,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c311c9d7b73c1d40a227dde530e2ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 100
-  magazine: 10
-  fireDelay: 0.05
-  fireTimer: 0
-  damage: 0
-  bullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  bulletSpawn: {fileID: 445468642}
+  m_iAmmo: 100
+  m_iMagazine: 10
+  m_fFireDelay: 0.05
+  m_fFireTimer: 0
+  m_iDamage: 0
+  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+  m_goBulletSpawn: {fileID: 445468642}
 --- !u!114 &261477902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,13 +523,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2cda15a469b344e9322e3728d43e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 100
-  magazine: 10
-  fireDelay: 0.1
-  fireTimer: 0
-  damage: 0
-  bullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  bulletSpawn: {fileID: 445468642}
+  m_iAmmo: 100
+  m_iMagazine: 10
+  m_fFireDelay: 0.1
+  m_fFireTimer: 0
+  m_iDamage: 0
+  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+  m_goBulletSpawn: {fileID: 445468642}
 --- !u!114 &261477903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,13 +542,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dba095d4532e04289f9d224a288bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 100
-  magazine: 10
-  fireDelay: 2
-  fireTimer: 0
-  damage: 0
-  bullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  bulletSpawn: {fileID: 445468642}
+  m_iAmmo: 100
+  m_iMagazine: 10
+  m_fFireDelay: 2
+  m_fFireTimer: 0
+  m_iDamage: 0
+  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+  m_goBulletSpawn: {fileID: 445468642}
 --- !u!114 &261477904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,13 +560,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7b2030647691d468936712d6eccd1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 100
-  magazine: 10
-  fireDelay: 0.25
-  fireTimer: 0
-  damage: 0
-  bullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  bulletSpawn: {fileID: 445468642}
+  m_iAmmo: 100
+  m_iMagazine: 10
+  m_fFireDelay: 0.25
+  m_fFireTimer: 0
+  m_iDamage: 0
+  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+  m_goBulletSpawn: {fileID: 445468642}
 --- !u!1 &275608496
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,13 +2336,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dba095d4532e04289f9d224a288bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 100
-  magazine: 10
-  fireDelay: 2
-  fireTimer: 0
-  damage: 0
-  bullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  bulletSpawn: {fileID: 1579888386}
+  m_iAmmo: 100
+  m_iMagazine: 10
+  m_fFireDelay: 2
+  m_fFireTimer: 0
+  m_iDamage: 0
+  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+  m_goBulletSpawn: {fileID: 1579888386}
 --- !u!114 &973474629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2355,13 +2355,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2cda15a469b344e9322e3728d43e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 100
-  magazine: 10
-  fireDelay: 0.1
-  fireTimer: 0
-  damage: 0
-  bullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  bulletSpawn: {fileID: 1579888386}
+  m_iAmmo: 100
+  m_iMagazine: 10
+  m_fFireDelay: 0.1
+  m_fFireTimer: 0
+  m_iDamage: 0
+  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+  m_goBulletSpawn: {fileID: 1579888386}
 --- !u!114 &973474630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2374,13 +2374,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c311c9d7b73c1d40a227dde530e2ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 100
-  magazine: 10
-  fireDelay: 0.05
-  fireTimer: 0
-  damage: 0
-  bullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  bulletSpawn: {fileID: 1579888386}
+  m_iAmmo: 100
+  m_iMagazine: 10
+  m_fFireDelay: 0.05
+  m_fFireTimer: 0
+  m_iDamage: 0
+  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+  m_goBulletSpawn: {fileID: 1579888386}
 --- !u!114 &973474631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2393,15 +2393,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec198f62567cf814babe9a87982b09ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireGun: 256
-  playerOne: 0
-  movementSpeed: 50
-  faceTarget: {fileID: 2140437782}
-  gunPrimary: {fileID: 973474634}
-  gunSecondary: {fileID: 973474630}
-  gunTertiary: {fileID: 973474629}
-  gunQuadary: {fileID: 973474628}
-  currentGun: {fileID: 973474634}
+  m_bPlayerOne: 0
+  m_iHealth: 100
+  m_fMovementSpeed: 50
+  m_goAimTarget: {fileID: 2140437782}
+  m_goGunPrimary: {fileID: 973474634}
+  m_goGunSecondary: {fileID: 973474630}
+  m_goGunTertiary: {fileID: 973474629}
+  m_goGunQuadary: {fileID: 973474628}
+  m_goCurrentGun: {fileID: 973474634}
 --- !u!54 &973474632
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2447,13 +2447,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7b2030647691d468936712d6eccd1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 100
-  magazine: 10
-  fireDelay: 0.25
-  fireTimer: 0
-  damage: 0
-  bullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  bulletSpawn: {fileID: 1579888386}
+  m_iAmmo: 100
+  m_iMagazine: 10
+  m_fFireDelay: 0.25
+  m_fFireTimer: 0
+  m_iDamage: 0
+  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+  m_goBulletSpawn: {fileID: 1579888386}
 --- !u!1 &989596120
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,6 +2734,52 @@ Transform:
   m_Father: {fileID: 1418681327}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!1001 &1124958953
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a35b91325a180af43b399aa0065910ed, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1195946989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3175,14 +3221,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe76f5c6814cca48848dd9b78f55032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawningEnabled: 0
-  enemyMax: 200
-  enemyCount: 0
-  spawnDelay: 1
-  spawnTimer: 0
-  enemyPrefab: {fileID: 1219434101672160, guid: 85c25c601724b7a4f9ccd383e3d927f5,
+  m_bSpawningEnabled: 1
+  m_iEnemyMax: 200
+  m_iEnemyCount: 0
+  m_fSpawnDelay: 1
+  m_fSpawnTimer: 0
+  m_goEnemyPrefab: {fileID: 1219434101672160, guid: 85c25c601724b7a4f9ccd383e3d927f5,
     type: 2}
-  spawnLocation: {fileID: 275608496}
+  m_goSpawnLocation: {fileID: 275608496}
 --- !u!1 &1418681326
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,13 +3513,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638c7f5f3ca73a549b9520f4292a42b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomScalar: 5
-  zoomOffset: 8
-  cameraCenterTether: 1.8
-  cameraPlane_Zoom: {fileID: 1510194598}
-  cameraPlane_Pan: {fileID: 1288498138}
-  playerOne: {fileID: 261477897}
-  playerTwo: {fileID: 973474627}
+  m_fZoomScalar: 5
+  m_fZoomOffset: 8
+  m_fCameraCenterTether: 1.2
+  m_goCameraPlane_Zoom: {fileID: 1510194598}
+  m_goCameraPlane_Pan: {fileID: 1288498138}
+  m_goPlayerOne: {fileID: 261477897}
+  m_goPlayerTwo: {fileID: 973474627}
 --- !u!1 &1754741276
 GameObject:
   m_ObjectHideFlags: 0
@@ -3894,52 +3940,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1877693573}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1880527421
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900506043121572, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1928153164
 GameObject:
   m_ObjectHideFlags: 0

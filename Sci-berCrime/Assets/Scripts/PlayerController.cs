@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public KeyCode fireGun = KeyCode.Space;
+    public bool m_bIsAlive { get; set; }
 
+    public bool m_bPlayerOne;
+    public int m_iHealth = 100;
+    public float m_fMovementSpeed = 50.0f;
 
-    public bool playerOne;
-    public bool isAlive { get; set; }
-
-    // Storage for movement variables
-    public float movementSpeed = 60.0f;
-    //public float facing = 0;
-
-    public GameObject faceTarget;
+    public GameObject m_goAimTarget;
 
     // Reference to the guns class
-    public GunBase gunPrimary;
-    public GunBase gunSecondary;
-    public GunBase gunTertiary;
-    public GunBase gunQuadary;
+    public GunBase m_goGunPrimary;
+    public GunBase m_goGunSecondary;
+    public GunBase m_goGunTertiary;
+    public GunBase m_goGunQuadary;
 
     // Currently selected gun
-    public GunBase currentGun;
+    public GunBase m_goCurrentGun;
 
     // Reference to the rigidbody
     Rigidbody rb;
@@ -31,28 +27,28 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        isAlive = true;
+        m_bIsAlive = true;
     }
 
     void FixedUpdate()
     {
-        if (isAlive)
+        if (m_bIsAlive)
         {
             // All controls for player one
-            if (playerOne)
+            if (m_bPlayerOne)
             {
                 //----------Movement----------
                 // Vertical movement
-                rb.AddForce(new Vector3(0, 0, Input.GetAxis("P1 LS Vertical") * movementSpeed), ForceMode.Force);
+                rb.AddForce(new Vector3(0, 0, Input.GetAxis("P1 LS Vertical") * m_fMovementSpeed), ForceMode.Force);
                 // Horizontal movement
-                rb.AddForce(new Vector3(Input.GetAxis("P1 LS Horizontal") * movementSpeed, 0, 0), ForceMode.Force);
+                rb.AddForce(new Vector3(Input.GetAxis("P1 LS Horizontal") * m_fMovementSpeed, 0, 0), ForceMode.Force);
 
                 //----------Rotation----------
                 // Moves target object
-                faceTarget.transform.position = this.transform.position + new Vector3(Input.GetAxis("P1 RS Horizontal"), 0, Input.GetAxis("P1 RS Vertical"));
+                m_goAimTarget.transform.position = this.transform.position + new Vector3(Input.GetAxis("P1 RS Horizontal"), 0, Input.GetAxis("P1 RS Vertical"));
 
                 // Calculates direction needed for facing
-                Vector3 targetDir = faceTarget.transform.position - this.transform.position;
+                Vector3 targetDir = m_goAimTarget.transform.position - this.transform.position;
                 Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 9999, 0.0f);
                 this.transform.rotation = Quaternion.LookRotation(newDir);
             }
@@ -61,16 +57,16 @@ public class PlayerController : MonoBehaviour
             {
                 //----------Movement----------
                 // Vertical movement
-                rb.AddForce(new Vector3(0, 0, Input.GetAxis("P2 LS Vertical") * movementSpeed), ForceMode.Force);
+                rb.AddForce(new Vector3(0, 0, Input.GetAxis("P2 LS Vertical") * m_fMovementSpeed), ForceMode.Force);
                 // Horizontal movement
-                rb.AddForce(new Vector3(Input.GetAxis("P2 LS Horizontal") * movementSpeed, 0, 0), ForceMode.Force);
+                rb.AddForce(new Vector3(Input.GetAxis("P2 LS Horizontal") * m_fMovementSpeed, 0, 0), ForceMode.Force);
 
                 //----------Rotation----------
                 // Moves target object
-                faceTarget.transform.position = this.transform.position + new Vector3(Input.GetAxis("P2 RS Horizontal"), 0, Input.GetAxis("P2 RS Vertical"));
+                m_goAimTarget.transform.position = this.transform.position + new Vector3(Input.GetAxis("P2 RS Horizontal"), 0, Input.GetAxis("P2 RS Vertical"));
 
                 // Calculates direction needed for facing
-                Vector3 targetDir = faceTarget.transform.position - this.transform.position;
+                Vector3 targetDir = m_goAimTarget.transform.position - this.transform.position;
                 Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 9999, 0.0f);
                 this.transform.rotation = Quaternion.LookRotation(newDir);
             }
@@ -79,65 +75,59 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (m_iHealth == 0)
+            m_bIsAlive = false;
+
         //Debug.Log(isAlive);
 
-        if (playerOne)
+        if (m_bPlayerOne)
         {
             if (Input.GetButtonDown("P1 Weapon Swap"))
             {
-                if (currentGun == gunPrimary)
-                    currentGun = gunSecondary;
-                else if (currentGun == gunSecondary)
-                    currentGun = gunTertiary;
-                else if (currentGun == gunTertiary)
-                    currentGun = gunQuadary;
+                if (m_goCurrentGun == m_goGunPrimary)
+                    m_goCurrentGun = m_goGunSecondary;
+                else if (m_goCurrentGun == m_goGunSecondary)
+                    m_goCurrentGun = m_goGunTertiary;
+                else if (m_goCurrentGun == m_goGunTertiary)
+                    m_goCurrentGun = m_goGunQuadary;
                 else
-                    currentGun = gunPrimary;
+                    m_goCurrentGun = m_goGunPrimary;
             }
 
             // Calls a specific update function for the currently active gun
-            if (currentGun && isAlive && Input.GetButton("P1 Fire"))
+            if (m_goCurrentGun && m_bIsAlive && Input.GetButton("P1 Fire"))
             {
-                currentGun.ActiveGunUpdate(this.gameObject);
+                m_goCurrentGun.ActiveGunUpdate(this.gameObject);
             }
         }
         else
         {
             if (Input.GetButtonDown("P2 Weapon Swap"))
             {
-                if (currentGun = gunPrimary)
-                    currentGun = gunSecondary;
-                else if (currentGun = gunSecondary)
-                    currentGun = gunTertiary;
+                if (m_goCurrentGun = m_goGunPrimary)
+                    m_goCurrentGun = m_goGunSecondary;
+                else if (m_goCurrentGun = m_goGunSecondary)
+                    m_goCurrentGun = m_goGunTertiary;
                 else
-                    currentGun = gunPrimary;
+                    m_goCurrentGun = m_goGunPrimary;
             }
 
             // Calls a specific update function for the currently active gun
-            if (currentGun && isAlive && Input.GetButton("P2 Fire"))
+            if (m_goCurrentGun && m_bIsAlive && Input.GetButton("P2 Fire"))
             {
-                currentGun.ActiveGunUpdate(this.gameObject);
+                m_goCurrentGun.ActiveGunUpdate(this.gameObject);
             }
         }
 
-        //if (Input.GetKeyDown(KeyCode.Alpha1) && currentGun != gunPrimary)
-        //    currentGun = gunPrimary;
-
-        //if (Input.GetKeyDown(KeyCode.Alpha2) && currentGun != gunSecondary)
-        //    currentGun = gunSecondary;
-
-        //if (Input.GetKeyDown(KeyCode.Alpha3) && currentGun != gunTertiary)
-        //    currentGun = gunTertiary;
-
         // Call an update function for each of the equiped guns
-        if (gunPrimary)
-            gunPrimary.GunUpdate();
-        if (gunSecondary)
-            gunSecondary.GunUpdate();
-        if (gunTertiary)
-            gunTertiary.GunUpdate();
-        if (gunQuadary)
-            gunQuadary.GunUpdate();
+        if (m_goGunPrimary)
+            m_goGunPrimary.GunUpdate();
+        if (m_goGunSecondary)
+            m_goGunSecondary.GunUpdate();
+        if (m_goGunTertiary)
+            m_goGunTertiary.GunUpdate();
+        if (m_goGunQuadary)
+            m_goGunQuadary.GunUpdate();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -145,7 +135,15 @@ public class PlayerController : MonoBehaviour
         // Player dies if hit by enemy
         if (collision.gameObject.tag == "Enemy")
         {
-            isAlive = false;
+            TakeDamage(collision.gameObject.GetComponent<EnemyController>().m_iDamage);
         }
+    }
+
+    // Applies damage to the object
+    public void TakeDamage(int pDamage)
+    {
+        m_iHealth -= pDamage;
+        if (m_iHealth < 0)
+            m_iHealth = 0;
     }
 }

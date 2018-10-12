@@ -19,4 +19,12 @@ public class Bullet : MonoBehaviour
         transform.position += m_speed * transform.forward * Time.deltaTime;
         //rb.AddForce(new Vector3(0, 0, m_speed), ForceMode.Impulse);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<EnemyController>().TakeDamage(m_damage);
+        }
+    }
 }
