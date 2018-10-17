@@ -76,7 +76,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (m_iHealth == 0)
+        {
             m_bIsAlive = false;
+            Destroy(this.gameObject);
+        }
 
         //Debug.Log(isAlive);
 

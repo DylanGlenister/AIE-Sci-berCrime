@@ -31,7 +31,10 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         if (m_iHealth == 0)
+        {
             m_bIsAlive = false;
+            Destroy(this.gameObject);
+        }
 
         if (m_bIsAlive && (m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive || m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive))
         {
@@ -87,6 +90,18 @@ public class EnemyController : MonoBehaviour
         {
             m_nmaNavMeshAgent.enabled = false;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Bullet")
+        {
+            TakeDamage(other.gameObject.GetComponent<Bullet>().m_iDamage);
+
+            if (!other.gameObject.GetComponent<Bullet>().m_bRailgun)
+                Destroy(other.gameObject);
+        }
+
     }
 
     // Applies damage to the object

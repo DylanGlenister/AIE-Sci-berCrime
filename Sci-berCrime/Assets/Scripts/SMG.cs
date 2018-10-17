@@ -9,7 +9,7 @@ public class SMG : GunBase
     public int m_iMagazine = 10;
     public float m_fFireDelay = 0.05f;
     public float m_fFireTimer = 0.0f;
-    public int m_iDamage;
+    public int m_iDamage = 10;
 
     public GameObject m_goBullet;
     public GameObject m_goBulletSpawn;
@@ -31,9 +31,10 @@ public class SMG : GunBase
     {
         if (m_fFireTimer == 0)
         {
-            Debug.Log(parent.name + " SMG Fire!");
+            //Debug.Log(parent.name + " SMG Fire!");
             GameObject newBullet = Instantiate(m_goBullet, m_goBulletSpawn.transform.position, parent.transform.rotation) as GameObject;
-            Destroy(newBullet, 2);
+            newBullet.GetComponent<Bullet>().m_iDamage = 10;
+            Destroy(newBullet, 3);
             m_fFireTimer = m_fFireDelay;
         }
     }

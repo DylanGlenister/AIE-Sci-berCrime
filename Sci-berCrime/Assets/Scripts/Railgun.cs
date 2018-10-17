@@ -9,7 +9,7 @@ public class Railgun : GunBase
     public int m_iMagazine = 10;
     public float m_fFireDelay = 2.0f;
     public float m_fFireTimer = 0.0f;
-    public int m_iDamage;
+    public int m_iDamage = 100;
 
     public GameObject m_goBullet;
     public GameObject m_goBulletSpawn;
@@ -31,9 +31,11 @@ public class Railgun : GunBase
     {
         if (m_fFireTimer == 0)
         {
-            Debug.Log(parent.name + " Railgun Fire!");
+            //Debug.Log(parent.name + " Railgun Fire!");
             GameObject newBullet = Instantiate(m_goBullet, m_goBulletSpawn.transform.position, parent.transform.rotation) as GameObject;
-            Destroy(newBullet, 2);
+            newBullet.GetComponent<Bullet>().m_iDamage = m_iDamage;
+            newBullet.GetComponent<Bullet>().m_bRailgun = true;
+            Destroy(newBullet, 3);
             m_fFireTimer = m_fFireDelay;
         }
     }

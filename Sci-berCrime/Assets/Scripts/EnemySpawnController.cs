@@ -40,7 +40,7 @@ public class EnemySpawnController : MonoBehaviour
                 GameObject newEnemy = Instantiate(m_goEnemyPrefab, m_goSpawnLocation.transform.position, m_goSpawnLocation.transform.rotation);
                 m_lEnemyList.Add(newEnemy);
                 m_fSpawnTimer = m_fSpawnDelay;
-                Debug.Log("Enemy #" + m_lEnemyList.Count + " has spawned");
+                //Debug.Log("Enemy #" + m_lEnemyList.Count + " has spawned");
                 m_iEnemyCount += 1;
             }
         }
