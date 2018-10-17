@@ -26,7 +26,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1525000552748746
 GameObject:
@@ -36,12 +36,13 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4065608890779280}
+  - component: {fileID: 65862158968905904}
   m_Layer: 0
   m_Name: Rock_002_Medium_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1685587700625462
 GameObject:
@@ -56,7 +57,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1712603107591816
 GameObject:
@@ -72,7 +73,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4065608890779280
 Transform:
@@ -81,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1525000552748746}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 389.01886, y: -34.686676, z: 39.61741}
+  m_LocalPosition: {x: 1.989685, y: 129.88313, z: 337.73242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4352144341461642}
@@ -170,6 +171,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1375190301799984}
   m_Mesh: {fileID: 4300000, guid: dc083c5234330f54ab61090ada8aefd4, type: 3}
+--- !u!65 &65862158968905904
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1525000552748746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5525627, y: 1.6338196, z: 1.4893074}
+  m_Center: {x: -0.188864, y: -0.061561108, z: -1.1709843}
 --- !u!95 &95101729153984664
 Animator:
   serializedVersion: 3
