@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public bool m_bIsAlive { get; set; }
+    public bool IsAlive { get; set; }
 
     public int m_iHealth = 100;
     public int m_iDamage;
@@ -16,6 +16,8 @@ public class EnemyController : MonoBehaviour
     public GameObject m_goPlayerTwo;
     public GameObject m_goCurrentTarget;
 
+    public GameObject gameController;
+
     private NavMeshAgent m_nmaNavMeshAgent;
 
     void Awake()
@@ -23,20 +25,22 @@ public class EnemyController : MonoBehaviour
         m_nmaNavMeshAgent = GetComponent<NavMeshAgent>();
         m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
         m_goPlayerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
+        gameController = GameObject.FindGameObjectWithTag("GameController");
         m_goCurrentTarget = m_goPlayerOne;
 
-        m_bIsAlive = true;
+        IsAlive = true;
     }
 
     void Update()
     {
         if (m_iHealth == 0)
         {
-            m_bIsAlive = false;
+            gameController.GetComponent<ShopController>().DepositToWallet(10);
+            IsAlive = false;
             Destroy(this.gameObject);
         }
 
-        if (m_bIsAlive && (m_goPlayerOne || m_goPlayerTwo))
+        if (IsAlive && (m_goPlayerOne || m_goPlayerTwo))
         {
             // If one player is dead only target the other player
             if (!m_goPlayerOne)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawnController : MonoBehaviour
 {
     public bool m_bSpawningEnabled = true;
+    public bool funMode = false;
 
     public int m_iEnemyMax = 1000;
     public int m_iEnemyCount;
@@ -42,36 +43,52 @@ public class EnemySpawnController : MonoBehaviour
 
         if (m_fSpawnTimer == 0)
         {
-            // Chooses random spawn location
-            int rand = Random.Range(0, 5);
-
-            switch (rand)
+            if (!funMode)
             {
-                case 0:
-                    m_goChosenSpawnLocation = m_goSpawnLocation1;
-                    break;
-                case 1:
-                    m_goChosenSpawnLocation = m_goSpawnLocation2;
-                    break;
-                case 2:
-                    m_goChosenSpawnLocation = m_goSpawnLocation3;
-                    break;
-                case 3:
-                    m_goChosenSpawnLocation = m_goSpawnLocation4;
-                    break;
-                case 4:
-                    m_goChosenSpawnLocation = m_goSpawnLocation5;
-                    break;
-                case 5:
-                    m_goChosenSpawnLocation = m_goSpawnLocation6;
-                    break;
-            }
+                // Chooses random spawn location
+                int rand = Random.Range(0, 6);
 
-            GameObject newEnemy = Instantiate(m_goEnemyPrefab, m_goChosenSpawnLocation.transform.position, m_goSpawnLocation1.transform.rotation);
-            m_lEnemyList.Add(newEnemy);
-            m_fSpawnTimer = m_fSpawnDelay;
-            //Debug.Log("Enemy #" + m_lEnemyList.Count + " has spawned");
-            m_iEnemyCount += 1;
+                switch (rand)
+                {
+                    case 0:
+                        m_goChosenSpawnLocation = m_goSpawnLocation1;
+                        break;
+                    case 1:
+                        m_goChosenSpawnLocation = m_goSpawnLocation2;
+                        break;
+                    case 2:
+                        m_goChosenSpawnLocation = m_goSpawnLocation3;
+                        break;
+                    case 3:
+                        m_goChosenSpawnLocation = m_goSpawnLocation4;
+                        break;
+                    case 4:
+                        m_goChosenSpawnLocation = m_goSpawnLocation5;
+                        break;
+                    case 5:
+                        m_goChosenSpawnLocation = m_goSpawnLocation6;
+                        break;
+                }
+
+                GameObject newEnemy = Instantiate(m_goEnemyPrefab, m_goChosenSpawnLocation.transform.position, m_goSpawnLocation1.transform.rotation);
+                m_lEnemyList.Add(newEnemy);
+                m_fSpawnTimer = m_fSpawnDelay;
+                //Debug.Log("Enemy #" + m_lEnemyList.Count + " has spawned");
+                m_iEnemyCount += 1;
+            }
+            else
+            {
+                Instantiate(m_goEnemyPrefab, m_goSpawnLocation1.transform.position, m_goSpawnLocation1.transform.rotation);
+                Instantiate(m_goEnemyPrefab, m_goSpawnLocation2.transform.position, m_goSpawnLocation1.transform.rotation);
+                Instantiate(m_goEnemyPrefab, m_goSpawnLocation3.transform.position, m_goSpawnLocation1.transform.rotation);
+                Instantiate(m_goEnemyPrefab, m_goSpawnLocation4.transform.position, m_goSpawnLocation1.transform.rotation);
+                Instantiate(m_goEnemyPrefab, m_goSpawnLocation5.transform.position, m_goSpawnLocation1.transform.rotation);
+                Instantiate(m_goEnemyPrefab, m_goSpawnLocation6.transform.position, m_goSpawnLocation1.transform.rotation);
+
+                m_fSpawnTimer = m_fSpawnDelay;
+                //Debug.Log("Enemy #" + m_lEnemyList.Count + " has spawned");
+                m_iEnemyCount += 1;
+            }
         }
     }
 }
