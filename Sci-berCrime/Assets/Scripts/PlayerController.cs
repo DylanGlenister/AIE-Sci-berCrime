@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         if (m_iHealth == 0)
         {
             m_bIsAlive = false;
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
 
         //Debug.Log(isAlive);
@@ -107,10 +107,12 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("P2 Weapon Swap"))
             {
-                if (m_goCurrentGun = m_goGunPrimary)
+                if (m_goCurrentGun == m_goGunPrimary)
                     m_goCurrentGun = m_goGunSecondary;
-                else if (m_goCurrentGun = m_goGunSecondary)
+                else if (m_goCurrentGun == m_goGunSecondary)
                     m_goCurrentGun = m_goGunTertiary;
+                else if (m_goCurrentGun == m_goGunTertiary)
+                    m_goCurrentGun = m_goGunQuadary;
                 else
                     m_goCurrentGun = m_goGunPrimary;
             }

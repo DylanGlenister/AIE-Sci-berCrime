@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Graybox_Arena_Courtyard_001_PlayerEnemyMesh.unity
+- path: Assets/Scenes/TestEnv.unity
   isLoaded: 1
   isActive: 1
