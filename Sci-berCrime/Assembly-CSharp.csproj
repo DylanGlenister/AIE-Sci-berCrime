@@ -55,12 +55,10 @@
      <Compile Include="Assets\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\EnemySpawnController.cs" />
-     <Compile Include="Assets\Scripts\GunBase.cs" />
-     <Compile Include="Assets\Scripts\Handgun.cs" />
+     <Compile Include="Assets\Scripts\GunController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Railgun.cs" />
-     <Compile Include="Assets\Scripts\Rifle.cs" />
-     <Compile Include="Assets\Scripts\SMG.cs" />
+     <Compile Include="Assets\Scripts\RoundController.cs" />
+     <Compile Include="Assets\Scripts\ShopController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
