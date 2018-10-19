@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     public GameObject m_goPlayerTwo;
     public GameObject m_goCurrentTarget;
 
-    public GameObject gameController;
+    //public GameObject gameController;
 
     private NavMeshAgent m_nmaNavMeshAgent;
 
@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
         m_nmaNavMeshAgent = GetComponent<NavMeshAgent>();
         m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
         m_goPlayerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
-        gameController = GameObject.FindGameObjectWithTag("GameController");
+        //gameController = GameObject.FindGameObjectWithTag("GameController");
         m_goCurrentTarget = m_goPlayerOne;
 
         IsAlive = true;
@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour
     {
         if (m_iHealth == 0)
         {
-            gameController.GetComponent<ShopController>().DepositToWallet(10);
+            //gameController.GetComponent<ShopController>().DepositToWallet(10);
             IsAlive = false;
             Destroy(this.gameObject);
         }

@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float m_fMovementSpeed = 50.0f;
 
     public GameObject m_goAimTarget;
+    public GameObject m_goBulletSpawn;
+    public GameObject m_goBulletPrefab;
 
     // Reference to the guns class
     public GunBase m_goGunPrimary;

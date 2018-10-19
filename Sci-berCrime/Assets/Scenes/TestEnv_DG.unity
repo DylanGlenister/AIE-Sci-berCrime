@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657993, g: 0.4964143, b: 0.5748183, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000036, guid: 1e74e3e43d14c5c4e9d4e01be86662a6,
+  m_LightingDataAsset: {fileID: 112000036, guid: 90eb7ab600d146546a4fe33f39b7ab12,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -499,6 +499,9 @@ MonoBehaviour:
   m_iHealth: 100
   m_fMovementSpeed: 50
   m_goAimTarget: {fileID: 579789196}
+  m_goBulletSpawn: {fileID: 445468642}
+  m_goBulletPrefab: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed,
+    type: 2}
   m_goGunPrimary: {fileID: 261477904}
   m_goGunSecondary: {fileID: 261477901}
   m_goGunTertiary: {fileID: 261477902}
@@ -533,11 +536,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_iDamage: 25
-  m_iAmmo: 10000
+  m_iAmmo: 1000
   m_fFireDelay: 0.005
   m_fFireTimer: 0
-  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  m_goBulletSpawn: {fileID: 445468642}
 --- !u!114 &261477902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,8 +555,6 @@ MonoBehaviour:
   m_iAmmo: 500
   m_fFireDelay: 0.05
   m_fFireTimer: 0
-  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  m_goBulletSpawn: {fileID: 445468642}
 --- !u!114 &261477903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,8 +571,6 @@ MonoBehaviour:
   m_iAmmo: 100
   m_fFireDelay: 0.5
   m_fFireTimer: 0
-  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  m_goBulletSpawn: {fileID: 445468642}
 --- !u!114 &261477904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,8 +586,6 @@ MonoBehaviour:
   m_iAmmo: 500
   m_fFireDelay: 0.1
   m_fFireTimer: 0
-  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  m_goBulletSpawn: {fileID: 445468642}
 --- !u!1 &275608496
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,8 +2386,6 @@ MonoBehaviour:
   m_iAmmo: 100
   m_fFireDelay: 0.5
   m_fFireTimer: 0
-  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  m_goBulletSpawn: {fileID: 1579888386}
 --- !u!114 &973474629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2408,8 +2401,6 @@ MonoBehaviour:
   m_iAmmo: 500
   m_fFireDelay: 0.05
   m_fFireTimer: 0
-  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  m_goBulletSpawn: {fileID: 1579888386}
 --- !u!114 &973474630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2425,8 +2416,6 @@ MonoBehaviour:
   m_iAmmo: 10000
   m_fFireDelay: 0.005
   m_fFireTimer: 0
-  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  m_goBulletSpawn: {fileID: 1579888386}
 --- !u!114 &973474631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2442,8 +2431,6 @@ MonoBehaviour:
   m_iAmmo: 500
   m_fFireDelay: 0.1
   m_fFireTimer: 0
-  m_goBullet: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed, type: 2}
-  m_goBulletSpawn: {fileID: 1579888386}
 --- !u!54 &973474632
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2493,6 +2480,9 @@ MonoBehaviour:
   m_iHealth: 100
   m_fMovementSpeed: 50
   m_goAimTarget: {fileID: 2140437782}
+  m_goBulletSpawn: {fileID: 1579888386}
+  m_goBulletPrefab: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed,
+    type: 2}
   m_goGunPrimary: {fileID: 973474631}
   m_goGunSecondary: {fileID: 973474630}
   m_goGunTertiary: {fileID: 973474629}

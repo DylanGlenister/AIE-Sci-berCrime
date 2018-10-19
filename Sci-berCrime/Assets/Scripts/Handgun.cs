@@ -5,14 +5,11 @@ using UnityEngine;
 public class Handgun : GunBase
 {
     // Gun control variables
-    public int m_iDamage = 20;
-    public int m_iAmmo = 100;
+    public int m_iDamage = 35;
+    public int m_iAmmo = 500;
 
     public float m_fFireDelay = 0.25f;
     public float m_fFireTimer = 0.0f;
-
-    public GameObject m_goBullet;
-    public GameObject m_goBulletSpawn;
 
     // The background updating for the gun
     public override void GunUpdate()
@@ -27,14 +24,16 @@ public class Handgun : GunBase
     }
 
     // The update for the currently active gun
-    public override void ActiveGunUpdate(GameObject parent)
+    public override void ActiveGunUpdate(GameObject pParent)
     {
         if (m_fFireTimer == 0 && m_iAmmo > 0)
         {
             //Debug.Log(parent.name + " Handgun Fire!");
             // Creates bullet and launches it forward
-            GameObject newBullet = Instantiate(m_goBullet, m_goBulletSpawn.transform.position, parent.transform.rotation) as GameObject;
-            newBullet.GetComponent<Bullet>().m_iDamage = m_iDamage;
+            GameObject newBullet = Instantiate(pParent.GetComponent<PlayerController>().m_goBulletPrefab,
+                pParent.GetComponent<PlayerController>().m_goBulletSpawn.transform.position,
+                pParent.transform.rotation) as GameObject;
+            newBullet.GetComponent<Bullet>().m_iDamage = this.m_iDamage;
             // Destroys bullet after 3 seconds
             Destroy(newBullet, 3);
 

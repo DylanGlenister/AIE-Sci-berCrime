@@ -7,10 +7,10 @@ public class EnemySpawnController : MonoBehaviour
     public bool m_bSpawningEnabled = true;
     public bool funMode = false;
 
-    public int m_iEnemyMax = 1000;
+    public int m_iEnemyMax = 5000;
     public int m_iEnemyCount;
 
-    public float m_fSpawnDelay = 0.1f;
+    public float m_fSpawnDelay = 0.25f;
     private float m_fSpawnTimer;
 
     private List<GameObject> m_lEnemyList = new List<GameObject>();
