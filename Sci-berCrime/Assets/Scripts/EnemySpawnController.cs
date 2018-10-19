@@ -7,13 +7,15 @@ public class EnemySpawnController : MonoBehaviour
     public bool m_bSpawningEnabled = true;
     public bool funMode = false;
 
-    public int m_iEnemyMax = 5000;
+    public int m_iEnemyMax = 1000;
     public int m_iEnemyCount;
 
     public float m_fSpawnDelay = 0.25f;
     private float m_fSpawnTimer;
 
     private List<GameObject> m_lEnemyList = new List<GameObject>();
+
+    public RoundController roundController;
 
     // Reference to the enemy prefab
     public GameObject m_goEnemyPrefab;
@@ -35,8 +37,14 @@ public class EnemySpawnController : MonoBehaviour
 
     void Update()
     {
-        if (!m_bSpawningEnabled || m_lEnemyList.Count >= m_iEnemyMax)
+        if (!m_bSpawningEnabled)
             return;
+
+        if (m_lEnemyList.Count >= m_iEnemyMax)
+        {
+            roundController.m_bRoundOver = true;
+            return;
+        }
 
         m_fSpawnTimer -= Time.deltaTime;
         m_fSpawnTimer = Mathf.Max(m_fSpawnTimer, 0);

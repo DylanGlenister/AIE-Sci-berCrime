@@ -13,15 +13,9 @@ public class PlayerController : MonoBehaviour
     public GameObject m_goAimTarget;
     public GameObject m_goBulletSpawn;
     public GameObject m_goBulletPrefab;
-
-    // Reference to the guns class
-    public GunBase m_goGunPrimary;
-    public GunBase m_goGunSecondary;
-    public GunBase m_goGunTertiary;
-    public GunBase m_goGunQuadary;
-
+    
     // Currently selected gun
-    public GunBase m_goCurrentGun;
+    public GunController m_gcGun;
 
     // Reference to the rigidbody
     Rigidbody rb;
@@ -87,54 +81,24 @@ public class PlayerController : MonoBehaviour
 
         if (m_bPlayerOne)
         {
-            if (Input.GetButtonDown("P1 Weapon Swap"))
-            {
-                if (m_goCurrentGun == m_goGunPrimary)
-                    m_goCurrentGun = m_goGunSecondary;
-                else if (m_goCurrentGun == m_goGunSecondary)
-                    m_goCurrentGun = m_goGunTertiary;
-                else if (m_goCurrentGun == m_goGunTertiary)
-                    m_goCurrentGun = m_goGunQuadary;
-                else
-                    m_goCurrentGun = m_goGunPrimary;
-            }
-
             // Calls a specific update function for the currently active gun
-            if (m_goCurrentGun && m_bIsAlive && Input.GetButton("P1 Fire"))
+            if (m_gcGun && m_bIsAlive && Input.GetButton("P1 Fire"))
             {
-                m_goCurrentGun.ActiveGunUpdate(this.gameObject);
+                m_gcGun.ActiveGunUpdate(this.gameObject);
             }
         }
         else
         {
-            if (Input.GetButtonDown("P2 Weapon Swap"))
-            {
-                if (m_goCurrentGun == m_goGunPrimary)
-                    m_goCurrentGun = m_goGunSecondary;
-                else if (m_goCurrentGun == m_goGunSecondary)
-                    m_goCurrentGun = m_goGunTertiary;
-                else if (m_goCurrentGun == m_goGunTertiary)
-                    m_goCurrentGun = m_goGunQuadary;
-                else
-                    m_goCurrentGun = m_goGunPrimary;
-            }
-
             // Calls a specific update function for the currently active gun
-            if (m_goCurrentGun && m_bIsAlive && Input.GetButton("P2 Fire"))
+            if (m_gcGun && m_bIsAlive && Input.GetButton("P2 Fire"))
             {
-                m_goCurrentGun.ActiveGunUpdate(this.gameObject);
+                m_gcGun.ActiveGunUpdate(this.gameObject);
             }
         }
 
         // Call an update function for each of the equiped guns
-        if (m_goGunPrimary)
-            m_goGunPrimary.GunUpdate();
-        if (m_goGunSecondary)
-            m_goGunSecondary.GunUpdate();
-        if (m_goGunTertiary)
-            m_goGunTertiary.GunUpdate();
-        if (m_goGunQuadary)
-            m_goGunQuadary.GunUpdate();
+        if (m_gcGun)
+            m_gcGun.GunUpdate();
     }
 
     private void OnCollisionEnter(Collision collision)
