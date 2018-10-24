@@ -4,32 +4,23 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public bool m_bRailgun;
+    public bool m_bPenetrating;
+
     public int m_iDamage;
-    public float m_iSpeed = 1;
+
+    public float m_iBulletSpeed = 100;
 
     public Rigidbody m_rbRigidBody;
 
     private void Awake ()
     {
         m_rbRigidBody = GetComponent<Rigidbody>();
-        m_bRailgun = false;
+        m_bPenetrating = false;
     }
 
     private void Update ()
     {
-        transform.position += m_iSpeed * transform.forward * Time.deltaTime;
-        //rb.AddForce(new Vector3(0, 0, m_speed), ForceMode.Impulse);
+        // Updates the bullets position over time
+        transform.position += m_iBulletSpeed * transform.forward * Time.deltaTime;
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Enemy")
-    //    {
-    //        other.gameObject.GetComponent<EnemyController>().TakeDamage(m_iDamage);
-    //    }
-
-    //    if (!m_bRailgun)
-    //        Destroy(this.gameObject);
-    //}
 }

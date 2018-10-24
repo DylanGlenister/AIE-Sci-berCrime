@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class EnemySpawnController : MonoBehaviour
 {
+    public RoundController m_rcRoundController;
+
     public bool m_bSpawningEnabled = true;
     public bool funMode = false;
 
-    public int m_iEnemyMax = 1000;
+    public int m_iEnemyMax;
+    public int m_iEnemyStartMax = 50;
     public int m_iEnemyCount;
 
     public float m_fSpawnDelay = 0.25f;
     private float m_fSpawnTimer;
 
     private List<GameObject> m_lEnemyList = new List<GameObject>();
-
-    public RoundController roundController;
 
     // Reference to the enemy prefab
     public GameObject m_goEnemyPrefab;
@@ -30,9 +31,10 @@ public class EnemySpawnController : MonoBehaviour
 
     private GameObject m_goChosenSpawnLocation;
 
-    void Start ()
+    void Awake ()
     {
         m_fSpawnTimer = m_fSpawnDelay;
+        m_iEnemyMax = m_iEnemyStartMax;
     }
 
     void Update()
@@ -43,14 +45,14 @@ public class EnemySpawnController : MonoBehaviour
 
         if (m_lEnemyList.Count >= m_iEnemyMax)
         {
-            if (roundController.m_iRound == roundController.m_iMaxRound)
+            if (m_rcRoundController.m_iCurrentRound == m_rcRoundController.m_iMaxRounds)
             {
-                roundController.m_bGameDefeated = true;
+                m_rcRoundController.m_bGameOver = true;
 
             }
             else
             {
-                roundController.m_bRoundOver = true;
+                m_rcRoundController.m_bRoundOver = true;
                 m_bSpawningEnabled = false;
             }
             return;

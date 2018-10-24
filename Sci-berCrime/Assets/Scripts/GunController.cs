@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    public UIController m_uicUIController;
 
-    public UIController uIController;
     // Gun control variables
     public int m_iDamage = 35;
     public int m_iAmmo = 500;
@@ -42,14 +42,11 @@ public class GunController : MonoBehaviour
             m_iAmmo -= 1;
             m_fFireTimer = m_fFireDelay;
 
+            // Updates the associated UI element for ammo based on which player the gun script is attached to
             if (pParent.gameObject.GetComponent<PlayerController>().m_bPlayerOne)
-            {
-                uIController.SetPlayerOneAmmo(m_iAmmo);
-            }
+                m_uicUIController.SetPlayerOneAmmo(m_iAmmo);
             else
-            {
-                uIController.SetPlayerTwoAmmo(m_iAmmo);
-            }
+                m_uicUIController.SetPlayerTwoAmmo(m_iAmmo);
         }
     }
 }

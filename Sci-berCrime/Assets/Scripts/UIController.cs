@@ -7,12 +7,11 @@ public class UIController : MonoBehaviour
 {
     public Text m_txtRoundNumberText;
     public Text m_txtMoneyAmountText;
-                       
+    public Text m_txtRoundTimerText;
     public Text m_txtPlayerOneHealthText;
     public Text m_txtPlayerOneAmmoText;
     public Text m_txtPlayerTwoHealthText;
     public Text m_txtPlayerTwoAmmoText;
-    public Text m_txtTimer;
 
     // Updates the UI element to display the current round number
     public void SetRoundNumber (int pRoundNumber)
@@ -50,10 +49,10 @@ public class UIController : MonoBehaviour
         m_txtPlayerTwoAmmoText.text = pPlayerTwoAmmo.ToString();
     }
 
-    //Updates the timer
-    public void SetTimer (float pTimer)
+    // Updates the timer
+    public void SetTimerText (float pTimer)
     {
-       int temp = Mathf.RoundToInt(pTimer);
-        m_txtTimer.text = temp.ToString();
+        int temp = Mathf.RoundToInt(pTimer);
+        m_txtRoundTimerText.text = temp.ToString();
     }
 }

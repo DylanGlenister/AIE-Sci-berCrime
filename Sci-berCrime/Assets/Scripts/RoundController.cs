@@ -1,68 +1,87 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoundController : MonoBehaviour
 {
-
-    public EnemySpawnController enemySpawnController;
-    public UIController uIController;
+    public EnemySpawnController m_escEnemySpawnController;
+    public UIController m_uicUIController;
 
     public bool m_bRoundOver;
-    public int m_iRound;
-    public float m_fRoundTimer;
+    public bool m_bGameOver;
     public bool m_bP1Ready;
     public bool m_bP2Ready;
-    public bool m_bGameDefeated;
-    public int m_iMaxRound;
+
+    public int m_iCurrentRound;
+    public int m_iMaxRounds;
+
+    public float m_fRoundTimer;
+
     private void Awake ()
     {
-        m_iRound = 1;
-        m_fRoundTimer = 60000;
-        m_iMaxRound = 10;
+        m_bRoundOver = false;
+        m_bGameOver = false;
+
+        m_bP1Ready = false;
+        m_bP2Ready = false;
+
+        m_iCurrentRound = 1;
+        m_iMaxRounds = 10;
+
+        m_fRoundTimer = 60;
     }
 
     private void Update()
     {
-
-        //checks if the players are ready
-        if (Input.GetAxis("P1 Ready Button") >0)
-        {
-            m_bP1Ready = true;
-        }
-        if (Input.GetAxis("P2 Ready Button") >0)
-        {
-            m_bP2Ready = true;
-        }
-
-        // starts the timer in the shop
+        // Starts the timer in the shop
         if (m_bRoundOver)
         {
-            m_fRoundTimer -= Time.deltaTime;
-            uIController.SetTimer(m_fRoundTimer);
+            if (m_fRoundTimer > 0)
+            {
+                m_fRoundTimer -= Time.deltaTime;
+
+                if (m_fRoundTimer < 0)
+                    m_fRoundTimer = 0;
+
+                m_uicUIController.SetTimerText(m_fRoundTimer);
+            }
+            
+            // Checks if the players are ready
+            if (Input.GetButtonDown("P1 Button X"))
+                m_bP1Ready = true;
+
+            if (Input.GetKeyDown(KeyCode.M))
+                m_bP2Ready = true;
         }
 
-        if (m_fRoundTimer == 0 || m_bP1Ready && m_bP2Ready)
+        if (m_fRoundTimer == 0 || (m_bP1Ready && m_bP2Ready))
         {
-            m_iRound += 1;
-            m_bRoundOver = false;
-            enemySpawnController.m_bSpawningEnabled = true;
+            m_iCurrentRound += 1;
+            m_escEnemySpawnController.m_bSpawningEnabled = true;
+            m_escEnemySpawnController.m_iEnemyCount = 0;
+            // Temporary work around -FIX THIS-
+            m_escEnemySpawnController.m_iEnemyMax += m_escEnemySpawnController.m_iEnemyStartMax * m_iCurrentRound;
+
+            m_fRoundTimer = 60;
+            m_uicUIController.SetTimerText(m_fRoundTimer);
+            m_uicUIController.SetRoundNumber(m_iCurrentRound);
 
             m_bP1Ready = false;
             m_bP2Ready = false;
-            uIController.SetRoundNumber(m_iRound);
+            m_bRoundOver = false;
         }
 
-        if (m_bGameDefeated)
+        if (m_bGameOver)
         {
-            // insert end game code here
+            // Insert end game code here
         }
 
-        if (Input.GetAxis("Restart") > 0)
+        if (Input.GetKeyDown(KeyCode.F))
         {
             SceneManager.LoadScene(1);
         }
-
     }
+
+    // Make timer visible
 }

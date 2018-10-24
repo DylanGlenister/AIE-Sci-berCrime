@@ -5,18 +5,19 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    public ShopController m_scShopController;
+
     public bool IsAlive { get; set; }
 
     public int m_iHealth = 100;
     public int m_iDamage;
+
     public float m_fPlayerSafeBubbleSize = 1.3f;
 
     // References to the players
     public GameObject m_goPlayerOne;
     public GameObject m_goPlayerTwo;
     public GameObject m_goCurrentTarget;
-
-    public GameObject gameController;
 
     private NavMeshAgent m_nmaNavMeshAgent;
 
@@ -25,7 +26,7 @@ public class EnemyController : MonoBehaviour
         m_nmaNavMeshAgent = GetComponent<NavMeshAgent>();
         m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
         m_goPlayerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
-        gameController = GameObject.FindGameObjectWithTag("GameController");
+        m_scShopController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ShopController>();
         m_goCurrentTarget = m_goPlayerOne;
 
         IsAlive = true;
@@ -35,7 +36,7 @@ public class EnemyController : MonoBehaviour
     {
         if (m_iHealth == 0)
         {
-            gameController.GetComponent<ShopController>().DepositToWallet(10);
+            m_scShopController.GetComponent<ShopController>().DepositToWallet(10);
             IsAlive = false;
             Destroy(this.gameObject);
         }
@@ -120,10 +121,9 @@ public class EnemyController : MonoBehaviour
         {
             TakeDamage(other.gameObject.GetComponent<Bullet>().m_iDamage);
 
-            if (!other.gameObject.GetComponent<Bullet>().m_bRailgun)
+            if (!other.gameObject.GetComponent<Bullet>().m_bPenetrating)
                 Destroy(other.gameObject);
         }
-
     }
 
     // Applies damage to the object
