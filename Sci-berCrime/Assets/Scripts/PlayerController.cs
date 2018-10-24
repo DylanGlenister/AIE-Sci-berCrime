@@ -18,15 +18,15 @@ public class PlayerController : MonoBehaviour
     public GunController m_gcGun;
 
     // Reference to the rigidbody
-    Rigidbody rb;
+    Rigidbody m_rbRigidBody;
 
-    void Awake()
+    void Awake ()
     {
-        rb = GetComponent<Rigidbody>();
+        m_rbRigidBody = GetComponent<Rigidbody>();
         m_bIsAlive = true;
     }
 
-    void FixedUpdate()
+    void FixedUpdate ()
     {
         if (m_bIsAlive)
         {
@@ -35,9 +35,9 @@ public class PlayerController : MonoBehaviour
             {
                 //----------Movement----------
                 // Vertical movement
-                rb.AddForce(new Vector3(0, 0, Input.GetAxis("P1 LS Vertical") * m_fMovementSpeed), ForceMode.Force);
+                m_rbRigidBody.AddForce(new Vector3(0, 0, Input.GetAxis("P1 LS Vertical") * m_fMovementSpeed), ForceMode.Force);
                 // Horizontal movement
-                rb.AddForce(new Vector3(Input.GetAxis("P1 LS Horizontal") * m_fMovementSpeed, 0, 0), ForceMode.Force);
+                m_rbRigidBody.AddForce(new Vector3(Input.GetAxis("P1 LS Horizontal") * m_fMovementSpeed, 0, 0), ForceMode.Force);
 
                 //----------Rotation----------
                 // Moves target object
@@ -53,9 +53,9 @@ public class PlayerController : MonoBehaviour
             {
                 //----------Movement----------
                 // Vertical movement
-                rb.AddForce(new Vector3(0, 0, Input.GetAxis("P2 LS Vertical") * m_fMovementSpeed), ForceMode.Force);
+                m_rbRigidBody.AddForce(new Vector3(0, 0, Input.GetAxis("P2 LS Vertical") * m_fMovementSpeed), ForceMode.Force);
                 // Horizontal movement
-                rb.AddForce(new Vector3(Input.GetAxis("P2 LS Horizontal") * m_fMovementSpeed, 0, 0), ForceMode.Force);
+                m_rbRigidBody.AddForce(new Vector3(Input.GetAxis("P2 LS Horizontal") * m_fMovementSpeed, 0, 0), ForceMode.Force);
 
                 //----------Rotation----------
                 // Moves target object
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Update()
+    void Update ()
     {
         if (m_iHealth == 0)
         {
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
             m_gcGun.GunUpdate();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter (Collision collision)
     {
         // Player dies if hit by enemy
         if (collision.gameObject.tag == "Enemy")
@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Applies damage to the object
-    public void TakeDamage(int pDamage)
+    public void TakeDamage (int pDamage)
     {
         m_iHealth -= pDamage;
         if (m_iHealth < 0)

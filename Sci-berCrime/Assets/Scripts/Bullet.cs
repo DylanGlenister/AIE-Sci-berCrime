@@ -8,15 +8,15 @@ public class Bullet : MonoBehaviour
     public int m_iDamage;
     public float m_iSpeed = 1;
 
-    public Rigidbody rb;
+    public Rigidbody m_rbRigidBody;
 
-    private void Awake()
+    private void Awake ()
     {
-        rb = GetComponent<Rigidbody>();
+        m_rbRigidBody = GetComponent<Rigidbody>();
         m_bRailgun = false;
     }
 
-    private void Update()
+    private void Update ()
     {
         transform.position += m_iSpeed * transform.forward * Time.deltaTime;
         //rb.AddForce(new Vector3(0, 0, m_speed), ForceMode.Impulse);

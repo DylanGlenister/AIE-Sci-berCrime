@@ -7,7 +7,7 @@ public class RoundController : MonoBehaviour
     public bool m_bRoundOver;
     public int m_iRound;
 
-    private void Awake()
+    private void Awake ()
     {
         m_iRound = 1;
     }

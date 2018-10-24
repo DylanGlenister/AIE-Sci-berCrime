@@ -30,12 +30,12 @@ public class EnemySpawnController : MonoBehaviour
 
     private GameObject m_goChosenSpawnLocation;
 
-    void Start()
+    void Start ()
     {
         m_fSpawnTimer = m_fSpawnDelay;
     }
 
-    void Update()
+    void Update ()
     {
         if (!m_bSpawningEnabled)
             return;

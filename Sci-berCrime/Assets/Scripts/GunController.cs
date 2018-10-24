@@ -12,7 +12,7 @@ public class GunController : MonoBehaviour
     public float m_fFireTimer = 0.0f;
 
     // The background updating for the gun
-    public void GunUpdate()
+    public void GunUpdate ()
     {
         if (m_fFireTimer > 0)
         {
@@ -24,7 +24,7 @@ public class GunController : MonoBehaviour
     }
 
     // The update for the currently active gun
-    public void ActiveGunUpdate(GameObject pParent)
+    public void ActiveGunUpdate (GameObject pParent)
     {
         if (m_fFireTimer == 0 && m_iAmmo > 0)
         {

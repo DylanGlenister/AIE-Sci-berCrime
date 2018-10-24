@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
 
     private NavMeshAgent m_nmaNavMeshAgent;
 
-    void Awake()
+    void Awake ()
     {
         m_nmaNavMeshAgent = GetComponent<NavMeshAgent>();
         m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
@@ -31,7 +31,7 @@ public class EnemyController : MonoBehaviour
         IsAlive = true;
     }
 
-    void Update()
+    void Update ()
     {
         if (m_iHealth == 0)
         {
@@ -114,7 +114,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter (Collider other)
     {
         if (other.gameObject.tag == "Bullet")
         {
@@ -127,7 +127,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // Applies damage to the object
-    public void TakeDamage(int pDamage)
+    public void TakeDamage (int pDamage)
     {
         m_iHealth -= pDamage;
         if (m_iHealth < 0)
