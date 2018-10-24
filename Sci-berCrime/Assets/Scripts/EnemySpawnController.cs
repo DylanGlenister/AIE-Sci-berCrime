@@ -35,14 +35,24 @@ public class EnemySpawnController : MonoBehaviour
         m_fSpawnTimer = m_fSpawnDelay;
     }
 
-    void Update ()
+    void Update()
     {
+
         if (!m_bSpawningEnabled)
             return;
 
         if (m_lEnemyList.Count >= m_iEnemyMax)
         {
-            roundController.m_bRoundOver = true;
+            if (roundController.m_iRound == roundController.m_iMaxRound)
+            {
+                roundController.m_bGameDefeated = true;
+
+            }
+            else
+            {
+                roundController.m_bRoundOver = true;
+                m_bSpawningEnabled = false;
+            }
             return;
         }
 
@@ -99,4 +109,5 @@ public class EnemySpawnController : MonoBehaviour
             }
         }
     }
+    
 }
