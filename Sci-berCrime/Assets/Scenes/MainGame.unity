@@ -3249,6 +3249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24de64d8bb726634da01a0d59fcca7c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uIController: {fileID: 0}
   m_iDamage: 35
   m_iAmmo: 1000
   m_fFireDelay: 0.05
@@ -3272,6 +3273,7 @@ MonoBehaviour:
   m_goBulletSpawn: {fileID: 1955735952}
   m_goBulletPrefab: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed,
     type: 2}
+  uIController: {fileID: 0}
   m_gcGun: {fileID: 423580755}
 --- !u!54 &423580757
 Rigidbody:
@@ -6146,6 +6148,7 @@ GameObject:
   - component: {fileID: 1055950116}
   - component: {fileID: 1055950119}
   - component: {fileID: 1055950118}
+  - component: {fileID: 1055950120}
   - component: {fileID: 1055950117}
   m_Layer: 0
   m_Name: GameController
@@ -6203,6 +6206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da090f44662e8bc409ecc5c6a9489d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uIController: {fileID: 0}
   m_bEnabled: 0
   m_iWallet: 0
 --- !u!114 &1055950119
@@ -6216,8 +6220,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528ca4a6d9cdccb4382cae74f740bb44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawnController: {fileID: 0}
+  uIController: {fileID: 0}
   m_bRoundOver: 0
   m_iRound: 0
+  m_fRoundTimer: 0
+  m_bP1Ready: 0
+  m_bP2Ready: 0
+  m_bGameDefeated: 0
+  m_iMaxRound: 0
+--- !u!114 &1055950120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1055950115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1db9ff2ae7c17f4f935f69ba4ce7574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_goRoundNumberText: {fileID: 1199144582}
+  m_goMoneyAmountText: {fileID: 350561519}
+  m_goPlayerOneHealthText: {fileID: 124496826}
+  m_goPlayerOneAmmoText: {fileID: 1029626590}
+  m_goPlayerTwoHealthText: {fileID: 143675911}
+  m_goPlayerTwoAmmoText: {fileID: 1582827103}
 --- !u!1001 &1070378214
 Prefab:
   m_ObjectHideFlags: 0
@@ -10157,6 +10185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24de64d8bb726634da01a0d59fcca7c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uIController: {fileID: 0}
   m_iDamage: 35
   m_iAmmo: 1000
   m_fFireDelay: 0.05
@@ -10180,6 +10209,7 @@ MonoBehaviour:
   m_goBulletSpawn: {fileID: 1096440804}
   m_goBulletPrefab: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed,
     type: 2}
+  uIController: {fileID: 0}
   m_gcGun: {fileID: 1819852305}
 --- !u!54 &1819852307
 Rigidbody:

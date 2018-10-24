@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+
+    public UIController uIController;
     // Gun control variables
     public int m_iDamage = 35;
     public int m_iAmmo = 500;
@@ -39,6 +41,15 @@ public class GunController : MonoBehaviour
 
             m_iAmmo -= 1;
             m_fFireTimer = m_fFireDelay;
+
+            if (pParent.gameObject.GetComponent<PlayerController>().m_bPlayerOne)
+            {
+                uIController.SetPlayerOneAmmo(m_iAmmo);
+            }
+            else
+            {
+                uIController.SetPlayerTwoAmmo(m_iAmmo);
+            }
         }
     }
 }

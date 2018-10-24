@@ -7,7 +7,7 @@ public class RoundController : MonoBehaviour
 {
 
     public EnemySpawnController enemySpawnController;
-
+    public UIController uIController;
 
     public bool m_bRoundOver;
     public int m_iRound;
@@ -48,6 +48,7 @@ public class RoundController : MonoBehaviour
 
             m_bP1Ready = false;
             m_bP2Ready = false;
+            uIController.SetRoundNumber(m_iRound);
         }
 
         if (m_bGameDefeated)

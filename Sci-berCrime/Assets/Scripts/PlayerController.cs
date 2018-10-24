@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public GameObject m_goAimTarget;
     public GameObject m_goBulletSpawn;
     public GameObject m_goBulletPrefab;
+
+    public UIController uIController;
     
     // Currently selected gun
     public GunController m_gcGun;
@@ -116,5 +118,14 @@ public class PlayerController : MonoBehaviour
         m_iHealth -= pDamage;
         if (m_iHealth < 0)
             m_iHealth = 0;
+        if(m_bPlayerOne)
+        {
+            uIController.SetPlayerOneHealth(m_iHealth);
+            
+        }
+        else
+        {
+            uIController.SetPlayerTwoHealth(m_iHealth);
+        }
     }
 }

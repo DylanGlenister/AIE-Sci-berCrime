@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class ShopController : MonoBehaviour
 {
+    public UIController uIController;
     public bool m_bEnabled = false;
     public int m_iWallet = 0;
 
     public void DepositToWallet (int p_iValue)
     {
         m_iWallet += p_iValue;
+        uIController.SetMoneyAmount(m_iWallet);
     }
 
     public void WithdrawFromWallet (int p_iValue)
     {
         m_iWallet -= p_iValue;
+        uIController.SetMoneyAmount(m_iWallet);
     }
 }
