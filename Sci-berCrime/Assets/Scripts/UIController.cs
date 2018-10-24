@@ -5,47 +5,55 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public Text m_goRoundNumberText;
-    public Text m_goMoneyAmountText;
-
-    public Text m_goPlayerOneHealthText;
-    public Text m_goPlayerOneAmmoText;
-    public Text m_goPlayerTwoHealthText;
-    public Text m_goPlayerTwoAmmoText;
+    public Text m_txtRoundNumberText;
+    public Text m_txtMoneyAmountText;
+                       
+    public Text m_txtPlayerOneHealthText;
+    public Text m_txtPlayerOneAmmoText;
+    public Text m_txtPlayerTwoHealthText;
+    public Text m_txtPlayerTwoAmmoText;
+    public Text m_txtTimer;
 
     // Updates the UI element to display the current round number
     public void SetRoundNumber (int pRoundNumber)
     {
-        m_goRoundNumberText.text = pRoundNumber.ToString();
+        m_txtRoundNumberText.text = pRoundNumber.ToString();
     }
 
     // Updates the UI element to display the current wallet value
     public void SetMoneyAmount (int pWalletValue)
     {
-        m_goMoneyAmountText.text = pWalletValue.ToString();
+        m_txtMoneyAmountText.text = pWalletValue.ToString();
     }
 
     // Updates the UI element to display PlayerOne's current health
     public void SetPlayerOneHealth (int pPlayerOneHealth)
     {
-        m_goPlayerOneHealthText.text = pPlayerOneHealth.ToString();
+        m_txtPlayerOneHealthText.text = pPlayerOneHealth.ToString();
     }
 
     // Updates the UI element to display PlayerTwo's current health
     public void SetPlayerTwoHealth (int pPlayerTwoHealth)
     {
-        m_goPlayerTwoHealthText.text = pPlayerTwoHealth.ToString();
+        m_txtPlayerTwoHealthText.text = pPlayerTwoHealth.ToString();
     }
 
     // Updates the UI element to display PlayerOne's current ammo
     public void SetPlayerOneAmmo (int pPlayerOneAmmo)
     {
-        m_goPlayerOneAmmoText.text = pPlayerOneAmmo.ToString();
+        m_txtPlayerOneAmmoText.text = pPlayerOneAmmo.ToString();
     }
 
     // Updates the UI element to display PlayerTwo's current ammo
     public void SetPlayerTwoAmmo (int pPlayerTwoAmmo)
     {
-        m_goPlayerTwoAmmoText.text = pPlayerTwoAmmo.ToString();
+        m_txtPlayerTwoAmmoText.text = pPlayerTwoAmmo.ToString();
+    }
+
+    //Updates the timer
+    public void SetTimer (float pTimer)
+    {
+       int temp = Mathf.RoundToInt(pTimer);
+        m_txtTimer.text = temp.ToString();
     }
 }

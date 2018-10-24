@@ -25,6 +25,8 @@ public class RoundController : MonoBehaviour
 
     private void Update()
     {
+
+        //checks if the players are ready
         if (Input.GetAxis("P1 Ready Button") >0)
         {
             m_bP1Ready = true;
@@ -34,10 +36,11 @@ public class RoundController : MonoBehaviour
             m_bP2Ready = true;
         }
 
-
+        // starts the timer in the shop
         if (m_bRoundOver)
         {
             m_fRoundTimer -= Time.deltaTime;
+            uIController.SetTimer(m_fRoundTimer);
         }
 
         if (m_fRoundTimer == 0 || m_bP1Ready && m_bP2Ready)
