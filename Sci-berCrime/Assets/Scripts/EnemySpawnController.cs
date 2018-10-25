@@ -11,6 +11,7 @@ public class EnemySpawnController : MonoBehaviour
 
     public int m_iEnemyMax;
     public int m_iEnemyStartMax = 50;
+    public int m_iEnemyArenaMax = 20;
     public int m_iEnemyCount;
 
     public float m_fSpawnDelay = 0.25f;
@@ -55,13 +56,14 @@ public class EnemySpawnController : MonoBehaviour
                 m_rcRoundController.m_bRoundOver = true;
                 m_bSpawningEnabled = false;
             }
+            m_lEnemyList.Clear();
             return;
         }
 
         m_fSpawnTimer -= Time.deltaTime;
         m_fSpawnTimer = Mathf.Max(m_fSpawnTimer, 0);
 
-        if (m_fSpawnTimer == 0)
+        if (m_fSpawnTimer == 0 && m_iEnemyCount != m_iEnemyArenaMax)
         {
             if (!funMode)
             {

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public ShopController m_scShopController;
+    public EnemySpawnController enemySpawnController;
 
     public bool IsAlive { get; set; }
 
@@ -39,6 +40,7 @@ public class EnemyController : MonoBehaviour
             m_scShopController.GetComponent<ShopController>().DepositToWallet(10);
             IsAlive = false;
             Destroy(this.gameObject);
+            enemySpawnController.m_iEnemyCount -= 1;
         }
 
         if (IsAlive && (m_goPlayerOne || m_goPlayerTwo))
