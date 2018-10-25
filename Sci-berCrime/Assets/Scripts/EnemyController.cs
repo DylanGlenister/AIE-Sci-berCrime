@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
             m_scShopController.GetComponent<ShopController>().DepositToWallet(10);
             IsAlive = false;
             Destroy(this.gameObject);
-            enemySpawnController.m_iEnemyCount -= 1;
+            enemySpawnController.m_iCurrentScuttlerCount -= 1;
         }
 
         if (IsAlive && (m_goPlayerOne || m_goPlayerTwo))

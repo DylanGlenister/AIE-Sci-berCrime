@@ -67,9 +67,9 @@ public class RoundController : MonoBehaviour
         {
             m_iCurrentRound += 1;
             m_escEnemySpawnController.m_bSpawningEnabled = true;
-            m_escEnemySpawnController.m_iEnemyCount = 0;
+            m_escEnemySpawnController.m_iCurrentScuttlerCount = 0;
             // Temporary work around -FIX THIS-
-            m_escEnemySpawnController.m_iEnemyMax += m_escEnemySpawnController.m_iEnemyStartMax * m_iCurrentRound;
+            m_escEnemySpawnController.m_iMaxScuttlersForRound += m_escEnemySpawnController.m_iStartMaxScuttlersForRound * m_iCurrentRound;
 
             m_fRoundTimer = 60;
             m_uicUIController.SetTimerText(m_fRoundTimer);
