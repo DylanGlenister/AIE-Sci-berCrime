@@ -55,4 +55,9 @@ public class UIController : MonoBehaviour
         int temp = Mathf.RoundToInt(pTimer);
         m_txtRoundTimerText.text = temp.ToString();
     }
+
+    public void ToggleRoundTimerVisible (bool pState)
+    {
+        m_txtRoundTimerText.enabled = pState;
+    }
 }
