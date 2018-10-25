@@ -12,6 +12,7 @@ public class RoundController : MonoBehaviour
     public bool m_bGameOver;
     public bool m_bP1Ready;
     public bool m_bP2Ready;
+    public bool m_bTimerToggle;
 
     public int m_iCurrentRound;
     public int m_iMaxRounds;
@@ -25,6 +26,7 @@ public class RoundController : MonoBehaviour
 
         m_bP1Ready = false;
         m_bP2Ready = false;
+        m_bTimerToggle = false;
 
         m_iCurrentRound = 1;
         m_iMaxRounds = 10;
@@ -37,6 +39,12 @@ public class RoundController : MonoBehaviour
         // Starts the timer in the shop
         if (m_bRoundOver)
         {
+            if (!m_bTimerToggle)
+            {
+                m_uicUIController.ToggleRoundTimerVisible(true);
+                m_bTimerToggle = true;
+            }
+
             if (m_fRoundTimer > 0)
             {
                 m_fRoundTimer -= Time.deltaTime;
@@ -66,7 +74,9 @@ public class RoundController : MonoBehaviour
             m_fRoundTimer = 60;
             m_uicUIController.SetTimerText(m_fRoundTimer);
             m_uicUIController.SetRoundNumber(m_iCurrentRound);
+            m_uicUIController.ToggleRoundTimerVisible(false);
 
+            m_bTimerToggle = false;
             m_bP1Ready = false;
             m_bP2Ready = false;
             m_bRoundOver = false;
