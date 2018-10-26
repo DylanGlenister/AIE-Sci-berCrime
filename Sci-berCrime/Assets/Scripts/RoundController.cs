@@ -8,16 +8,23 @@ public class RoundController : MonoBehaviour
     public EnemySpawnController m_escEnemySpawnController;
     public UIController m_uicUIController;
 
+    [Header("Bools")]
     public bool m_bRoundOver;
     public bool m_bGameOver;
     public bool m_bP1Ready;
     public bool m_bP2Ready;
     public bool m_bTimerToggle;
 
+    [Header("Ints")]
     public int m_iCurrentRound;
     public int m_iMaxRounds;
 
+    [Header("Floats")]
     public float m_fRoundTimer;
+
+    [Header("Players")]
+    public PlayerController m_goPlayerOne;
+    public PlayerController m_goPlayerTwo;
 
     private void Awake ()
     {
@@ -36,6 +43,12 @@ public class RoundController : MonoBehaviour
 
     private void Update()
     {
+        if (!m_goPlayerOne.m_bIsAlive && !m_goPlayerTwo.m_bIsAlive)
+            m_bGameOver = true;
+
+        if (m_bGameOver)
+            return;
+
         // Starts the timer in the shop
         if (m_bRoundOver)
         {

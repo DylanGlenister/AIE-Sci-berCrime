@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public ShopController m_scShopController;
-    public EnemySpawnController enemySpawnController;
+    public EnemySpawnController m_escEnemySpawnController;
 
     public bool IsAlive { get; set; }
 
@@ -28,6 +28,7 @@ public class EnemyController : MonoBehaviour
         m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
         m_goPlayerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
         m_scShopController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ShopController>();
+        m_escEnemySpawnController = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemySpawnController>();
         m_goCurrentTarget = m_goPlayerOne;
 
         IsAlive = true;
@@ -39,8 +40,8 @@ public class EnemyController : MonoBehaviour
         {
             m_scShopController.GetComponent<ShopController>().DepositToWallet(10);
             IsAlive = false;
-            Destroy(this.gameObject);
-            enemySpawnController.m_iCurrentScuttlerCount -= 1;
+            m_escEnemySpawnController.m_iCurrentScuttlerCount -= 1;
+            gameObject.SetActive(false);
         }
 
         if (IsAlive && (m_goPlayerOne || m_goPlayerTwo))
@@ -63,8 +64,8 @@ public class EnemyController : MonoBehaviour
             else
             {
                 // Calculates the distance from the enemy to each player
-                Vector3 playerOneDistance = this.transform.position - m_goPlayerOne.transform.position;
-                Vector3 playerTwoDistance = this.transform.position - m_goPlayerTwo.transform.position;
+                Vector3 playerOneDistance = transform.position - m_goPlayerOne.transform.position;
+                Vector3 playerTwoDistance = transform.position - m_goPlayerTwo.transform.position;
 
                 if (playerOneDistance.magnitude < 0)
                     playerOneDistance *= -1;
@@ -124,7 +125,7 @@ public class EnemyController : MonoBehaviour
             TakeDamage(other.gameObject.GetComponent<Bullet>().m_iDamage);
 
             if (!other.gameObject.GetComponent<Bullet>().m_bPenetrating)
-                Destroy(other.gameObject);
+                other.gameObject.GetComponent<Bullet>().m_fBulletCountdown = 0;
         }
     }
 

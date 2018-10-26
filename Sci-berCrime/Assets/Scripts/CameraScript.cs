@@ -11,8 +11,11 @@ public class CameraScript : MonoBehaviour
     public float m_fZoomOffset = 8f;
     public float m_fCameraCenterTether = 1.2f;
 
+    [Header("Camera Objects")]
     public GameObject m_goCameraPlane_Zoom;
     public GameObject m_goCameraPlane_Pan;
+
+    [Header("Players")]
     public GameObject m_goPlayerOne;
     public GameObject m_goPlayerTwo;
 

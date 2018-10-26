@@ -8,8 +8,10 @@ public class UIController : MonoBehaviour
     public Text m_txtRoundNumberText;
     public Text m_txtMoneyAmountText;
     public Text m_txtRoundTimerText;
+    [Header("Player One")]
     public Text m_txtPlayerOneHealthText;
     public Text m_txtPlayerOneAmmoText;
+    [Header("Player Two")]
     public Text m_txtPlayerTwoHealthText;
     public Text m_txtPlayerTwoAmmoText;
 

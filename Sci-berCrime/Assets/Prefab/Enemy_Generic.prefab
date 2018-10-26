@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 4012711936724778}
   - component: {fileID: 54377848471600200}
   - component: {fileID: 136665829341432416}
-  - component: {fileID: 136713000526413922}
+  - component: {fileID: 135819387896802348}
   - component: {fileID: 195885146637449304}
   - component: {fileID: 114898631715042138}
   m_Layer: 0
@@ -4742,13 +4742,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d392704ffc0f084f805f2dbaae599b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_scShopController: {fileID: 0}
+  m_escEnemySpawnController: {fileID: 0}
   m_iHealth: 100
   m_iDamage: 20
   m_fPlayerSafeBubbleSize: 1.3
   m_goPlayerOne: {fileID: 0}
   m_goPlayerTwo: {fileID: 0}
   m_goCurrentTarget: {fileID: 0}
-  gameController: {fileID: 0}
+--- !u!135 &135819387896802348
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1219434101672160}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!136 &136665829341432416
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -4759,20 +4772,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!136 &136713000526413922
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1219434101672160}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.5
-  m_Height: 3
+  m_Height: 0.52
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &195885146637449304

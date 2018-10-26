@@ -142,6 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bPenetrating: 0
   m_iDamage: 0
+  m_fBulletLife: 1
+  m_fBulletCountdown: 0
   m_iBulletSpeed: 100
   m_rbRigidBody: {fileID: 0}
 --- !u!136 &136011417524078838

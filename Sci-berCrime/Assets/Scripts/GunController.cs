@@ -8,10 +8,29 @@ public class GunController : MonoBehaviour
 
     // Gun control variables
     public int m_iDamage = 35;
-    public int m_iAmmo = 500;
+    public int m_iAmmo = 1000;
+    public int m_iMaxBulletsAtOnce = 57;
 
     public float m_fFireDelay = 0.01f;
     public float m_fFireTimer = 0.0f;
+
+    private List<GameObject> m_lgoBulletList;
+
+    public GameObject m_goBulletPrefab;
+    public GameObject m_goBulletSpawn;
+
+    private void Awake()
+    {
+        // Populates the bullets list
+        m_lgoBulletList = new List<GameObject>();
+        for (int i = 0; i < m_iMaxBulletsAtOnce; i++)
+        {
+            GameObject obj = Instantiate(m_goBulletPrefab);
+            obj.SetActive(false);
+            obj.GetComponent<Bullet>().m_iDamage = m_iDamage;
+            m_lgoBulletList.Add(obj);
+        }
+    }
 
     // The background updating for the gun
     public void GunUpdate ()
@@ -30,14 +49,18 @@ public class GunController : MonoBehaviour
     {
         if (m_fFireTimer == 0 && m_iAmmo > 0)
         {
-            //Debug.Log(parent.name + " Handgun Fire!");
-            // Creates bullet and launches it forward
-            GameObject newBullet = Instantiate(pParent.GetComponent<PlayerController>().m_goBulletPrefab,
-                pParent.GetComponent<PlayerController>().m_goBulletSpawn.transform.position,
-                pParent.transform.rotation) as GameObject;
-            newBullet.GetComponent<Bullet>().m_iDamage = this.m_iDamage;
-            // Destroys bullet after 3 seconds
-            Destroy(newBullet, 3);
+            // Picks the bullet that isn't enable and spawns it in
+            for (int i = 0; i < m_lgoBulletList.Count; i++)
+            {
+                if (!m_lgoBulletList[i].activeInHierarchy)
+                {
+                    m_lgoBulletList[i].transform.position = m_goBulletSpawn.transform.position;
+                    m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
+                    m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
+                    m_lgoBulletList[i].SetActive(true);
+                    break;
+                }
+            }
 
             m_iAmmo -= 1;
             m_fFireTimer = m_fFireDelay;

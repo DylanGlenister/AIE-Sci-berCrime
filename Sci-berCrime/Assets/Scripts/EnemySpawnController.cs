@@ -11,8 +11,6 @@ public class EnemySpawnController : MonoBehaviour
         Drone
     }
 
-    public RoundController m_rcRoundController;
-
     public bool m_bSpawningEnabled = true;
     public bool funMode = false;
     
@@ -49,10 +47,11 @@ public class EnemySpawnController : MonoBehaviour
 
     public int m_iMaxDronesAtOnce = 20;
     public int m_iPotentionalMaxDronesAtOnce = 200;
-
-    // Test
+    
     [Header("Other")]
-    public List<GameObject> m_lgoEnemyList;
+    public RoundController m_rcRoundController;
+
+    private List<GameObject> m_lgoEnemyList;
 
     // Reference to the enemy prefab
     public GameObject m_goEnemyPrefab;
@@ -77,7 +76,7 @@ public class EnemySpawnController : MonoBehaviour
         m_lgoEnemyList = new List<GameObject>();
         for (int i = 0; i < m_iPotentionalMaxScuttlersAtOnce; i++)
         {
-            GameObject obj = (GameObject)Instantiate(m_goEnemyPrefab);
+            GameObject obj = Instantiate(m_goEnemyPrefab);
             obj.SetActive(false);
             m_lgoEnemyList.Add(obj);
         }
@@ -88,6 +87,7 @@ public class EnemySpawnController : MonoBehaviour
         if (!m_bSpawningEnabled)
             return;
         
+        // Only 'spawns' enemies as long at the max for the current round and the max on screen haven't been reached
         if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersKilledThisRound < m_iMaxScuttlersForRound)
         {
             m_fSpawnTimer -= Time.deltaTime;
@@ -102,80 +102,12 @@ public class EnemySpawnController : MonoBehaviour
             }
         }
 
+        // Ends round once all enemies required have been killed
         if (m_iCurrentScuttlersKilledThisRound == m_iMaxScuttlersForRound)
         {
             m_bSpawningEnabled = false;
             m_rcRoundController.m_bRoundOver = true;
         }
-
-
-        //if (m_lEnemyList.Count >= m_iEnemyMax)
-        //{
-        //    if (m_rcRoundController.m_iCurrentRound == m_rcRoundController.m_iMaxRounds)
-        //    {
-        //        m_rcRoundController.m_bGameOver = true;
-        //    }
-        //    else
-        //    {
-        //        m_rcRoundController.m_bRoundOver = true;
-        //        m_bSpawningEnabled = false;
-        //    }
-        //    m_lEnemyList.Clear();
-        //    return;
-        //}
-
-        //m_fSpawnTimer -= Time.deltaTime;
-        //m_fSpawnTimer = Mathf.Max(m_fSpawnTimer, 0);
-
-        //if (m_fSpawnTimer == 0 && m_iCurrentEnemyCount != m_iEnemyArenaMax)
-        //{
-        //    if (!funMode)
-        //    {
-        //        // Chooses random spawn location
-        //        int rand = Random.Range(0, 6);
-
-        //        switch (rand)
-        //        {
-        //            case 0:
-        //                m_goChosenSpawnLocation = m_goSpawnLocation1;
-        //                break;
-        //            case 1:
-        //                m_goChosenSpawnLocation = m_goSpawnLocation2;
-        //                break;
-        //            case 2:
-        //                m_goChosenSpawnLocation = m_goSpawnLocation3;
-        //                break;
-        //            case 3:
-        //                m_goChosenSpawnLocation = m_goSpawnLocation4;
-        //                break;
-        //            case 4:
-        //                m_goChosenSpawnLocation = m_goSpawnLocation5;
-        //                break;
-        //            case 5:
-        //                m_goChosenSpawnLocation = m_goSpawnLocation6;
-        //                break;
-        //        }
-
-        //        GameObject newEnemy = Instantiate(m_goEnemyPrefab, m_goChosenSpawnLocation.transform.position, m_goSpawnLocation1.transform.rotation);
-        //        m_lEnemyList.Add(newEnemy);
-        //        m_fSpawnTimer = m_fSpawnDelay;
-        //        //Debug.Log("Enemy #" + m_lEnemyList.Count + " has spawned");
-        //        m_iCurrentEnemyCount += 1;
-        //    }
-        //    else
-        //    {
-        //        Instantiate(m_goEnemyPrefab, m_goSpawnLocation1.transform.position, m_goSpawnLocation1.transform.rotation);
-        //        Instantiate(m_goEnemyPrefab, m_goSpawnLocation2.transform.position, m_goSpawnLocation1.transform.rotation);
-        //        Instantiate(m_goEnemyPrefab, m_goSpawnLocation3.transform.position, m_goSpawnLocation1.transform.rotation);
-        //        Instantiate(m_goEnemyPrefab, m_goSpawnLocation4.transform.position, m_goSpawnLocation1.transform.rotation);
-        //        Instantiate(m_goEnemyPrefab, m_goSpawnLocation5.transform.position, m_goSpawnLocation1.transform.rotation);
-        //        Instantiate(m_goEnemyPrefab, m_goSpawnLocation6.transform.position, m_goSpawnLocation1.transform.rotation);
-
-        //        m_fSpawnTimer = m_fSpawnDelay;
-        //        //Debug.Log("Enemy #" + m_lEnemyList.Count + " has spawned");
-        //        m_iCurrentEnemyCount += 1;
-        //    }
-        //}
     }
 
     public void SpawnEnemy (EnemyType pEnemyType)
@@ -205,12 +137,15 @@ public class EnemySpawnController : MonoBehaviour
                 break;
         }
 
+        // Picks the first enemy that isn't enable and spawns it in
         for (int i = 0; i < m_lgoEnemyList.Count; i++)
         {
             if (!m_lgoEnemyList[i].activeInHierarchy)
             {
                 m_lgoEnemyList[i].transform.position = m_goChosenSpawnLocation.transform.position;
                 m_lgoEnemyList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
+                m_lgoEnemyList[i].GetComponent<EnemyController>().m_iHealth = 100;
+                m_lgoEnemyList[i].GetComponent<EnemyController>().IsAlive = true;
                 m_lgoEnemyList[i].SetActive(true);
                 break;
             }
