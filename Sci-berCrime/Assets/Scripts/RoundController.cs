@@ -20,7 +20,8 @@ public class RoundController : MonoBehaviour
     public int m_iMaxRounds;
 
     [Header("Floats")]
-    public float m_fRoundTimer;
+    public float m_fRoundCountdown;
+    public float m_fRoundTimer = 120;
 
     [Header("Players")]
     public PlayerController m_goPlayerOne;
@@ -38,7 +39,7 @@ public class RoundController : MonoBehaviour
         m_iCurrentRound = 1;
         m_iMaxRounds = 10;
 
-        m_fRoundTimer = 60;
+        m_fRoundCountdown = m_fRoundTimer;
     }
 
     private void Update()
@@ -58,34 +59,37 @@ public class RoundController : MonoBehaviour
                 m_bTimerToggle = true;
             }
 
-            if (m_fRoundTimer > 0)
+            if (m_fRoundCountdown > 0)
             {
-                m_fRoundTimer -= Time.deltaTime;
+                m_fRoundCountdown -= Time.deltaTime;
 
-                if (m_fRoundTimer < 0)
-                    m_fRoundTimer = 0;
+                if (m_fRoundCountdown < 0)
+                    m_fRoundCountdown = 0;
 
-                m_uicUIController.SetTimerText(m_fRoundTimer);
+                m_uicUIController.SetTimerText(m_fRoundCountdown);
             }
             
             // Checks if the players are ready
             if (Input.GetButtonDown("P1 Button X"))
                 m_bP1Ready = true;
 
-            if (Input.GetKeyDown(KeyCode.M))
+            if (Input.GetButtonDown("P2 Button X"))
                 m_bP2Ready = true;
         }
 
-        if (m_fRoundTimer == 0 || (m_bP1Ready && m_bP2Ready))
+        if (m_fRoundCountdown == 0 || (m_bP1Ready && m_bP2Ready))
         {
             m_iCurrentRound += 1;
             m_escEnemySpawnController.m_bSpawningEnabled = true;
             m_escEnemySpawnController.m_iCurrentScuttlerCount = 0;
+            m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound = 0;
+            m_escEnemySpawnController.m_iCurrentScuttlersSpawnedThisRound = 0;
             // Temporary work around -FIX THIS-
-            m_escEnemySpawnController.m_iMaxScuttlersForRound += m_escEnemySpawnController.m_iStartMaxScuttlersForRound * m_iCurrentRound;
+            m_escEnemySpawnController.m_iMaxScuttlersForRound *= m_iCurrentRound;
+            m_escEnemySpawnController.m_iMaxScuttlersAtOnce *= m_iCurrentRound;
 
-            m_fRoundTimer = 60;
-            m_uicUIController.SetTimerText(m_fRoundTimer);
+            m_fRoundCountdown = m_fRoundTimer;
+            m_uicUIController.SetTimerText(m_fRoundCountdown);
             m_uicUIController.SetRoundNumber(m_iCurrentRound);
             m_uicUIController.ToggleRoundTimerVisible(false);
 
@@ -105,6 +109,4 @@ public class RoundController : MonoBehaviour
             SceneManager.LoadScene(1);
         }
     }
-
-    // Make timer visible
 }

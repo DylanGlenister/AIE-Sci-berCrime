@@ -15,6 +15,11 @@ public class UIController : MonoBehaviour
     public Text m_txtPlayerTwoHealthText;
     public Text m_txtPlayerTwoAmmoText;
 
+    private void Awake()
+    {
+        m_txtRoundTimerText.enabled = false;
+    }
+
     // Updates the UI element to display the current round number
     public void SetRoundNumber (int pRoundNumber)
     {
@@ -58,6 +63,7 @@ public class UIController : MonoBehaviour
         m_txtRoundTimerText.text = temp.ToString();
     }
 
+    // Allows any script to change whether the timer is visible
     public void ToggleRoundTimerVisible (bool pState)
     {
         m_txtRoundTimerText.enabled = pState;

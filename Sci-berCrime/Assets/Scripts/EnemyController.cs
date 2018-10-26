@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
 
     private NavMeshAgent m_nmaNavMeshAgent;
 
-    void Awake ()
+    private void Awake ()
     {
         m_nmaNavMeshAgent = GetComponent<NavMeshAgent>();
         m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
@@ -34,13 +34,14 @@ public class EnemyController : MonoBehaviour
         IsAlive = true;
     }
 
-    void Update ()
+    private void Update ()
     {
         if (m_iHealth == 0)
         {
             m_scShopController.GetComponent<ShopController>().DepositToWallet(10);
             IsAlive = false;
             m_escEnemySpawnController.m_iCurrentScuttlerCount -= 1;
+            m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound += 1;
             gameObject.SetActive(false);
         }
 
@@ -87,7 +88,7 @@ public class EnemyController : MonoBehaviour
                     // Only paths to target if they aren't already touching the target
                     else
                     if (playerOneDistance.magnitude > m_fPlayerSafeBubbleSize
-                        || !m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive)
+                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive)
                     {
                         m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
                     }
@@ -105,7 +106,7 @@ public class EnemyController : MonoBehaviour
                     // Only paths to target if they aren't already touching the target
                     else
                     if (playerTwoDistance.magnitude > m_fPlayerSafeBubbleSize
-                        || !m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive)
+                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive)
                     {
                         m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
                     }

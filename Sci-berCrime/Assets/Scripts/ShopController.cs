@@ -5,6 +5,8 @@ using UnityEngine;
 public class ShopController : MonoBehaviour
 {
     public UIController m_uicUIController;
+    public GunController m_gcPlayerOneGunController;
+    public GunController m_gcPlayerTwoGunController;
 
     public bool m_bShopEnabled = false;
 
@@ -20,5 +22,41 @@ public class ShopController : MonoBehaviour
     {
         m_iWallet -= p_iValue;
         m_uicUIController.SetMoneyAmount(m_iWallet);
+    }
+
+    // Increases player health by 20 points
+    public void Upgrade_Health (PlayerController pPlayer)
+    {
+        pPlayer.m_iHealth += 20;
+    }
+
+    // Increases weapon damage  by 20 points
+    public void Updgrade_Damage (GunController pPlayer)
+    {
+        pPlayer.m_iDamage += 20;
+    }
+
+    // Reduces delay between shots fired by 0.01 seconds
+    public void Upgrade_RPM (GunController pPlayer)
+    {
+        pPlayer.m_fFireDelay -= 0.01f;
+    }
+
+    // Allows the weapon to fire bullets that penetrate targets
+    public void Upgrade_Penetration (GunController pPlayer)
+    {
+        
+    }
+
+    // Allows the weapon to fire explosive bullets that damage in an area
+    public void Upgrade_Explosive (GunController pPlayer)
+    {
+
+    }
+
+    // Allows the weapon to fire multiple bullets that can hit multiple targets
+    public void Upgrade_Spread (GunController pPlayer)
+    {
+
     }
 }

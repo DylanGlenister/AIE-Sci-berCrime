@@ -19,7 +19,7 @@ public class CameraScript : MonoBehaviour
     public GameObject m_goPlayerOne;
     public GameObject m_goPlayerTwo;
 
-    void Update ()
+    private void Update ()
     {
         // Calculates the distance between players
         m_v3PlayerDifference = m_goPlayerOne.transform.position - m_goPlayerTwo.transform.position;

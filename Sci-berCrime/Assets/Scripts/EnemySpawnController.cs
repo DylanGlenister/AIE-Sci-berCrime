@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySpawnController : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class EnemySpawnController : MonoBehaviour
     //----------Scuttler----------
     [Header("Scuttler")]
     public int m_iCurrentScuttlerCount;
+    public int m_iCurrentScuttlersSpawnedThisRound;
     public int m_iCurrentScuttlersKilledThisRound;
 
     public int m_iMaxScuttlersForRound;
@@ -30,6 +32,7 @@ public class EnemySpawnController : MonoBehaviour
     //----------Turret----------
     [Header("Turret")]
     public int m_iCurrentTurretCount;
+    public int m_iCurrentTurretsSpawnedThisRound;
     public int m_iCurrentTurretsKilledThisRound;
 
     public int m_iMaxTurretsForRound;
@@ -40,6 +43,7 @@ public class EnemySpawnController : MonoBehaviour
     //----------Drone----------
     [Header("Drone")]
     public int m_iCurrentDroneCount;
+    public int m_iCurrentDronesSpawnedThisRound;
     public int m_iCurrentDronesKilledThisRound;
 
     public int m_iMaxDronesForRound;
@@ -66,7 +70,7 @@ public class EnemySpawnController : MonoBehaviour
 
     private GameObject m_goChosenSpawnLocation;
 
-    void Awake ()
+    private void Awake ()
     {
         // Initialises variables
         m_fSpawnTimer = m_fSpawnDelay;
@@ -82,13 +86,13 @@ public class EnemySpawnController : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (!m_bSpawningEnabled)
             return;
         
         // Only 'spawns' enemies as long at the max for the current round and the max on screen haven't been reached
-        if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersKilledThisRound < m_iMaxScuttlersForRound)
+        if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound)
         {
             m_fSpawnTimer -= Time.deltaTime;
 
@@ -147,8 +151,12 @@ public class EnemySpawnController : MonoBehaviour
                 m_lgoEnemyList[i].GetComponent<EnemyController>().m_iHealth = 100;
                 m_lgoEnemyList[i].GetComponent<EnemyController>().IsAlive = true;
                 m_lgoEnemyList[i].SetActive(true);
+                m_lgoEnemyList[i].GetComponent<NavMeshAgent>().enabled = true;
                 break;
             }
         }
+
+        m_iCurrentScuttlerCount += 1;
+        m_iCurrentScuttlersSpawnedThisRound += 1;
     }
 }
