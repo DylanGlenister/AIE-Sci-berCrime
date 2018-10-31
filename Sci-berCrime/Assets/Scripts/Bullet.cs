@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    //extra's for the bullets
+    //upgrades for the bullets
     public int m_iPenetrating;
     public int m_iExplosive;
-    public int m_iDamage;
+    public int m_baseExplosive;
 
+    //base stats for the bullet;
+    public int m_damageRange; // if explosive is enabled;
+    public int m_iDamage;
     public float m_fBulletLife = 1f;
     public float m_fBulletCountdown;
     public float m_iBulletSpeed = 100f;

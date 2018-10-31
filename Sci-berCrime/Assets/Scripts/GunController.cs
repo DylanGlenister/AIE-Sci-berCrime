@@ -11,7 +11,10 @@ public class GunController : MonoBehaviour
     public int m_iAmmo = 1000;
     public int m_iMaxAmmo = 1000;
     public int m_iMaxBulletsAtOnce = 57;
+
+    //spread upgrade;
     public int m_iSpread;
+    
 
     public float m_fFireDelay = 0.01f;
     public float m_fFireTimer = 0.0f;
@@ -51,6 +54,7 @@ public class GunController : MonoBehaviour
     {
         if (m_fFireTimer == 0 && m_iAmmo > 0)
         {
+            
             // Picks the bullet that isn't enable and spawns it in
             for (int i = 0; i < m_lgoBulletList.Count; i++)
             {

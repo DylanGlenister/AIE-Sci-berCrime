@@ -125,10 +125,23 @@ public class EnemyController : MonoBehaviour
         {
             TakeDamage(other.gameObject.GetComponent<Bullet>().m_iDamage);
 
+            if (m_iHealth == 0 && other.gameObject.GetComponent<Bullet>().m_iExplosive > 0)
+            {
+                //range is calculated off it's base range and the level of the explosive upgrade;
+                other.gameObject.GetComponent<Bullet>().m_damageRange *= other.gameObject.GetComponent<Bullet>().m_iExplosive;
+                
+                //do some explosion maths shit here
+
+
+            }
+
+
             if (other.gameObject.GetComponent<Bullet>().m_iPenetrating == 0)
                 other.gameObject.GetComponent<Bullet>().m_fBulletCountdown = 0;
         }
     }
+
+ 
 
     // Applies damage to the object
     public void TakeDamage (int pDamage)
