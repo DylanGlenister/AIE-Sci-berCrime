@@ -45,9 +45,12 @@ public class ShopController : MonoBehaviour
     }
 
     // Reduces delay between shots fired by 0.01 seconds
-    public void Upgrade_RPM (GunController pPlayer)
+    public void Upgrade_RPM(GunController pPlayer)
     {
-        pPlayer.m_fFireDelay -= 0.005f;
+        if (pPlayer.m_fFireDelay != 0.005f)
+        {
+            pPlayer.m_fFireDelay -= 0.005f;
+        }
     }
 
     // Increases the max ammo the player can carry
@@ -71,7 +74,7 @@ public class ShopController : MonoBehaviour
     // Allows the weapon to fire multiple bullets that can hit multiple targets
     public void Upgrade_Spread (GunController pPlayer)
     {
-
+        pPlayer.m_iSpread += 1;
     }
 
     public void HealthBuy (PlayerController pPlayer)

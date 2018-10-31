@@ -43,16 +43,7 @@ public class GunController : MonoBehaviour
         m_iSpread = 0;
     }
     
-    public void FireRateUpgrade(int fireRate)
-    {
-
-        if (fireRate != 0.005f)
-        {
-            m_fFireDelay -= 0.005f;
-        }
-      
-       
-    }
+  
 
     // The background updating for the gun
     public void GunUpdate()
