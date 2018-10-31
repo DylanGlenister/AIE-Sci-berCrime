@@ -12,6 +12,14 @@ public class ShopController : MonoBehaviour
 
     public int m_iWallet = 0;
 
+    private void Update ()
+    {
+        if (Input.GetButtonDown("P1 Button Y") || Input.GetButtonDown("P2 Button Y"))
+        {
+            m_uicUIController.ToggleShopVisible();
+        }
+    }
+
     public void DepositToWallet (int p_iValue)
     {
         m_iWallet += p_iValue;
@@ -27,7 +35,7 @@ public class ShopController : MonoBehaviour
     // Increases player health by 20 points
     public void Upgrade_Health (PlayerController pPlayer)
     {
-        pPlayer.m_iHealth += 20;
+        pPlayer.m_iHealth += 10;
     }
 
     // Increases weapon damage  by 20 points
@@ -39,7 +47,13 @@ public class ShopController : MonoBehaviour
     // Reduces delay between shots fired by 0.01 seconds
     public void Upgrade_RPM (GunController pPlayer)
     {
-        pPlayer.m_fFireDelay -= 0.01f;
+        pPlayer.m_fFireDelay -= 0.005f;
+    }
+
+    // Increases the max ammo the player can carry
+    public void Upgrade_Ammo (PlayerController pPlayer)
+    {
+
     }
 
     // Allows the weapon to fire bullets that penetrate targets
@@ -56,6 +70,16 @@ public class ShopController : MonoBehaviour
 
     // Allows the weapon to fire multiple bullets that can hit multiple targets
     public void Upgrade_Spread (GunController pPlayer)
+    {
+
+    }
+
+    public void HealthBuy (PlayerController pPlayer)
+    {
+
+    }
+
+    public void AmmoBuy(PlayerController pPlayer)
     {
 
     }

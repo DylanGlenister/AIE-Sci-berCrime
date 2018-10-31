@@ -20,6 +20,7 @@ public class UIController : MonoBehaviour
     private void Awake()
     {
         m_txtRoundTimerText.enabled = false;
+        m_cShopCanvas.enabled = false;
     }
 
     // Updates the UI element to display the current round number

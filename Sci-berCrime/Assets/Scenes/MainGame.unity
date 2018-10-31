@@ -338,7 +338,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 88083463}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Upgrade_RPM
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 423580755}
+          m_ObjectArgumentAssemblyTypeName: GunController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &88083463
@@ -847,7 +858,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 249073489}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Upgrade_RPM
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1819852305}
+          m_ObjectArgumentAssemblyTypeName: GunController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &249073489
@@ -1106,7 +1128,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 337445857}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Updgrade_Damage
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1819852305}
+          m_ObjectArgumentAssemblyTypeName: GunController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &337445857
@@ -1366,7 +1399,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 382889153}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Upgrade_Explosive
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 423580755}
+          m_ObjectArgumentAssemblyTypeName: GunController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &382889153
@@ -1477,7 +1521,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 388582257}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Upgrade_Health
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 423580756}
+          m_ObjectArgumentAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &388582257
@@ -1971,7 +2026,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 536497384}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Upgrade_Penetration
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 423580755}
+          m_ObjectArgumentAssemblyTypeName: GunController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &536497384
@@ -2258,7 +2324,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 709904781}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Updgrade_Damage
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 423580755}
+          m_ObjectArgumentAssemblyTypeName: GunController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &709904781
@@ -2311,7 +2388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &789055518
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2667,7 +2744,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 912784321}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Upgrade_Penetration
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1819852305}
+          m_ObjectArgumentAssemblyTypeName: GunController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &912784321
@@ -3154,7 +3242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c46719d2d6222479e02ceca2215ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bSpawningEnabled: 1
+  m_bSpawningEnabled: 0
   funMode: 0
   m_fSpawnDelay: 0.25
   m_iCurrentScuttlerCount: 0
@@ -3839,7 +3927,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1201936214}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Upgrade_Health
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1819852306}
+          m_ObjectArgumentAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1201936214
@@ -3950,7 +4049,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1219710008}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Upgrade_Spread
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1819852305}
+          m_ObjectArgumentAssemblyTypeName: GunController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1219710008
@@ -4353,7 +4463,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1404734804}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: AmmoBuy
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 423580756}
+          m_ObjectArgumentAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1404734804
@@ -4547,7 +4668,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1483935664}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Upgrade_Explosive
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1819852305}
+          m_ObjectArgumentAssemblyTypeName: GunController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1483935664
@@ -4784,7 +4916,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1512757326}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Upgrade_Spread
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 423580755}
+          m_ObjectArgumentAssemblyTypeName: GunController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1512757326
@@ -4895,7 +5038,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1530565677}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: HealthBuy
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 423580756}
+          m_ObjectArgumentAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1530565677
@@ -5080,7 +5234,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1550522808}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Upgrade_Ammo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1819852306}
+          m_ObjectArgumentAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1550522808
@@ -5579,7 +5744,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1662717867}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: AmmoBuy
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1819852306}
+          m_ObjectArgumentAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1662717867
@@ -6334,7 +6510,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1916956221}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: Upgrade_Ammo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 423580756}
+          m_ObjectArgumentAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1916956221
@@ -6920,7 +7107,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2074285028}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1055950118}
+        m_MethodName: HealthBuy
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1819852306}
+          m_ObjectArgumentAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2074285028
