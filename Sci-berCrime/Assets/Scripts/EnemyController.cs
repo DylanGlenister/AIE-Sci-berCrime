@@ -125,7 +125,7 @@ public class EnemyController : MonoBehaviour
         {
             TakeDamage(other.gameObject.GetComponent<Bullet>().m_iDamage);
 
-            if (!other.gameObject.GetComponent<Bullet>().m_bPenetrating)
+            if (other.gameObject.GetComponent<Bullet>().m_iPenetrating == 0)
                 other.gameObject.GetComponent<Bullet>().m_fBulletCountdown = 0;
         }
     }

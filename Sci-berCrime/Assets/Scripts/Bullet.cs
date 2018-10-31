@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public bool m_bPenetrating;
-
+    //extra's for the bullets
+    public int m_iPenetrating;
+    public int m_iExplosive;
     public int m_iDamage;
 
     public float m_fBulletLife = 1f;
@@ -17,7 +18,8 @@ public class Bullet : MonoBehaviour
     private void Awake ()
     {
         m_rbRigidBody = GetComponent<Rigidbody>();
-        m_bPenetrating = false;
+        m_iPenetrating = 0;
+        m_iExplosive = 0;
         m_fBulletCountdown = m_fBulletLife;
     }
 

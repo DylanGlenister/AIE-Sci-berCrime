@@ -9,7 +9,9 @@ public class GunController : MonoBehaviour
     // Gun control variables
     public int m_iDamage = 35;
     public int m_iAmmo = 1000;
+    public int m_iMaxAmmo = 1000;
     public int m_iMaxBulletsAtOnce = 57;
+    public int m_iSpread;
 
     public float m_fFireDelay = 0.01f;
     public float m_fFireTimer = 0.0f;
