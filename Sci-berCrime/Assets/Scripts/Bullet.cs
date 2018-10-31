@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // upgrades for the bullets
-    public int m_iPenetrating;
-    public int m_iExplosive;
-    public int m_baseExplosive;
-
     // base stats for the bullet;
     public int m_damageRange; // if explosive is enabled;
     public int m_iDamage;
@@ -16,13 +11,15 @@ public class Bullet : MonoBehaviour
     public float m_fBulletCountdown;
     public float m_iBulletSpeed = 100f;
 
+    // explosive and penetrating upgrade goes here because i don't know why
+    public int m_iPenetrating;
+    public int m_iExplosive;
+
     public Rigidbody m_rbRigidBody;
 
     private void Awake ()
     {
         m_rbRigidBody = GetComponent<Rigidbody>();
-        m_iPenetrating = 0;
-        m_iExplosive = 0;
         m_fBulletCountdown = m_fBulletLife;
     }
 

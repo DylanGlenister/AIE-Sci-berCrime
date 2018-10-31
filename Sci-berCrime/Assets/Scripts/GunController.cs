@@ -12,9 +12,12 @@ public class GunController : MonoBehaviour
     public int m_iMaxAmmo = 1000;
     public int m_iMaxBulletsAtOnce = 57;
 
-    //spread upgrade;
+    // upgrades for the bullets
+    public int m_iPenetrating;
+    public int m_iExplosive;
+    public int m_baseExplosive;
     public int m_iSpread;
-    
+
 
     public float m_fFireDelay = 0.01f;
     public float m_fFireTimer = 0.0f;
@@ -35,26 +38,37 @@ public class GunController : MonoBehaviour
             obj.GetComponent<Bullet>().m_iDamage = m_iDamage;
             m_lgoBulletList.Add(obj);
         }
+        m_iPenetrating = 0;
+        m_iExplosive = 0;
+        m_iSpread = 0;
+    }
+    
+    public void FireRateUpgrade(int fireRate)
+    {
+
+        if (fireRate != 0.005f)
+        {
+            m_fFireDelay -= 0.005f;
+        }
+      
+       
     }
 
     // The background updating for the gun
-    public void GunUpdate ()
+    public void GunUpdate()
     {
         if (m_fFireTimer > 0)
         {
             m_fFireTimer -= Time.deltaTime;
-
-            if (m_fFireTimer < 0)
-                m_fFireTimer = 0;
         }
     }
 
     // The update for the currently active gun
-    public void ActiveGunUpdate (GameObject pParent)
+    public void ActiveGunUpdate(GameObject pParent)
     {
-        if (m_fFireTimer == 0 && m_iAmmo > 0)
+        if (m_fFireTimer <= 0 && m_iAmmo > 0)
         {
-            
+
             // Picks the bullet that isn't enable and spawns it in
             for (int i = 0; i < m_lgoBulletList.Count; i++)
             {
@@ -66,10 +80,60 @@ public class GunController : MonoBehaviour
                     m_lgoBulletList[i].SetActive(true);
                     break;
                 }
+
+
+            }
+            // If spread upgrade is set to 1
+            if (m_iSpread > 0)
+            {
+                for (int i = 0; i < m_lgoBulletList.Count; i++)
+                {
+                    if (!m_lgoBulletList[i].activeInHierarchy)
+                    {
+                        // +15 degrees
+                        m_lgoBulletList[i].transform.position = m_goBulletSpawn.transform.position;
+                        m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
+                        m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(15, 0, 0);
+                        m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
+
+                        // -15 degrees
+                        m_lgoBulletList[i].transform.position = m_goBulletSpawn.transform.position;
+                        m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
+                        m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(-15, 0, 0);
+                        m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
+
+                        m_lgoBulletList[i].SetActive(true);
+                        break;
+                    }
+                }
+            }
+
+            if (m_iSpread == 2)
+            {
+                for (int i = 0; i < m_lgoBulletList.Count; i++)
+                {
+                    if (!m_lgoBulletList[i].activeInHierarchy)
+                    {
+                        // +30 degrees
+                        m_lgoBulletList[i].transform.position = m_goBulletSpawn.transform.position;
+                        m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
+                        m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(30, 0, 0);
+                        m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
+
+                        // -30 degrees
+                        m_lgoBulletList[i].transform.position = m_goBulletSpawn.transform.position;
+                        m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
+                        m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(-30, 0, 0);
+                        m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
+
+                        m_lgoBulletList[i].SetActive(true);
+                        break;
+                    }
+                }
             }
 
             m_iAmmo -= 1;
-            m_fFireTimer = m_fFireDelay;
+            m_fFireTimer += m_fFireDelay;
 
             // Updates the associated UI element for ammo based on which player the gun script is attached to
             if (pParent.gameObject.GetComponent<PlayerController>().m_bPlayerOne)
