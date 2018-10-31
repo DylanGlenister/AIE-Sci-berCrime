@@ -14,6 +14,8 @@ public class UIController : MonoBehaviour
     [Header("Player Two")]
     public Text m_txtPlayerTwoHealthText;
     public Text m_txtPlayerTwoAmmoText;
+    [Header("Shop")]
+    public Canvas m_cShopCanvas;
 
     private void Awake()
     {
@@ -67,5 +69,19 @@ public class UIController : MonoBehaviour
     public void ToggleRoundTimerVisible (bool pState)
     {
         m_txtRoundTimerText.enabled = pState;
+    }
+
+    // Enables/disables the shop window
+    public void ToggleShopVisible ()
+    {
+        if (m_cShopCanvas.enabled)
+            m_cShopCanvas.enabled = false;
+        else
+            m_cShopCanvas.enabled = true;
+    }
+
+    public void ToggleShopVisible (bool pState)
+    {
+        m_cShopCanvas.enabled = pState;
     }
 }
