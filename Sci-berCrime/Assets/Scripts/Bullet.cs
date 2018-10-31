@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    //upgrades for the bullets
+    // upgrades for the bullets
     public int m_iPenetrating;
     public int m_iExplosive;
     public int m_baseExplosive;
 
-    //base stats for the bullet;
+    // base stats for the bullet;
     public int m_damageRange; // if explosive is enabled;
     public int m_iDamage;
     public float m_fBulletLife = 1f;

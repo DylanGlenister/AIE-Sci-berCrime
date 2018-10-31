@@ -1611,7 +1611,9 @@ MonoBehaviour:
   m_uicUIController: {fileID: 1055950120}
   m_iDamage: 35
   m_iAmmo: 1000
+  m_iMaxAmmo: 1000
   m_iMaxBulletsAtOnce: 57
+  m_iSpread: 0
   m_fFireDelay: 0.05
   m_fFireTimer: 0
   m_goBulletPrefab: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed,
@@ -1794,7 +1796,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -5790,7 +5792,9 @@ MonoBehaviour:
   m_uicUIController: {fileID: 1055950120}
   m_iDamage: 35
   m_iAmmo: 1000
+  m_iMaxAmmo: 1000
   m_iMaxBulletsAtOnce: 57
+  m_iSpread: 0
   m_fFireDelay: 0.05
   m_fFireTimer: 0
   m_goBulletPrefab: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed,
