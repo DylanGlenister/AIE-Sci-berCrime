@@ -5,18 +5,31 @@ using UnityEngine;
 public class ShopController : MonoBehaviour
 {
     public UIController m_uicUIController;
-    public GunController m_gcPlayerOneGunController;
-    public GunController m_gcPlayerTwoGunController;
+    public PlayerController m_gcPlayerOne;
+    public PlayerController m_gcPlayerTwo;
 
     public bool m_bShopEnabled = false;
 
     public int m_iWallet = 0;
 
-    private void Update ()
+    private void Update()
     {
         if (Input.GetButtonDown("P1 Button Y") || Input.GetButtonDown("P2 Button Y"))
         {
-            m_uicUIController.ToggleShopVisible();
+            if (m_bShopEnabled)
+            {
+                m_uicUIController.ToggleShopVisible(false);
+                m_bShopEnabled = false;
+                m_gcPlayerOne.isFrozen = false;
+                m_gcPlayerTwo.isFrozen = false;
+            }
+            else
+            {
+                m_uicUIController.ToggleShopVisible(true);
+                m_bShopEnabled = true;
+                m_gcPlayerOne.isFrozen = true;
+                m_gcPlayerTwo.isFrozen = false;
+            }
         }
     }
 
@@ -72,9 +85,14 @@ public class ShopController : MonoBehaviour
     }
 
     // Allows the weapon to fire multiple bullets that can hit multiple targets
-    public void Upgrade_Spread (GunController pPlayer)
+    public void Upgrade_Spread(GunController pPlayer)
     {
-        pPlayer.m_iSpread += 1;
+        
+            pPlayer.m_iSpread += 1;
+        if (pPlayer.m_iSpread > 2)
+        {
+            pPlayer.m_iSpread = 2;
+        }
     }
 
     public void HealthBuy (PlayerController pPlayer)
