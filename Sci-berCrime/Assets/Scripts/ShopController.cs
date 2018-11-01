@@ -20,39 +20,39 @@ public class ShopController : MonoBehaviour
             {
                 m_uicUIController.ToggleShopVisible(false);
                 m_bShopEnabled = false;
-                m_gcPlayerOne.isInShop = false;
-                m_gcPlayerTwo.isInShop = false;
+                m_gcPlayerOne.isFrozen = false;
+                m_gcPlayerTwo.isFrozen = false;
             }
             else
             {
                 m_uicUIController.ToggleShopVisible(true);
                 m_bShopEnabled = true;
-                m_gcPlayerOne.isInShop = true;
-                m_gcPlayerTwo.isInShop = false;
+                m_gcPlayerOne.isFrozen = true;
+                m_gcPlayerTwo.isFrozen = false;
             }
         }
     }
 
-    public void DepositToWallet (int p_iValue)
+    public void DepositToWallet(int p_iValue)
     {
         m_iWallet += p_iValue;
         m_uicUIController.SetMoneyAmount(m_iWallet);
     }
 
-    public void WithdrawFromWallet (int p_iValue)
+    public void WithdrawFromWallet(int p_iValue)
     {
         m_iWallet -= p_iValue;
         m_uicUIController.SetMoneyAmount(m_iWallet);
     }
 
     // Increases player health by 20 points
-    public void Upgrade_Health (PlayerController pPlayer)
+    public void Upgrade_Health(PlayerController pPlayer)
     {
         pPlayer.m_iHealth += 10;
     }
 
     // Increases weapon damage  by 20 points
-    public void Updgrade_Damage (GunController pPlayer)
+    public void Updgrade_Damage(GunController pPlayer)
     {
         pPlayer.m_iDamage += 20;
     }
@@ -60,42 +60,46 @@ public class ShopController : MonoBehaviour
     // Reduces delay between shots fired by 0.01 seconds
     public void Upgrade_RPM(GunController pPlayer)
     {
-        if (pPlayer.m_fFireDelay != 0.005f)
-        {
+        if (pPlayer.m_fFireDelay > 0.006f && pPlayer.m_fFireDelay != 0.005f)
             pPlayer.m_fFireDelay -= 0.005f;
-        }
+        else
+            pPlayer.m_fFireDelay = 0.005f;
     }
 
     // Increases the max ammo the player can carry
-    public void Upgrade_Ammo (PlayerController pPlayer)
+    public void Upgrade_Ammo(PlayerController pPlayer)
     {
 
     }
 
     // Allows the weapon to fire bullets that penetrate targets
-    public void Upgrade_Penetration (GunController pPlayer)
+    public void Upgrade_Penetration(GunController pPlayer)
     {
-        
+
     }
 
     // Allows the weapon to fire explosive bullets that damage in an area
-    public void Upgrade_Explosive (GunController pPlayer)
+    public void Upgrade_Explosive(GunController pPlayer)
     {
-
+        pPlayer.m_iExplosive += 1;
+        if (pPlayer.m_iExplosive > 2)
+        {
+            pPlayer.m_iExplosive = 2;
+        }
     }
 
     // Allows the weapon to fire multiple bullets that can hit multiple targets
     public void Upgrade_Spread(GunController pPlayer)
     {
-        
-            pPlayer.m_iSpread += 1;
+
+        pPlayer.m_iSpread += 1;
         if (pPlayer.m_iSpread > 2)
         {
             pPlayer.m_iSpread = 2;
         }
     }
 
-    public void HealthBuy (PlayerController pPlayer)
+    public void HealthBuy(PlayerController pPlayer)
     {
 
     }
