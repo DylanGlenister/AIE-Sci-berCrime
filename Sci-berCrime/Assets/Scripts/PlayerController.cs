@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public bool m_bIsAlive { get; set; }
-    
+
+    public bool isFrozen = false;
     public bool m_bPlayerOne;
 
     public int m_iHealth = 100;
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate ()
     {
-        if (m_bIsAlive)
+        if (m_bIsAlive && !isFrozen)
         {
             // All controls for player one
             if (m_bPlayerOne)
@@ -75,22 +76,24 @@ public class PlayerController : MonoBehaviour
         if (m_iHealth == 0)
         {
             m_bIsAlive = false;
+            // Fix this
             gameObject.SetActive(false);
         }
 
-        //Debug.Log(isAlive);
-
-        if (m_bPlayerOne)
+        if (m_bIsAlive && !isFrozen)
         {
-            // Calls a specific update function for the currently active gun
-            if (m_gcGun && m_bIsAlive && Input.GetButton("P1 Button RB"))
-                m_gcGun.ActiveGunUpdate(gameObject);
-        }
-        else
-        {
-            // Calls a specific update function for the currently active gun
-            if (m_gcGun && m_bIsAlive && Input.GetButton("P2 Button RB"))
-                m_gcGun.ActiveGunUpdate(gameObject);
+            if (m_bPlayerOne)
+            {
+                // Calls a specific update function for the currently active gun
+                if (m_gcGun && m_bIsAlive && Input.GetButton("P1 Button RB"))
+                    m_gcGun.ActiveGunUpdate(gameObject);
+            }
+            else
+            {
+                // Calls a specific update function for the currently active gun
+                if (m_gcGun && m_bIsAlive && Input.GetButton("P2 Button RB"))
+                    m_gcGun.ActiveGunUpdate(gameObject);
+            }
         }
 
         // Call an update function for each of the equiped guns
@@ -101,7 +104,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter (Collision collision)
     {
         // Player dies if hit by enemy
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && m_bIsAlive)
             TakeDamage(collision.gameObject.GetComponent<EnemyController>().m_iDamage);
     }
 
