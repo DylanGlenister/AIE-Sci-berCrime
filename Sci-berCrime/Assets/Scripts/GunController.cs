@@ -10,7 +10,7 @@ public class GunController : MonoBehaviour
     public int m_iDamage = 35;
     public int m_iAmmo = 1000;
     public int m_iMaxAmmo = 1000;
-    public int m_iMaxBulletsAtOnce = 57;
+    public int m_iMaxBulletsAtOnce = 300;
 
     // upgrades for the bullets
     public int m_iPenetrating;
@@ -57,6 +57,7 @@ public class GunController : MonoBehaviour
     // The update for the currently active gun
     public void ActiveGunUpdate(GameObject pParent)
     {
+
         if (m_fFireTimer <= 0 && m_iAmmo > 0)
         {
 
@@ -84,53 +85,74 @@ public class GunController : MonoBehaviour
                         // +15 degrees
                         m_lgoBulletList[i].transform.position = m_goBulletSpawn.transform.position;
                         m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
-                        m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(15, 0, 0);
+                        m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(0, 5, 0);
                         m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
-
-                        // -15 degrees
-                        m_lgoBulletList[i].transform.position = m_goBulletSpawn.transform.position;
-                        m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
-                        m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(-15, 0, 0);
-                        m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
-
                         m_lgoBulletList[i].SetActive(true);
+
                         break;
                     }
                 }
-            }
-
-            if (m_iSpread == 2)
-            {
+                // This mirrors the bullets going at -15 degrees from the middle point,
+                // when in actuality it's adding the total degrees minus the 15 from the middle
+                // so that we can avoid the inverse function.
                 for (int i = 0; i < m_lgoBulletList.Count; i++)
                 {
                     if (!m_lgoBulletList[i].activeInHierarchy)
                     {
-                        // +30 degrees
+                        // -15 degrees
                         m_lgoBulletList[i].transform.position = m_goBulletSpawn.transform.position;
                         m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
-                        m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(30, 0, 0);
-                        m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
-
-                        // -30 degrees
-                        m_lgoBulletList[i].transform.position = m_goBulletSpawn.transform.position;
-                        m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
-                        m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(-30, 0, 0);
+                        m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(0, -5, 0);
                         m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
 
                         m_lgoBulletList[i].SetActive(true);
                         break;
                     }
                 }
+
+                if (m_iSpread == 2)
+                {
+                    for (int i = 0; i < m_lgoBulletList.Count; i++)
+                    {
+                        if (!m_lgoBulletList[i].activeInHierarchy)
+                        {
+                            // +30 degrees
+                            m_lgoBulletList[i].transform.position = m_goBulletSpawn.transform.position;
+                            m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
+                            m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(0, 10, 0);
+                            m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
+                            m_lgoBulletList[i].SetActive(true);
+
+
+                            break;
+                        }
+                    }
+
+                    for (int i = 0; i < m_lgoBulletList.Count; i++)
+                    {
+                        if (!m_lgoBulletList[i].activeInHierarchy)
+                        {
+                            // -30 degrees
+                            m_lgoBulletList[i].transform.position = m_goBulletSpawn.transform.position;
+                            m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
+                            m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(0, -10, 0);
+                            m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
+
+                            m_lgoBulletList[i].SetActive(true);
+                            break;
+                        }
+                    }
+                }
+
+                m_iAmmo -= 1;
+                m_fFireTimer += m_fFireDelay;
+
+                // Updates the associated UI element for ammo based on which player the gun script is attached to
+                if (pParent.gameObject.GetComponent<PlayerController>().m_bPlayerOne)
+                    m_uicUIController.SetPlayerOneAmmo(m_iAmmo);
+                else
+                    m_uicUIController.SetPlayerTwoAmmo(m_iAmmo);
             }
-
-            m_iAmmo -= 1;
-            m_fFireTimer += m_fFireDelay;
-
-            // Updates the associated UI element for ammo based on which player the gun script is attached to
-            if (pParent.gameObject.GetComponent<PlayerController>().m_bPlayerOne)
-                m_uicUIController.SetPlayerOneAmmo(m_iAmmo);
-            else
-                m_uicUIController.SetPlayerTwoAmmo(m_iAmmo);
         }
     }
 }
