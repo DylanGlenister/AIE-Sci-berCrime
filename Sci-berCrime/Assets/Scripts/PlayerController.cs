@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public bool m_bIsAlive { get; set; }
 
-    public bool isFrozen = false;
+    public bool isInShop = false;
     public bool m_bPlayerOne;
 
     public int m_iHealth = 100;
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate ()
     {
-        if (m_bIsAlive && !isFrozen)
+        if (m_bIsAlive && !isInShop)
         {
             // All controls for player one
             if (m_bPlayerOne)
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        if (m_bIsAlive && !isFrozen)
+        if (m_bIsAlive && !isInShop)
         {
             if (m_bPlayerOne)
             {

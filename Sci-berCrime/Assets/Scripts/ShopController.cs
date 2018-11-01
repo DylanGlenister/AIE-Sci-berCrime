@@ -20,15 +20,15 @@ public class ShopController : MonoBehaviour
             {
                 m_uicUIController.ToggleShopVisible(false);
                 m_bShopEnabled = false;
-                m_gcPlayerOne.isFrozen = false;
-                m_gcPlayerTwo.isFrozen = false;
+                m_gcPlayerOne.isInShop = false;
+                m_gcPlayerTwo.isInShop = false;
             }
             else
             {
                 m_uicUIController.ToggleShopVisible(true);
                 m_bShopEnabled = true;
-                m_gcPlayerOne.isFrozen = true;
-                m_gcPlayerTwo.isFrozen = false;
+                m_gcPlayerOne.isInShop = true;
+                m_gcPlayerTwo.isInShop = false;
             }
         }
     }

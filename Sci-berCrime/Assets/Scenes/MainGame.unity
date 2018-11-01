@@ -1736,6 +1736,9 @@ MonoBehaviour:
   m_iAmmo: 1000
   m_iMaxAmmo: 1000
   m_iMaxBulletsAtOnce: 57
+  m_iPenetrating: 0
+  m_iExplosive: 0
+  m_baseExplosive: 0
   m_iSpread: 0
   m_fFireDelay: 0.05
   m_fFireTimer: 0
@@ -1754,6 +1757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386081b761d551e449ea5b6ce273919f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInShop: 0
   m_bPlayerOne: 1
   m_iHealth: 100
   m_fMovementSpeed: 50
@@ -3287,8 +3291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uicUIController: {fileID: 1055950120}
-  m_gcPlayerOneGunController: {fileID: 423580755}
-  m_gcPlayerTwoGunController: {fileID: 1819852305}
+  m_gcPlayerOne: {fileID: 423580756}
+  m_gcPlayerTwo: {fileID: 1819852306}
   m_bShopEnabled: 0
   m_iWallet: 0
 --- !u!114 &1055950119
@@ -6108,6 +6112,9 @@ MonoBehaviour:
   m_iAmmo: 1000
   m_iMaxAmmo: 1000
   m_iMaxBulletsAtOnce: 57
+  m_iPenetrating: 0
+  m_iExplosive: 0
+  m_baseExplosive: 0
   m_iSpread: 0
   m_fFireDelay: 0.05
   m_fFireTimer: 0
@@ -6126,6 +6133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386081b761d551e449ea5b6ce273919f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInShop: 0
   m_bPlayerOne: 0
   m_iHealth: 100
   m_fMovementSpeed: 50
