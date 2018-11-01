@@ -1735,7 +1735,7 @@ MonoBehaviour:
   m_iDamage: 35
   m_iAmmo: 1000
   m_iMaxAmmo: 1000
-  m_iMaxBulletsAtOnce: 57
+  m_iMaxBulletsAtOnce: 300
   m_iPenetrating: 0
   m_iExplosive: 0
   m_baseExplosive: 0
@@ -6111,7 +6111,7 @@ MonoBehaviour:
   m_iDamage: 35
   m_iAmmo: 1000
   m_iMaxAmmo: 1000
-  m_iMaxBulletsAtOnce: 57
+  m_iMaxBulletsAtOnce: 300
   m_iPenetrating: 0
   m_iExplosive: 0
   m_baseExplosive: 0
