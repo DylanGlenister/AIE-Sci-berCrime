@@ -776,9 +776,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5ba6da3f252ae408c68616713dc890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fZoomScalar: 5
-  m_fZoomOffset: 8
-  m_fCameraCenterTether: 1.2
+  m_fZoomScalar: 2
+  m_fZoomOffset: 0.5
+  m_fCameraCenterTether: 1.25
   m_goCameraPlane_Zoom: {fileID: 1071226380}
   m_goCameraPlane_Pan: {fileID: 1554463986}
   m_goPlayerOne: {fileID: 423580750}
@@ -1732,7 +1732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uicUIController: {fileID: 1055950120}
-  m_iDamage: 35
+  m_iDamage: 25
   m_iAmmo: 1000
   m_iMaxAmmo: 1000
   m_iMaxBulletsAtOnce: 300
@@ -1740,7 +1740,7 @@ MonoBehaviour:
   m_iExplosive: 0
   m_baseExplosive: 0
   m_iSpread: 0
-  m_fFireDelay: 0.05
+  m_fFireDelay: 0.25
   m_fFireTimer: 0
   m_goBulletPrefab: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed,
     type: 2}
@@ -1760,6 +1760,7 @@ MonoBehaviour:
   isInShop: 0
   m_bPlayerOne: 1
   m_iHealth: 100
+  m_iMaxHealth: 100
   m_fMovementSpeed: 50
   m_gcGun: {fileID: 423580755}
   m_uicUIController: {fileID: 1055950120}
@@ -3434,7 +3435,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1071226380}
   m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 43.1, z: -35.5}
+  m_LocalPosition: {x: 0, y: 30, z: -24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1554463987}
@@ -6108,7 +6109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uicUIController: {fileID: 1055950120}
-  m_iDamage: 35
+  m_iDamage: 25
   m_iAmmo: 1000
   m_iMaxAmmo: 1000
   m_iMaxBulletsAtOnce: 300
@@ -6116,7 +6117,7 @@ MonoBehaviour:
   m_iExplosive: 0
   m_baseExplosive: 0
   m_iSpread: 0
-  m_fFireDelay: 0.05
+  m_fFireDelay: 0.25
   m_fFireTimer: 0
   m_goBulletPrefab: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed,
     type: 2}
@@ -6136,6 +6137,7 @@ MonoBehaviour:
   isInShop: 0
   m_bPlayerOne: 0
   m_iHealth: 100
+  m_iMaxHealth: 100
   m_fMovementSpeed: 50
   m_gcGun: {fileID: 1819852305}
   m_uicUIController: {fileID: 1055950120}

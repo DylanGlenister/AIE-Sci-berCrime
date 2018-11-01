@@ -20,6 +20,8 @@ public class EnemyController : MonoBehaviour
     public GameObject m_goPlayerTwo;
     public GameObject m_goCurrentTarget;
 
+    public GameObject m_goExplosion;
+
     private NavMeshAgent m_nmaNavMeshAgent;
 
     private void Awake ()
@@ -42,6 +44,7 @@ public class EnemyController : MonoBehaviour
             IsAlive = false;
             m_escEnemySpawnController.m_iCurrentScuttlerCount -= 1;
             m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound += 1;
+            Instantiate(m_goExplosion, transform.position, transform.rotation);
             gameObject.SetActive(false);
         }
 
@@ -124,24 +127,11 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.tag == "Bullet")
         {
             TakeDamage(other.gameObject.GetComponent<Bullet>().m_iDamage);
-
-            if (m_iHealth == 0 && other.gameObject.GetComponent<Bullet>().m_iExplosive > 0)
-            {
-                //range is calculated off it's base range and the level of the explosive upgrade;
-                other.gameObject.GetComponent<Bullet>().m_damageRange *= other.gameObject.GetComponent<Bullet>().m_iExplosive;
-                
-                //do some explosion maths shit here
-
-
-            }
-
-
+            
             if (other.gameObject.GetComponent<Bullet>().m_iPenetrating == 0)
                 other.gameObject.GetComponent<Bullet>().m_fBulletCountdown = 0;
         }
     }
-
- 
 
     // Applies damage to the object
     public void TakeDamage (int pDamage)

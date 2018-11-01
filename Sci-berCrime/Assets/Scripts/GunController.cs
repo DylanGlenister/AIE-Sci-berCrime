@@ -42,8 +42,6 @@ public class GunController : MonoBehaviour
         m_iExplosive = 0;
         m_iSpread = 0;
     }
-    
-  
 
     // The background updating for the gun
     public void GunUpdate()
@@ -69,6 +67,7 @@ public class GunController : MonoBehaviour
                     m_lgoBulletList[i].transform.position = m_goBulletSpawn.transform.position;
                     m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
                     m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
+                    m_lgoBulletList[i].GetComponent<Bullet>().m_iPenetrating = m_iPenetrating;
                     m_lgoBulletList[i].SetActive(true);
                     m_iAmmo -= 1;
                     break;

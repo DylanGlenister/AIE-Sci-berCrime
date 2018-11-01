@@ -4750,6 +4750,8 @@ MonoBehaviour:
   m_goPlayerOne: {fileID: 0}
   m_goPlayerTwo: {fileID: 0}
   m_goCurrentTarget: {fileID: 0}
+  m_goExplosion: {fileID: 1661961769809686, guid: a191cdb79ccd73243a0501c8407348c3,
+    type: 2}
 --- !u!135 &135819387896802348
 SphereCollider:
   m_ObjectHideFlags: 1

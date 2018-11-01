@@ -21,6 +21,6 @@ public class Explosion : MonoBehaviour
                 hit.transform.GetComponent<EnemyController>().TakeDamage(20);
             }
         }
-        Destroy(this);
+        Destroy(this.gameObject, 1);
     }
 }
