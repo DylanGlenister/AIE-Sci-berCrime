@@ -7,6 +7,7 @@ public class ShopController : MonoBehaviour
     public UIController m_uicUIController;
     public PlayerController m_gcPlayerOne;
     public PlayerController m_gcPlayerTwo;
+    public RoundController m_rcRoundController;
 
     public bool m_bShopEnabled = false;
 
@@ -14,7 +15,7 @@ public class ShopController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown ("P1 Button Y") || Input.GetButtonDown("P2 Button Y"))
+        if ((Input.GetButtonDown ("P1 Button Y") || Input.GetButtonDown("P2 Button Y")) && m_rcRoundController.m_bRoundOver)
         {
             if (m_bShopEnabled)
             {
@@ -28,9 +29,35 @@ public class ShopController : MonoBehaviour
                 m_uicUIController.ToggleShopVisible(true);
                 m_bShopEnabled = true;
                 m_gcPlayerOne.isInShop = true;
-                m_gcPlayerTwo.isInShop = false;
+                m_gcPlayerTwo.isInShop = true;
             }
         }
+    }
+
+    public void ToggleShopEnabled ()
+    {
+        if (m_bShopEnabled)
+        {
+            m_bShopEnabled = false;
+            m_uicUIController.ToggleShopVisible(false);
+            m_gcPlayerOne.isInShop = false;
+            m_gcPlayerTwo.isInShop = false;
+        }
+        else
+        {
+            m_bShopEnabled = true;
+            m_uicUIController.ToggleShopVisible(true);
+            m_gcPlayerOne.isInShop = true;
+            m_gcPlayerTwo.isInShop = true;
+        }
+    }
+
+    public void ToggleShopEnabled (bool pState)
+    {
+        m_bShopEnabled = pState;
+        m_uicUIController.ToggleShopVisible(pState);
+        m_gcPlayerOne.isInShop = pState;
+        m_gcPlayerTwo.isInShop = pState;
     }
 
     public void DepositToWallet (int p_iValue)

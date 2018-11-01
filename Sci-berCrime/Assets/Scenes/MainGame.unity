@@ -3247,7 +3247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c46719d2d6222479e02ceca2215ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bSpawningEnabled: 0
+  m_bSpawningEnabled: 1
   funMode: 0
   m_fSpawnDelay: 0.25
   m_iCurrentScuttlerCount: 0
@@ -3294,6 +3294,7 @@ MonoBehaviour:
   m_uicUIController: {fileID: 1055950120}
   m_gcPlayerOne: {fileID: 423580756}
   m_gcPlayerTwo: {fileID: 1819852306}
+  m_rcRoundController: {fileID: 1055950119}
   m_bShopEnabled: 0
   m_iWallet: 0
 --- !u!114 &1055950119
@@ -3309,6 +3310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_escEnemySpawnController: {fileID: 1055950117}
   m_uicUIController: {fileID: 1055950120}
+  m_scShopController: {fileID: 1055950118}
   m_bRoundOver: 0
   m_bGameOver: 0
   m_bP1Ready: 0
@@ -3317,7 +3319,7 @@ MonoBehaviour:
   m_iCurrentRound: 0
   m_iMaxRounds: 0
   m_fRoundCountdown: 0
-  m_fRoundTimer: 120
+  m_fRoundTimer: 30
   m_goPlayerOne: {fileID: 423580756}
   m_goPlayerTwo: {fileID: 1819852306}
 --- !u!114 &1055950120
@@ -4473,8 +4475,8 @@ MonoBehaviour:
         m_MethodName: AmmoBuy
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 423580756}
-          m_ObjectArgumentAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_ObjectArgument: {fileID: 423580755}
+          m_ObjectArgumentAssemblyTypeName: GunController, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6525,8 +6527,8 @@ MonoBehaviour:
         m_MethodName: Upgrade_Ammo
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 423580756}
-          m_ObjectArgumentAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_ObjectArgument: {fileID: 423580755}
+          m_ObjectArgumentAssemblyTypeName: GunController, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

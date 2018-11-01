@@ -7,6 +7,7 @@ public class RoundController : MonoBehaviour
 {
     public EnemySpawnController m_escEnemySpawnController;
     public UIController m_uicUIController;
+    public ShopController m_scShopController;
 
     [Header("Bools")]
     public bool m_bRoundOver;
@@ -21,7 +22,7 @@ public class RoundController : MonoBehaviour
 
     [Header("Floats")]
     public float m_fRoundCountdown;
-    public float m_fRoundTimer = 120;
+    public float m_fRoundTimer = 30;
 
     [Header("Players")]
     public PlayerController m_goPlayerOne;
@@ -92,6 +93,8 @@ public class RoundController : MonoBehaviour
             m_uicUIController.SetTimerText(m_fRoundCountdown);
             m_uicUIController.SetRoundNumber(m_iCurrentRound);
             m_uicUIController.ToggleRoundTimerVisible(false);
+
+            m_scShopController.ToggleShopEnabled(false);
 
             m_bTimerToggle = false;
             m_bP1Ready = false;

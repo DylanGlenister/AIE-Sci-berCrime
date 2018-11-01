@@ -18,9 +18,9 @@ public class Explosion : MonoBehaviour
         {
             if (hit.transform.GetComponent<EnemyController>())
             {
-                hit.transform.GetComponent<EnemyController>().TakeDamage(20);
+                hit.transform.GetComponent<EnemyController>().TakeDamage(80);
             }
         }
-        Destroy(this.gameObject, 1);
+        Destroy(this.gameObject, 0.5f);
     }
 }
