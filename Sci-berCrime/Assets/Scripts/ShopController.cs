@@ -14,7 +14,7 @@ public class ShopController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("P1 Button Y") || Input.GetButtonDown("P2 Button Y"))
+        if (Input.GetButtonDown ("P1 Button Y") || Input.GetButtonDown("P2 Button Y"))
         {
             if (m_bShopEnabled)
             {
@@ -33,32 +33,35 @@ public class ShopController : MonoBehaviour
         }
     }
 
-    public void DepositToWallet(int p_iValue)
+    public void DepositToWallet (int p_iValue)
     {
         m_iWallet += p_iValue;
         m_uicUIController.SetMoneyAmount(m_iWallet);
     }
 
-    public void WithdrawFromWallet(int p_iValue)
+    public void WithdrawFromWallet (int p_iValue)
     {
         m_iWallet -= p_iValue;
         m_uicUIController.SetMoneyAmount(m_iWallet);
     }
 
     // Increases player health by 20 points
-    public void Upgrade_Health(PlayerController pPlayer)
+    public void Upgrade_Health (PlayerController pPlayer)
     {
-        pPlayer.m_iHealth += 10;
+        if (pPlayer.m_iHealth == pPlayer.m_iMaxHealth)
+            pPlayer.m_iHealth += 10;
+
+        pPlayer.m_iMaxHealth += 10;
     }
 
     // Increases weapon damage  by 20 points
-    public void Updgrade_Damage(GunController pPlayer)
+    public void Updgrade_Damage (GunController pPlayer)
     {
         pPlayer.m_iDamage += 20;
     }
 
     // Reduces delay between shots fired by 0.01 seconds
-    public void Upgrade_RPM(GunController pPlayer)
+    public void Upgrade_RPM (GunController pPlayer)
     {
         if (pPlayer.m_fFireDelay > 0.006f && pPlayer.m_fFireDelay != 0.005f)
             pPlayer.m_fFireDelay -= 0.005f;
@@ -67,19 +70,23 @@ public class ShopController : MonoBehaviour
     }
 
     // Increases the max ammo the player can carry
-    public void Upgrade_Ammo(PlayerController pPlayer)
+    public void Upgrade_Ammo (GunController pPlayer)
     {
+        if (pPlayer.m_iAmmo == pPlayer.m_iMaxAmmo)
+            pPlayer.m_iAmmo += 100;
+
+        pPlayer.m_iMaxAmmo += 100;
 
     }
 
     // Allows the weapon to fire bullets that penetrate targets
-    public void Upgrade_Penetration(GunController pPlayer)
+    public void Upgrade_Penetration (GunController pPlayer)
     {
-
+        pPlayer.m_iPenetrating = 1;
     }
 
     // Allows the weapon to fire explosive bullets that damage in an area
-    public void Upgrade_Explosive(GunController pPlayer)
+    public void Upgrade_Explosive (GunController pPlayer)
     {
         pPlayer.m_iExplosive += 1;
         if (pPlayer.m_iExplosive > 2)
@@ -89,7 +96,7 @@ public class ShopController : MonoBehaviour
     }
 
     // Allows the weapon to fire multiple bullets that can hit multiple targets
-    public void Upgrade_Spread(GunController pPlayer)
+    public void Upgrade_Spread (GunController pPlayer)
     {
 
         pPlayer.m_iSpread += 1;
@@ -99,13 +106,18 @@ public class ShopController : MonoBehaviour
         }
     }
 
-    public void HealthBuy(PlayerController pPlayer)
+    public void HealthBuy (PlayerController pPlayer)
     {
-
+        if (pPlayer.m_iHealth != pPlayer.m_iMaxHealth)
+            pPlayer.m_iHealth = pPlayer.m_iMaxHealth;
     }
 
-    public void AmmoBuy(PlayerController pPlayer)
+    public void AmmoBuy (GunController pPlayer)
     {
+        if (pPlayer.m_iAmmo != pPlayer.m_iMaxAmmo)
+            pPlayer.m_iAmmo += 100;
 
+        if (pPlayer.m_iAmmo > pPlayer.m_iMaxAmmo)
+            pPlayer.m_iAmmo = pPlayer.m_iMaxAmmo;
     }
 }

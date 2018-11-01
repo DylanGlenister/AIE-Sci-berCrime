@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public bool m_bPlayerOne;
 
     public int m_iHealth = 100;
+    public int m_iMaxHealth = 100;
 
     public float m_fMovementSpeed = 50.0f;
 

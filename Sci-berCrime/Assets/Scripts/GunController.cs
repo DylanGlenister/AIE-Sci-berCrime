@@ -70,6 +70,7 @@ public class GunController : MonoBehaviour
                     m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
                     m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
                     m_lgoBulletList[i].SetActive(true);
+                    m_iAmmo -= 1;
                     break;
                 }
 
@@ -88,7 +89,7 @@ public class GunController : MonoBehaviour
                         m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(0, 5, 0);
                         m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
                         m_lgoBulletList[i].SetActive(true);
-
+                        m_iAmmo -= 1;
                         break;
                     }
                 }
@@ -104,8 +105,8 @@ public class GunController : MonoBehaviour
                         m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
                         m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(0, -5, 0);
                         m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
-
                         m_lgoBulletList[i].SetActive(true);
+                        m_iAmmo -= 1;
                         break;
                     }
                 }
@@ -122,8 +123,7 @@ public class GunController : MonoBehaviour
                             m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(0, 10, 0);
                             m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
                             m_lgoBulletList[i].SetActive(true);
-
-
+                            m_iAmmo -= 1;
                             break;
                         }
                     }
@@ -137,22 +137,24 @@ public class GunController : MonoBehaviour
                             m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
                             m_lgoBulletList[i].transform.rotation *= Quaternion.Euler(0, -10, 0);
                             m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
-
                             m_lgoBulletList[i].SetActive(true);
+                            m_iAmmo -= 1;
                             break;
                         }
                     }
                 }
-
-                m_iAmmo -= 1;
-                m_fFireTimer += m_fFireDelay;
-
-                // Updates the associated UI element for ammo based on which player the gun script is attached to
-                if (pParent.gameObject.GetComponent<PlayerController>().m_bPlayerOne)
-                    m_uicUIController.SetPlayerOneAmmo(m_iAmmo);
-                else
-                    m_uicUIController.SetPlayerTwoAmmo(m_iAmmo);
             }
+
+            if (m_iAmmo < 0)
+                m_iAmmo = 0;
+
+            m_fFireTimer += m_fFireDelay;
+
+            // Updates the associated UI element for ammo based on which player the gun script is attached to
+            if (pParent.gameObject.GetComponent<PlayerController>().m_bPlayerOne)
+                m_uicUIController.SetPlayerOneAmmo(m_iAmmo);
+            else
+                m_uicUIController.SetPlayerTwoAmmo(m_iAmmo);
         }
     }
 }
