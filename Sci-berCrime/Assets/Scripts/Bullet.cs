@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     public float m_iBulletSpeed = 100f;
 
     // explosive and penetrating upgrade goes here because i don't know why
-    public int m_iPenetrating;
+    public int m_iPiercing;
     public int m_iExplosive;
 
     public Rigidbody m_rbRigidBody;

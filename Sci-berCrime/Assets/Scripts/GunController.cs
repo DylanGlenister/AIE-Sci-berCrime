@@ -13,7 +13,7 @@ public class GunController : MonoBehaviour
     public int m_iMaxBulletsAtOnce = 300;
 
     // upgrades for the bullets
-    public int m_iPenetrating;
+    public int m_iPiercing;
     public int m_iExplosive;
     public int m_baseExplosive;
     public int m_iSpread;
@@ -38,7 +38,7 @@ public class GunController : MonoBehaviour
             obj.GetComponent<Bullet>().m_iDamage = m_iDamage;
             m_lgoBulletList.Add(obj);
         }
-        m_iPenetrating = 0;
+        m_iPiercing = 0;
         m_iExplosive = 0;
         m_iSpread = 0;
     }
@@ -67,7 +67,7 @@ public class GunController : MonoBehaviour
                     m_lgoBulletList[i].transform.position = m_goBulletSpawn.transform.position;
                     m_lgoBulletList[i].transform.rotation = m_goBulletSpawn.transform.rotation;
                     m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletCountdown = m_lgoBulletList[i].GetComponent<Bullet>().m_fBulletLife;
-                    m_lgoBulletList[i].GetComponent<Bullet>().m_iPenetrating = m_iPenetrating;
+                    m_lgoBulletList[i].GetComponent<Bullet>().m_iPiercing = m_iPiercing;
                     m_lgoBulletList[i].SetActive(true);
                     m_iAmmo -= 1;
                     break;

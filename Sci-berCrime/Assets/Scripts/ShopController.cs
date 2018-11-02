@@ -11,7 +11,24 @@ public class ShopController : MonoBehaviour
 
     public bool m_bShopEnabled = false;
 
-    public int m_iWallet = 0;
+    private int m_iWallet = 0;
+
+    [Header("Store Cost")]
+    public int m_iHealthUpgradeCost;
+    public int m_iDamageUpgradeCost;
+    public int m_iRPMUpgradeCost;
+    public int m_iAmmoUpgradeCost;
+    public int m_iPiercingUPgradeCost;
+    public int m_iSpreadUpgradeCost;
+    public int m_iExplosiveUpgradeCost;
+    public int m_iHealthBuyCost;
+    public int m_iAmmoBuyCost;
+
+    [Header("Store Values")]
+    public int m_iHealthIncrement = 20;
+    public int m_iDamageIncrement = 20;
+    public float m_fRPMIncrement = 0.005f;
+    public int m_iAmmoIncrement = 500;
 
     private void Update()
     {
@@ -34,6 +51,7 @@ public class ShopController : MonoBehaviour
         }
     }
 
+    // Enables and disables the shop window
     public void ToggleShopEnabled ()
     {
         if (m_bShopEnabled)
@@ -52,6 +70,7 @@ public class ShopController : MonoBehaviour
         }
     }
 
+    // Sets the shop window to a desired state
     public void ToggleShopEnabled (bool pState)
     {
         m_bShopEnabled = pState;
@@ -60,91 +79,166 @@ public class ShopController : MonoBehaviour
         m_gcPlayerTwo.isInShop = pState;
     }
 
+    // Adds money to the wallet
     public void DepositToWallet (int p_iValue)
     {
         m_iWallet += p_iValue;
-        m_uicUIController.SetMoneyAmount(m_iWallet);
+        m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
+        m_uicUIController.SetShopMoneyAmount(m_iWallet);
     }
 
+    // Removes money from the wallet
     public void WithdrawFromWallet (int p_iValue)
     {
         m_iWallet -= p_iValue;
-        m_uicUIController.SetMoneyAmount(m_iWallet);
+        m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
+        m_uicUIController.SetShopMoneyAmount(m_iWallet);
     }
+
+    // Returns the value of the wallet
+    public int GetWalletBalance ()
+    {
+        return m_iWallet;
+    }
+
+    //-----------------------------------------------
 
     // Increases player health by 20 points
     public void Upgrade_Health (PlayerController pPlayer)
     {
-        if (pPlayer.m_iHealth == pPlayer.m_iMaxHealth)
-            pPlayer.m_iHealth += 10;
+        if (m_iWallet < m_iHealthUpgradeCost)
+            return;
 
-        pPlayer.m_iMaxHealth += 10;
+        // Updates UI
+        m_iWallet -= m_iHealthUpgradeCost;
+        m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
+        m_uicUIController.SetShopMoneyAmount(m_iWallet);
+
+        if (pPlayer.m_iHealth == pPlayer.m_iMaxHealth)
+            pPlayer.m_iHealth += m_iHealthIncrement;
+
+        pPlayer.m_iMaxHealth += m_iHealthIncrement;
+
     }
 
     // Increases weapon damage  by 20 points
     public void Updgrade_Damage (GunController pPlayer)
     {
-        pPlayer.m_iDamage += 20;
+        if (m_iWallet < m_iDamageUpgradeCost)
+            return;
+
+        // Updates UI
+        m_iWallet -= m_iDamageUpgradeCost;
+        m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
+        m_uicUIController.SetShopMoneyAmount(m_iWallet);
+
+        pPlayer.m_iDamage += m_iDamageIncrement;
     }
 
     // Reduces delay between shots fired by 0.01 seconds
     public void Upgrade_RPM (GunController pPlayer)
     {
-        if (pPlayer.m_fFireDelay > 0.006f && pPlayer.m_fFireDelay != 0.005f)
-            pPlayer.m_fFireDelay -= 0.005f;
+        if (m_iWallet < m_iRPMUpgradeCost)
+            return;
+
+        // Updates UI
+        m_iWallet -= m_iRPMUpgradeCost;
+        m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
+        m_uicUIController.SetShopMoneyAmount(m_iWallet);
+
+        if (pPlayer.m_fFireDelay > (m_fRPMIncrement + m_fRPMIncrement * 0.25f) && pPlayer.m_fFireDelay != m_fRPMIncrement)
+            pPlayer.m_fFireDelay -= m_fRPMIncrement;
         else
-            pPlayer.m_fFireDelay = 0.005f;
+            pPlayer.m_fFireDelay = m_fRPMIncrement;
     }
 
     // Increases the max ammo the player can carry
     public void Upgrade_Ammo (GunController pPlayer)
     {
+        if (m_iWallet < m_iAmmoUpgradeCost)
+            return;
+
+        // Updates UI
+        m_iWallet -= m_iAmmoUpgradeCost;
+        m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
+        m_uicUIController.SetShopMoneyAmount(m_iWallet);
+
         if (pPlayer.m_iAmmo == pPlayer.m_iMaxAmmo)
-            pPlayer.m_iAmmo += 100;
+            pPlayer.m_iAmmo += m_iAmmoIncrement;
 
-        pPlayer.m_iMaxAmmo += 100;
-
+        pPlayer.m_iMaxAmmo += m_iAmmoIncrement;
     }
 
-    // Allows the weapon to fire bullets that penetrate targets
-    public void Upgrade_Penetration (GunController pPlayer)
+    // Allows the weapon to fire bullets that pierce targets
+    public void Upgrade_Piercing (GunController pPlayer)
     {
-        pPlayer.m_iPenetrating = 1;
+        if (m_iWallet < m_iPiercingUPgradeCost)
+            return;
+
+        // Updates UI
+        m_iWallet -= m_iPiercingUPgradeCost;
+        m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
+        m_uicUIController.SetShopMoneyAmount(m_iWallet);
+
+        if (pPlayer.m_iPiercing < 3)
+            pPlayer.m_iPiercing += 1;
     }
 
     // Allows the weapon to fire explosive bullets that damage in an area
     public void Upgrade_Explosive (GunController pPlayer)
     {
-        pPlayer.m_iExplosive += 1;
-        if (pPlayer.m_iExplosive > 2)
-        {
-            pPlayer.m_iExplosive = 2;
-        }
+        if (m_iWallet < m_iExplosiveUpgradeCost)
+            return;
+
+        // Updates UI
+        m_iWallet -= m_iExplosiveUpgradeCost;
+        m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
+        m_uicUIController.SetShopMoneyAmount(m_iWallet);
+
+        if (pPlayer.m_iExplosive < 3)
+            pPlayer.m_iExplosive += 1;
     }
 
     // Allows the weapon to fire multiple bullets that can hit multiple targets
     public void Upgrade_Spread (GunController pPlayer)
     {
+        if (m_iWallet < m_iSpreadUpgradeCost)
+            return;
 
-        pPlayer.m_iSpread += 1;
-        if (pPlayer.m_iSpread > 2)
-        {
-            pPlayer.m_iSpread = 2;
-        }
+        // Updates UI
+        m_iWallet -= m_iSpreadUpgradeCost;
+        m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
+        m_uicUIController.SetShopMoneyAmount(m_iWallet);
+
+        if (pPlayer.m_iSpread < 3)
+            pPlayer.m_iSpread += 1;
     }
 
     public void HealthBuy (PlayerController pPlayer)
     {
+        if (m_iWallet < m_iHealthBuyCost)
+            return;
+
+        // Updates UI
+        m_iWallet -= m_iHealthBuyCost;
+        m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
+        m_uicUIController.SetShopMoneyAmount(m_iWallet);
+
         if (pPlayer.m_iHealth != pPlayer.m_iMaxHealth)
             pPlayer.m_iHealth = pPlayer.m_iMaxHealth;
     }
 
     public void AmmoBuy (GunController pPlayer)
     {
-        if (pPlayer.m_iAmmo != pPlayer.m_iMaxAmmo)
-            pPlayer.m_iAmmo += 100;
+        if (m_iWallet < m_iAmmoBuyCost)
+            return;
 
-        if (pPlayer.m_iAmmo > pPlayer.m_iMaxAmmo)
+        // Updates UI
+        m_iWallet -= m_iAmmoBuyCost;
+        m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
+        m_uicUIController.SetShopMoneyAmount(m_iWallet);
+
+        if (pPlayer.m_iAmmo != pPlayer.m_iMaxAmmo)
             pPlayer.m_iAmmo = pPlayer.m_iMaxAmmo;
     }
 }

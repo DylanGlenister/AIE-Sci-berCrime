@@ -5,84 +5,100 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public Text m_txtRoundNumberText;
-    public Text m_txtMoneyAmountText;
-    public Text m_txtRoundTimerText;
+    [Header("GameplayUI")]
+    public Text m_txtRoundNumber;
+    public Text m_txtMoneyAmount;
+    public Text m_txtRoundTimer;
     [Header("Player One")]
-    public Text m_txtPlayerOneHealthText;
-    public Text m_txtPlayerOneAmmoText;
+    public Text m_txtPlayerOneHealth;
+    public Text m_txtPlayerOneAmmo;
     [Header("Player Two")]
-    public Text m_txtPlayerTwoHealthText;
-    public Text m_txtPlayerTwoAmmoText;
-    [Header("Shop")]
-    public Canvas m_cShopCanvas;
+    public Text m_txtPlayerTwoHealth;
+    public Text m_txtPlayerTwoAmmo;
+    [Header("ShopUI")]
+    public GameObject m_goShopWindow;
+    public Text m_txtShopMoney;
+    //public Text m_txtHealthUpgradeCost;
+    //public Text m_txtDamageUpgradeCost;
+    //public Text m_txtRPMUpgradeCost;
+    //public Text m_txtAmmoUpgradeCost;
+    //public Text m_txtPiercingUpgradeCost;
+    //public Text m_txtSpreadUpgradeCost;
+    //public Text m_txtExplosiveUpgradeCost;
+    //public Text m_txtHealthBuyCost;
+    //public Text m_txtAmmoBuyCost;
 
     private void Awake()
     {
-        m_txtRoundTimerText.enabled = false;
-        m_cShopCanvas.enabled = false;
+        m_txtRoundTimer.enabled = false;
+        m_goShopWindow.SetActive(false);
     }
 
     // Updates the UI element to display the current round number
     public void SetRoundNumber (int pRoundNumber)
     {
-        m_txtRoundNumberText.text = pRoundNumber.ToString();
+        m_txtRoundNumber.text = pRoundNumber.ToString();
     }
 
     // Updates the UI element to display the current wallet value
-    public void SetMoneyAmount (int pWalletValue)
+    public void SetGameplayMoneyAmount (int pWalletValue)
     {
-        m_txtMoneyAmountText.text = pWalletValue.ToString();
+        m_txtMoneyAmount.text = pWalletValue.ToString();
     }
 
     // Updates the UI element to display PlayerOne's current health
     public void SetPlayerOneHealth (int pPlayerOneHealth)
     {
-        m_txtPlayerOneHealthText.text = pPlayerOneHealth.ToString();
+        m_txtPlayerOneHealth.text = pPlayerOneHealth.ToString();
     }
 
     // Updates the UI element to display PlayerTwo's current health
     public void SetPlayerTwoHealth (int pPlayerTwoHealth)
     {
-        m_txtPlayerTwoHealthText.text = pPlayerTwoHealth.ToString();
+        m_txtPlayerTwoHealth.text = pPlayerTwoHealth.ToString();
     }
 
     // Updates the UI element to display PlayerOne's current ammo
     public void SetPlayerOneAmmo (int pPlayerOneAmmo)
     {
-        m_txtPlayerOneAmmoText.text = pPlayerOneAmmo.ToString();
+        m_txtPlayerOneAmmo.text = pPlayerOneAmmo.ToString();
     }
 
     // Updates the UI element to display PlayerTwo's current ammo
     public void SetPlayerTwoAmmo (int pPlayerTwoAmmo)
     {
-        m_txtPlayerTwoAmmoText.text = pPlayerTwoAmmo.ToString();
+        m_txtPlayerTwoAmmo.text = pPlayerTwoAmmo.ToString();
     }
 
     // Updates the timer
     public void SetTimerText (float pTimer)
     {
         int temp = Mathf.RoundToInt(pTimer);
-        m_txtRoundTimerText.text = temp.ToString();
+        m_txtRoundTimer.text = temp.ToString();
     }
 
     // Allows any script to change whether the timer is visible
     public void ToggleRoundTimerVisible (bool pState)
     {
-        m_txtRoundTimerText.enabled = pState;
+        m_txtRoundTimer.enabled = pState;
     }
 
     // Enables/disables the shop window
     public void ToggleShopVisible ()
     {
-        if (m_cShopCanvas.enabled)
-            m_cShopCanvas.enabled = false;
+        if (m_goShopWindow.activeInHierarchy)
+            m_goShopWindow.SetActive(false);
         else
-            m_cShopCanvas.enabled = true;
+            m_goShopWindow.SetActive(true);
     }
 
     public void ToggleShopVisible (bool pState)
     {
-        m_cShopCanvas.enabled = pState;
+        m_goShopWindow.SetActive(pState);
+    }
+
+    public void SetShopMoneyAmount(int pWalletValue)
+    {
+        m_txtShopMoney.text = pWalletValue.ToString();
     }
 }
