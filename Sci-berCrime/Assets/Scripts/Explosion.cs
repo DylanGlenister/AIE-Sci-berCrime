@@ -4,23 +4,43 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    public int m_iExplosionRadius;
+    private bool m_bExploded = false;
+    public float m_fExplosionDelay = 0.25f;
+    public float m_fExplosionCountdown;
 
-    private void Start()
+    public int m_iExplosionDamage;
+    public float m_fExplosionRadius;
+
+    private void Awake()
     {
-        Vector3 explosionPos = transform.position;
-        
-        //Make an empty array of colliders that are within a sphere the size of 'explosionRadius'
-        Collider[] colliders = Physics.OverlapSphere(explosionPos, m_iExplosionRadius);
+        m_fExplosionCountdown = m_fExplosionDelay;
+    }
 
-        //Deals damage in an area to all objects with ObjectHealth script
-        foreach (Collider hit in colliders)
+    private void Update()
+    {
+        if (m_fExplosionCountdown != 0)
         {
-            if (hit.transform.GetComponent<EnemyController>())
-            {
-                hit.transform.GetComponent<EnemyController>().TakeDamage(80);
-            }
+            m_fExplosionCountdown -= Time.deltaTime;
+
+            if (m_fExplosionCountdown < 0)
+                m_fExplosionCountdown = 0;
         }
-        Destroy(this.gameObject, 0.5f);
+        else if (!m_bExploded)
+        {
+            Vector3 explosionPos = transform.position;
+
+            //Make an empty array of colliders that are within a sphere the size of 'explosionRadius'
+            Collider[] colliders = Physics.OverlapSphere(explosionPos, m_fExplosionRadius);
+
+            //Deals damage in an area to all objects with ObjectHealth script
+            foreach (Collider hit in colliders)
+            {
+                if (hit.transform.GetComponent<EnemyController>())
+                {
+                    hit.transform.GetComponent<EnemyController>().TakeDamage(80);
+                }
+            }
+            Destroy(this.gameObject, 0.5f);
+        }
     }
 }

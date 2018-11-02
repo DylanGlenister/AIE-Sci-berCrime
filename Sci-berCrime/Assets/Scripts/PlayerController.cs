@@ -87,13 +87,13 @@ public class PlayerController : MonoBehaviour
             {
                 // Calls a specific update function for the currently active gun
                 if (m_gcGun && m_bIsAlive && Input.GetButton("P1 Button RB"))
-                    m_gcGun.ActiveGunUpdate(gameObject);
+                    m_gcGun.ActiveGunUpdate(this);
             }
             else
             {
                 // Calls a specific update function for the currently active gun
                 if (m_gcGun && m_bIsAlive && Input.GetButton("P2 Button RB"))
-                    m_gcGun.ActiveGunUpdate(gameObject);
+                    m_gcGun.ActiveGunUpdate(this);
             }
         }
 
@@ -117,8 +117,8 @@ public class PlayerController : MonoBehaviour
             m_iHealth = 0;
 
         if (m_bPlayerOne)
-            m_uicUIController.SetPlayerOneHealth(m_iHealth);
+            m_uicUIController.SetPlayerOneUIHealth(m_iHealth);
         else
-            m_uicUIController.SetPlayerTwoHealth(m_iHealth);
+            m_uicUIController.SetPlayerTwoUIHealth(m_iHealth);
     }
 }

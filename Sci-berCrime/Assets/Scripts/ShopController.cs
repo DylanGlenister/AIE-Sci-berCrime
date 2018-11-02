@@ -11,7 +11,7 @@ public class ShopController : MonoBehaviour
 
     public bool m_bShopEnabled = false;
 
-    private int m_iWallet = 0;
+    public int m_iWallet = 0;
 
     [Header("Store Cost")]
     public int m_iHealthUpgradeCost;
@@ -47,11 +47,12 @@ public class ShopController : MonoBehaviour
                 m_bShopEnabled = true;
                 m_gcPlayerOne.isInShop = true;
                 m_gcPlayerTwo.isInShop = true;
+                m_uicUIController.SetShopMoneyAmount(m_iWallet);
             }
         }
     }
 
-    // Enables and disables the shop window
+    // Enables and disables the functionality of the shop window
     public void ToggleShopEnabled ()
     {
         if (m_bShopEnabled)
@@ -114,6 +115,12 @@ public class ShopController : MonoBehaviour
         m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
         m_uicUIController.SetShopMoneyAmount(m_iWallet);
 
+        if (pPlayer.m_bPlayerOne)
+            m_uicUIController.SetPlayerOneUIHealth(pPlayer.m_iHealth);
+        else
+            m_uicUIController.SetPlayerTwoUIHealth(pPlayer.m_iHealth);
+
+        // If players health is at max before upgrade, give them free health to keep at max after upgrade
         if (pPlayer.m_iHealth == pPlayer.m_iMaxHealth)
             pPlayer.m_iHealth += m_iHealthIncrement;
 
@@ -122,7 +129,7 @@ public class ShopController : MonoBehaviour
     }
 
     // Increases weapon damage  by 20 points
-    public void Updgrade_Damage (GunController pPlayer)
+    public void Updgrade_Damage (PlayerController pPlayer)
     {
         if (m_iWallet < m_iDamageUpgradeCost)
             return;
@@ -132,7 +139,7 @@ public class ShopController : MonoBehaviour
         m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
         m_uicUIController.SetShopMoneyAmount(m_iWallet);
 
-        pPlayer.m_iDamage += m_iDamageIncrement;
+        pPlayer.GetComponent<GunController>().m_iDamage += m_iDamageIncrement;
     }
 
     // Reduces delay between shots fired by 0.01 seconds
@@ -153,7 +160,7 @@ public class ShopController : MonoBehaviour
     }
 
     // Increases the max ammo the player can carry
-    public void Upgrade_Ammo (GunController pPlayer)
+    public void Upgrade_Ammo (PlayerController pPlayer)
     {
         if (m_iWallet < m_iAmmoUpgradeCost)
             return;
@@ -163,10 +170,16 @@ public class ShopController : MonoBehaviour
         m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
         m_uicUIController.SetShopMoneyAmount(m_iWallet);
 
-        if (pPlayer.m_iAmmo == pPlayer.m_iMaxAmmo)
-            pPlayer.m_iAmmo += m_iAmmoIncrement;
+        if (pPlayer.m_bPlayerOne)
+            m_uicUIController.SetPlayerOneUIAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
+        else
+            m_uicUIController.SetPlayerTwoUIAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
 
-        pPlayer.m_iMaxAmmo += m_iAmmoIncrement;
+        // If players ammo is at max before upgrade, give them free ammo to keep at max after upgrade
+        if (pPlayer.GetComponent<GunController>().m_iAmmo == pPlayer.GetComponent<GunController>().m_iMaxAmmo)
+            pPlayer.GetComponent<GunController>().m_iAmmo += m_iAmmoIncrement;
+
+        pPlayer.GetComponent<GunController>().m_iMaxAmmo += m_iAmmoIncrement;
     }
 
     // Allows the weapon to fire bullets that pierce targets

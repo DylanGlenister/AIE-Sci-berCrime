@@ -5,6 +5,13 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    public enum EnemyType
+    {
+        Scuttler,
+        Turret,
+        Drone
+    }
+
     public ShopController m_scShopController;
     public EnemySpawnController m_escEnemySpawnController;
 
@@ -44,7 +51,7 @@ public class EnemyController : MonoBehaviour
             IsAlive = false;
             m_escEnemySpawnController.m_iCurrentScuttlerCount -= 1;
             m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound += 1;
-            Instantiate(m_goExplosion, transform.position, transform.rotation);
+            // Hides object from scene
             gameObject.SetActive(false);
         }
 
@@ -130,6 +137,27 @@ public class EnemyController : MonoBehaviour
             
             if (other.gameObject.GetComponent<Bullet>().m_iPiercing == 0)
                 other.gameObject.GetComponent<Bullet>().m_fBulletCountdown = 0;
+
+            if (m_iHealth == 0)
+            {
+                // If explosive upgrade has been bought, create explosion based on level
+                if (other.gameObject.GetComponent<Bullet>().m_iExplosive != 0)
+                {
+                    // Spawns explosion at death location if killer has upgrade
+                    GameObject obj = Instantiate(m_goExplosion, transform.position, transform.rotation);
+
+                    if (other.gameObject.GetComponent<Bullet>().m_iExplosive == 1)
+                    {
+                        obj.GetComponent<Explosion>().m_iExplosionDamage = other.gameObject.GetComponent<Bullet>().m_iL1Damage;
+                        obj.GetComponent<Explosion>().m_fExplosionRadius = other.gameObject.GetComponent<Bullet>().m_fL1Radius;
+                    }
+                    else
+                    {
+                        obj.GetComponent<Explosion>().m_iExplosionDamage = other.gameObject.GetComponent<Bullet>().m_iL2Damage;
+                        obj.GetComponent<Explosion>().m_fExplosionRadius = other.gameObject.GetComponent<Bullet>().m_fL2Radius;
+                    }
+                }
+            }
         }
     }
 

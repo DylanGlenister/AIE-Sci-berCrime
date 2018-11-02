@@ -140,11 +140,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591426c2ff788004a8db700b70acb8ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bPenetrating: 0
-  m_iDamage: 0
+  m_iBulletSpeed: 100
   m_fBulletLife: 1
   m_fBulletCountdown: 0
-  m_iBulletSpeed: 100
+  m_iDamage: 0
+  m_iPiercing: 0
+  m_iExplosive: 0
+  m_iL1Damage: 0
+  m_iL2Damage: 0
+  m_fL1Radius: 0
+  m_fL2Radius: 0
   m_rbRigidBody: {fileID: 0}
 --- !u!136 &136011417524078838
 CapsuleCollider:

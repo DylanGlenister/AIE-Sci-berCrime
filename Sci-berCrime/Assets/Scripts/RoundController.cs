@@ -57,6 +57,7 @@ public class RoundController : MonoBehaviour
             if (!m_bTimerToggle)
             {
                 m_uicUIController.ToggleRoundTimerVisible(true);
+                m_scShopController.ToggleShopEnabled(true);
                 m_bTimerToggle = true;
             }
 
@@ -67,14 +68,14 @@ public class RoundController : MonoBehaviour
                 if (m_fRoundCountdown < 0)
                     m_fRoundCountdown = 0;
 
-                m_uicUIController.SetTimerText(m_fRoundCountdown);
+                m_uicUIController.SetRoundTimerText(m_fRoundCountdown);
             }
             
             // Checks if the players are ready
-            if (Input.GetButtonDown("P1 Button X"))
+            if (Input.GetButtonDown("P1 Button X") || Input.GetKeyDown(KeyCode.N))
                 m_bP1Ready = true;
 
-            if (Input.GetButtonDown("P2 Button X"))
+            if (Input.GetButtonDown("P2 Button X") || Input.GetKeyDown(KeyCode.M))
                 m_bP2Ready = true;
         }
 
@@ -90,7 +91,7 @@ public class RoundController : MonoBehaviour
             m_escEnemySpawnController.m_iMaxScuttlersAtOnce *= m_iCurrentRound;
 
             m_fRoundCountdown = m_fRoundTimer;
-            m_uicUIController.SetTimerText(m_fRoundCountdown);
+            m_uicUIController.SetRoundTimerText(m_fRoundCountdown);
             m_uicUIController.SetRoundNumber(m_iCurrentRound);
             m_uicUIController.ToggleRoundTimerVisible(false);
 
