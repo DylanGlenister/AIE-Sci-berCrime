@@ -125,18 +125,18 @@ public class UIController : MonoBehaviour
     // Updates the UI element to display PlayerOne's current ammo
     public void SetPlayerOneShopAmmo (int pPlayerOneAmmo)
     {
-        m_txtPlayerOneShopHealth.text = pPlayerOneAmmo.ToString();
+        m_txtPlayerOneShopAmmo.text = pPlayerOneAmmo.ToString();
     }
 
     // Updates the UI element to display PlayerTwo's current health
     public void SetPlayerTwoShopHealth (int pPlayerTwoHealth)
     {
-        m_txtPlayerOneShopHealth.text = pPlayerTwoHealth.ToString();
+        m_txtPlayerTwoShopHealth.text = pPlayerTwoHealth.ToString();
     }
 
     // Updates the UI element to display PlayerTwo's current ammo
     public void SetPlayerTwoShopAmmo (int pPlayerTwoAmmo)
     {
-        m_txtPlayerOneShopHealth.text = pPlayerTwoAmmo.ToString();
+        m_txtPlayerTwoShopAmmo.text = pPlayerTwoAmmo.ToString();
     }
 }
