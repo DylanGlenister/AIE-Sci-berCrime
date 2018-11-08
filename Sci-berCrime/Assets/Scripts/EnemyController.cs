@@ -47,7 +47,7 @@ public class EnemyController : MonoBehaviour
     {
         if (m_iHealth == 0)
         {
-            m_scShopController.GetComponent<ShopController>().DepositToWallet(10);
+            
             IsAlive = false;
             m_escEnemySpawnController.m_iCurrentScuttlerCount -= 1;
             m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound += 1;
@@ -164,7 +164,9 @@ public class EnemyController : MonoBehaviour
     // Applies damage to the object
     public void TakeDamage (int pDamage)
     {
+
         m_iHealth -= pDamage;
+        m_scShopController.GetComponent<ShopController>().DepositToWallet(pDamage/4);
         if (m_iHealth < 0)
             m_iHealth = 0;
     }
