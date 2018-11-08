@@ -11,14 +11,19 @@ public class PlayerController : MonoBehaviour
 
     public int m_iHealth = 100;
     public int m_iMaxHealth = 100;
+    public int m_iMeleeDamage = 75;
 
     public float m_fMovementSpeed = 50.0f;
+
+    public float m_fMeleeDelay = 0.1f;
+    public float m_fMeleeTimer;
 
     // Refernce to the gun firing script
     public GunController m_gcGun;
     public UIController m_uicUIController;
 
     public GameObject m_goAimTarget;
+    public GameObject m_goMeleeBox;
 
     // Reference to the rigidbody
     public Rigidbody m_rbRigidBody;
@@ -27,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         m_rbRigidBody = GetComponent<Rigidbody>();
         m_bIsAlive = true;
+        m_goMeleeBox.SetActive(false);
     }
 
     private void FixedUpdate ()
@@ -68,6 +74,17 @@ public class PlayerController : MonoBehaviour
                 Vector3 targetDir = m_goAimTarget.transform.position - transform.position;
                 Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 9999, 0.0f);
                 this.transform.rotation = Quaternion.LookRotation(newDir);
+            }
+
+            if (m_fMeleeTimer > 0)
+            {
+                m_fMeleeTimer -= Time.deltaTime;
+                if (m_fMeleeTimer < 0)
+                    m_fMeleeTimer = 0;
+            }
+            else if (Input.GetKey(KeyCode.G))
+            {
+                m_goMeleeBox.SetActive(true);
             }
         }
     }
@@ -120,5 +137,14 @@ public class PlayerController : MonoBehaviour
             m_uicUIController.SetPlayerOneUIHealth(m_iHealth);
         else
             m_uicUIController.SetPlayerTwoUIHealth(m_iHealth);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+            other.gameObject.GetComponent<EnemyController>().TakeDamage(m_iMeleeDamage);
+
+        m_fMeleeTimer = m_fMeleeDelay;
+        m_goMeleeBox.SetActive(false);
     }
 }
