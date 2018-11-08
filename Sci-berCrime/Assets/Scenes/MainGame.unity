@@ -1972,6 +1972,26 @@ Prefab:
       propertyPath: m_uicUIController
       value: 
       objectReference: {fileID: 1055950120}
+    - target: {fileID: 114669298930679124, guid: 4175760966e83da41baff67dfcc6c3bb,
+        type: 2}
+      propertyPath: m_fMeleeDelay
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699577454922110, guid: 4175760966e83da41baff67dfcc6c3bb,
+        type: 2}
+      propertyPath: m_fMeleeDelay
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114669298930679124, guid: 4175760966e83da41baff67dfcc6c3bb,
+        type: 2}
+      propertyPath: m_fSwingDurationDelay
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699577454922110, guid: 4175760966e83da41baff67dfcc6c3bb,
+        type: 2}
+      propertyPath: m_fSwingDurationDelay
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4175760966e83da41baff67dfcc6c3bb, type: 2}
   m_IsPrefabParent: 0

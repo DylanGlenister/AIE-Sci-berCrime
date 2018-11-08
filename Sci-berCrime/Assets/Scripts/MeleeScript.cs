@@ -10,10 +10,10 @@ public class MeleeScript : MonoBehaviour
 
     public int m_iMeleeDamage = 50;
 
-    public float m_fMeleeDelay = 0.5f;
+    public float m_fMeleeDelay = 0.4f;
     public float m_fMeleeTimer;
 
-    public float m_fSwingDurationDelay = 0.1f;
+    public float m_fSwingDurationDelay = 0.15f;
     public float m_fSwingDurationTimer;
 
     private void Awake()
@@ -26,7 +26,12 @@ public class MeleeScript : MonoBehaviour
     private void Update()
     {
         // Have a delay in between swings
-
+        if (m_fMeleeTimer > 0)
+        {
+            m_fMeleeTimer -= Time.deltaTime;
+            if (m_fMeleeTimer < 0)
+                m_fMeleeTimer = 0;
+        }
 
         // Make sure the melee swing only last a fraction of a second
         if (m_fSwingDurationTimer > 0 && !m_bSwingCompleted)
@@ -35,6 +40,7 @@ public class MeleeScript : MonoBehaviour
             if (m_fSwingDurationTimer < 0)
             {
                 m_fSwingDurationTimer = m_fSwingDurationDelay;
+                m_fMeleeTimer = m_fMeleeDelay;
                 m_bSwingCompleted = true;
             }
 
@@ -45,7 +51,7 @@ public class MeleeScript : MonoBehaviour
 
     public void InitiateSwing ()
     {
-        if (m_bSwingCompleted)
+        if (m_bSwingCompleted && m_fMeleeTimer == 0)
         {
             m_cMeleeBox.enabled = true;
             m_bSwingCompleted = false;
