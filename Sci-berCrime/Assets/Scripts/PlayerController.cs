@@ -51,6 +51,12 @@ public class PlayerController : MonoBehaviour
                 Vector3 targetDir = m_goAimTarget.transform.position - transform.position;
                 Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 9999, 0.0f);
                 transform.rotation = Quaternion.LookRotation(newDir);
+
+                // Melee
+                if (Input.GetButton("P1 Button LB"))
+                {
+                    m_msMeleeScript.InitiateSwing();
+                }
             }
             // All controls for player two
             else
@@ -69,11 +75,12 @@ public class PlayerController : MonoBehaviour
                 Vector3 targetDir = m_goAimTarget.transform.position - transform.position;
                 Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 9999, 0.0f);
                 this.transform.rotation = Quaternion.LookRotation(newDir);
-            }
 
-            if (Input.GetKey(KeyCode.G))
-            {
-                m_msMeleeScript.InitiateSwing();
+                // Melee
+                if (Input.GetButton("P2 Button LB"))
+                {
+                    m_msMeleeScript.InitiateSwing();
+                }
             }
         }
     }
