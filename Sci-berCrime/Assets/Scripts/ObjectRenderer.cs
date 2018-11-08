@@ -8,15 +8,17 @@ public class ObjectRenderer : MonoBehaviour
     // Player references
     public GameObject m_goPlayerOne;
     public GameObject m_goPlayerTwo;
-
+    
     // Object References
-    public Material m_rObjectRenderer;
+    Material m_rObjectRenderer;
+    float alpha;
 
     private void Awake()
     {
-        m_rObjectRenderer = GetComponent<SkinnedMeshRenderer>().material;
+        m_rObjectRenderer = GetComponent<Renderer>().material;
         m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
         m_goPlayerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
+        
     }
 
     private void Update()
@@ -24,31 +26,34 @@ public class ObjectRenderer : MonoBehaviour
         Vector3 playerOneDistance = transform.position - m_goPlayerOne.transform.position;
         Vector3 playerTwoDistance = transform.position - m_goPlayerTwo.transform.position;
 
-        if (playerOneDistance.magnitude <= 1 || playerTwoDistance.magnitude <= 1)
+        if (playerOneDistance.magnitude <= 10 || playerTwoDistance.magnitude <= 10 && m_rObjectRenderer.color.a != 0.01f)
         {
             // Object opacity
-            // This changes the alpha of the color of the material renderer
-            // I could only get this to work with a SkinnedMeshRenderer, do not touch anything else
-
-            Color opacity = m_rObjectRenderer.color;
-            opacity.a = 0.10f;
-            m_rObjectRenderer.color = opacity;
-
+            // This coroutine sets the object's opacity to 99% over a second
+            StartCoroutine(SetOpacity(0.01f, 1f));
 
         }
-        else
+        else if (playerOneDistance.magnitude > 10 && playerTwoDistance.magnitude > 10 && m_rObjectRenderer.color.a < 1f)
         {
-
-
-            // Object opacity
-            // This changes the alpha of the color of the material renderer
-            // I could only get this to work with a SkinnedMeshRenderer, do not touch anything else
-
-            Color opacity = m_rObjectRenderer.color;
-            opacity.a = 1f;
-            m_rObjectRenderer.color = opacity;
+            // Object opaqueness
+            // This coroutine sets the object's opacity to 0% over a second
+            StartCoroutine(SetOpacity(1.0f, 1f));
 
         }
 
+    }
+
+    IEnumerator SetOpacity(float AlphaValue, float AlphaTime)
+    {
+        // This loops through to animate the fading effect of the objects going transparent
+
+        alpha = transform.GetComponent<Renderer>().material.color.a;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / AlphaTime)
+        {
+            Color opacity = m_rObjectRenderer.color;
+            opacity.a = Mathf.Lerp(alpha, AlphaValue, t);
+            m_rObjectRenderer.color = opacity;
+            yield return null;
+        }
     }
 }
