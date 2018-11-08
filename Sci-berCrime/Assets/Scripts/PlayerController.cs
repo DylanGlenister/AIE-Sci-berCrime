@@ -17,9 +17,9 @@ public class PlayerController : MonoBehaviour
     // Refernce to the gun firing script
     public GunController m_gcGun;
     public UIController m_uicUIController;
+    public MeleeScript m_msMeleeScript;
 
     public GameObject m_goAimTarget;
-    public GameObject m_goMeleeBox;
 
     // Reference to the rigidbody
     public Rigidbody m_rbRigidBody;
@@ -69,6 +69,11 @@ public class PlayerController : MonoBehaviour
                 Vector3 targetDir = m_goAimTarget.transform.position - transform.position;
                 Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 9999, 0.0f);
                 this.transform.rotation = Quaternion.LookRotation(newDir);
+            }
+
+            if (Input.GetKey(KeyCode.G))
+            {
+                m_msMeleeScript.InitiateSwing();
             }
         }
     }

@@ -186,6 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4032870429437506}
   - component: {fileID: 65651004007264238}
+  - component: {fileID: 114699577454922110}
   m_Layer: 0
   m_Name: MeleeBox
   m_TagString: Untagged
@@ -266,6 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4523118703486280}
   - component: {fileID: 65155917072581820}
+  - component: {fileID: 114669298930679124}
   m_Layer: 0
   m_Name: MeleeBox
   m_TagString: Untagged
@@ -809,9 +811,39 @@ MonoBehaviour:
   m_fMovementSpeed: 50
   m_gcGun: {fileID: 114778702965374838}
   m_uicUIController: {fileID: 0}
+  m_msMeleeScript: {fileID: 114699577454922110}
   m_goAimTarget: {fileID: 1593271864142996}
-  m_goMeleeBox: {fileID: 1486862935525572}
   m_rbRigidBody: {fileID: 0}
+--- !u!114 &114669298930679124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1779642496691804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e630027849d11fc4d8dd79c1e4992f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_cMeleeBox: {fileID: 65155917072581820}
+  m_bSwingCompleted: 1
+  m_fSwingDelay: 0.1
+  m_fSwingTimer: 0
+--- !u!114 &114699577454922110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1486862935525572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e630027849d11fc4d8dd79c1e4992f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_cMeleeBox: {fileID: 65651004007264238}
+  m_bSwingCompleted: 1
+  m_fSwingDelay: 0.1
+  m_fSwingTimer: 0
 --- !u!114 &114778702965374838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -858,8 +890,8 @@ MonoBehaviour:
   m_fMovementSpeed: 50
   m_gcGun: {fileID: 114921521737523806}
   m_uicUIController: {fileID: 0}
+  m_msMeleeScript: {fileID: 114669298930679124}
   m_goAimTarget: {fileID: 1960821909690862}
-  m_goMeleeBox: {fileID: 1779642496691804}
   m_rbRigidBody: {fileID: 0}
 --- !u!114 &114921521737523806
 MonoBehaviour:
