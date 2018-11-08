@@ -12,6 +12,7 @@ public class ObjectRenderer : MonoBehaviour
     // Object References
     Material m_rObjectRenderer;
     float alpha;
+    public int distance;
 
     private void Awake()
     {
@@ -26,18 +27,18 @@ public class ObjectRenderer : MonoBehaviour
         Vector3 playerOneDistance = transform.position - m_goPlayerOne.transform.position;
         Vector3 playerTwoDistance = transform.position - m_goPlayerTwo.transform.position;
 
-        if (playerOneDistance.magnitude <= 10 || playerTwoDistance.magnitude <= 10 && m_rObjectRenderer.color.a != 0.01f)
+        if (playerOneDistance.magnitude <= distance|| playerTwoDistance.magnitude <= distance && m_rObjectRenderer.color.a != 0.01f)
         {
             // Object opacity
             // This coroutine sets the object's opacity to 99% over a second
-            StartCoroutine(SetOpacity(0.01f, 1f));
+            StartCoroutine(SetOpacity(0.01f, 0.5f));
 
         }
-        else if (playerOneDistance.magnitude > 10 && playerTwoDistance.magnitude > 10 && m_rObjectRenderer.color.a < 1f)
+        else if (playerOneDistance.magnitude >= distance && playerTwoDistance.magnitude >= distance && m_rObjectRenderer.color.a < 1.0f)
         {
             // Object opaqueness
             // This coroutine sets the object's opacity to 0% over a second
-            StartCoroutine(SetOpacity(1.0f, 1f));
+            StartCoroutine(SetOpacity(1.0f, 0.5f));
 
         }
 
@@ -48,7 +49,7 @@ public class ObjectRenderer : MonoBehaviour
         // This loops through to animate the fading effect of the objects going transparent
 
         alpha = transform.GetComponent<Renderer>().material.color.a;
-        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / AlphaTime)
+        for (float t = 0.0f; t < 1.0f; t += (Time.deltaTime / AlphaTime))
         {
             Color opacity = m_rObjectRenderer.color;
             opacity.a = Mathf.Lerp(alpha, AlphaValue, t);
