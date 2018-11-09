@@ -276,9 +276,13 @@ ModelImporter:
     2100004: blinn1
     2100006: blinn19
     2100008: blinn30
+    2100010: lambert1
     2300000: group33_polySurface139
+    2300002: //RootNode
     3300000: group33_polySurface139
+    3300002: //RootNode
     4300000: group33_polySurface139
+    4300002: Drone
     7400000: Take 001
     9500000: //RootNode
   externalObjects: {}

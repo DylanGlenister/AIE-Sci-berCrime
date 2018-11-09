@@ -173,6 +173,15 @@ ModelImporter:
     100330: transform99
     100332: turret_bot
     100334: //RootNode
+    100336: Turret_Back_Left_Foreleg
+    100338: Turret_Back_Left_Upper_Leg
+    100340: Turret_Back_Right_Foreleg
+    100342: Turret_Back_Right_Upper_Leg
+    100344: Turret_Front_Left_Foreleg
+    100346: Turret_Front_Left_Upper_Leg
+    100348: Turret_Front_Right_Foreleg
+    100350: Turret_Front_Right_Upper_Leg
+    100352: Turret_Gun
     400000: drone_1
     400002: group12
     400004: group13
@@ -341,11 +350,50 @@ ModelImporter:
     400330: transform99
     400332: turret_bot
     400334: //RootNode
+    400336: Turret_Back_Left_Foreleg
+    400338: Turret_Back_Left_Upper_Leg
+    400340: Turret_Back_Right_Foreleg
+    400342: Turret_Back_Right_Upper_Leg
+    400344: Turret_Front_Left_Foreleg
+    400346: Turret_Front_Left_Upper_Leg
+    400348: Turret_Front_Right_Foreleg
+    400350: Turret_Front_Right_Upper_Leg
+    400352: Turret_Gun
     2100000: lambert1
     2100002: lambert2
     2300000: polySurface157
+    2300002: //RootNode
+    2300004: Turret_Back_Left_Foreleg
+    2300006: Turret_Back_Left_Upper_Leg
+    2300008: Turret_Back_Right_Foreleg
+    2300010: Turret_Back_Right_Upper_Leg
+    2300012: Turret_Front_Left_Foreleg
+    2300014: Turret_Front_Left_Upper_Leg
+    2300016: Turret_Front_Right_Foreleg
+    2300018: Turret_Front_Right_Upper_Leg
+    2300020: Turret_Gun
     3300000: polySurface157
+    3300002: //RootNode
+    3300004: Turret_Back_Left_Foreleg
+    3300006: Turret_Back_Left_Upper_Leg
+    3300008: Turret_Back_Right_Foreleg
+    3300010: Turret_Back_Right_Upper_Leg
+    3300012: Turret_Front_Left_Foreleg
+    3300014: Turret_Front_Left_Upper_Leg
+    3300016: Turret_Front_Right_Foreleg
+    3300018: Turret_Front_Right_Upper_Leg
+    3300020: Turret_Gun
     4300000: polySurface157
+    4300002: Turret_Body
+    4300004: Turret_Gun
+    4300006: Turret_Back_Right_Upper_Leg
+    4300008: Turret_Back_Right_Foreleg
+    4300010: Turret_Back_Left_Upper_Leg
+    4300012: Turret_Back_Left_Foreleg
+    4300014: Turret_Front_Right_Upper_Leg
+    4300016: Turret_Front_Right_Foreleg
+    4300018: Turret_Front_Left_Upper_Leg
+    4300020: Turret_Front_Left_Foreleg
     7400000: Take 001
     9500000: //RootNode
   externalObjects: {}
