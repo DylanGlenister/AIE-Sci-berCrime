@@ -116,9 +116,15 @@ public class ShopController : MonoBehaviour
         m_uicUIController.SetShopMoneyAmount(m_iWallet);
 
         if (pPlayer.m_bPlayerOne)
+        {
             m_uicUIController.SetPlayerOneUIHealth(pPlayer.m_iHealth);
+            m_uicUIController.SetPlayerOneShopHealth(pPlayer.m_iHealth);
+        }
         else
+        {
             m_uicUIController.SetPlayerTwoUIHealth(pPlayer.m_iHealth);
+            m_uicUIController.SetPlayerTwoShopHealth(pPlayer.m_iHealth);
+        }
 
         // If players health is at max before upgrade, give them free health to keep at max after upgrade
         if (pPlayer.m_iHealth == pPlayer.m_iMaxHealth)
@@ -169,11 +175,17 @@ public class ShopController : MonoBehaviour
         m_iWallet -= m_iAmmoUpgradeCost;
         m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
         m_uicUIController.SetShopMoneyAmount(m_iWallet);
-
+        
         if (pPlayer.m_bPlayerOne)
+        {
             m_uicUIController.SetPlayerOneUIAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
+            m_uicUIController.SetPlayerOneShopAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
+        }
         else
+        {
             m_uicUIController.SetPlayerTwoUIAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
+            m_uicUIController.SetPlayerTwoShopAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
+        }
 
         // If players ammo is at max before upgrade, give them free ammo to keep at max after upgrade
         if (pPlayer.GetComponent<GunController>().m_iAmmo == pPlayer.GetComponent<GunController>().m_iMaxAmmo)
@@ -239,9 +251,20 @@ public class ShopController : MonoBehaviour
 
         if (pPlayer.m_iHealth != pPlayer.m_iMaxHealth)
             pPlayer.m_iHealth = pPlayer.m_iMaxHealth;
+
+        if (pPlayer.m_bPlayerOne)
+        {
+            m_uicUIController.SetPlayerOneUIHealth(pPlayer.m_iHealth);
+            m_uicUIController.SetPlayerOneShopHealth(pPlayer.m_iHealth);
+        }
+        else
+        {
+            m_uicUIController.SetPlayerTwoUIHealth(pPlayer.m_iHealth);
+            m_uicUIController.SetPlayerTwoShopHealth(pPlayer.m_iHealth);
+        }
     }
 
-    public void AmmoBuy (GunController pPlayer)
+    public void AmmoBuy (PlayerController pPlayer)
     {
         if (m_iWallet < m_iAmmoBuyCost)
             return;
@@ -251,7 +274,18 @@ public class ShopController : MonoBehaviour
         m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
         m_uicUIController.SetShopMoneyAmount(m_iWallet);
 
-        if (pPlayer.m_iAmmo != pPlayer.m_iMaxAmmo)
-            pPlayer.m_iAmmo = pPlayer.m_iMaxAmmo;
+        if (pPlayer.GetComponent<GunController>().m_iAmmo != pPlayer.GetComponent<GunController>().m_iMaxAmmo)
+            pPlayer.GetComponent<GunController>().m_iAmmo = pPlayer.GetComponent<GunController>().m_iMaxAmmo;
+
+        if (pPlayer.m_bPlayerOne)
+        {
+            m_uicUIController.SetPlayerOneUIAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
+            m_uicUIController.SetPlayerOneShopAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
+        }
+        else
+        {
+            m_uicUIController.SetPlayerTwoUIAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
+            m_uicUIController.SetPlayerTwoShopAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
+        }
     }
 }
