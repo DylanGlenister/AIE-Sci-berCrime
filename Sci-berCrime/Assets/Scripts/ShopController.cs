@@ -48,6 +48,7 @@ public class ShopController : MonoBehaviour
                 m_gcPlayerOne.isInShop = true;
                 m_gcPlayerTwo.isInShop = true;
                 m_uicUIController.SetShopMoneyAmount(m_iWallet);
+                UpdateShopUI();
             }
         }
     }
@@ -68,6 +69,7 @@ public class ShopController : MonoBehaviour
             m_uicUIController.ToggleShopVisible(true);
             m_gcPlayerOne.isInShop = true;
             m_gcPlayerTwo.isInShop = true;
+            UpdateShopUI();
         }
     }
 
@@ -78,6 +80,8 @@ public class ShopController : MonoBehaviour
         m_uicUIController.ToggleShopVisible(pState);
         m_gcPlayerOne.isInShop = pState;
         m_gcPlayerTwo.isInShop = pState;
+        if (pState)
+            UpdateShopUI();
     }
 
     // Adds money to the wallet
@@ -100,6 +104,25 @@ public class ShopController : MonoBehaviour
     public int GetWalletBalance ()
     {
         return m_iWallet;
+    }
+
+    public void UpdateShopUI ()
+    {
+        // Player ones ui elements
+        m_uicUIController.SetPlayerOneUIHealth(m_gcPlayerOne.m_iHealth);
+        m_uicUIController.SetPlayerOneUIAmmo(m_gcPlayerOne.GetComponent<GunController>().m_iAmmo);
+
+        // Player ones shop elements
+        m_uicUIController.SetPlayerOneShopHealth(m_gcPlayerOne.m_iHealth);
+        m_uicUIController.SetPlayerOneShopAmmo(m_gcPlayerOne.GetComponent<GunController>().m_iAmmo);
+
+        // Player twos ui elements
+        m_uicUIController.SetPlayerTwoUIHealth(m_gcPlayerTwo.m_iHealth);
+        m_uicUIController.SetPlayerTwoUIAmmo(m_gcPlayerTwo.GetComponent<GunController>().m_iAmmo);
+
+        // Player twos shop elements
+        m_uicUIController.SetPlayerTwoShopHealth(m_gcPlayerTwo.m_iHealth);
+        m_uicUIController.SetPlayerTwoShopAmmo(m_gcPlayerTwo.GetComponent<GunController>().m_iAmmo);
     }
 
     //-----------------------------------------------
