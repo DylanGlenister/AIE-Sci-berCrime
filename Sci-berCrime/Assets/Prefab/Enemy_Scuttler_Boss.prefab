@@ -218,14 +218,14 @@ GameObject:
   - component: {fileID: 136635680074074172}
   - component: {fileID: 135421967001578674}
   - component: {fileID: 195145727005398582}
-  - component: {fileID: 114993818938447664}
+  - component: {fileID: 114031591392047560}
   m_Layer: 0
   m_Name: Enemy_Scuttler_Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1117890171649262
 GameObject:
   m_ObjectHideFlags: 1
@@ -1336,7 +1336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1607724576695998
 GameObject:
   m_ObjectHideFlags: 1
@@ -2671,7 +2671,7 @@ Transform:
   m_GameObject: {fileID: 1607467666083144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4182142673061960}
   m_Father: {fileID: 4387829656133824}
@@ -4672,7 +4672,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 8b22ff563265d2148b87ffd2c606e9d8, type: 3}
+  - {fileID: 2100000, guid: 4e26af4d6888b814bafff6096f88aada, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4731,7 +4731,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114993818938447664
+--- !u!114 &114031591392047560
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -4739,13 +4739,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1110182113730444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a5be9b01ff8eae4086179d27c9ae970, type: 3}
+  m_Script: {fileID: 11500000, guid: ae014b1a1b50bd1498584c4e1b46b005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bcBossController: {fileID: 0}
+  m_scShopController: {fileID: 0}
+  m_bscBossSpawnController: {fileID: 0}
+  m_rcRoundController: {fileID: 0}
+  objBoss: {fileID: 0}
   m_goPlayerOne: {fileID: 0}
   m_goPlayerTwo: {fileID: 0}
   m_goCurrentTarget: {fileID: 0}
+  m_fPlayerSafeBubbleSize: 0
+  m_bHealth: 0
+  m_sDamage: 0
+  m_bIsAlive: 0
 --- !u!135 &135421967001578674
 SphereCollider:
   m_ObjectHideFlags: 1

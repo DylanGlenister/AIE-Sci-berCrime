@@ -55,10 +55,13 @@ public class EnemySpawnController : MonoBehaviour
     [Header("Other")]
     public RoundController m_rcRoundController;
 
-    private List<GameObject> m_lgoEnemyList;
-
+    private List<GameObject> m_lgoScuttlerList;
+    private List<GameObject> m_lgoDroneList;
+    private List<GameObject> m_lgoTurretList;
     // Reference to the enemy prefab
-    public GameObject m_goEnemyPrefab;
+    public GameObject m_goScuttlerPrefab;
+    public GameObject m_goDronePrefab;
+    public GameObject m_goTurretPrefab;
 
     // Gameobjects at the positions they spawn at
     public GameObject m_goSpawnLocation1;
@@ -75,14 +78,31 @@ public class EnemySpawnController : MonoBehaviour
         // Initialises variables
         m_fSpawnTimer = m_fSpawnDelay;
         m_iMaxScuttlersForRound = m_iStartMaxScuttlersForRound;
+        m_iMaxDronesForRound = m_iStartMaxDronesForRound;
+        m_iMaxTurretsForRound = m_iStartMaxTurretsForRound;
 
         // Populates the inactive enemies list
-        m_lgoEnemyList = new List<GameObject>();
+        m_lgoScuttlerList = new List<GameObject>();
+        m_lgoDroneList = new List<GameObject>();
+        m_lgoTurretList = new List<GameObject>();
+
+        for (int i = 0; i < m_iPotentionalMaxDronesAtOnce; i++)
+        {
+            GameObject objScuttler = Instantiate(m_goScuttlerPrefab);
+            objScuttler.SetActive(false);
+            m_lgoScuttlerList.Add(objScuttler);
+        }
         for (int i = 0; i < m_iPotentionalMaxScuttlersAtOnce; i++)
         {
-            GameObject obj = Instantiate(m_goEnemyPrefab);
-            obj.SetActive(false);
-            m_lgoEnemyList.Add(obj);
+            GameObject objDrone = Instantiate(m_goDronePrefab);
+            objDrone.SetActive(false);
+            m_lgoDroneList.Add(objDrone);
+        }
+        for (int i = 0; i < m_iPotentionalMaxTurretsAtOnce; i++)
+        {
+            GameObject objTurret = Instantiate(m_goTurretPrefab);
+            objTurret.SetActive(false);
+            m_lgoTurretList.Add(objTurret);
         }
     }
 
@@ -92,7 +112,9 @@ public class EnemySpawnController : MonoBehaviour
             return;
         
         // Only 'spawns' enemies as long at the max for the current round and the max on screen haven't been reached
-        if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound)
+        if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound &&
+            m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_iCurrentDronesSpawnedThisRound < m_iMaxDronesForRound &&
+            m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound < m_iMaxTurretsForRound)
         {
             m_fSpawnTimer -= Time.deltaTime;
 
@@ -101,7 +123,23 @@ public class EnemySpawnController : MonoBehaviour
 
             if (m_fSpawnTimer == 0)
             {
-                SpawnEnemy(EnemyType.Drone);
+                int rand = Random.Range(0, 3);
+                switch (rand)
+                {
+                    case 0:
+                        if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce)
+                            SpawnEnemy(EnemyType.Drone);
+                        break;
+                    case 1:
+                        if (m_iCurrentDroneCount < m_iMaxDronesAtOnce)
+                            SpawnEnemy(EnemyType.Drone);
+                        break;
+                    case 2:
+                        if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce)
+                            SpawnEnemy(EnemyType.Turret);
+                        break;
+                }
+                
                 m_fSpawnTimer = m_fSpawnDelay;
             }
         }
@@ -141,22 +179,25 @@ public class EnemySpawnController : MonoBehaviour
                 break;
         }
 
-        // Picks the first enemy that isn't enable and spawns it in
-        for (int i = 0; i < m_lgoEnemyList.Count; i++)
+
+        if (pEnemyType == EnemyType.Scuttler)
         {
-            if (!m_lgoEnemyList[i].activeInHierarchy)
+            for (int i = 0; i < m_lgoScuttlerList.Count; i++)
             {
-                m_lgoEnemyList[i].transform.position = m_goChosenSpawnLocation.transform.position;
-                m_lgoEnemyList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
-                m_lgoEnemyList[i].GetComponent<EnemyController>().m_iHealth = 100;
-                m_lgoEnemyList[i].GetComponent<EnemyController>().IsAlive = true;
-                m_lgoEnemyList[i].SetActive(true);
-                m_lgoEnemyList[i].GetComponent<NavMeshAgent>().enabled = true;
-                break;
+                if (!m_lgoScuttlerList[i].activeInHierarchy)
+                {
+                    m_lgoScuttlerList[i].transform.position = m_goChosenSpawnLocation.transform.position;
+                    m_lgoScuttlerList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
+                    m_lgoScuttlerList[i].GetComponent<EnemyController>().m_iHealth = 100;
+                    m_lgoScuttlerList[i].GetComponent<EnemyController>().IsAlive = true;
+                    m_lgoScuttlerList[i].SetActive(true);
+                    m_lgoScuttlerList[i].GetComponent<NavMeshAgent>().enabled = true;
+                    m_iCurrentScuttlerCount += 1;
+                    m_iCurrentScuttlersSpawnedThisRound += 1;
+                    break;
+                }
             }
         }
 
-        m_iCurrentScuttlerCount += 1;
-        m_iCurrentScuttlersSpawnedThisRound += 1;
     }
 }
