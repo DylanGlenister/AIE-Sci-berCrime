@@ -1166,7 +1166,7 @@ GameObject:
   - component: {fileID: 136958470658862508}
   - component: {fileID: 135067495381652484}
   - component: {fileID: 195559937653019638}
-  - component: {fileID: 114680223829448504}
+  - component: {fileID: 114311014568620730}
   m_Layer: 0
   m_Name: Enemy_Turret_Boss
   m_TagString: Enemy
@@ -4731,7 +4731,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114680223829448504
+--- !u!114 &114311014568620730
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -4739,19 +4739,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1471377297379904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d392704ffc0f084f805f2dbaae599b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a5be9b01ff8eae4086179d27c9ae970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_scShopController: {fileID: 0}
-  m_escEnemySpawnController: {fileID: 0}
-  m_iHealth: 100
-  m_iDamage: 20
-  m_fPlayerSafeBubbleSize: 1.3
+  m_bcBossController: {fileID: 0}
   m_goPlayerOne: {fileID: 0}
   m_goPlayerTwo: {fileID: 0}
   m_goCurrentTarget: {fileID: 0}
-  m_goExplosion: {fileID: 1661961769809686, guid: a191cdb79ccd73243a0501c8407348c3,
-    type: 2}
 --- !u!135 &135067495381652484
 SphereCollider:
   m_ObjectHideFlags: 1
