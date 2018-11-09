@@ -17,7 +17,8 @@ public class EnemyController : MonoBehaviour
 
     public bool IsAlive { get; set; }
 
-    public int m_iHealth = 100;
+
+    public int m_iHealth;
     public int m_iDamage;
 
     public float m_fPlayerSafeBubbleSize = 1.3f;
@@ -164,7 +165,7 @@ public class EnemyController : MonoBehaviour
     // Applies damage to the object
     public void TakeDamage (int pDamage)
     {
-
+        
         m_iHealth -= pDamage;
         m_scShopController.GetComponent<ShopController>().DepositToWallet(pDamage/4);
         if (m_iHealth < 0)

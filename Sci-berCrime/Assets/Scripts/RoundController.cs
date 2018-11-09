@@ -8,6 +8,7 @@ public class RoundController : MonoBehaviour
     public EnemySpawnController m_escEnemySpawnController;
     public UIController m_uicUIController;
     public ShopController m_scShopController;
+    
 
     [Header("Bools")]
     public bool m_bRoundOver;
@@ -28,6 +29,8 @@ public class RoundController : MonoBehaviour
     public PlayerController m_goPlayerOne;
     public PlayerController m_goPlayerTwo;
 
+    
+
     private void Awake ()
     {
         m_bRoundOver = false;
@@ -45,6 +48,11 @@ public class RoundController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SceneManager.LoadScene(1);
+        }
+
         if (!m_goPlayerOne.m_bIsAlive && !m_goPlayerTwo.m_bIsAlive)
             m_bGameOver = true;
 
@@ -82,6 +90,7 @@ public class RoundController : MonoBehaviour
         if (m_fRoundCountdown == 0 || (m_bP1Ready && m_bP2Ready))
         {
             m_iCurrentRound += 1;
+            
             m_escEnemySpawnController.m_bSpawningEnabled = true;
             m_escEnemySpawnController.m_iCurrentScuttlerCount = 0;
             m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound = 0;
@@ -108,9 +117,5 @@ public class RoundController : MonoBehaviour
             // Insert end game code here
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            SceneManager.LoadScene(1);
-        }
     }
 }
