@@ -139,49 +139,4 @@ public class UIController : MonoBehaviour
     {
         m_txtPlayerTwoShopAmmo.text = pPlayerTwoAmmo.ToString();
     }
-
-    public void ToggleUpgradeHealth (PlayerController pPlayer, bool pState)
-    {
-
-    }
-
-    public void ToggleUpgradeDamage (PlayerController pPlayer, bool pState)
-    {
-
-    }
-
-    public void ToggleUpgradeRPM (PlayerController pPlayer, bool pState)
-    {
-
-    }
-
-    public void ToggleUpgradeAmmo (PlayerController pPlayer, bool pState)
-    {
-
-    }
-
-    public void ToggleUpgradeSpread (PlayerController pPlayer, bool pState)
-    {
-
-    }
-
-    public void ToggleUpgradePiercing (PlayerController pPlayer, bool pState)
-    {
-
-    }
-
-    public void ToggleUpgradeExlosive (PlayerController pPlayer, bool pState)
-    {
-
-    }
-
-    public void ToggleBuyHealth (PlayerController pPlayer, bool pState)
-    {
-
-    }
-
-    public void ToggleBuyAmmo (PlayerController pPlayer, bool pState)
-    {
-
-    }
 }

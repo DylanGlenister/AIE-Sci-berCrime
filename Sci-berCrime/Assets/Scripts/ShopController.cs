@@ -30,6 +30,27 @@ public class ShopController : MonoBehaviour
     public float m_fRPMIncrement = 0.005f;
     public int m_iAmmoIncrement = 500;
 
+    [Header("PlayerOne")]
+    public GameObject m_goP1HealthUpgrade;
+    public GameObject m_goP1DamageUpgrade;
+    public GameObject m_goP1RPMUpgrade;
+    public GameObject m_goP1AmmoUpgrade;
+    public GameObject m_goP1SpreadUpgrade;
+    public GameObject m_goP1PiercingUpgrade;
+    public GameObject m_goP1ExplosiveUpgrade;
+    public GameObject m_goP1HealthBuy;
+    public GameObject m_goP1AmmoBuy;
+    [Header("PlayerTwo")]
+    public GameObject m_goP2HealthUpgrade;
+    public GameObject m_goP2DamageUpgrade;
+    public GameObject m_goP2RPMUpgrade;
+    public GameObject m_goP2AmmoUpgrade;
+    public GameObject m_goP2SpreadUpgrade;
+    public GameObject m_goP2PiercingUpgrade;
+    public GameObject m_goP2ExplosiveUpgrade;
+    public GameObject m_goP2HealthBuy;
+    public GameObject m_goP2AmmoBuy;
+
     private void Update()
     {
         if ((Input.GetButtonDown ("P1 Button Y") || Input.GetButtonDown("P2 Button Y")) && m_rcRoundController.m_bRoundOver)
@@ -123,6 +144,19 @@ public class ShopController : MonoBehaviour
         // Player twos shop elements
         m_uicUIController.SetPlayerTwoShopHealth(m_gcPlayerTwo.m_iHealth);
         m_uicUIController.SetPlayerTwoShopAmmo(m_gcPlayerTwo.GetComponent<GunController>().m_iAmmo);
+    }
+
+    //-----------------------------------------------
+
+    public void SelectUiElement (GameObject pElement)
+    {
+        // Returns the first child of the gameobject
+        pElement.transform.GetChild(0);
+    }
+
+    public void DeselectUiElement (GameObject pElement)
+    {
+
     }
 
     //-----------------------------------------------
