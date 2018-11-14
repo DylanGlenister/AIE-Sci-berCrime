@@ -68,6 +68,7 @@ GameObject:
   - component: {fileID: 54091872461026784}
   - component: {fileID: 114802833410048294}
   - component: {fileID: 114921521737523806}
+  - component: {fileID: 114768107750302212}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: PlayerTwo
@@ -117,6 +118,7 @@ GameObject:
   - component: {fileID: 54165472843529402}
   - component: {fileID: 114165592312334962}
   - component: {fileID: 114778702965374838}
+  - component: {fileID: 114801856222375612}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: PlayerOne
@@ -827,8 +829,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cMeleeBox: {fileID: 65155917072581820}
   m_bSwingCompleted: 1
-  m_fSwingDelay: 0.1
-  m_fSwingTimer: 0
+  m_iMeleeDamage: 50
+  m_fMeleeDelay: 0.4
+  m_fMeleeTimer: 0
+  m_fSwingDurationDelay: 0.15
+  m_fSwingDurationTimer: 0
 --- !u!114 &114699577454922110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -842,8 +847,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cMeleeBox: {fileID: 65651004007264238}
   m_bSwingCompleted: 1
-  m_fSwingDelay: 0.1
-  m_fSwingTimer: 0
+  m_iMeleeDamage: 50
+  m_fMeleeDelay: 0.4
+  m_fMeleeTimer: 0
+  m_fSwingDurationDelay: 0.15
+  m_fSwingDurationTimer: 0
+--- !u!114 &114768107750302212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1271333794246282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e13a2b469e8ec4598fb32597f6b03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pcPlayerController: {fileID: 114802833410048294}
+  m_scShopController: {fileID: 0}
+  m_uicUIController: {fileID: 0}
+  m_goP1HealthUpgrade: {fileID: 0}
+  m_goP1DamageUpgrade: {fileID: 0}
+  m_goP1RPMUpgrade: {fileID: 0}
+  m_goP1AmmoUpgrade: {fileID: 0}
+  m_goP1SpreadUpgrade: {fileID: 0}
+  m_goP1PiercingUpgrade: {fileID: 0}
+  m_goP1ExplosiveUpgrade: {fileID: 0}
+  m_goP1HealthBuy: {fileID: 0}
+  m_goP1AmmoBuy: {fileID: 0}
+  m_goP2HealthUpgrade: {fileID: 0}
+  m_goP2DamageUpgrade: {fileID: 0}
+  m_goP2RPMUpgrade: {fileID: 0}
+  m_goP2AmmoUpgrade: {fileID: 0}
+  m_goP2SpreadUpgrade: {fileID: 0}
+  m_goP2PiercingUpgrade: {fileID: 0}
+  m_goP2ExplosiveUpgrade: {fileID: 0}
+  m_goP2HealthBuy: {fileID: 0}
+  m_goP2AmmoBuy: {fileID: 0}
+  m_goSelectedOption: {fileID: 0}
 --- !u!114 &114778702965374838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -872,6 +913,39 @@ MonoBehaviour:
   m_goBulletPrefab: {fileID: 1774189890226754, guid: a35b91325a180af43b399aa0065910ed,
     type: 2}
   m_goBulletSpawn: {fileID: 1088243195370888}
+--- !u!114 &114801856222375612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1389503220361614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e13a2b469e8ec4598fb32597f6b03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pcPlayerController: {fileID: 114165592312334962}
+  m_scShopController: {fileID: 0}
+  m_uicUIController: {fileID: 0}
+  m_goP1HealthUpgrade: {fileID: 0}
+  m_goP1DamageUpgrade: {fileID: 0}
+  m_goP1RPMUpgrade: {fileID: 0}
+  m_goP1AmmoUpgrade: {fileID: 0}
+  m_goP1SpreadUpgrade: {fileID: 0}
+  m_goP1PiercingUpgrade: {fileID: 0}
+  m_goP1ExplosiveUpgrade: {fileID: 0}
+  m_goP1HealthBuy: {fileID: 0}
+  m_goP1AmmoBuy: {fileID: 0}
+  m_goP2HealthUpgrade: {fileID: 0}
+  m_goP2DamageUpgrade: {fileID: 0}
+  m_goP2RPMUpgrade: {fileID: 0}
+  m_goP2AmmoUpgrade: {fileID: 0}
+  m_goP2SpreadUpgrade: {fileID: 0}
+  m_goP2PiercingUpgrade: {fileID: 0}
+  m_goP2ExplosiveUpgrade: {fileID: 0}
+  m_goP2HealthBuy: {fileID: 0}
+  m_goP2AmmoBuy: {fileID: 0}
+  m_goSelectedOption: {fileID: 0}
 --- !u!114 &114802833410048294
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 114582681577247406}
   - component: {fileID: 114298803288348880}
   - component: {fileID: 114013460755643862}
+  - component: {fileID: 114053788111389054}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -540,7 +541,11 @@ MonoBehaviour:
   m_iMaxDronesAtOnce: 20
   m_iPotentionalMaxDronesAtOnce: 200
   m_rcRoundController: {fileID: 114298803288348880}
-  m_goEnemyPrefab: {fileID: 1633900625771084, guid: 1dffc9d2aeff2f8489377bfcf24648ce,
+  m_goScuttlerPrefab: {fileID: 1633900625771084, guid: 1dffc9d2aeff2f8489377bfcf24648ce,
+    type: 2}
+  m_goDronePrefab: {fileID: 1539591362826154, guid: 278a2595b62eeeb41a53947ac1cf79f2,
+    type: 2}
+  m_goTurretPrefab: {fileID: 1285967325517614, guid: e70b2079e21a7394e90e01f75f0ba765,
     type: 2}
   m_goSpawnLocation1: {fileID: 1038363751259878}
   m_goSpawnLocation2: {fileID: 1013479712516938}
@@ -548,6 +553,28 @@ MonoBehaviour:
   m_goSpawnLocation4: {fileID: 1574254571881792}
   m_goSpawnLocation5: {fileID: 1126581888476048}
   m_goSpawnLocation6: {fileID: 1537950846498334}
+--- !u!114 &114053788111389054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1427523344832512}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac82d97c12e6dc349b41fe17359b6449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_goScuttlerBossPrefab: {fileID: 0}
+  m_goTurretBossPrefab: {fileID: 0}
+  m_goDroneBossPrefab: {fileID: 0}
+  m_iHealthMultiplierScuttler: 0
+  m_iHealthMultiplierDrone: 0
+  m_iHealthMultiplierTurret: 0
+  m_rcRoundController: {fileID: 0}
+  m_bcBossController: {fileID: 0}
+  m_scShopController: {fileID: 0}
+  m_bHasSpawned: 0
+  m_goBossSpawnLocation: {fileID: 0}
 --- !u!114 &114174041064302734
 MonoBehaviour:
   m_ObjectHideFlags: 1
