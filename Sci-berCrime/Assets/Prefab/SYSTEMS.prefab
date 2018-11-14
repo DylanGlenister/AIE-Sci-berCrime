@@ -607,11 +607,14 @@ MonoBehaviour:
   m_escEnemySpawnController: {fileID: 114013460755643862}
   m_uicUIController: {fileID: 114582681577247406}
   m_scShopController: {fileID: 114664159662643196}
+  m_bscBossSpawnController: {fileID: 0}
   m_bRoundOver: 0
   m_bGameOver: 0
   m_bP1Ready: 0
   m_bP2Ready: 0
   m_bTimerToggle: 0
+  m_bBossDead: 0
+  m_bEnemiesDead: 0
   m_iCurrentRound: 0
   m_iMaxRounds: 0
   m_fRoundCountdown: 0
@@ -674,6 +677,24 @@ MonoBehaviour:
   m_iDamageIncrement: 20
   m_fRPMIncrement: 0.005
   m_iAmmoIncrement: 500
+  m_goP1HealthUpgrade: {fileID: 0}
+  m_goP1DamageUpgrade: {fileID: 0}
+  m_goP1RPMUpgrade: {fileID: 0}
+  m_goP1AmmoUpgrade: {fileID: 0}
+  m_goP1SpreadUpgrade: {fileID: 0}
+  m_goP1PiercingUpgrade: {fileID: 0}
+  m_goP1ExplosiveUpgrade: {fileID: 0}
+  m_goP1HealthBuy: {fileID: 0}
+  m_goP1AmmoBuy: {fileID: 0}
+  m_goP2HealthUpgrade: {fileID: 0}
+  m_goP2DamageUpgrade: {fileID: 0}
+  m_goP2RPMUpgrade: {fileID: 0}
+  m_goP2AmmoUpgrade: {fileID: 0}
+  m_goP2SpreadUpgrade: {fileID: 0}
+  m_goP2PiercingUpgrade: {fileID: 0}
+  m_goP2ExplosiveUpgrade: {fileID: 0}
+  m_goP2HealthBuy: {fileID: 0}
+  m_goP2AmmoBuy: {fileID: 0}
 --- !u!124 &124019063401639728
 Behaviour:
   m_ObjectHideFlags: 1

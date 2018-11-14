@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopController : MonoBehaviour
 {
@@ -150,13 +151,22 @@ public class ShopController : MonoBehaviour
 
     public void SelectUiElement (GameObject pElement)
     {
-        // Returns the first child of the gameobject
-        pElement.transform.GetChild(0);
+        // pElement.transform.GetChild() returns the objects child in the hierarchy in unity
+        // Shows the button
+        pElement.transform.GetChild(0).gameObject.SetActive(true);
+        // Makes the text a dark colour to stand out from the button
+        pElement.transform.GetChild(1).gameObject.GetComponent<Text>().color = new Color(0.196f, 0.196f, 0.196f);
+        pElement.transform.GetChild(2).gameObject.GetComponent<Text>().color = new Color(0.196f, 0.196f, 0.196f);
     }
 
     public void DeselectUiElement (GameObject pElement)
     {
-
+        // pElement.transform.GetChild() returns the objects child in the hierarchy in unity
+        // Shows the button
+        pElement.transform.GetChild(0).gameObject.SetActive(false);
+        // Makes the text a light colour to stand out from the button
+        pElement.transform.GetChild(1).gameObject.GetComponent<Text>().color = new Color(0.89f, 0.89f, 0.89f);
+        pElement.transform.GetChild(2).gameObject.GetComponent<Text>().color = new Color(0.89f, 0.89f, 0.89f);
     }
 
     //-----------------------------------------------

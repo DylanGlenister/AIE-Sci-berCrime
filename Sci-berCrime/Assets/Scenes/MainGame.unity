@@ -669,16 +669,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114298803288348880, guid: 9aec763c7364ce8438598542c97f05c8,
-        type: 2}
-      propertyPath: m_goPlayerOne
-      value: 
-      objectReference: {fileID: 423580756}
-    - target: {fileID: 114298803288348880, guid: 9aec763c7364ce8438598542c97f05c8,
-        type: 2}
-      propertyPath: m_goPlayerTwo
-      value: 
-      objectReference: {fileID: 1819852306}
     - target: {fileID: 114174041064302734, guid: 9aec763c7364ce8438598542c97f05c8,
         type: 2}
       propertyPath: m_goPlayerOne
@@ -689,6 +679,16 @@ Prefab:
       propertyPath: m_goPlayerTwo
       value: 
       objectReference: {fileID: 1819852301}
+    - target: {fileID: 114298803288348880, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goPlayerOne
+      value: 
+      objectReference: {fileID: 423580756}
+    - target: {fileID: 114298803288348880, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goPlayerTwo
+      value: 
+      objectReference: {fileID: 1819852306}
     - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
         type: 2}
       propertyPath: m_gcPlayerOne
@@ -699,6 +699,96 @@ Prefab:
       propertyPath: m_gcPlayerTwo
       value: 
       objectReference: {fileID: 1819852306}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP1HealthUpgrade
+      value: 
+      objectReference: {fileID: 2001904627}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP1DamageUpgrade
+      value: 
+      objectReference: {fileID: 2001904626}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP1RPMUpgrade
+      value: 
+      objectReference: {fileID: 2001904625}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP1AmmoUpgrade
+      value: 
+      objectReference: {fileID: 2001904624}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP1SpreadUpgrade
+      value: 
+      objectReference: {fileID: 2001904623}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP1PiercingUpgrade
+      value: 
+      objectReference: {fileID: 2001904622}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP1ExplosiveUpgrade
+      value: 
+      objectReference: {fileID: 2001904621}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP1HealthBuy
+      value: 
+      objectReference: {fileID: 2001904620}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP1AmmoBuy
+      value: 
+      objectReference: {fileID: 2001904619}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP2HealthUpgrade
+      value: 
+      objectReference: {fileID: 2001904618}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP2DamageUpgrade
+      value: 
+      objectReference: {fileID: 2001904617}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP2RPMUpgrade
+      value: 
+      objectReference: {fileID: 2001904616}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP2AmmoUpgrade
+      value: 
+      objectReference: {fileID: 2001904615}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP2SpreadUpgrade
+      value: 
+      objectReference: {fileID: 2001904614}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP2PiercingUpgrade
+      value: 
+      objectReference: {fileID: 2001904613}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP2ExplosiveUpgrade
+      value: 
+      objectReference: {fileID: 2001904612}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP2HealthBuy
+      value: 
+      objectReference: {fileID: 2001904611}
+    - target: {fileID: 114664159662643196, guid: 9aec763c7364ce8438598542c97f05c8,
+        type: 2}
+      propertyPath: m_goP2AmmoBuy
+      value: 
+      objectReference: {fileID: 2001904628}
     - target: {fileID: 114582681577247406, guid: 9aec763c7364ce8438598542c97f05c8,
         type: 2}
       propertyPath: m_goPlayerOne
