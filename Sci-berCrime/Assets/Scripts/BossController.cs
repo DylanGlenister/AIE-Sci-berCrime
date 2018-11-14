@@ -21,8 +21,8 @@ public class BossController : MonoBehaviour {
     private NavMeshAgent m_nmaNavMeshAgent;
 
     public float m_fPlayerSafeBubbleSize;
-    //----------Scuttler----------
-    [Header("Scuttler")]
+    //----------Boss Stats----------
+    [Header("Boss")]
     public int m_bHealth;
     public int m_sDamage;
     public bool m_bIsAlive;

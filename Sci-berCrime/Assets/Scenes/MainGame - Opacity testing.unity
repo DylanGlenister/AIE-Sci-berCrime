@@ -4072,7 +4072,11 @@ MonoBehaviour:
   m_iMaxDronesAtOnce: 20
   m_iPotentionalMaxDronesAtOnce: 200
   m_rcRoundController: {fileID: 1055950119}
-  m_goEnemyPrefab: {fileID: 1539591362826154, guid: 278a2595b62eeeb41a53947ac1cf79f2,
+  m_goScuttlerPrefab: {fileID: 1633900625771084, guid: 1dffc9d2aeff2f8489377bfcf24648ce,
+    type: 2}
+  m_goDronePrefab: {fileID: 1539591362826154, guid: 278a2595b62eeeb41a53947ac1cf79f2,
+    type: 2}
+  m_goTurretPrefab: {fileID: 1285967325517614, guid: e70b2079e21a7394e90e01f75f0ba765,
     type: 2}
   m_goSpawnLocation1: {fileID: 1391838663}
   m_goSpawnLocation2: {fileID: 1227780180}
@@ -4124,11 +4128,14 @@ MonoBehaviour:
   m_escEnemySpawnController: {fileID: 1055950117}
   m_uicUIController: {fileID: 1055950120}
   m_scShopController: {fileID: 1055950118}
+  m_bscBossSpawnController: {fileID: 0}
   m_bRoundOver: 0
   m_bGameOver: 0
   m_bP1Ready: 0
   m_bP2Ready: 0
   m_bTimerToggle: 0
+  m_bBossDead: 0
+  m_bEnemiesDead: 0
   m_iCurrentRound: 0
   m_iMaxRounds: 0
   m_fRoundCountdown: 0
@@ -5601,7 +5608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1457784853
 Transform:
   m_ObjectHideFlags: 0

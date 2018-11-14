@@ -8,6 +8,7 @@ public class RoundController : MonoBehaviour
     public EnemySpawnController m_escEnemySpawnController;
     public UIController m_uicUIController;
     public ShopController m_scShopController;
+    public BossSpawnController m_bscBossSpawnController;
     
 
     [Header("Bools")]
@@ -16,6 +17,8 @@ public class RoundController : MonoBehaviour
     public bool m_bP1Ready;
     public bool m_bP2Ready;
     public bool m_bTimerToggle;
+    public bool m_bBossDead;
+    public bool m_bEnemiesDead;
 
     [Header("Ints")]
     public int m_iCurrentRound;
@@ -36,6 +39,9 @@ public class RoundController : MonoBehaviour
         m_bRoundOver = false;
         m_bGameOver = false;
 
+        m_bBossDead = false;
+        m_bEnemiesDead = false;
+
         m_bP1Ready = false;
         m_bP2Ready = false;
         m_bTimerToggle = false;
@@ -48,6 +54,10 @@ public class RoundController : MonoBehaviour
 
     private void Update()
     {
+
+        if (m_bBossDead && m_bEnemiesDead)
+            m_bRoundOver = true;
+
         if (Input.GetKeyDown(KeyCode.F))
         {
             SceneManager.LoadScene(1);
@@ -90,14 +100,29 @@ public class RoundController : MonoBehaviour
         if (m_fRoundCountdown == 0 || (m_bP1Ready && m_bP2Ready))
         {
             m_iCurrentRound += 1;
-            
-            m_escEnemySpawnController.m_bSpawningEnabled = true;
+
+            // Scuttler
             m_escEnemySpawnController.m_iCurrentScuttlerCount = 0;
             m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound = 0;
             m_escEnemySpawnController.m_iCurrentScuttlersSpawnedThisRound = 0;
-            // Temporary work around -FIX THIS-
             m_escEnemySpawnController.m_iMaxScuttlersForRound *= m_iCurrentRound;
             m_escEnemySpawnController.m_iMaxScuttlersAtOnce *= m_iCurrentRound;
+
+            // Drones
+            m_escEnemySpawnController.m_iCurrentDroneCount = 0;
+            m_escEnemySpawnController.m_iCurrentDronesKilledThisRound = 0;
+            m_escEnemySpawnController.m_iCurrentDronesSpawnedThisRound = 0;
+            m_escEnemySpawnController.m_iMaxDronesForRound *= m_iCurrentRound;
+            m_escEnemySpawnController.m_iMaxDronesAtOnce *= m_iCurrentRound;
+
+            // Turrets
+            m_escEnemySpawnController.m_iCurrentTurretCount = 0;
+            m_escEnemySpawnController.m_iCurrentTurretsKilledThisRound = 0;
+            m_escEnemySpawnController.m_iCurrentTurretsSpawnedThisRound = 0;
+            m_escEnemySpawnController.m_iMaxTurretsForRound *= m_iCurrentRound;
+            m_escEnemySpawnController.m_iMaxTurretsAtOnce *= m_iCurrentRound;
+
+            m_escEnemySpawnController.m_bSpawningEnabled = true;
 
             m_fRoundCountdown = m_fRoundTimer;
             m_uicUIController.SetRoundTimerText(m_fRoundCountdown);
@@ -110,6 +135,7 @@ public class RoundController : MonoBehaviour
             m_bP1Ready = false;
             m_bP2Ready = false;
             m_bRoundOver = false;
+            m_bEnemiesDead = false;
         }
 
         if (m_bGameOver)

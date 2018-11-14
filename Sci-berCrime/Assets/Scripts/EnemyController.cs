@@ -5,23 +5,21 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public enum EnemyType
-    {
-        Scuttler,
-        Turret,
-        Drone
-    }
 
     public ShopController m_scShopController;
     public EnemySpawnController m_escEnemySpawnController;
 
     public bool IsAlive { get; set; }
 
-
     public int m_iHealth;
     public int m_iDamage;
 
     public float m_fPlayerSafeBubbleSize = 1.3f;
+    public float m_fDroneRange = 5f;
+    public float m_fTurrentRange = 15f;
+   
+
+    public int m_etEnemyType;
 
     // References to the players
     public GameObject m_goPlayerOne;
@@ -32,7 +30,7 @@ public class EnemyController : MonoBehaviour
 
     private NavMeshAgent m_nmaNavMeshAgent;
 
-    private void Awake ()
+    private void Awake()
     {
         m_nmaNavMeshAgent = GetComponent<NavMeshAgent>();
         m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
@@ -44,11 +42,11 @@ public class EnemyController : MonoBehaviour
         IsAlive = true;
     }
 
-    private void Update ()
+    private void Update()
     {
         if (m_iHealth == 0)
         {
-            
+
             IsAlive = false;
             m_escEnemySpawnController.m_iCurrentScuttlerCount -= 1;
             m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound += 1;
@@ -75,60 +73,121 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
+
                 // Calculates the distance from the enemy to each player
                 Vector3 playerOneDistance = transform.position - m_goPlayerOne.transform.position;
                 Vector3 playerTwoDistance = transform.position - m_goPlayerTwo.transform.position;
-
                 if (playerOneDistance.magnitude < 0)
                     playerOneDistance *= -1;
 
                 if (playerTwoDistance.magnitude < 0)
                     playerTwoDistance *= -1;
 
-                // Seperates distance checking by target player for slight increase in efficiency
-                if (m_goCurrentTarget == m_goPlayerOne)
+                //scuttler
+                if (m_etEnemyType == 0)
                 {
-                    // Either player one is dead or player two is closer as long as player two is alive
-                    if (!m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive
-                        || (playerTwoDistance.magnitude < playerOneDistance.magnitude
-                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive))
+                    // Seperates distance checking by target player for slight increase in efficiency
+                    if (m_goCurrentTarget == m_goPlayerOne)
                     {
-                        //Debug.Log("Target is now player 2");
-                        m_goCurrentTarget = m_goPlayerTwo;
+                        // Either player one is dead or player two is closer as long as player two is alive
+                        if (!m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive
+                            || (playerTwoDistance.magnitude < playerOneDistance.magnitude
+                            && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive))
+                        {
+                            //Debug.Log("Target is now player 2");
+                            m_goCurrentTarget = m_goPlayerTwo;
+                        }
+                        // Only paths to target if they aren't already touching the target
+                        else
+                        if (playerOneDistance.magnitude > m_fPlayerSafeBubbleSize
+                            && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive)
+                        {
+                            //goes to the target's position
+                            m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
+                        }
                     }
-                    // Only paths to target if they aren't already touching the target
                     else
-                    if (playerOneDistance.magnitude > m_fPlayerSafeBubbleSize
-                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive)
                     {
-                        m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
+                        // Either player two is dead or player one is closer as long as player one is alive
+                        if (!m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive
+                            || (playerOneDistance.magnitude < playerTwoDistance.magnitude
+                            && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive))
+                        {
+                            //Debug.Log("Target is now player 1");
+                            m_goCurrentTarget = m_goPlayerOne;
+                        }
+                        // Only paths to target if they aren't already touching the target
+                        else
+                        if (playerTwoDistance.magnitude > m_fPlayerSafeBubbleSize
+                            && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive)
+                        {
+                            //Goes to target's position
+                            m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
+                        }
+                    }
+
+                }
+                //drone
+                else
+                if (m_etEnemyType == 2)
+                {
+                    if (m_goCurrentTarget == m_goPlayerOne)
+                    {
+                        // Either player one is dead or player two is closer as long as player two is alive
+                        if (!m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive
+                            || (playerTwoDistance.magnitude < playerOneDistance.magnitude
+                            && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive))
+                        {
+                            //Debug.Log("Target is now player 2");
+                            m_goCurrentTarget = m_goPlayerTwo;
+                        }
+                        // Only paths to target if they aren't already touching the target
+                        else
+                        if (playerOneDistance.magnitude > m_fDroneRange
+                            && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive)
+                        {
+                            // Moves the enemy in range;
+                          
+                            m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
+                        }
+                    }
+                    else
+                    {
+                        // Either player two is dead or player one is closer as long as player one is alive
+                        if (!m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive
+                            || (playerOneDistance.magnitude < playerTwoDistance.magnitude
+                            && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive))
+                        {
+                            //Debug.Log("Target is now player 1");
+                            m_goCurrentTarget = m_goPlayerOne;
+                        }
+                        // Only paths to target if they aren't already touching the target
+                        else
+                        if (playerTwoDistance.magnitude > m_fDroneRange
+                            && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive)
+                        {
+                           // moves the enemy in range
+                            m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
+                          
+                            if(Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goPlayerTwo.transform.position) < m_fDroneRange)
+                            {
+                                m_nmaNavMeshAgent.isStopped = true;
+                            }
+                            
+                        }
                     }
                 }
+
                 else
                 {
-                    // Either player two is dead or player one is closer as long as player one is alive
-                    if (!m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive
-                        || (playerOneDistance.magnitude < playerTwoDistance.magnitude
-                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive))
-                    {
-                        //Debug.Log("Target is now player 1");
-                        m_goCurrentTarget = m_goPlayerOne;
-                    }
-                    // Only paths to target if they aren't already touching the target
-                    else
-                    if (playerTwoDistance.magnitude > m_fPlayerSafeBubbleSize
-                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive)
-                    {
-                        m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
-                    }
+                    m_nmaNavMeshAgent.enabled = false;
                 }
             }
         }
-        else
-        {
-            m_nmaNavMeshAgent.enabled = false;
-        }
     }
+
+
+
 
     private void OnTriggerEnter (Collider other)
     {

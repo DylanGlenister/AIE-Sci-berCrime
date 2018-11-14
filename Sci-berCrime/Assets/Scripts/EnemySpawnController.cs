@@ -5,12 +5,6 @@ using UnityEngine.AI;
 
 public class EnemySpawnController : MonoBehaviour
 {
-    public enum EnemyType
-    {
-        Scuttler,
-        Turret,
-        Drone
-    }
 
     public bool m_bSpawningEnabled = true;
     public bool funMode = false;
@@ -52,6 +46,7 @@ public class EnemySpawnController : MonoBehaviour
     public int m_iMaxDronesAtOnce = 20;
     public int m_iPotentionalMaxDronesAtOnce = 200;
     
+    //---Other---
     [Header("Other")]
     public RoundController m_rcRoundController;
 
@@ -91,18 +86,21 @@ public class EnemySpawnController : MonoBehaviour
             GameObject objScuttler = Instantiate(m_goScuttlerPrefab);
             objScuttler.SetActive(false);
             m_lgoScuttlerList.Add(objScuttler);
+            objScuttler.GetComponent<EnemyController>().m_etEnemyType = 0;
         }
         for (int i = 0; i < m_iPotentionalMaxScuttlersAtOnce; i++)
         {
             GameObject objDrone = Instantiate(m_goDronePrefab);
             objDrone.SetActive(false);
             m_lgoDroneList.Add(objDrone);
+            objDrone.GetComponent<EnemyController>().m_etEnemyType = 2;
         }
         for (int i = 0; i < m_iPotentionalMaxTurretsAtOnce; i++)
         {
             GameObject objTurret = Instantiate(m_goTurretPrefab);
             objTurret.SetActive(false);
             m_lgoTurretList.Add(objTurret);
+            objTurret.GetComponent<EnemyController>().m_etEnemyType = 1;
         }
     }
 
@@ -128,15 +126,15 @@ public class EnemySpawnController : MonoBehaviour
                 {
                     case 0:
                         if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce)
-                            SpawnEnemy(EnemyType.Drone);
+                            SpawnEnemy(0);
                         break;
                     case 1:
                         if (m_iCurrentDroneCount < m_iMaxDronesAtOnce)
-                            SpawnEnemy(EnemyType.Drone);
+                            SpawnEnemy(2);
                         break;
                     case 2:
                         if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce)
-                            SpawnEnemy(EnemyType.Turret);
+                            SpawnEnemy(1);
                         break;
                 }
                 
@@ -147,12 +145,19 @@ public class EnemySpawnController : MonoBehaviour
         // Ends round once all enemies required have been killed
         if (m_iCurrentScuttlersKilledThisRound == m_iMaxScuttlersForRound)
         {
-            m_bSpawningEnabled = false;
-            m_rcRoundController.m_bRoundOver = true;
+            if (m_iCurrentDronesKilledThisRound == m_iMaxDronesForRound)
+            {
+                if (m_iCurrentTurretsKilledThisRound == m_iMaxTurretsForRound)
+                {
+                    m_bSpawningEnabled = false;
+                    m_rcRoundController.m_bEnemiesDead = true;
+
+                }
+            }
         }
     }
 
-    public void SpawnEnemy (EnemyType pEnemyType)
+    public void SpawnEnemy(int pEnemyType)
     {
         // Chooses random spawn location
         int rand = Random.Range(0, 6);
@@ -180,7 +185,7 @@ public class EnemySpawnController : MonoBehaviour
         }
 
 
-        if (pEnemyType == EnemyType.Scuttler)
+        if (pEnemyType == 0)
         {
             for (int i = 0; i < m_lgoScuttlerList.Count; i++)
             {
@@ -194,6 +199,44 @@ public class EnemySpawnController : MonoBehaviour
                     m_lgoScuttlerList[i].GetComponent<NavMeshAgent>().enabled = true;
                     m_iCurrentScuttlerCount += 1;
                     m_iCurrentScuttlersSpawnedThisRound += 1;
+                    break;
+                }
+            }
+        }
+
+        if (pEnemyType == 2)
+        {
+            for (int i = 0; i < m_lgoDroneList.Count; i++)
+            {
+                if (!m_lgoDroneList[i].activeInHierarchy)
+                {
+                    m_lgoDroneList[i].transform.position = m_goChosenSpawnLocation.transform.position;
+                    m_lgoDroneList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
+                    m_lgoDroneList[i].GetComponent<EnemyController>().m_iHealth = 100;
+                    m_lgoDroneList[i].GetComponent<EnemyController>().IsAlive = true;
+                    m_lgoDroneList[i].SetActive(true);
+                    m_lgoDroneList[i].GetComponent<NavMeshAgent>().enabled = true;
+                    m_iCurrentDroneCount += 1;
+                    m_iCurrentDronesSpawnedThisRound += 1;
+                    break;
+                }
+            }
+        }
+
+        if (pEnemyType == 1)
+        {
+            for (int i = 0; i < m_lgoTurretList.Count; i++)
+            {
+                if (!m_lgoTurretList[i].activeInHierarchy)
+                {
+                    m_lgoTurretList[i].transform.position = m_goChosenSpawnLocation.transform.position;
+                    m_lgoTurretList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
+                    m_lgoTurretList[i].GetComponent<EnemyController>().m_iHealth = 100;
+                    m_lgoTurretList[i].GetComponent<EnemyController>().IsAlive = true;
+                    m_lgoTurretList[i].SetActive(true);
+                    m_lgoTurretList[i].GetComponent<NavMeshAgent>().enabled = true;
+                    m_iCurrentTurretCount += 1;
+                    m_iCurrentTurretsSpawnedThisRound += 1;
                     break;
                 }
             }

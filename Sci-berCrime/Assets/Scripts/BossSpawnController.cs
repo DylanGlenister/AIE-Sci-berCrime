@@ -103,5 +103,6 @@ public class BossSpawnController : MonoBehaviour
             m_bcBossController.objBoss.transform.position = m_goBossSpawnLocation.transform.position;
             m_bHasSpawned = true;
         }
+        m_rcRoundController.m_bBossDead = false;
     }
 }
