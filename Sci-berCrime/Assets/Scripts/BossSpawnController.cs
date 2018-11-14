@@ -82,14 +82,17 @@ public class BossSpawnController : MonoBehaviour
     {
         if (pBossType == BossType.Scuttler)
         {
+            m_bcBossController.m_etEnemyType = 0;
             m_bcBossController.objBoss= Instantiate(m_goScuttlerBossPrefab);
             m_bcBossController.objBoss.SetActive(true);
             m_bcBossController.objBoss.transform.position = m_goBossSpawnLocation.transform.position;
             m_bcBossController.m_bHealth *= 15;
             m_bHasSpawned = true;
         }
+
         if (pBossType == BossType.Drone)
         {
+            m_bcBossController.m_etEnemyType = 2;
             m_bcBossController.objBoss = Instantiate(m_goDroneBossPrefab);
             m_bcBossController.objBoss.SetActive(true);
             m_bcBossController.objBoss.transform.position = m_goBossSpawnLocation.transform.position;
@@ -98,6 +101,7 @@ public class BossSpawnController : MonoBehaviour
         
         if (pBossType == BossType.Turret)
         {
+            m_bcBossController.m_etEnemyType = 1;
             m_bcBossController.objBoss = Instantiate(m_goTurretBossPrefab);
             m_bcBossController.objBoss.SetActive(true);
             m_bcBossController.objBoss.transform.position = m_goBossSpawnLocation.transform.position;

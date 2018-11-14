@@ -115,11 +115,13 @@ public class PlayerController : MonoBehaviour
             m_gcGun.GunUpdate();
     }
 
-    private void OnCollisionEnter (Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         // Player dies if hit by enemy
         if (collision.gameObject.tag == "Enemy" && m_bIsAlive)
-            TakeDamage(collision.gameObject.GetComponent<EnemyController>().m_iDamage);
+        {
+            // TakeDamage(collision.gameObject.GetComponent<EnemyController>().m_iDamage);
+        }
     }
 
     // Applies damage to the object

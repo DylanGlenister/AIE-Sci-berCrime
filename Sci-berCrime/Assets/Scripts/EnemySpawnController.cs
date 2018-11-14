@@ -5,7 +5,12 @@ using UnityEngine.AI;
 
 public class EnemySpawnController : MonoBehaviour
 {
-
+    public enum EnemyType
+    {
+        Scuttler,
+        Turret,
+        Drone
+    }
     public bool m_bSpawningEnabled = true;
     public bool funMode = false;
     
@@ -86,21 +91,21 @@ public class EnemySpawnController : MonoBehaviour
             GameObject objScuttler = Instantiate(m_goScuttlerPrefab);
             objScuttler.SetActive(false);
             m_lgoScuttlerList.Add(objScuttler);
-            objScuttler.GetComponent<EnemyController>().m_etEnemyType = 0;
+            
         }
         for (int i = 0; i < m_iPotentionalMaxScuttlersAtOnce; i++)
         {
             GameObject objDrone = Instantiate(m_goDronePrefab);
             objDrone.SetActive(false);
             m_lgoDroneList.Add(objDrone);
-            objDrone.GetComponent<EnemyController>().m_etEnemyType = 2;
+            
         }
         for (int i = 0; i < m_iPotentionalMaxTurretsAtOnce; i++)
         {
             GameObject objTurret = Instantiate(m_goTurretPrefab);
             objTurret.SetActive(false);
             m_lgoTurretList.Add(objTurret);
-            objTurret.GetComponent<EnemyController>().m_etEnemyType = 1;
+            
         }
     }
 
@@ -126,15 +131,15 @@ public class EnemySpawnController : MonoBehaviour
                 {
                     case 0:
                         if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce)
-                            SpawnEnemy(0);
+                            SpawnEnemy(EnemyType.Scuttler);
                         break;
                     case 1:
-                        if (m_iCurrentDroneCount < m_iMaxDronesAtOnce)
-                            SpawnEnemy(2);
+                        if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce)
+                            SpawnEnemy(EnemyType.Turret);
                         break;
                     case 2:
-                        if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce)
-                            SpawnEnemy(1);
+                        if (m_iCurrentDroneCount < m_iMaxDronesAtOnce)
+                            SpawnEnemy(EnemyType.Drone);
                         break;
                 }
                 
@@ -157,7 +162,7 @@ public class EnemySpawnController : MonoBehaviour
         }
     }
 
-    public void SpawnEnemy(int pEnemyType)
+    public void SpawnEnemy(EnemyType pEnemyType)
     {
         // Chooses random spawn location
         int rand = Random.Range(0, 6);
@@ -185,12 +190,13 @@ public class EnemySpawnController : MonoBehaviour
         }
 
 
-        if (pEnemyType == 0)
+        if (pEnemyType == EnemyType.Scuttler)
         {
             for (int i = 0; i < m_lgoScuttlerList.Count; i++)
             {
                 if (!m_lgoScuttlerList[i].activeInHierarchy)
                 {
+                    m_lgoScuttlerList[i].GetComponent<EnemyController>().m_etEnemyType = 0;
                     m_lgoScuttlerList[i].transform.position = m_goChosenSpawnLocation.transform.position;
                     m_lgoScuttlerList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
                     m_lgoScuttlerList[i].GetComponent<EnemyController>().m_iHealth = 100;
@@ -204,12 +210,13 @@ public class EnemySpawnController : MonoBehaviour
             }
         }
 
-        if (pEnemyType == 2)
+        if (pEnemyType == EnemyType.Drone)
         {
             for (int i = 0; i < m_lgoDroneList.Count; i++)
             {
                 if (!m_lgoDroneList[i].activeInHierarchy)
                 {
+                    m_lgoDroneList[i].GetComponent<EnemyController>().m_etEnemyType = 2;
                     m_lgoDroneList[i].transform.position = m_goChosenSpawnLocation.transform.position;
                     m_lgoDroneList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
                     m_lgoDroneList[i].GetComponent<EnemyController>().m_iHealth = 100;
@@ -223,12 +230,13 @@ public class EnemySpawnController : MonoBehaviour
             }
         }
 
-        if (pEnemyType == 1)
+        if (pEnemyType == EnemyType.Turret)
         {
             for (int i = 0; i < m_lgoTurretList.Count; i++)
             {
                 if (!m_lgoTurretList[i].activeInHierarchy)
                 {
+                    m_lgoTurretList[i].GetComponent<EnemyController>().m_etEnemyType = 1;
                     m_lgoTurretList[i].transform.position = m_goChosenSpawnLocation.transform.position;
                     m_lgoTurretList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
                     m_lgoTurretList[i].GetComponent<EnemyController>().m_iHealth = 100;
