@@ -1,0 +1,367 @@
+fileFormatVersion: 2
+guid: 5aff5e62d97a5a5418d8856dc83fa838
+timeCreated: 1539926191
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: drone_1
+    100004: group12
+    100006: group13
+    100008: group14
+    100010: group14 1
+    100012: group14 2
+    100014: group14 3
+    100016: group15
+    100018: group15 1
+    100020: group16
+    100022: group16 1
+    100024: group17
+    100026: group18
+    100028: group18_group15_group14_pasted__pCylinder26
+    100030: group19
+    100032: group25
+    100034: group26
+    100036: group27
+    100038: group29
+    100040: group32
+    100042: group33
+    100044: group33_polySurface139
+    100046: leg_ball_joint
+    100048: leg_ball_joint 1
+    100050: leg_ball_joint1
+    100052: leg_ball_joint1 1
+    100054: leg_socket
+    100056: leg_socket 1
+    100058: leg_socket1
+    100060: leg_socket1 1
+    100062: leg_socket_and_joint
+    100064: leg_socket_and_joint 1
+    100066: pasted__pCylinder26
+    100068: pasted__pCylinder26 1
+    100070: pasted__pCylinder26 2
+    100072: pasted__pCylinder26 3
+    100074: pasted__pCylinder27
+    100076: pasted__pCylinder27 1
+    100078: pasted__pCylinder27 2
+    100080: pasted__pCylinder27 3
+    100082: pCube15
+    100084: pCube23
+    100086: pCube23 1
+    100088: pCube23 2
+    100090: pCube23 3
+    100092: pCube24
+    100094: pCube24 1
+    100096: pCube24 2
+    100098: pCube24 3
+    100100: pCylinder22
+    100102: pCylinder23
+    100104: polySurface105
+    100106: polySurface106
+    100108: polySurface107
+    100110: polySurface114
+    100112: polySurface115
+    100114: polySurface116
+    100116: polySurface117
+    100118: polySurface134
+    100120: polySurface136
+    100122: polySurface137
+    100124: polySurface137 1
+    100126: polySurface138
+    100128: polySurface138 1
+    100130: polySurface139
+    100132: polySurface139 1
+    100134: polySurface140
+    100136: polySurface140 1
+    100138: polySurface141
+    100140: polySurface141 1
+    100142: polySurface142
+    100144: polySurface143
+    100146: polySurface176
+    100148: polySurface95
+    100150: polySurface95 1
+    100152: pSphere5
+    100154: pSphere7
+    100156: transform100
+    100158: transform101
+    100160: transform102
+    100162: transform103
+    100164: transform104
+    100166: transform105
+    100168: transform106
+    100170: transform107
+    100172: transform108
+    100174: transform109
+    100176: transform110
+    100178: transform111
+    100180: transform112
+    100182: transform113
+    100184: transform114
+    100186: transform115
+    100188: transform116
+    100190: transform117
+    100192: transform118
+    100194: transform119
+    100196: transform120
+    100198: transform121
+    100200: transform122
+    100202: transform123
+    100204: transform124
+    100206: transform125
+    100208: transform126
+    100210: transform127
+    100212: transform128
+    100214: transform129
+    100216: transform130
+    100218: transform131
+    100220: transform132
+    100222: transform133
+    100224: transform134
+    100226: transform135
+    100228: transform136
+    100230: transform137
+    100232: transform138
+    100234: transform85
+    100236: transform86
+    100238: transform87
+    100240: transform88
+    100242: transform89
+    100244: transform90
+    100246: transform91
+    100248: transform92
+    100250: transform93
+    100252: transform94
+    100254: transform95
+    100256: transform96
+    100258: transform97
+    100260: transform98
+    100262: transform99
+    100264: turret_bot
+    400000: //RootNode
+    400002: drone_1
+    400004: group12
+    400006: group13
+    400008: group14
+    400010: group14 1
+    400012: group14 2
+    400014: group14 3
+    400016: group15
+    400018: group15 1
+    400020: group16
+    400022: group16 1
+    400024: group17
+    400026: group18
+    400028: group18_group15_group14_pasted__pCylinder26
+    400030: group19
+    400032: group25
+    400034: group26
+    400036: group27
+    400038: group29
+    400040: group32
+    400042: group33
+    400044: group33_polySurface139
+    400046: leg_ball_joint
+    400048: leg_ball_joint 1
+    400050: leg_ball_joint1
+    400052: leg_ball_joint1 1
+    400054: leg_socket
+    400056: leg_socket 1
+    400058: leg_socket1
+    400060: leg_socket1 1
+    400062: leg_socket_and_joint
+    400064: leg_socket_and_joint 1
+    400066: pasted__pCylinder26
+    400068: pasted__pCylinder26 1
+    400070: pasted__pCylinder26 2
+    400072: pasted__pCylinder26 3
+    400074: pasted__pCylinder27
+    400076: pasted__pCylinder27 1
+    400078: pasted__pCylinder27 2
+    400080: pasted__pCylinder27 3
+    400082: pCube15
+    400084: pCube23
+    400086: pCube23 1
+    400088: pCube23 2
+    400090: pCube23 3
+    400092: pCube24
+    400094: pCube24 1
+    400096: pCube24 2
+    400098: pCube24 3
+    400100: pCylinder22
+    400102: pCylinder23
+    400104: polySurface105
+    400106: polySurface106
+    400108: polySurface107
+    400110: polySurface114
+    400112: polySurface115
+    400114: polySurface116
+    400116: polySurface117
+    400118: polySurface134
+    400120: polySurface136
+    400122: polySurface137
+    400124: polySurface137 1
+    400126: polySurface138
+    400128: polySurface138 1
+    400130: polySurface139
+    400132: polySurface139 1
+    400134: polySurface140
+    400136: polySurface140 1
+    400138: polySurface141
+    400140: polySurface141 1
+    400142: polySurface142
+    400144: polySurface143
+    400146: polySurface176
+    400148: polySurface95
+    400150: polySurface95 1
+    400152: pSphere5
+    400154: pSphere7
+    400156: transform100
+    400158: transform101
+    400160: transform102
+    400162: transform103
+    400164: transform104
+    400166: transform105
+    400168: transform106
+    400170: transform107
+    400172: transform108
+    400174: transform109
+    400176: transform110
+    400178: transform111
+    400180: transform112
+    400182: transform113
+    400184: transform114
+    400186: transform115
+    400188: transform116
+    400190: transform117
+    400192: transform118
+    400194: transform119
+    400196: transform120
+    400198: transform121
+    400200: transform122
+    400202: transform123
+    400204: transform124
+    400206: transform125
+    400208: transform126
+    400210: transform127
+    400212: transform128
+    400214: transform129
+    400216: transform130
+    400218: transform131
+    400220: transform132
+    400222: transform133
+    400224: transform134
+    400226: transform135
+    400228: transform136
+    400230: transform137
+    400232: transform138
+    400234: transform85
+    400236: transform86
+    400238: transform87
+    400240: transform88
+    400242: transform89
+    400244: transform90
+    400246: transform91
+    400248: transform92
+    400250: transform93
+    400252: transform94
+    400254: transform95
+    400256: transform96
+    400258: transform97
+    400260: transform98
+    400262: transform99
+    400264: turret_bot
+    2100000: blinn27
+    2100002: blinn26
+    2100004: blinn1
+    2100006: blinn19
+    2100008: blinn30
+    2100010: lambert1
+    2300000: group33_polySurface139
+    2300002: //RootNode
+    3300000: group33_polySurface139
+    3300002: //RootNode
+    4300000: group33_polySurface139
+    4300002: Drone
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
