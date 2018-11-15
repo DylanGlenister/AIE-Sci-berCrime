@@ -73,6 +73,15 @@ public class EnemySpawnController : MonoBehaviour
 
     private GameObject m_goChosenSpawnLocation;
 
+
+    // Leave this here for now, will be arranged in the correct position during the gold stage
+
+    
+    public float m_DefaultTurretTimer;
+    public float m_DefaultDroneTimer;
+    public float m_fDroneRange;
+    public float m_fTurretRange;
+
     private void Awake ()
     {
         // Initialises variables
@@ -139,7 +148,7 @@ public class EnemySpawnController : MonoBehaviour
                         break;
                     case 2:
                          if (m_iCurrentDroneCount < m_iMaxDronesAtOnce)
-                             SpawnEnemy(EnemyType.Drone);
+                            SpawnEnemy(EnemyType.Drone);
                         break;
                 }
                 

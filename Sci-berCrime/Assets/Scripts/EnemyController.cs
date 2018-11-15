@@ -11,15 +11,19 @@ public class EnemyController : MonoBehaviour
 
     public ShopController m_scShopController;
     public EnemySpawnController m_escEnemySpawnController;
-
+    
     public bool IsAlive { get; set; }
 
     public int m_iHealth;
     public int m_iDamage;
 
+    public float range;
+
+    public float m_TurretTimer;
+    public float m_DroneTimer;
+
     public float m_fPlayerSafeBubbleSize = 1.3f;
-    public float m_fDroneRange;
-    public float m_fTurretRange;
+
 
     public int m_etEnemyType;
 
@@ -42,6 +46,8 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
+        m_TurretTimer = m_escEnemySpawnController.m_DefaultTurretTimer;
+        m_DroneTimer = m_escEnemySpawnController.m_DefaultDroneTimer;
         m_nmaNavMeshAgent = GetComponent<NavMeshAgent>();
         m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
         m_goPlayerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
@@ -159,6 +165,7 @@ public class EnemyController : MonoBehaviour
                 //drone
                 else if (p_EtEnemyType == M_etEnemyType.Drone)
                 {
+                    range = m_escEnemySpawnController.m_fDroneRange;
                     // Calculates the distance from the enemy to each player
                     Vector3 playerOneDistance = transform.position - m_goPlayerOne.transform.position;
                     Vector3 playerTwoDistance = transform.position - m_goPlayerTwo.transform.position;
@@ -179,22 +186,18 @@ public class EnemyController : MonoBehaviour
                         }
                         // Only paths to target if they aren't already touching the target
                         else 
-                        if (playerOneDistance.magnitude > m_fDroneRange
+                        if (playerOneDistance.magnitude > range
                             && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive)
                         {
 
 
-                            if (playerOneDistance.magnitude > m_fDroneRange)
+                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > range)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
-                                m_nmaNavMeshAgent.enabled = true;
+                                m_nmaNavMeshAgent.stoppingDistance = range;
+                                
                             }
-                            else if (playerOneDistance.magnitude < m_fDroneRange)
-                            {
-                                Debug.Log("Has stopped");
-                                m_nmaNavMeshAgent.isStopped = true;
-                                m_nmaNavMeshAgent.enabled = false;
-                            }
+                            
                         }
                     }
                     else
@@ -209,22 +212,40 @@ public class EnemyController : MonoBehaviour
                         }
                         // Only paths to target if they aren't already touching the target
                         else 
-                        if (playerTwoDistance.magnitude > m_fDroneRange
+                        if (playerTwoDistance.magnitude > range
                             && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive)
                         {
                             // moves the enemy in range
 
-                            if (playerTwoDistance.magnitude > m_fDroneRange)
+                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > range)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
-                                m_nmaNavMeshAgent.enabled = true;
+                                m_nmaNavMeshAgent.stoppingDistance = range;
+
                             }
-                            else if (playerTwoDistance.magnitude < m_fDroneRange)
+                        }
+                    }
+
+                    if (Vector3.Distance(m_goCurrentTarget.transform.position, m_nmaNavMeshAgent.transform.position) < range)
+                    {
+                        m_DroneTimer -= Time.deltaTime;
+                        if (m_DroneTimer <= 0)
+                        {
+                            m_DroneTimer = 0;
+                        }
+                        if (m_DroneTimer == 0)
+                        {
+                            if (m_goCurrentTarget == m_goPlayerOne)
                             {
-                                Debug.Log("Has stopped");
-                                m_nmaNavMeshAgent.isStopped = true;
-                                m_nmaNavMeshAgent.enabled = false;
+                                Debug.Log("Drone has attacked");
+                                m_goPlayerOne.GetComponent<PlayerController>().TakeDamage(m_iDamage);
                             }
+                            else
+                            {
+                                Debug.Log("Drone has attacked player 2");
+                                m_goPlayerTwo.GetComponent<PlayerController>().TakeDamage(m_iDamage);
+                            }
+                            m_DroneTimer = m_escEnemySpawnController.m_DefaultDroneTimer;
                         }
                     }
                 }
@@ -232,6 +253,7 @@ public class EnemyController : MonoBehaviour
                 // Turret
                 if (p_EtEnemyType == M_etEnemyType.Turret)
                 {
+                    range = m_escEnemySpawnController.m_fTurretRange;
                     // Calculates the distance from the enemy to each player
                     Vector3 playerOneDistance = transform.position - m_goPlayerOne.transform.position;
                     Vector3 playerTwoDistance = transform.position - m_goPlayerTwo.transform.position;
@@ -252,22 +274,16 @@ public class EnemyController : MonoBehaviour
                         }
                         // Only paths to target if they aren't already touching the target
                         else
-                        if (playerOneDistance.magnitude > m_fTurretRange
+                        if (playerOneDistance.magnitude > range
                             && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive)
                         {
                             // Moves the enemy in range;
 
-                            if (playerOneDistance.magnitude > m_fTurretRange)
+                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > range)
                             {
-                                Debug.Log("Has stopped");
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
-                                m_nmaNavMeshAgent.enabled = true;
-                            }
-                            else if (playerOneDistance.magnitude < m_fTurretRange)
-                            {
-                                Debug.Log("Has stopped");
-                                m_nmaNavMeshAgent.isStopped = true;
-                                m_nmaNavMeshAgent.enabled = false;
+                                m_nmaNavMeshAgent.stoppingDistance = range;
+
                             }
                         }
                     }
@@ -283,22 +299,41 @@ public class EnemyController : MonoBehaviour
                         }
                         // Only paths to target if they aren't already touching the target
                         else 
-                        if (playerTwoDistance.magnitude > m_fTurretRange
+                        if (playerTwoDistance.magnitude > range
                             && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive)
                         {
                             // moves the enemy in range
 
-                            if (playerTwoDistance.magnitude> m_fTurretRange)
+                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > range)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
-                                m_nmaNavMeshAgent.enabled = true;
-                            }
-                            else if (playerTwoDistance.magnitude < m_fTurretRange)
-                            {
-                                m_nmaNavMeshAgent.isStopped = true;
-                                m_nmaNavMeshAgent.enabled = false;
+                                m_nmaNavMeshAgent.stoppingDistance = range;
+
                             }
 
+                        }
+
+                    }
+                    if (Vector3.Distance(m_goCurrentTarget.transform.position, m_nmaNavMeshAgent.transform.position) < range)
+                    {
+                        m_TurretTimer -= Time.deltaTime;
+                        if (m_TurretTimer <= 0)
+                        {
+                            m_TurretTimer = 0;
+                        }
+                        if (m_TurretTimer == 0)
+                        {
+                            if (m_goCurrentTarget = m_goPlayerOne)
+                            {
+                                Debug.Log("Turret Attacked");
+                                m_goPlayerOne.GetComponent<PlayerController>().TakeDamage(m_iDamage);
+                            }
+                            else
+                            {
+                                Debug.Log("Turret Attacked Player 2");
+                                m_goPlayerTwo.GetComponent<PlayerController>().TakeDamage(m_iDamage);
+                            }
+                            m_TurretTimer = m_escEnemySpawnController.m_DefaultTurretTimer;
                         }
                     }
                 }

@@ -646,6 +646,10 @@ MonoBehaviour:
   m_goSpawnLocation4: {fileID: 1337357505}
   m_goSpawnLocation5: {fileID: 1712784079}
   m_goSpawnLocation6: {fileID: 1505554275}
+  m_DefaultTurretTimer: 2
+  m_DefaultDroneTimer: 0.5
+  m_fDroneRange: 5
+  m_fTurretRange: 10
 --- !u!114 &1055950118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,6 +1258,10 @@ Prefab:
       propertyPath: m_goCurrentTarget
       value: 
       objectReference: {fileID: 149896797}
+    - target: {fileID: 1633900625771084, guid: 1dffc9d2aeff2f8489377bfcf24648ce, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1dffc9d2aeff2f8489377bfcf24648ce, type: 2}
   m_IsPrefabParent: 0
@@ -1311,6 +1319,11 @@ Prefab:
       propertyPath: m_rcRoundController
       value: 
       objectReference: {fileID: 1055950119}
+    - target: {fileID: 114755681833461344, guid: 37a2891d9f794a24eb7278330156bfec,
+        type: 2}
+      propertyPath: objBoss
+      value: 
+      objectReference: {fileID: 1055950115}
     - target: {fileID: 114755681833461344, guid: 37a2891d9f794a24eb7278330156bfec,
         type: 2}
       propertyPath: m_goPlayerOne
@@ -1435,6 +1448,10 @@ Prefab:
       propertyPath: m_goCurrentTarget
       value: 
       objectReference: {fileID: 149896797}
+    - target: {fileID: 1539591362826154, guid: 278a2595b62eeeb41a53947ac1cf79f2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 278a2595b62eeeb41a53947ac1cf79f2, type: 2}
   m_IsPrefabParent: 0
@@ -1492,6 +1509,11 @@ Prefab:
       propertyPath: m_rcRoundController
       value: 
       objectReference: {fileID: 1055950119}
+    - target: {fileID: 114120914707956150, guid: 71d52709f0f8a1f4399e88576759376b,
+        type: 2}
+      propertyPath: objBoss
+      value: 
+      objectReference: {fileID: 1055950115}
     - target: {fileID: 114120914707956150, guid: 71d52709f0f8a1f4399e88576759376b,
         type: 2}
       propertyPath: m_goPlayerOne
@@ -1593,6 +1615,10 @@ Prefab:
       propertyPath: m_goCurrentTarget
       value: 
       objectReference: {fileID: 149896797}
+    - target: {fileID: 1285967325517614, guid: e70b2079e21a7394e90e01f75f0ba765, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e70b2079e21a7394e90e01f75f0ba765, type: 2}
   m_IsPrefabParent: 0
@@ -1749,6 +1775,11 @@ Prefab:
       objectReference: {fileID: 1055950119}
     - target: {fileID: 114031591392047560, guid: e3bcef551c3a29a48b101e2d3716f8ad,
         type: 2}
+      propertyPath: objBoss
+      value: 
+      objectReference: {fileID: 1055950115}
+    - target: {fileID: 114031591392047560, guid: e3bcef551c3a29a48b101e2d3716f8ad,
+        type: 2}
       propertyPath: m_goPlayerOne
       value: 
       objectReference: {fileID: 149896797}
@@ -1762,6 +1793,10 @@ Prefab:
       propertyPath: m_goCurrentTarget
       value: 
       objectReference: {fileID: 149896797}
+    - target: {fileID: 1110182113730444, guid: e3bcef551c3a29a48b101e2d3716f8ad, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3bcef551c3a29a48b101e2d3716f8ad, type: 2}
   m_IsPrefabParent: 0
