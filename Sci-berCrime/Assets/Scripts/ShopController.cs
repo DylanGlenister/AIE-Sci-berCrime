@@ -162,7 +162,7 @@ public class ShopController : MonoBehaviour
     public void DeselectUiElement (GameObject pElement)
     {
         // pElement.transform.GetChild() returns the objects child in the hierarchy in unity
-        // Shows the button
+        // Hides the button
         pElement.transform.GetChild(0).gameObject.SetActive(false);
         // Makes the text a light colour to stand out from the button
         pElement.transform.GetChild(1).gameObject.GetComponent<Text>().color = new Color(0.89f, 0.89f, 0.89f);

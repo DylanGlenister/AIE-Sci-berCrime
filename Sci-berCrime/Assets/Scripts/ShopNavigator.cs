@@ -9,15 +9,14 @@ public class ShopNavigator : MonoBehaviour
 
     private bool m_bScrollLock;
     
-    [Header("Other")]
-    public GameObject m_goSelectedOption;
+    public GameObject m_goCurrentlySelected;
 
     private void Awake()
     {
         if (m_pcPlayerController.m_bPlayerOne)
-            m_goSelectedOption = m_scShopController.m_goP1HealthUpgrade;
+            m_goCurrentlySelected = m_scShopController.m_goP1HealthUpgrade;
         else
-            m_goSelectedOption = m_scShopController.m_goP2HealthUpgrade;
+            m_goCurrentlySelected = m_scShopController.m_goP2HealthUpgrade;
 
         m_bScrollLock = false;
     }
@@ -32,7 +31,7 @@ public class ShopNavigator : MonoBehaviour
             if (Input.GetAxis("P1 LS Vertical") > 0 && !m_bScrollLock)
             {
                 // --------------------Scroll up--------------------
-                if (m_goSelectedOption == m_scShopController.m_goP1HealthUpgrade)
+                if (m_goCurrentlySelected == m_scShopController.m_goP1HealthUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1HealthUpgrade);
@@ -40,7 +39,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1AmmoBuy);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1DamageUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1DamageUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1DamageUpgrade);
@@ -48,7 +47,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1HealthUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1RPMUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1RPMUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1RPMUpgrade);
@@ -56,7 +55,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1DamageUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1AmmoUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1AmmoUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1AmmoUpgrade);
@@ -64,7 +63,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1RPMUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1SpreadUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1SpreadUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1SpreadUpgrade);
@@ -72,7 +71,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1AmmoUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1PiercingUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1PiercingUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1PiercingUpgrade);
@@ -80,7 +79,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1SpreadUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1ExplosiveUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1ExplosiveUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1ExplosiveUpgrade);
@@ -88,7 +87,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1PiercingUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1HealthBuy)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1HealthBuy)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1HealthBuy);
@@ -96,7 +95,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1ExplosiveUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1AmmoBuy)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1AmmoBuy)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1AmmoBuy);
@@ -108,7 +107,7 @@ public class ShopNavigator : MonoBehaviour
             else if (Input.GetAxis("P1 LS Vertical") < 0 && !m_bScrollLock)
             {
                 // --------------------Scroll down--------------------
-                if (m_goSelectedOption == m_scShopController.m_goP1HealthUpgrade)
+                if (m_goCurrentlySelected == m_scShopController.m_goP1HealthUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1HealthUpgrade);
@@ -116,7 +115,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1DamageUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1DamageUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1DamageUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1DamageUpgrade);
@@ -124,7 +123,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1RPMUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1RPMUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1RPMUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1RPMUpgrade);
@@ -132,7 +131,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1AmmoUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1AmmoUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1AmmoUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1AmmoUpgrade);
@@ -140,7 +139,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1SpreadUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1SpreadUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1SpreadUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1SpreadUpgrade);
@@ -148,7 +147,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1PiercingUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1PiercingUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1PiercingUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1PiercingUpgrade);
@@ -156,7 +155,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1ExplosiveUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1ExplosiveUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1ExplosiveUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1ExplosiveUpgrade);
@@ -164,7 +163,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1HealthBuy);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1HealthBuy)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1HealthBuy)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1HealthBuy);
@@ -172,7 +171,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP1AmmoBuy);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP1AmmoBuy)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1AmmoBuy)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP1AmmoBuy);
@@ -182,10 +181,10 @@ public class ShopNavigator : MonoBehaviour
                 }
             }
 
-            // Select
-            if (Input.GetButtonDown("P1 Button X"))
+            // Select the current button
+            if (Input.GetButtonDown("P1 Button A"))
             {
-                if (m_goSelectedOption == m_scShopController.m_goP1HealthUpgrade)
+                if (m_goCurrentlySelected == m_scShopController.m_goP1HealthUpgrade)
                     m_scShopController.Upgrade_Health(m_pcPlayerController);
             }
 
@@ -199,7 +198,7 @@ public class ShopNavigator : MonoBehaviour
             if (Input.GetAxis("P2 LS Vertical") > 0 && !m_bScrollLock)
             {
                 // --------------------Scroll up--------------------
-                if (m_goSelectedOption == m_scShopController.m_goP2HealthUpgrade)
+                if (m_goCurrentlySelected == m_scShopController.m_goP2HealthUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2HealthUpgrade);
@@ -207,7 +206,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2AmmoBuy);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2DamageUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2DamageUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2DamageUpgrade);
@@ -215,7 +214,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2HealthUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2RPMUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2RPMUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2RPMUpgrade);
@@ -223,7 +222,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2DamageUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2AmmoUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2AmmoUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2AmmoUpgrade);
@@ -231,7 +230,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2RPMUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2SpreadUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2SpreadUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2SpreadUpgrade);
@@ -239,7 +238,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2AmmoUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2PiercingUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2PiercingUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2PiercingUpgrade);
@@ -247,7 +246,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2SpreadUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2ExplosiveUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2ExplosiveUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2ExplosiveUpgrade);
@@ -255,7 +254,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2PiercingUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2HealthBuy)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2HealthBuy)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2HealthBuy);
@@ -263,7 +262,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2ExplosiveUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2AmmoBuy)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2AmmoBuy)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2AmmoBuy);
@@ -275,7 +274,7 @@ public class ShopNavigator : MonoBehaviour
             else if (Input.GetAxis("P2 LS Vertical") < 0 && !m_bScrollLock)
             {
                 // --------------------Scroll down--------------------
-                if (m_goSelectedOption == m_scShopController.m_goP2HealthUpgrade)
+                if (m_goCurrentlySelected == m_scShopController.m_goP2HealthUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2HealthUpgrade);
@@ -283,7 +282,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2DamageUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2DamageUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2DamageUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2DamageUpgrade);
@@ -291,7 +290,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2RPMUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2RPMUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2RPMUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2RPMUpgrade);
@@ -299,7 +298,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2AmmoUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2AmmoUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2AmmoUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2AmmoUpgrade);
@@ -307,7 +306,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2SpreadUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2SpreadUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2SpreadUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2SpreadUpgrade);
@@ -315,7 +314,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2PiercingUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2PiercingUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2PiercingUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2PiercingUpgrade);
@@ -323,7 +322,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2ExplosiveUpgrade);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2ExplosiveUpgrade)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2ExplosiveUpgrade)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2ExplosiveUpgrade);
@@ -331,7 +330,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2HealthBuy);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2HealthBuy)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2HealthBuy)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2HealthBuy);
@@ -339,7 +338,7 @@ public class ShopNavigator : MonoBehaviour
                     SelectItem(m_scShopController.m_goP2AmmoBuy);
                     m_bScrollLock = true;
                 }
-                else if (m_goSelectedOption == m_scShopController.m_goP2AmmoBuy)
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2AmmoBuy)
                 {
                     // Deselects the previous ui element
                     m_scShopController.DeselectUiElement(m_scShopController.m_goP2AmmoBuy);
@@ -350,9 +349,9 @@ public class ShopNavigator : MonoBehaviour
             }
 
             // Select
-            if (Input.GetButtonDown("P2 Button X"))
+            if (Input.GetButtonDown("P2 Button A"))
             {
-                if (m_goSelectedOption == m_scShopController.m_goP1HealthUpgrade)
+                if (m_goCurrentlySelected == m_scShopController.m_goP1HealthUpgrade)
                     m_scShopController.Upgrade_Health(m_pcPlayerController);
             }
 
@@ -366,6 +365,6 @@ public class ShopNavigator : MonoBehaviour
     private void SelectItem (GameObject pNewItem)
     {
         m_scShopController.SelectUiElement(pNewItem);
-        m_goSelectedOption = pNewItem;
+        m_goCurrentlySelected = pNewItem;
     }
 }
