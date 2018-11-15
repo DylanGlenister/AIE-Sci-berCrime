@@ -553,6 +553,10 @@ MonoBehaviour:
   m_goSpawnLocation4: {fileID: 1574254571881792}
   m_goSpawnLocation5: {fileID: 1126581888476048}
   m_goSpawnLocation6: {fileID: 1537950846498334}
+  m_DefaultTurretTimer: 0
+  m_DefaultDroneTimer: 0
+  m_fDroneRange: 0
+  m_fTurretRange: 0
 --- !u!114 &114053788111389054
 MonoBehaviour:
   m_ObjectHideFlags: 1
