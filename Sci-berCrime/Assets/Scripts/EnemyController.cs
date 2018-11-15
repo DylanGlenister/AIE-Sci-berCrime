@@ -18,8 +18,8 @@ public class EnemyController : MonoBehaviour
     public int m_iDamage;
 
     public float m_fPlayerSafeBubbleSize = 1.3f;
-    public float m_fDroneRange = 10f;
-    public float m_fTurretRange = 20f;
+    public float m_fDroneRange;
+    public float m_fTurretRange;
 
     public int m_etEnemyType;
 
@@ -184,13 +184,14 @@ public class EnemyController : MonoBehaviour
                         {
 
 
-                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fDroneRange)
+                            if (playerOneDistance.magnitude > m_fDroneRange)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
                                 m_nmaNavMeshAgent.enabled = true;
                             }
-                            else 
+                            else if (playerOneDistance.magnitude < m_fDroneRange)
                             {
+                                Debug.Log("Has stopped");
                                 m_nmaNavMeshAgent.isStopped = true;
                                 m_nmaNavMeshAgent.enabled = false;
                             }
@@ -213,13 +214,14 @@ public class EnemyController : MonoBehaviour
                         {
                             // moves the enemy in range
 
-                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fDroneRange)
+                            if (playerTwoDistance.magnitude > m_fDroneRange)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
                                 m_nmaNavMeshAgent.enabled = true;
                             }
-                           else
+                            else if (playerTwoDistance.magnitude < m_fDroneRange)
                             {
+                                Debug.Log("Has stopped");
                                 m_nmaNavMeshAgent.isStopped = true;
                                 m_nmaNavMeshAgent.enabled = false;
                             }
@@ -255,13 +257,15 @@ public class EnemyController : MonoBehaviour
                         {
                             // Moves the enemy in range;
 
-                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fTurretRange)
+                            if (playerOneDistance.magnitude > m_fTurretRange)
                             {
+                                Debug.Log("Has stopped");
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
                                 m_nmaNavMeshAgent.enabled = true;
                             }
-                            else 
+                            else if (playerOneDistance.magnitude < m_fTurretRange)
                             {
+                                Debug.Log("Has stopped");
                                 m_nmaNavMeshAgent.isStopped = true;
                                 m_nmaNavMeshAgent.enabled = false;
                             }
@@ -284,12 +288,12 @@ public class EnemyController : MonoBehaviour
                         {
                             // moves the enemy in range
 
-                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fTurretRange)
+                            if (playerTwoDistance.magnitude> m_fTurretRange)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
                                 m_nmaNavMeshAgent.enabled = true;
                             }
-                            else
+                            else if (playerTwoDistance.magnitude < m_fTurretRange)
                             {
                                 m_nmaNavMeshAgent.isStopped = true;
                                 m_nmaNavMeshAgent.enabled = false;

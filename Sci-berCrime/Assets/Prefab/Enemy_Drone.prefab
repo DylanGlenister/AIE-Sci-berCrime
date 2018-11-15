@@ -165,8 +165,8 @@ MonoBehaviour:
   m_iHealth: 100
   m_iDamage: 20
   m_fPlayerSafeBubbleSize: 1.3
-  m_fDroneRange: 10
-  m_fTurretRange: 20
+  m_fDroneRange: 20
+  m_fTurretRange: 100
   m_etEnemyType: 1
   m_goPlayerOne: {fileID: 0}
   m_goPlayerTwo: {fileID: 0}

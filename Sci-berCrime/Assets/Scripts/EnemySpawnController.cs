@@ -130,12 +130,12 @@ public class EnemySpawnController : MonoBehaviour
                 switch (rand)
                 {
                     case 0:
-                        //if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce)
-                           // SpawnEnemy(EnemyType.Scuttler);
+                        if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce)
+                           SpawnEnemy(EnemyType.Scuttler);
                         break;
                     case 1:
-                        //if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce)
-                           // SpawnEnemy(EnemyType.Turret);
+                        if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce)
+                            SpawnEnemy(EnemyType.Turret);
                         break;
                     case 2:
                          if (m_iCurrentDroneCount < m_iMaxDronesAtOnce)

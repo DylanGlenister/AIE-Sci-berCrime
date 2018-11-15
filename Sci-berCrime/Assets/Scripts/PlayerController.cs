@@ -120,7 +120,8 @@ public class PlayerController : MonoBehaviour
         // Player dies if hit by enemy
         if (collision.gameObject.tag == "Enemy" && m_bIsAlive)
         {
-            // TakeDamage(collision.gameObject.GetComponent<EnemyController>().m_iDamage);
+            
+            TakeDamage(collision.gameObject.GetComponent<EnemyController>().m_iDamage);
         }
     }
 
