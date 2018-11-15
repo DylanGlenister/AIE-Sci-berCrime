@@ -516,14 +516,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c46719d2d6222479e02ceca2215ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bSpawningEnabled: 1
+  m_bSpawningEnabled: 0
   funMode: 0
   m_fSpawnDelay: 0.25
   m_iCurrentScuttlerCount: 0
   m_iCurrentScuttlersSpawnedThisRound: 0
   m_iCurrentScuttlersKilledThisRound: 0
   m_iMaxScuttlersForRound: 0
-  m_iStartMaxScuttlersForRound: 10
+  m_iStartMaxScuttlersForRound: 0
   m_iMaxScuttlersAtOnce: 5
   m_iPotentionalMaxScuttlersAtOnce: 200
   m_iCurrentTurretCount: 0
