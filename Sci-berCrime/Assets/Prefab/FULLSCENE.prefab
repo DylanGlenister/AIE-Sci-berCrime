@@ -31732,15 +31732,15 @@ MonoBehaviour:
   m_iCurrentTurretsSpawnedThisRound: 0
   m_iCurrentTurretsKilledThisRound: 0
   m_iMaxTurretsForRound: 0
-  m_iStartMaxTurretsForRound: 4
-  m_iMaxTurretsAtOnce: 2
+  m_iStartMaxTurretsForRound: 10
+  m_iMaxTurretsAtOnce: 5
   m_iPotentionalMaxTurretsAtOnce: 200
   m_iCurrentDroneCount: 0
   m_iCurrentDronesSpawnedThisRound: 0
   m_iCurrentDronesKilledThisRound: 0
   m_iMaxDronesForRound: 0
-  m_iStartMaxDronesForRound: 2
-  m_iMaxDronesAtOnce: 1
+  m_iStartMaxDronesForRound: 10
+  m_iMaxDronesAtOnce: 5
   m_iPotentionalMaxDronesAtOnce: 200
   m_rcRoundController: {fileID: 114711534135360518}
   m_goScuttlerPrefab: {fileID: 1633900625771084, guid: 1dffc9d2aeff2f8489377bfcf24648ce,
@@ -31755,8 +31755,8 @@ MonoBehaviour:
   m_goSpawnLocation4: {fileID: 1267432531366622}
   m_goSpawnLocation5: {fileID: 1027492165612784}
   m_goSpawnLocation6: {fileID: 1158596685916910}
-  m_DefaultTurretTimer: 0.5
-  m_DefaultDroneTimer: 0.2
+  m_DefaultTurretTimer: 2
+  m_DefaultDroneTimer: 1
   m_fDroneRange: 5
   m_fTurretRange: 20
 --- !u!114 &114287230914312776

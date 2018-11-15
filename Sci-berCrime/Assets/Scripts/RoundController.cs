@@ -36,7 +36,7 @@ public class RoundController : MonoBehaviour
         m_bRoundOver = false;
         m_bGameOver = false;
 
-        m_bBossDead = false;
+        m_bBossDead = true;
         m_bEnemiesDead = false;
 
         m_bP1Ready = false;

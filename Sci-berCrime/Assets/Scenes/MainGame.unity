@@ -429,36 +429,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_DefaultDroneTimer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_DefaultTurretTimer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_iStartMaxTurretsForRound
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_iMaxTurretsAtOnce
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_iStartMaxDronesForRound
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_iMaxDronesAtOnce
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c677f5f22540d4148b3dfa8210c65f46, type: 2}
   m_IsPrefabParent: 0

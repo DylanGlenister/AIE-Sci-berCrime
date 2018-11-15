@@ -126,8 +126,8 @@ public class EnemySpawnController : MonoBehaviour
         
         // Only 'spawns' enemies as long at the max for the current round and the max on screen haven't been reached
         if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound
-            && m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound < m_iMaxTurretsForRound
-            && m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_iCurrentDronesSpawnedThisRound < m_iMaxDronesForRound)
+            || m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound < m_iMaxTurretsForRound
+            || m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_iCurrentDronesSpawnedThisRound < m_iMaxDronesForRound)
         {
             m_fSpawnTimer -= Time.deltaTime;
 
@@ -144,22 +144,31 @@ public class EnemySpawnController : MonoBehaviour
                            SpawnEnemy(EnemyType.Scuttler);
                         break;
                     case 1:
-                        if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce)
+                        if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_rcRoundController.m_iCurrentRound >=3)
                             SpawnEnemy(EnemyType.Turret);
                         break;
                     case 2:
-                         if (m_iCurrentDroneCount < m_iMaxDronesAtOnce)
+                         if (m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_rcRoundController.m_iCurrentRound >= 2)
                             SpawnEnemy(EnemyType.Drone);
                         break;
                 }
                 m_fSpawnTimer = m_fSpawnDelay;
             }
         }
+        if (m_rcRoundController.m_iCurrentRound == 1)
+        {
+            m_iMaxDronesForRound = 0;
+            m_iMaxTurretsForRound = 0;
+        }
+        else if (m_rcRoundController.m_iCurrentRound == 2)
+        {
+            m_iMaxDronesForRound = 0;
+        }
 
         // Ends round once all enemies required have been killed
         if (m_iCurrentScuttlersKilledThisRound == m_iMaxScuttlersForRound
             && m_iCurrentDronesKilledThisRound == m_iMaxDronesForRound
-            && m_iCurrentTurretsKilledThisRound == m_iMaxTurretsForRound)
+            && m_iCurrentTurretsKilledThisRound == m_iMaxTurretsForRound && m_rcRoundController)
         {
             m_bSpawningEnabled = false;
             m_rcRoundController.m_bEnemiesDead = true;
