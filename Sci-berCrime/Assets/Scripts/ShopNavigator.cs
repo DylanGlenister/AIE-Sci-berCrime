@@ -24,6 +24,9 @@ public class ShopNavigator : MonoBehaviour
 
     private void Update()
     {
+        if (!m_pcPlayerController.isInShop)
+            return;
+
         if (m_pcPlayerController.m_bPlayerOne)
         {
             if (Input.GetAxis("P1 LS Vertical") > 0 && !m_bScrollLock)
