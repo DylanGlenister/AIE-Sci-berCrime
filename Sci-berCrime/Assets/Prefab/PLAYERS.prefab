@@ -351,8 +351,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1271333794246282}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: -17}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.99, y: -0.0034025311, z: -17.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4178259040160338}
@@ -517,8 +517,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1389503220361614}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 0, z: -17}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.05, y: -0.0034025311, z: -17.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4184651824656458}
@@ -745,7 +745,7 @@ BoxCollider:
   m_GameObject: {fileID: 1779642496691804}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 1.5}
   m_Center: {x: 0, y: 1, z: 0.75}
@@ -757,7 +757,7 @@ BoxCollider:
   m_GameObject: {fileID: 1486862935525572}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 1.5}
   m_Center: {x: 0, y: 1, z: 0.75}
@@ -815,7 +815,7 @@ MonoBehaviour:
   m_uicUIController: {fileID: 0}
   m_msMeleeScript: {fileID: 114699577454922110}
   m_goAimTarget: {fileID: 1593271864142996}
-  m_rbRigidBody: {fileID: 0}
+  m_rbRigidBody: {fileID: 54165472843529402}
 --- !u!114 &114669298930679124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -833,7 +833,7 @@ MonoBehaviour:
   m_fMeleeDelay: 0.4
   m_fMeleeTimer: 0
   m_fSwingDurationDelay: 0.15
-  m_fSwingDurationTimer: 0
+  m_fSwingDurationTimer: 0.15
 --- !u!114 &114699577454922110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_fMeleeDelay: 0.4
   m_fMeleeTimer: 0
   m_fSwingDurationDelay: 0.15
-  m_fSwingDurationTimer: 0
+  m_fSwingDurationTimer: 0.15
 --- !u!114 &114768107750302212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -865,25 +865,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pcPlayerController: {fileID: 114802833410048294}
   m_scShopController: {fileID: 0}
-  m_uicUIController: {fileID: 0}
-  m_goP1HealthUpgrade: {fileID: 0}
-  m_goP1DamageUpgrade: {fileID: 0}
-  m_goP1RPMUpgrade: {fileID: 0}
-  m_goP1AmmoUpgrade: {fileID: 0}
-  m_goP1SpreadUpgrade: {fileID: 0}
-  m_goP1PiercingUpgrade: {fileID: 0}
-  m_goP1ExplosiveUpgrade: {fileID: 0}
-  m_goP1HealthBuy: {fileID: 0}
-  m_goP1AmmoBuy: {fileID: 0}
-  m_goP2HealthUpgrade: {fileID: 0}
-  m_goP2DamageUpgrade: {fileID: 0}
-  m_goP2RPMUpgrade: {fileID: 0}
-  m_goP2AmmoUpgrade: {fileID: 0}
-  m_goP2SpreadUpgrade: {fileID: 0}
-  m_goP2PiercingUpgrade: {fileID: 0}
-  m_goP2ExplosiveUpgrade: {fileID: 0}
-  m_goP2HealthBuy: {fileID: 0}
-  m_goP2AmmoBuy: {fileID: 0}
   m_goSelectedOption: {fileID: 0}
 --- !u!114 &114778702965374838
 MonoBehaviour:
@@ -926,25 +907,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pcPlayerController: {fileID: 114165592312334962}
   m_scShopController: {fileID: 0}
-  m_uicUIController: {fileID: 0}
-  m_goP1HealthUpgrade: {fileID: 0}
-  m_goP1DamageUpgrade: {fileID: 0}
-  m_goP1RPMUpgrade: {fileID: 0}
-  m_goP1AmmoUpgrade: {fileID: 0}
-  m_goP1SpreadUpgrade: {fileID: 0}
-  m_goP1PiercingUpgrade: {fileID: 0}
-  m_goP1ExplosiveUpgrade: {fileID: 0}
-  m_goP1HealthBuy: {fileID: 0}
-  m_goP1AmmoBuy: {fileID: 0}
-  m_goP2HealthUpgrade: {fileID: 0}
-  m_goP2DamageUpgrade: {fileID: 0}
-  m_goP2RPMUpgrade: {fileID: 0}
-  m_goP2AmmoUpgrade: {fileID: 0}
-  m_goP2SpreadUpgrade: {fileID: 0}
-  m_goP2PiercingUpgrade: {fileID: 0}
-  m_goP2ExplosiveUpgrade: {fileID: 0}
-  m_goP2HealthBuy: {fileID: 0}
-  m_goP2AmmoBuy: {fileID: 0}
   m_goSelectedOption: {fileID: 0}
 --- !u!114 &114802833410048294
 MonoBehaviour:
@@ -966,7 +928,7 @@ MonoBehaviour:
   m_uicUIController: {fileID: 0}
   m_msMeleeScript: {fileID: 114669298930679124}
   m_goAimTarget: {fileID: 1960821909690862}
-  m_rbRigidBody: {fileID: 0}
+  m_rbRigidBody: {fileID: 54091872461026784}
 --- !u!114 &114921521737523806
 MonoBehaviour:
   m_ObjectHideFlags: 1

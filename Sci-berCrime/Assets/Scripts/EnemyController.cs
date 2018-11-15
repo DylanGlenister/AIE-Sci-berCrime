@@ -18,11 +18,17 @@ public class EnemyController : MonoBehaviour
     public int m_iDamage;
 
     public float m_fPlayerSafeBubbleSize = 1.3f;
-    public float m_fDroneRange = 25f;
-    public float m_fTurretRange = 35f;
-
+    public float m_fDroneRange = 10f;
+    public float m_fTurretRange = 20f;
 
     public int m_etEnemyType;
+
+    public enum M_etEnemyType
+    {
+        Drone,
+        Scuttler,
+        Turret
+    }
     
 
     // References to the players
@@ -57,7 +63,26 @@ public class EnemyController : MonoBehaviour
             // Hides object from scene
             gameObject.SetActive(false);
         }
+        // Assign id to the enemies
+        if (IsAlive && (m_goPlayerOne || m_goPlayerTwo))
+        {
+            if (m_etEnemyType == 0)
+            {
+                EnemyMove(M_etEnemyType.Scuttler);
+            }
+            else if (m_etEnemyType == 1)
+            {
+                EnemyMove(M_etEnemyType.Turret);
+            }
+            else if (m_etEnemyType == 2)
+            {
+                EnemyMove(M_etEnemyType.Drone);
+            }
+        }
+    }
 
+    private void EnemyMove(M_etEnemyType p_EtEnemyType)
+    {
         if (IsAlive && (m_goPlayerOne || m_goPlayerTwo))
         {
             // If one player is dead only target the other player
@@ -78,10 +103,10 @@ public class EnemyController : MonoBehaviour
             else
             {
 
-               
+
 
                 //scuttler
-                if (m_etEnemyType == 0)
+                if (p_EtEnemyType == M_etEnemyType.Scuttler)
                 {
                     // Calculates the distance from the enemy to each player
                     Vector3 playerOneDistance = transform.position - m_goPlayerOne.transform.position;
@@ -104,8 +129,7 @@ public class EnemyController : MonoBehaviour
                             m_goCurrentTarget = m_goPlayerTwo;
                         }
                         // Only paths to target if they aren't already touching the target
-                        else
-                        if (playerOneDistance.magnitude > m_fPlayerSafeBubbleSize
+                        else if (playerOneDistance.magnitude > m_fPlayerSafeBubbleSize
                             && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive)
                         {
                             //goes to the target's position
@@ -123,8 +147,7 @@ public class EnemyController : MonoBehaviour
                             m_goCurrentTarget = m_goPlayerOne;
                         }
                         // Only paths to target if they aren't already touching the target
-                        else
-                        if (playerTwoDistance.magnitude > m_fPlayerSafeBubbleSize
+                        else if (playerTwoDistance.magnitude > m_fPlayerSafeBubbleSize
                             && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive)
                         {
                             //Goes to target's position
@@ -134,8 +157,7 @@ public class EnemyController : MonoBehaviour
 
                 }
                 //drone
-                else
-                if (m_etEnemyType == 2)
+                else if (p_EtEnemyType == M_etEnemyType.Drone)
                 {
                     // Calculates the distance from the enemy to each player
                     Vector3 playerOneDistance = transform.position - m_goPlayerOne.transform.position;
@@ -156,20 +178,21 @@ public class EnemyController : MonoBehaviour
                             m_goCurrentTarget = m_goPlayerTwo;
                         }
                         // Only paths to target if they aren't already touching the target
-                        else
+                        else 
                         if (playerOneDistance.magnitude > m_fDroneRange
                             && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive)
                         {
-                            
 
-                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) <= m_fDroneRange)
-                            {
-                                m_nmaNavMeshAgent.enabled = false;
-                            }
-                            else if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fDroneRange)
+
+                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fDroneRange)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
                                 m_nmaNavMeshAgent.enabled = true;
+                            }
+                            else 
+                            {
+                                m_nmaNavMeshAgent.isStopped = true;
+                                m_nmaNavMeshAgent.enabled = false;
                             }
                         }
                     }
@@ -184,27 +207,28 @@ public class EnemyController : MonoBehaviour
                             m_goCurrentTarget = m_goPlayerOne;
                         }
                         // Only paths to target if they aren't already touching the target
-                        else
+                        else 
                         if (playerTwoDistance.magnitude > m_fDroneRange
                             && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive)
                         {
                             // moves the enemy in range
 
-                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) <= m_fDroneRange)
-                            {
-                                m_nmaNavMeshAgent.enabled = false;
-                            }
-                            else if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fDroneRange)
+                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fDroneRange)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
                                 m_nmaNavMeshAgent.enabled = true;
+                            }
+                           else
+                            {
+                                m_nmaNavMeshAgent.isStopped = true;
+                                m_nmaNavMeshAgent.enabled = false;
                             }
                         }
                     }
                 }
 
                 // Turret
-                if (m_etEnemyType == 1)
+                if (p_EtEnemyType == M_etEnemyType.Turret)
                 {
                     // Calculates the distance from the enemy to each player
                     Vector3 playerOneDistance = transform.position - m_goPlayerOne.transform.position;
@@ -231,14 +255,15 @@ public class EnemyController : MonoBehaviour
                         {
                             // Moves the enemy in range;
 
-                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) <= m_fTurretRange)
-                            {
-                                m_nmaNavMeshAgent.enabled = false;
-                            }
-                            else if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fTurretRange)
+                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fTurretRange)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
                                 m_nmaNavMeshAgent.enabled = true;
+                            }
+                            else 
+                            {
+                                m_nmaNavMeshAgent.isStopped = true;
+                                m_nmaNavMeshAgent.enabled = false;
                             }
                         }
                     }
@@ -253,20 +278,21 @@ public class EnemyController : MonoBehaviour
                             m_goCurrentTarget = m_goPlayerOne;
                         }
                         // Only paths to target if they aren't already touching the target
-                        else
+                        else 
                         if (playerTwoDistance.magnitude > m_fTurretRange
                             && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive)
                         {
                             // moves the enemy in range
 
-                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) <= m_fDroneRange)
-                            {
-                                m_nmaNavMeshAgent.enabled = false;
-                            }
-                            else if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) >= m_fTurretRange)
+                            if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fTurretRange)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
                                 m_nmaNavMeshAgent.enabled = true;
+                            }
+                            else
+                            {
+                                m_nmaNavMeshAgent.isStopped = true;
+                                m_nmaNavMeshAgent.enabled = false;
                             }
 
                         }
@@ -280,8 +306,6 @@ public class EnemyController : MonoBehaviour
             m_nmaNavMeshAgent.enabled = false;
         }
     }
-
-
 
 
     private void OnTriggerEnter (Collider other)
