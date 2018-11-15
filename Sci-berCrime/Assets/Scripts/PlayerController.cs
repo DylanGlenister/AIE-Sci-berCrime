@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Refernce to the gun firing script
+    public GunController m_gcGun;
+    public UIController m_uicUIController;
+    public MeleeScript m_msMeleeScript;
+
     public bool m_bIsAlive { get; set; }
 
     public bool isInShop = false;
@@ -13,11 +18,6 @@ public class PlayerController : MonoBehaviour
     public int m_iMaxHealth = 100;
 
     public float m_fMovementSpeed = 50.0f;
-
-    // Refernce to the gun firing script
-    public GunController m_gcGun;
-    public UIController m_uicUIController;
-    public MeleeScript m_msMeleeScript;
 
     public GameObject m_goAimTarget;
 
@@ -120,8 +120,7 @@ public class PlayerController : MonoBehaviour
         // Player dies if hit by enemy
         if (collision.gameObject.tag == "Enemy" && m_bIsAlive)
         {
-            
-            TakeDamage(collision.gameObject.GetComponent<EnemyController>().m_iDamage);
+            // TakeDamage(collision.gameObject.GetComponent<EnemyController>().m_iDamage);
         }
     }
 
