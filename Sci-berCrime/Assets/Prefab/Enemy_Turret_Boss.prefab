@@ -817,13 +817,14 @@ MonoBehaviour:
   m_goPlayerOne: {fileID: 0}
   m_goPlayerTwo: {fileID: 0}
   m_goCurrentTarget: {fileID: 0}
+  m_btEnemyType: 0
   m_fPlayerSafeBubbleSize: 0
-  m_bHealth: 0
-  m_sDamage: 0
-  m_etEnemyType: 0
+  m_bHealth: 1500
+  m_sDamage: 80
+  m_bRange: 15
+  m_bDroneTimer: 0
+  m_bTurretTimer: 0
   m_bIsAlive: 0
-  m_fDroneRange: 5
-  m_fTurrentRange: 15
 --- !u!135 &135067495381652484
 SphereCollider:
   m_ObjectHideFlags: 1

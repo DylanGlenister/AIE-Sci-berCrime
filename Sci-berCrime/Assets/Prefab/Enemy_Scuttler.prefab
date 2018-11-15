@@ -4746,13 +4746,10 @@ MonoBehaviour:
   m_escEnemySpawnController: {fileID: 0}
   m_iHealth: 100
   m_iDamage: 20
+  range: 0
   m_TurretTimer: 0
   m_DroneTimer: 0
-  m_DefaultTurretTimer: 0.5
-  m_DefaultDroneTimer: 2
   m_fPlayerSafeBubbleSize: 1.3
-  m_fDroneRange: 5
-  m_fTurretRange: 15
   m_etEnemyType: 0
   m_goPlayerOne: {fileID: 0}
   m_goPlayerTwo: {fileID: 0}
