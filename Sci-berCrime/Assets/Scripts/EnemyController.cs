@@ -5,10 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-
-
-    // WORK ON THE DISTANCE AND STOPPING DISTANCE
-
     public ShopController m_scShopController;
     public EnemySpawnController m_escEnemySpawnController;
     
@@ -24,7 +20,6 @@ public class EnemyController : MonoBehaviour
 
     public float m_fPlayerSafeBubbleSize = 1.3f;
 
-
     public int m_etEnemyType;
 
     public enum M_etEnemyType
@@ -34,7 +29,6 @@ public class EnemyController : MonoBehaviour
         Turret
     }
     
-
     // References to the players
     public GameObject m_goPlayerOne;
     public GameObject m_goPlayerTwo;
@@ -46,14 +40,15 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        m_TurretTimer = m_escEnemySpawnController.m_DefaultTurretTimer;
-        m_DroneTimer = m_escEnemySpawnController.m_DefaultDroneTimer;
         m_nmaNavMeshAgent = GetComponent<NavMeshAgent>();
         m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
         m_goPlayerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
         m_scShopController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ShopController>();
         m_escEnemySpawnController = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemySpawnController>();
         m_goCurrentTarget = m_goPlayerOne;
+
+        m_TurretTimer = m_escEnemySpawnController.m_DefaultTurretTimer;
+        m_DroneTimer = m_escEnemySpawnController.m_DefaultDroneTimer;
 
         IsAlive = true;
     }

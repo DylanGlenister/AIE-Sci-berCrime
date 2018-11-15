@@ -3,20 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BossController : MonoBehaviour {
-
-    public ShopController m_scShopController;
-    public BossSpawnController m_bscBossSpawnController;
-    public RoundController m_rcRoundController;
-    public GameObject objBoss;
- 
-    public GameObject m_goPlayerOne;
-    public GameObject m_goPlayerTwo;
-    public GameObject m_goCurrentTarget;
-
-
-    public int m_btEnemyType;
-
+public class BossController : MonoBehaviour
+{
     public enum M_btBossType
     {
         Drone,
@@ -24,31 +12,41 @@ public class BossController : MonoBehaviour {
         Turret
     }
 
+    public ShopController m_scShopController;
+    public BossSpawnController m_bscBossSpawnController;
+    public RoundController m_rcRoundController;
+
+    public int m_btEnemyType;
+
+    public float m_fPlayerSafeBubbleSize;
 
     private NavMeshAgent m_nmaNavMeshAgent;
 
-    public float m_fPlayerSafeBubbleSize;
     //----------Boss Stats----------
     [Header("Boss")]
+    public bool m_bIsAlive;
+
     public int m_bHealth;
     public int m_sDamage;
 
     public float m_bRange;
     public float m_bDroneTimer;
     public float m_bTurretTimer;
-
-    public bool m_bIsAlive;
-  
-
-
+ 
+    public GameObject m_goPlayerOne;
+    public GameObject m_goPlayerTwo;
+    public GameObject m_goCurrentTarget;
+    
 
     private void Awake()
     {
         m_nmaNavMeshAgent = GetComponent<NavMeshAgent>();
         m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
         m_goPlayerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
-        m_goCurrentTarget = m_goPlayerOne;
         m_scShopController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ShopController>();
+        m_rcRoundController = GameObject.FindGameObjectWithTag("GameController").GetComponent<RoundController>();
+        m_bscBossSpawnController = GameObject.FindGameObjectWithTag("GameController").GetComponent<BossSpawnController>();
+        m_goCurrentTarget = m_goPlayerOne;
 
         m_fPlayerSafeBubbleSize = 1.3f;
 
@@ -59,7 +57,7 @@ public class BossController : MonoBehaviour {
         if (m_bHealth == 0)
         {
             m_bIsAlive = false;
-            objBoss.SetActive(false);
+            m_rcRoundController.m_bBossDead = true;
             if (m_rcRoundController.m_bRoundOver)
             {
                 m_bscBossSpawnController.m_bHasSpawned = false;

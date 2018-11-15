@@ -184,8 +184,25 @@ public class ShopNavigator : MonoBehaviour
             // Select the current button
             if (Input.GetButtonDown("P1 Button A"))
             {
+                // Calls the function corresponding to the selected button
                 if (m_goCurrentlySelected == m_scShopController.m_goP1HealthUpgrade)
                     m_scShopController.Upgrade_Health(m_pcPlayerController);
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1DamageUpgrade)
+                    m_scShopController.Upgrade_Damage(m_pcPlayerController);
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1RPMUpgrade)
+                    m_scShopController.Upgrade_RPM(m_pcPlayerController.GetComponent<GunController>());
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1AmmoUpgrade)
+                    m_scShopController.Upgrade_Ammo(m_pcPlayerController);
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1SpreadUpgrade)
+                    m_scShopController.Upgrade_Spread(m_pcPlayerController.GetComponent<GunController>());
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1PiercingUpgrade)
+                    m_scShopController.Upgrade_Piercing(m_pcPlayerController.GetComponent<GunController>());
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1ExplosiveUpgrade)
+                    m_scShopController.Upgrade_Explosive(m_pcPlayerController.GetComponent<GunController>());
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1HealthBuy)
+                    m_scShopController.HealthBuy(m_pcPlayerController);
+                else if (m_goCurrentlySelected == m_scShopController.m_goP1AmmoBuy)
+                    m_scShopController.AmmoBuy(m_pcPlayerController);
             }
 
             if (Input.GetAxis("P1 LS Vertical") == 0)
@@ -351,8 +368,25 @@ public class ShopNavigator : MonoBehaviour
             // Select
             if (Input.GetButtonDown("P2 Button A"))
             {
-                if (m_goCurrentlySelected == m_scShopController.m_goP1HealthUpgrade)
+                // Calls the function corresponding to the selected button
+                if (m_goCurrentlySelected == m_scShopController.m_goP2HealthUpgrade)
                     m_scShopController.Upgrade_Health(m_pcPlayerController);
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2DamageUpgrade)
+                    m_scShopController.Upgrade_Damage(m_pcPlayerController);
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2RPMUpgrade)
+                    m_scShopController.Upgrade_RPM(m_pcPlayerController.GetComponent<GunController>());
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2AmmoUpgrade)
+                    m_scShopController.Upgrade_Ammo(m_pcPlayerController);
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2SpreadUpgrade)
+                    m_scShopController.Upgrade_Spread(m_pcPlayerController.GetComponent<GunController>());
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2PiercingUpgrade)
+                    m_scShopController.Upgrade_Piercing(m_pcPlayerController.GetComponent<GunController>());
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2ExplosiveUpgrade)
+                    m_scShopController.Upgrade_Explosive(m_pcPlayerController.GetComponent<GunController>());
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2HealthBuy)
+                    m_scShopController.HealthBuy(m_pcPlayerController);
+                else if (m_goCurrentlySelected == m_scShopController.m_goP2AmmoBuy)
+                    m_scShopController.AmmoBuy(m_pcPlayerController);
             }
 
             if (Input.GetAxis("P2 LS Vertical") == 0)

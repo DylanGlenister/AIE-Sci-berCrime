@@ -11,6 +11,7 @@ public class EnemySpawnController : MonoBehaviour
         Turret,
         Drone
     }
+
     public bool m_bSpawningEnabled = true;
     public bool funMode = false;
     
@@ -77,10 +78,10 @@ public class EnemySpawnController : MonoBehaviour
     // Leave this here for now, will be arranged in the correct position during the gold stage
 
     
-    public float m_DefaultTurretTimer;
-    public float m_DefaultDroneTimer;
-    public float m_fDroneRange;
-    public float m_fTurretRange;
+    public float m_DefaultTurretTimer = 0.5f;
+    public float m_DefaultDroneTimer = 0.2f;
+    public float m_fDroneRange = 5;
+    public float m_fTurretRange = 20;
 
     private void Awake ()
     {
@@ -124,9 +125,9 @@ public class EnemySpawnController : MonoBehaviour
             return;
         
         // Only 'spawns' enemies as long at the max for the current round and the max on screen haven't been reached
-        if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound &&
-            m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_iCurrentDronesSpawnedThisRound < m_iMaxDronesForRound &&
-            m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound < m_iMaxTurretsForRound)
+        if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound
+            && m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound < m_iMaxTurretsForRound
+            && m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_iCurrentDronesSpawnedThisRound < m_iMaxDronesForRound)
         {
             m_fSpawnTimer -= Time.deltaTime;
 
@@ -151,23 +152,17 @@ public class EnemySpawnController : MonoBehaviour
                             SpawnEnemy(EnemyType.Drone);
                         break;
                 }
-                
                 m_fSpawnTimer = m_fSpawnDelay;
             }
         }
 
         // Ends round once all enemies required have been killed
-        if (m_iCurrentScuttlersKilledThisRound == m_iMaxScuttlersForRound)
+        if (m_iCurrentScuttlersKilledThisRound == m_iMaxScuttlersForRound
+            && m_iCurrentDronesKilledThisRound == m_iMaxDronesForRound
+            && m_iCurrentTurretsKilledThisRound == m_iMaxTurretsForRound)
         {
-            if (m_iCurrentDronesKilledThisRound == m_iMaxDronesForRound)
-            {
-                if (m_iCurrentTurretsKilledThisRound == m_iMaxTurretsForRound)
-                {
-                    m_bSpawningEnabled = false;
-                    m_rcRoundController.m_bEnemiesDead = true;
-
-                }
-            }
+            m_bSpawningEnabled = false;
+            m_rcRoundController.m_bEnemiesDead = true;
         }
     }
 

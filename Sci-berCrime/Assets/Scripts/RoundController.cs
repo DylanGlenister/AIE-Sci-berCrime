@@ -9,7 +9,6 @@ public class RoundController : MonoBehaviour
     public UIController m_uicUIController;
     public ShopController m_scShopController;
     public BossSpawnController m_bscBossSpawnController;
-    
 
     [Header("Bools")]
     public bool m_bRoundOver;
@@ -32,8 +31,6 @@ public class RoundController : MonoBehaviour
     public PlayerController m_goPlayerOne;
     public PlayerController m_goPlayerTwo;
 
-    
-
     private void Awake ()
     {
         m_bRoundOver = false;
@@ -54,7 +51,6 @@ public class RoundController : MonoBehaviour
 
     private void Update()
     {
-
         if (m_bBossDead && m_bEnemiesDead)
             m_bRoundOver = true;
 
@@ -99,6 +95,7 @@ public class RoundController : MonoBehaviour
 
         if (m_fRoundCountdown == 0 || (m_bP1Ready && m_bP2Ready))
         {
+            // Resets per round variables to start next round
             m_iCurrentRound += 1;
 
             // Scuttler
@@ -137,11 +134,5 @@ public class RoundController : MonoBehaviour
             m_bRoundOver = false;
             m_bEnemiesDead = false;
         }
-
-        if (m_bGameOver)
-        {
-            // Insert end game code here
-        }
-
     }
 }

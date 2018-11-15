@@ -202,7 +202,7 @@ public class ShopController : MonoBehaviour
     }
 
     // Increases weapon damage  by 20 points
-    public void Updgrade_Damage (PlayerController pPlayer)
+    public void Upgrade_Damage (PlayerController pPlayer)
     {
         if (m_iWallet < m_iDamageUpgradeCost)
             return;

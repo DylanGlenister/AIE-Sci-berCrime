@@ -5,10 +5,7 @@ using UnityEngine.AI;
 
 public class BossSpawnController : MonoBehaviour
 {
-
     // LEAVE THIS TO LIAM NOBODY FUCKING TOUCH IT
-
-
     public enum BossType
     {
         Scuttler,
@@ -16,46 +13,33 @@ public class BossSpawnController : MonoBehaviour
         Drone
     }
 
-
-    //----------Other----------
-    [Header("Other")]
-    // Boss Prefabs
-    public GameObject m_goScuttlerBossPrefab;
-    public GameObject m_goTurretBossPrefab;
-    public GameObject m_goDroneBossPrefab;
-
-    public int m_iHealthMultiplierScuttler;
-    public int m_iHealthMultiplierDrone;
-    public int m_iHealthMultiplierTurret;
-
     // Access to other classes
     public RoundController m_rcRoundController;
-    public BossController m_bcBossController;
     public ShopController m_scShopController;
-
-    public float m_bDefaultTurretTimer;
-    public float m_bDefaultDroneTimer;
-    public float m_fbDroneRange;
-    public float m_fbTurretRange;
-
 
     // Variables for the bosses
     public bool m_bHasSpawned;
 
+    public int m_iHealthMultiplierScuttler;
+    public int m_iHealthMultiplierDrone;
+    public int m_iHealthMultiplierTurret;
+    
+    public float m_bDefaultTurretTimer;
+    public float m_bDefaultDroneTimer;
+    public float m_fbDroneRange;
+    public float m_fbTurretRange;
+    
     // Spawn position
     public GameObject m_goBossSpawnLocation;
 
-
-  
-
-    private void Awake()
-    {
-        
-    }
-
+    [Header("Boss Prefabs")]
+    // Boss Prefabs
+    public GameObject m_goScuttlerBossPrefab;
+    public GameObject m_goTurretBossPrefab;
+    public GameObject m_goDroneBossPrefab;
+    
     private void Update()
     {
-
         if (!m_bHasSpawned)
         {
             switch (m_rcRoundController.m_iCurrentRound)
@@ -78,36 +62,38 @@ public class BossSpawnController : MonoBehaviour
                     break;
             }
         }
-
     }
 
     public void SpawnEnemy(BossType pBossType)
     {
+        // Instantiates and initialises a boss of a specified type
         if (pBossType == BossType.Scuttler)
         {
-            m_bcBossController.m_btEnemyType = 0;
-            m_bcBossController.objBoss= Instantiate(m_goScuttlerBossPrefab);
-            m_bcBossController.objBoss.SetActive(true);
-            m_bcBossController.objBoss.transform.position = m_goBossSpawnLocation.transform.position;
-            m_bcBossController.m_bHealth *= 15;
+            GameObject objNewScuttlerBoss = Instantiate(m_goScuttlerBossPrefab);
+            BossController scuttlerBossController = objNewScuttlerBoss.GetComponent<BossController>();
+            scuttlerBossController.m_btEnemyType = 0;
+            scuttlerBossController.m_bHealth = 1500;
+            objNewScuttlerBoss.transform.position = m_goBossSpawnLocation.transform.position;
             m_bHasSpawned = true;
         }
 
-        if (pBossType == BossType.Drone)
+        if (pBossType == BossType.Turret)
         {
-            m_bcBossController.m_btEnemyType = 2;
-            m_bcBossController.objBoss = Instantiate(m_goDroneBossPrefab);
-            m_bcBossController.objBoss.SetActive(true);
-            m_bcBossController.objBoss.transform.position = m_goBossSpawnLocation.transform.position;
+            GameObject objNewTurretBoss = Instantiate(m_goTurretBossPrefab);
+            BossController scuttlerBossController = objNewTurretBoss.GetComponent<BossController>();
+            scuttlerBossController.m_btEnemyType = 1;
+            scuttlerBossController.m_bHealth = 1500;
+            objNewTurretBoss.transform.position = m_goBossSpawnLocation.transform.position;
             m_bHasSpawned = true;
         }
         
-        if (pBossType == BossType.Turret)
+        if (pBossType == BossType.Drone)
         {
-            m_bcBossController.m_btEnemyType = 1;
-            m_bcBossController.objBoss = Instantiate(m_goTurretBossPrefab);
-            m_bcBossController.objBoss.SetActive(true);
-            m_bcBossController.objBoss.transform.position = m_goBossSpawnLocation.transform.position;
+            GameObject objNewDroneBoss = Instantiate(m_goDroneBossPrefab);
+            BossController scuttlerBossController = objNewDroneBoss.GetComponent<BossController>();
+            scuttlerBossController.m_btEnemyType = 2;
+            scuttlerBossController.m_bHealth = 1500;
+            objNewDroneBoss.transform.position = m_goBossSpawnLocation.transform.position;
             m_bHasSpawned = true;
         }
         m_rcRoundController.m_bBossDead = false;
