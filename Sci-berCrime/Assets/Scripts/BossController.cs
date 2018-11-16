@@ -36,7 +36,7 @@ public class BossController : MonoBehaviour
     public GameObject m_goPlayerOne;
     public GameObject m_goPlayerTwo;
     public GameObject m_goCurrentTarget;
-    
+    public GameObject m_goExplosion;
 
     private void Awake()
     {
@@ -348,6 +348,28 @@ public class BossController : MonoBehaviour
 
             if (other.gameObject.GetComponent<Bullet>().m_iPiercing == 0)
                 other.gameObject.GetComponent<Bullet>().m_fBulletCountdown = 0;
+
+            if (m_bHealth == 0)
+            {
+                // If explosive upgrade has been bought, create explosion based on level
+                if (other.gameObject.GetComponent<Bullet>().m_iExplosive != 0)
+                {
+                    // Spawns explosion at death location if killer has upgrade
+                    GameObject obj = Instantiate(m_goExplosion, transform.position, transform.rotation);
+
+                    if (other.gameObject.GetComponent<Bullet>().m_iExplosive == 1)
+                    {
+                        obj.GetComponent<Explosion>().m_iExplosionDamage = other.gameObject.GetComponent<Bullet>().m_iL1Damage;
+                        obj.GetComponent<Explosion>().m_fExplosionRadius = other.gameObject.GetComponent<Bullet>().m_fL1Radius;
+                    }
+                    else
+                    {
+                        obj.GetComponent<Explosion>().m_iExplosionDamage = other.gameObject.GetComponent<Bullet>().m_iL2Damage;
+                        obj.GetComponent<Explosion>().m_fExplosionRadius = other.gameObject.GetComponent<Bullet>().m_fL2Radius;
+                    }
+                }
+
+            }
         }
     }
 
@@ -358,10 +380,11 @@ public class BossController : MonoBehaviour
         {
             m_bHealth -= pDamage;
         }
-      
-        m_scShopController.GetComponent<ShopController>().DepositToWallet(100);
+
         if (m_bHealth < 0)
+        {
+            m_scShopController.GetComponent<ShopController>().DepositToWallet(2000);
             m_bHealth = 0;
-       
+        }
     }
 }

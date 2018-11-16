@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class BossSpawnController : MonoBehaviour
 {
-    // LEAVE THIS TO LIAM NOBODY FUCKING TOUCH IT
+    
     public enum BossType
     {
         Scuttler,
