@@ -163,17 +163,17 @@ MonoBehaviour:
   m_scShopController: {fileID: 0}
   m_bscBossSpawnController: {fileID: 0}
   m_rcRoundController: {fileID: 0}
-  m_btEnemyType: 0
-  m_fPlayerSafeBubbleSize: 1.3
-  m_bIsAlive: 0
-  m_bHealth: 1500
-  m_sDamage: 50
-  m_bRange: 10
-  m_bDroneTimer: 0
-  m_bTurretTimer: 0
+  objBoss: {fileID: 0}
   m_goPlayerOne: {fileID: 0}
   m_goPlayerTwo: {fileID: 0}
   m_goCurrentTarget: {fileID: 0}
+  m_fPlayerSafeBubbleSize: 1.3
+  m_bHealth: 0
+  m_sDamage: 0
+  m_etEnemyType: 0
+  m_bIsAlive: 0
+  m_fDroneRange: 5
+  m_fTurrentRange: 15
 --- !u!135 &135888762333772928
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1305613202984366
 GameObject:
   m_ObjectHideFlags: 1
@@ -812,12 +812,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scShopController: {fileID: 0}
   m_escEnemySpawnController: {fileID: 0}
-  m_iHealth: 150
-  m_iDamage: 30
-  range: 0
-  m_TurretTimer: 0
-  m_DroneTimer: 0
+  m_iHealth: 100
+  m_iDamage: 20
   m_fPlayerSafeBubbleSize: 1.3
+  m_fDroneRange: 5
+  m_fTurretRange: 25
   m_etEnemyType: 2
   m_goPlayerOne: {fileID: 0}
   m_goPlayerTwo: {fileID: 0}

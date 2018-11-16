@@ -10,8 +10,11 @@ ModelImporter:
     400000: Wall_001_Boundary_001
     400002: //RootNode
     2100000: lambert1
+    2100002: Wall_001_Boundary_002
     2300000: Wall_001_Boundary_001
+    2300002: //RootNode
     3300000: Wall_001_Boundary_001
+    3300002: //RootNode
     4300000: Wall_001_Boundary_001
     9500000: //RootNode
   externalObjects: {}

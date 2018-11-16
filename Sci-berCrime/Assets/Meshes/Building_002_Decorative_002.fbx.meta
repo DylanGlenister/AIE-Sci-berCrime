@@ -12,9 +12,13 @@ ModelImporter:
     400002: //RootNode
     400004: pasted__pasted__polySurface14
     2100000: lambert1
+    2100002: Skyscraper_001_Boundary_002
     2300000: Building_002_Decorative_002
+    2300002: //RootNode
     3300000: Building_002_Decorative_002
+    3300002: //RootNode
     4300000: Building_002_Decorative_002
+    4300002: Skyscraper_001_Boundary_001
     9500000: //RootNode
   externalObjects: {}
   materials:

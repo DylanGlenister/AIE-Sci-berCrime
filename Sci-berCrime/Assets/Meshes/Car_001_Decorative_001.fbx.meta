@@ -8,9 +8,11 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: lambert1
+    2100002: PoliceCar_001_Boundary_002
     2300000: //RootNode
     3300000: //RootNode
     4300000: Car_001_Decorative_001
+    4300002: PoliceCar_001_Boundary_001
     9500000: //RootNode
   externalObjects: {}
   materials:

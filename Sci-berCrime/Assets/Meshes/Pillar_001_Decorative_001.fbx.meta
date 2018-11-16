@@ -12,8 +12,11 @@ ModelImporter:
     400002: Pillar_001_Decorative_001
     400004: //RootNode
     2100000: lambert1
+    2100002: Pillar_001_Decorative_002
     2300000: Pillar_001_Decorative_001
+    2300002: //RootNode
     3300000: Pillar_001_Decorative_001
+    3300002: //RootNode
     4300000: Pillar_001_Decorative_001
     9500000: //RootNode
   externalObjects: {}
