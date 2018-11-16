@@ -115,19 +115,6 @@ public class PlayerController : MonoBehaviour
             m_gcGun.GunUpdate();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        // Player dies if hit by enemy
-        if (collision.gameObject.tag == "Scuttler" && m_bIsAlive)
-        {
-            TakeDamage(collision.gameObject.GetComponent<EnemyController>().m_iDamage);
-        }
-        if (collision.gameObject.tag == "ScuttlerBoss" && m_bIsAlive)
-        {
-            TakeDamage(collision.gameObject.GetComponent<BossController>().m_sDamage);
-        }
-    }
-
     // Applies damage to the object
     public void TakeDamage (int pDamage)
     {

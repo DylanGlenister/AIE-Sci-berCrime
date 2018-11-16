@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     public float range;
 
     public float m_TurretTimer;
+    public float m_ScuttlerTimer;
     public float m_DroneTimer;
 
     public float m_fPlayerSafeBubbleSize = 1.3f;
@@ -49,7 +50,7 @@ public class EnemyController : MonoBehaviour
 
         m_TurretTimer = m_escEnemySpawnController.m_DefaultTurretTimer;
         m_DroneTimer = m_escEnemySpawnController.m_DefaultDroneTimer;
-
+        m_ScuttlerTimer = m_escEnemySpawnController.m_DefaultScuttlerTimer;
         IsAlive = true;
     }
 
@@ -169,6 +170,29 @@ public class EnemyController : MonoBehaviour
                         {
                             //Goes to target's position
                             m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
+                        }
+                    }
+
+                    if (Vector3.Distance(m_goCurrentTarget.transform.position, m_nmaNavMeshAgent.transform.position) < 2.0f)
+                    {
+                        m_ScuttlerTimer -= Time.deltaTime;
+                        if (m_ScuttlerTimer <= 0)
+                        {
+                            m_ScuttlerTimer = 0;
+                        }
+                        if (m_ScuttlerTimer == 0)
+                        {
+                            if (m_goCurrentTarget == m_goPlayerOne)
+                            {
+                                Debug.Log("Scuttler has attacked");
+                                m_goPlayerOne.GetComponent<PlayerController>().TakeDamage(m_iDamage);
+                            }
+                            else
+                            {
+                                Debug.Log("Scuttler has attacked player 2");
+                                m_goPlayerTwo.GetComponent<PlayerController>().TakeDamage(m_iDamage);
+                            }
+                            m_ScuttlerTimer = m_escEnemySpawnController.m_DefaultScuttlerTimer;
                         }
                     }
 

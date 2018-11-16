@@ -79,8 +79,8 @@ public class EnemySpawnController : MonoBehaviour
 
     // Leave this here for now, will be arranged in the correct position during the gold stage
 
-    
-    public float m_DefaultTurretTimer = 0.5f;
+    public float m_DefaultScuttlerTimer = 0.5f;
+    public float m_DefaultTurretTimer = 1f;
     public float m_DefaultDroneTimer = 0.2f;
     public float m_fDroneRange = 5;
     public float m_fTurretRange = 20;
