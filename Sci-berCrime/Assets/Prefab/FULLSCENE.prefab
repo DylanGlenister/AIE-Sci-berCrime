@@ -1037,7 +1037,6 @@ GameObject:
   - component: {fileID: 33068063401314886}
   - component: {fileID: 23434346335629020}
   - component: {fileID: 95661979315241926}
-  - component: {fileID: 114250494666759720}
   m_Layer: 0
   m_Name: LanternStand_001_Large_001
   m_TagString: Untagged
@@ -1784,7 +1783,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4618331359980630}
-  - component: {fileID: 136480963226668842}
   m_Layer: 0
   m_Name: MapleTree_001_Decorative_001
   m_TagString: Untagged
@@ -20670,7 +20668,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 75988041f93a41f4bb1f6c9b7c10d200, type: 3}
+  - {fileID: 2100000, guid: 291271b208ea3de4ca11175381e8f69a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21488,7 +21486,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: eba2cffef470e8a4a88d3ea3032e11e0, type: 3}
+  - {fileID: 2100000, guid: f725dd5373fbc0446a7ce1ee8e3303cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21522,7 +21520,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: eba2cffef470e8a4a88d3ea3032e11e0, type: 3}
+  - {fileID: 2100000, guid: f725dd5373fbc0446a7ce1ee8e3303cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21896,8 +21894,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 75988041f93a41f4bb1f6c9b7c10d200, type: 3}
   - {fileID: 0}
+  - {fileID: 2100000, guid: 08b5e573a6cbb1b4588b52da147ecd5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22305,7 +22303,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: eba2cffef470e8a4a88d3ea3032e11e0, type: 3}
+  - {fileID: 2100000, guid: f725dd5373fbc0446a7ce1ee8e3303cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24040,7 +24038,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 57935c82fb89eee43ac143416e65214a, type: 2}
+  - {fileID: 2100000, guid: f725dd5373fbc0446a7ce1ee8e3303cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24550,7 +24548,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: eba2cffef470e8a4a88d3ea3032e11e0, type: 3}
+  - {fileID: 2100000, guid: f725dd5373fbc0446a7ce1ee8e3303cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25198,7 +25196,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 57935c82fb89eee43ac143416e65214a, type: 2}
+  - {fileID: 2100000, guid: f725dd5373fbc0446a7ce1ee8e3303cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31317,8 +31315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d6a165c6ad87b4c920b62befc04256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_goPlayerOne: {fileID: 0}
-  m_goPlayerTwo: {fileID: 0}
+  m_goPlayerOne: {fileID: 1184658583289034}
+  m_goPlayerTwo: {fileID: 1634340509967272}
   distance: 5
 --- !u!114 &114148930674827440
 MonoBehaviour:
@@ -31383,8 +31381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d6a165c6ad87b4c920b62befc04256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_goPlayerOne: {fileID: 0}
-  m_goPlayerTwo: {fileID: 0}
+  m_goPlayerOne: {fileID: 1184658583289034}
+  m_goPlayerTwo: {fileID: 1634340509967272}
   distance: 8
 --- !u!114 &114175773391771522
 MonoBehaviour:
@@ -31616,20 +31614,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114250494666759720
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1084513487595198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8d6a165c6ad87b4c920b62befc04256, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_goPlayerOne: {fileID: 1184658583289034}
-  m_goPlayerTwo: {fileID: 1634340509967272}
-  distance: 0
 --- !u!114 &114250829723709044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31912,6 +31896,7 @@ MonoBehaviour:
   m_goSpawnLocation4: {fileID: 1267432531366622}
   m_goSpawnLocation5: {fileID: 1027492165612784}
   m_goSpawnLocation6: {fileID: 1158596685916910}
+  m_DefaultScuttlerTimer: 0.5
   m_DefaultTurretTimer: 2
   m_DefaultDroneTimer: 1
   m_fDroneRange: 5
@@ -32428,8 +32413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d6a165c6ad87b4c920b62befc04256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_goPlayerOne: {fileID: 0}
-  m_goPlayerTwo: {fileID: 0}
+  m_goPlayerOne: {fileID: 1184658583289034}
+  m_goPlayerTwo: {fileID: 1634340509967272}
   distance: 8
 --- !u!114 &114370523031232092
 MonoBehaviour:
@@ -32693,8 +32678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d6a165c6ad87b4c920b62befc04256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_goPlayerOne: {fileID: 0}
-  m_goPlayerTwo: {fileID: 0}
+  m_goPlayerOne: {fileID: 1184658583289034}
+  m_goPlayerTwo: {fileID: 1634340509967272}
   distance: 10
 --- !u!114 &114433196053511726
 MonoBehaviour:
@@ -33933,8 +33918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d6a165c6ad87b4c920b62befc04256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_goPlayerOne: {fileID: 0}
-  m_goPlayerTwo: {fileID: 0}
+  m_goPlayerOne: {fileID: 1184658583289034}
+  m_goPlayerTwo: {fileID: 1634340509967272}
   distance: 8
 --- !u!114 &114731158200505516
 MonoBehaviour:
@@ -34231,8 +34216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d6a165c6ad87b4c920b62befc04256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_goPlayerOne: {fileID: 0}
-  m_goPlayerTwo: {fileID: 0}
+  m_goPlayerOne: {fileID: 1184658583289034}
+  m_goPlayerTwo: {fileID: 1634340509967272}
   distance: 5
 --- !u!114 &114840302027380570
 MonoBehaviour:
@@ -34417,8 +34402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d6a165c6ad87b4c920b62befc04256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_goPlayerOne: {fileID: 0}
-  m_goPlayerTwo: {fileID: 0}
+  m_goPlayerOne: {fileID: 1184658583289034}
+  m_goPlayerTwo: {fileID: 1634340509967272}
   distance: 5
 --- !u!114 &114885211364178958
 MonoBehaviour:
@@ -34719,8 +34704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d6a165c6ad87b4c920b62befc04256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_goPlayerOne: {fileID: 0}
-  m_goPlayerTwo: {fileID: 0}
+  m_goPlayerOne: {fileID: 1184658583289034}
+  m_goPlayerTwo: {fileID: 1634340509967272}
   distance: 8
 --- !u!114 &114950819338330570
 MonoBehaviour:
@@ -35371,19 +35356,6 @@ CapsuleCollider:
   m_Height: 1.7837393
   m_Direction: 2
   m_Center: {x: -0.12, y: 0.022173584, z: -1.17}
---- !u!136 &136480963226668842
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1148452843179448}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.84838825
-  m_Height: 5.149844
-  m_Direction: 1
-  m_Center: {x: -0.0010583426, y: 2.074922, z: 0.32}
 --- !u!136 &136481405705847828
 CapsuleCollider:
   m_ObjectHideFlags: 1
