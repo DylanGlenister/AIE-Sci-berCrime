@@ -271,7 +271,7 @@ public class EnemySpawnController : MonoBehaviour
             {
                 if (!m_lgoScuttlerList[i].activeInHierarchy)
                 {
-                    m_lgoScuttlerList[i].GetComponent<EnemyController>().m_etEnemyType = 0;
+                    m_lgoScuttlerList[i].GetComponent<EnemyController>().m_iEnemyType = 0;
                     m_lgoScuttlerList[i].transform.position = m_goChosenSpawnLocation.transform.position;
                     m_lgoScuttlerList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
                     m_lgoScuttlerList[i].GetComponent<EnemyController>().m_iHealth = 100;
@@ -291,7 +291,7 @@ public class EnemySpawnController : MonoBehaviour
             {
                 if (!m_lgoDroneList[i].activeInHierarchy)
                 {
-                    m_lgoDroneList[i].GetComponent<EnemyController>().m_etEnemyType = 2;
+                    m_lgoDroneList[i].GetComponent<EnemyController>().m_iEnemyType = 2;
                     m_lgoDroneList[i].transform.position = m_goChosenSpawnLocation.transform.position;
                     m_lgoDroneList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
                     m_lgoDroneList[i].GetComponent<EnemyController>().m_iHealth = 100;
@@ -311,7 +311,7 @@ public class EnemySpawnController : MonoBehaviour
             {
                 if (!m_lgoTurretList[i].activeInHierarchy)
                 {
-                    m_lgoTurretList[i].GetComponent<EnemyController>().m_etEnemyType = 1;
+                    m_lgoTurretList[i].GetComponent<EnemyController>().m_iEnemyType = 1;
                     m_lgoTurretList[i].transform.position = m_goChosenSpawnLocation.transform.position;
                     m_lgoTurretList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
                     m_lgoTurretList[i].GetComponent<EnemyController>().m_iHealth = 100;
