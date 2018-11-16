@@ -132,7 +132,7 @@ public class EnemySpawnController : MonoBehaviour
 
         if (m_rcRoundController.m_iCurrentRound == 1)
         {
-            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound)
+            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound <= m_iMaxScuttlersForRound)
             {
                 m_fSpawnTimer -= Time.deltaTime;
 
@@ -141,7 +141,7 @@ public class EnemySpawnController : MonoBehaviour
 
                 if (m_fSpawnTimer == 0)
                 {
-                    if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce)
+                    if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound )
                         SpawnEnemy(EnemyType.Scuttler);
                 }
             }
@@ -149,8 +149,8 @@ public class EnemySpawnController : MonoBehaviour
 
         else if (m_rcRoundController.m_iCurrentRound == 2)
         {
-            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound
-            && m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound < m_iMaxTurretsForRound)
+            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound <= m_iMaxScuttlersForRound
+            && m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound <= m_iMaxTurretsForRound)
             {
                 m_fSpawnTimer -= Time.deltaTime;
 
@@ -163,11 +163,11 @@ public class EnemySpawnController : MonoBehaviour
                     switch (rand)
                     {
                         case 0:
-                            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce)
+                            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound)
                                 SpawnEnemy(EnemyType.Scuttler);
                             break;
                         case 1:
-                            if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_rcRoundController.m_iCurrentRound >= 2)
+                            if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound < m_iMaxTurretsForRound)
                                 SpawnEnemy(EnemyType.Turret);
                             break;
                     }
@@ -176,9 +176,9 @@ public class EnemySpawnController : MonoBehaviour
         }
         else
         {
-            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound
-                && m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound < m_iMaxTurretsForRound
-                || m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_iCurrentDronesSpawnedThisRound < m_iMaxDronesForRound)
+            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound <= m_iMaxScuttlersForRound
+                && m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound <= m_iMaxTurretsForRound
+                && m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_iCurrentDronesSpawnedThisRound <= m_iMaxDronesForRound)
             {
                 m_fSpawnTimer -= Time.deltaTime;
 
@@ -191,15 +191,15 @@ public class EnemySpawnController : MonoBehaviour
                     switch (rand)
                     {
                         case 0:
-                            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce)
+                            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound)
                                 SpawnEnemy(EnemyType.Scuttler);
                             break;
                         case 1:
-                            if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_rcRoundController.m_iCurrentRound >= 2)
+                            if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound < m_iMaxTurretsForRound)
                                 SpawnEnemy(EnemyType.Turret);
                             break;
                         case 2:
-                            if (m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_rcRoundController.m_iCurrentRound >= 3)
+                            if (m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_iCurrentDronesSpawnedThisRound < m_iMaxDronesForRound)
                                 SpawnEnemy(EnemyType.Drone);
                             break;
                     }
