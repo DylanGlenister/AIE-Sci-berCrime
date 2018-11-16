@@ -32,6 +32,7 @@ public class BossController : MonoBehaviour
     public float m_bRange;
     public float m_bDroneTimer;
     public float m_bTurretTimer;
+    public float m_bScuttlerTimer;
  
     public GameObject m_goPlayerOne;
     public GameObject m_goPlayerTwo;
@@ -47,6 +48,10 @@ public class BossController : MonoBehaviour
         m_rcRoundController = GameObject.FindGameObjectWithTag("GameController").GetComponent<RoundController>();
         m_bscBossSpawnController = GameObject.FindGameObjectWithTag("GameController").GetComponent<BossSpawnController>();
         m_goCurrentTarget = m_goPlayerOne;
+
+        m_bTurretTimer = m_bscBossSpawnController.m_bDefaultTurretTimer;
+        m_bDroneTimer = m_bscBossSpawnController.m_bDefaultDroneTimer;
+        m_bScuttlerTimer = m_bscBossSpawnController.m_bDefaultScuttlerTimer;
 
         m_fPlayerSafeBubbleSize = 1.3f;
 
@@ -155,7 +160,28 @@ public class BossController : MonoBehaviour
                             m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
                         }
                     }
+                    if (Vector3.Distance(m_goCurrentTarget.transform.position, m_nmaNavMeshAgent.transform.position) < 2.0f)
+                    {
+                        m_bScuttlerTimer -= Time.deltaTime;
+                        if (m_bScuttlerTimer <= 0)
+                        {
+                            m_bScuttlerTimer = 0;
+                        }
+                        if (m_bScuttlerTimer == 0)
+                        {
+                            if (m_goCurrentTarget == m_goPlayerOne)
+                            {
 
+                                m_goPlayerOne.GetComponent<PlayerController>().TakeDamage(m_sDamage);
+                            }
+                            else
+                            {
+
+                                m_goPlayerTwo.GetComponent<PlayerController>().TakeDamage(m_sDamage);
+                            }
+                            m_bScuttlerTimer = m_bscBossSpawnController.m_bDefaultScuttlerTimer;
+                        }
+                    }
                 }
                 //drone
                 else if (p_EtEnemyType == M_btBossType.Drone)
@@ -232,12 +258,12 @@ public class BossController : MonoBehaviour
                         {
                             if (m_goCurrentTarget == m_goPlayerOne)
                             {
-                                Debug.Log("Drone has attacked");
+                               
                                 m_goPlayerOne.GetComponent<PlayerController>().TakeDamage(m_sDamage);
                             }
                             else
                             {
-                                Debug.Log("Drone has attacked player 2");
+                                
                                 m_goPlayerTwo.GetComponent<PlayerController>().TakeDamage(m_sDamage);
                             }
                             m_bDroneTimer = m_bscBossSpawnController.m_bDefaultDroneTimer;
@@ -320,12 +346,12 @@ public class BossController : MonoBehaviour
                         {
                             if (m_goCurrentTarget = m_goPlayerOne)
                             {
-                                Debug.Log("Turret Attacked");
+                                
                                 m_goPlayerOne.GetComponent<PlayerController>().TakeDamage(m_sDamage);
                             }
                             else
                             {
-                                Debug.Log("Turret Attacked Player 2");
+                                
                                 m_goPlayerTwo.GetComponent<PlayerController>().TakeDamage(m_sDamage);
                             }
                             m_bTurretTimer = m_bscBossSpawnController.m_bDefaultTurretTimer;

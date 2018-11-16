@@ -184,12 +184,12 @@ public class EnemyController : MonoBehaviour
                         {
                             if (m_goCurrentTarget == m_goPlayerOne)
                             {
-                                Debug.Log("Scuttler has attacked");
+                                
                                 m_goPlayerOne.GetComponent<PlayerController>().TakeDamage(m_iDamage);
                             }
                             else
                             {
-                                Debug.Log("Scuttler has attacked player 2");
+                                
                                 m_goPlayerTwo.GetComponent<PlayerController>().TakeDamage(m_iDamage);
                             }
                             m_ScuttlerTimer = m_escEnemySpawnController.m_DefaultScuttlerTimer;
@@ -272,12 +272,12 @@ public class EnemyController : MonoBehaviour
                         {
                             if (m_goCurrentTarget == m_goPlayerOne)
                             {
-                                Debug.Log("Drone has attacked");
+                                
                                 m_goPlayerOne.GetComponent<PlayerController>().TakeDamage(m_iDamage);
                             }
                             else
                             {
-                                Debug.Log("Drone has attacked player 2");
+                                
                                 m_goPlayerTwo.GetComponent<PlayerController>().TakeDamage(m_iDamage);
                             }
                             m_DroneTimer = m_escEnemySpawnController.m_DefaultDroneTimer;
@@ -360,12 +360,12 @@ public class EnemyController : MonoBehaviour
                         {
                             if (m_goCurrentTarget == m_goPlayerOne)
                             {
-                                Debug.Log("Turret Attacked");
+                                
                                 m_goPlayerOne.GetComponent<PlayerController>().TakeDamage(m_iDamage);
                             }
                             else
                             {
-                                Debug.Log("Turret Attacked Player 2");
+                                
                                 m_goPlayerTwo.GetComponent<PlayerController>().TakeDamage(m_iDamage);
                             }
                             m_TurretTimer = m_escEnemySpawnController.m_DefaultTurretTimer;

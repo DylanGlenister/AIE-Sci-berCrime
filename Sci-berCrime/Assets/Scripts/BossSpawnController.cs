@@ -26,6 +26,7 @@ public class BossSpawnController : MonoBehaviour
     
     public float m_bDefaultTurretTimer;
     public float m_bDefaultDroneTimer;
+    public float m_bDefaultScuttlerTimer;
     public float m_fbDroneRange;
     public float m_fbTurretRange;
     
