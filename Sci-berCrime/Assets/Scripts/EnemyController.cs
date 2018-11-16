@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
 
     public int m_iHealth;
     public int m_iDamage;
-
+    public int m_iReward; //New product by apple;
     public float range;
 
     public float m_TurretTimer;
@@ -59,8 +59,21 @@ public class EnemyController : MonoBehaviour
         {
 
             IsAlive = false;
-            m_escEnemySpawnController.m_iCurrentScuttlerCount -= 1;
-            m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound += 1;
+            if (m_etEnemyType == 0)
+            {
+                m_escEnemySpawnController.m_iCurrentScuttlerCount -= 1;
+                m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound += 1;
+            }
+            else if (m_etEnemyType == 1)
+            {
+                m_escEnemySpawnController.m_iCurrentTurretCount -= 1;
+                m_escEnemySpawnController.m_iCurrentTurretsKilledThisRound += 1;
+            }
+            else if (m_etEnemyType == 2)
+            {
+                m_escEnemySpawnController.m_iCurrentDroneCount -= 1;
+                m_escEnemySpawnController.m_iCurrentDronesKilledThisRound += 1;
+            }
             // Hides object from scene
             gameObject.SetActive(false);
         }
@@ -70,14 +83,17 @@ public class EnemyController : MonoBehaviour
             if (m_etEnemyType == 0)
             {
                 EnemyMove(M_etEnemyType.Scuttler);
+                m_iReward = 20;
             }
             else if (m_etEnemyType == 1)
             {
                 EnemyMove(M_etEnemyType.Turret);
+                m_iReward = 40;
             }
             else if (m_etEnemyType == 2)
             {
                 EnemyMove(M_etEnemyType.Drone);
+                m_iReward = 30;
             }
         }
     }
@@ -318,7 +334,7 @@ public class EnemyController : MonoBehaviour
                         }
                         if (m_TurretTimer == 0)
                         {
-                            if (m_goCurrentTarget = m_goPlayerOne)
+                            if (m_goCurrentTarget == m_goPlayerOne)
                             {
                                 Debug.Log("Turret Attacked");
                                 m_goPlayerOne.GetComponent<PlayerController>().TakeDamage(m_iDamage);
@@ -370,6 +386,7 @@ public class EnemyController : MonoBehaviour
                         obj.GetComponent<Explosion>().m_fExplosionRadius = other.gameObject.GetComponent<Bullet>().m_fL2Radius;
                     }
                 }
+
             }
         }
     }
@@ -379,8 +396,10 @@ public class EnemyController : MonoBehaviour
     {
         
         m_iHealth -= pDamage;
-        m_scShopController.GetComponent<ShopController>().DepositToWallet(pDamage/4);
-        if (m_iHealth < 0)
+        if (m_iHealth <= 0)
+        {
             m_iHealth = 0;
+            m_scShopController.DepositToWallet(m_iReward);
+        }
     }
 }

@@ -118,9 +118,13 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Player dies if hit by enemy
-        if (collision.gameObject.tag == "Enemy" && m_bIsAlive)
+        if (collision.gameObject.tag == "Scuttler" && m_bIsAlive)
         {
-            // TakeDamage(collision.gameObject.GetComponent<EnemyController>().m_iDamage);
+            TakeDamage(collision.gameObject.GetComponent<EnemyController>().m_iDamage);
+        }
+        if (collision.gameObject.tag == "ScuttlerBoss" && m_bIsAlive)
+        {
+            TakeDamage(collision.gameObject.GetComponent<BossController>().m_sDamage);
         }
     }
 

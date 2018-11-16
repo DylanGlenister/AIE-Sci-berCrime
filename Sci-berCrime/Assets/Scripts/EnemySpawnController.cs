@@ -15,8 +15,10 @@ public class EnemySpawnController : MonoBehaviour
     public bool m_bSpawningEnabled = true;
     public bool funMode = false;
     
-    public float m_fSpawnDelay = 0.25f;
+    public float m_fSpawnDelay = 1f;
     private float m_fSpawnTimer;
+    public float m_fDroneSpawnDelay;
+    public float m_fTurretSpawnDelay;
 
     //----------Scuttler----------
     [Header("Scuttler")]
@@ -87,6 +89,8 @@ public class EnemySpawnController : MonoBehaviour
     {
         // Initialises variables
         m_fSpawnTimer = m_fSpawnDelay;
+        m_fTurretSpawnDelay = 5;
+        m_fDroneSpawnDelay = 3;
         m_iMaxScuttlersForRound = m_iStartMaxScuttlersForRound;
         m_iMaxDronesForRound = m_iStartMaxDronesForRound;
         m_iMaxTurretsForRound = m_iStartMaxTurretsForRound;
@@ -123,58 +127,116 @@ public class EnemySpawnController : MonoBehaviour
     {
         if (!m_bSpawningEnabled)
             return;
-        
+
         // Only 'spawns' enemies as long at the max for the current round and the max on screen haven't been reached
-        if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound
-            || m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound < m_iMaxTurretsForRound
-            || m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_iCurrentDronesSpawnedThisRound < m_iMaxDronesForRound)
-        {
-            m_fSpawnTimer -= Time.deltaTime;
 
-            if (m_fSpawnTimer < 0)
-                m_fSpawnTimer = 0;
-
-            if (m_fSpawnTimer == 0)
-            {
-                int rand = Random.Range(0, 3);
-                switch (rand)
-                {
-                    case 0:
-                        if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce)
-                           SpawnEnemy(EnemyType.Scuttler);
-                        break;
-                    case 1:
-                        if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_rcRoundController.m_iCurrentRound >=3)
-                            SpawnEnemy(EnemyType.Turret);
-                        break;
-                    case 2:
-                         if (m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_rcRoundController.m_iCurrentRound >= 2)
-                            SpawnEnemy(EnemyType.Drone);
-                        break;
-                }
-                m_fSpawnTimer = m_fSpawnDelay;
-            }
-        }
         if (m_rcRoundController.m_iCurrentRound == 1)
         {
-            m_iMaxDronesForRound = 0;
-            m_iMaxTurretsForRound = 0;
+            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound)
+            {
+                m_fSpawnTimer -= Time.deltaTime;
+
+                if (m_fSpawnTimer < 0)
+                    m_fSpawnTimer = 0;
+
+                if (m_fSpawnTimer == 0)
+                {
+                    if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce)
+                        SpawnEnemy(EnemyType.Scuttler);
+                }
+            }
+        }
+
+        else if (m_rcRoundController.m_iCurrentRound == 2)
+        {
+            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound
+            && m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound < m_iMaxTurretsForRound)
+            {
+                m_fSpawnTimer -= Time.deltaTime;
+
+                if (m_fSpawnTimer < 0)
+                    m_fSpawnTimer = 0;
+
+                if (m_fSpawnTimer == 0)
+                {
+                    int rand = Random.Range(0, 2);
+                    switch (rand)
+                    {
+                        case 0:
+                            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce)
+                                SpawnEnemy(EnemyType.Scuttler);
+                            break;
+                        case 1:
+                            if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_rcRoundController.m_iCurrentRound >= 2)
+                                SpawnEnemy(EnemyType.Turret);
+                            break;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound
+                && m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound < m_iMaxTurretsForRound
+                || m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_iCurrentDronesSpawnedThisRound < m_iMaxDronesForRound)
+            {
+                m_fSpawnTimer -= Time.deltaTime;
+
+                if (m_fSpawnTimer < 0)
+                    m_fSpawnTimer = 0;
+
+                if (m_fSpawnTimer == 0)
+                {
+                    int rand = Random.Range(0, 3);
+                    switch (rand)
+                    {
+                        case 0:
+                            if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce)
+                                SpawnEnemy(EnemyType.Scuttler);
+                            break;
+                        case 1:
+                            if (m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_rcRoundController.m_iCurrentRound >= 2)
+                                SpawnEnemy(EnemyType.Turret);
+                            break;
+                        case 2:
+                            if (m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_rcRoundController.m_iCurrentRound >= 3)
+                                SpawnEnemy(EnemyType.Drone);
+                            break;
+                    }
+                    m_fSpawnTimer = m_fSpawnDelay;
+                }
+            }
+        }
+        
+
+        if (m_rcRoundController.m_iCurrentRound == 1)
+        {
+            if (m_iCurrentScuttlersKilledThisRound == m_iMaxScuttlersForRound)
+            {
+                m_bSpawningEnabled = false;
+                m_rcRoundController.m_bEnemiesDead = true;
+            }
         }
         else if (m_rcRoundController.m_iCurrentRound == 2)
         {
-            m_iMaxDronesForRound = 0;
+            if (m_iCurrentScuttlersKilledThisRound == m_iMaxScuttlersForRound && m_iCurrentTurretsKilledThisRound == m_iMaxTurretsForRound)
+            {
+                m_bSpawningEnabled = false;
+                m_rcRoundController.m_bEnemiesDead = true;
+            }
         }
-
         // Ends round once all enemies required have been killed
-        if (m_iCurrentScuttlersKilledThisRound == m_iMaxScuttlersForRound
-            && m_iCurrentDronesKilledThisRound == m_iMaxDronesForRound
-            && m_iCurrentTurretsKilledThisRound == m_iMaxTurretsForRound && m_rcRoundController)
+        else if (m_rcRoundController.m_iCurrentRound >= 3)
         {
-            m_bSpawningEnabled = false;
-            m_rcRoundController.m_bEnemiesDead = true;
+            if (m_iCurrentScuttlersKilledThisRound == m_iMaxScuttlersForRound
+                && m_iCurrentDronesKilledThisRound == m_iMaxDronesForRound
+                && m_iCurrentTurretsKilledThisRound == m_iMaxTurretsForRound)
+            {
+                m_bSpawningEnabled = false;
+                m_rcRoundController.m_bEnemiesDead = true;
+            }
         }
     }
-
     public void SpawnEnemy(EnemyType pEnemyType)
     {
         // Chooses random spawn location
