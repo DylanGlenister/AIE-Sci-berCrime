@@ -64,6 +64,47 @@ ModelImporter:
     100112: Spine_9
     100114: Tailbone
     100116: Torso
+    100118: Body
+    100120: Body_old
+    100122: Spine_13
+    100124: transform1
+    100126: transform10
+    100128: transform11
+    100130: transform12
+    100132: transform13
+    100134: transform14
+    100136: transform15
+    100138: transform16
+    100140: transform17
+    100142: transform18
+    100144: transform19
+    100146: transform2
+    100148: transform20
+    100150: transform21
+    100152: transform22
+    100154: transform23
+    100156: transform24
+    100158: transform25
+    100160: transform26
+    100162: transform27
+    100164: transform28
+    100166: transform29
+    100168: transform3
+    100170: transform30
+    100172: transform31
+    100174: transform32
+    100176: transform33
+    100178: transform34
+    100180: transform35
+    100182: transform36
+    100184: transform37
+    100186: transform38
+    100188: transform4
+    100190: transform5
+    100192: transform6
+    100194: transform7
+    100196: transform8
+    100198: transform9
     400000: //RootNode
     400002: Base_Character_Rig_Head
     400004: Base_Character_Rig_Hips
@@ -123,6 +164,47 @@ ModelImporter:
     400112: Spine_9
     400114: Tailbone
     400116: Torso
+    400118: Body
+    400120: Body_old
+    400122: Spine_13
+    400124: transform1
+    400126: transform10
+    400128: transform11
+    400130: transform12
+    400132: transform13
+    400134: transform14
+    400136: transform15
+    400138: transform16
+    400140: transform17
+    400142: transform18
+    400144: transform19
+    400146: transform2
+    400148: transform20
+    400150: transform21
+    400152: transform22
+    400154: transform23
+    400156: transform24
+    400158: transform25
+    400160: transform26
+    400162: transform27
+    400164: transform28
+    400166: transform29
+    400168: transform3
+    400170: transform30
+    400172: transform31
+    400174: transform32
+    400176: transform33
+    400178: transform34
+    400180: transform35
+    400182: transform36
+    400184: transform37
+    400186: transform38
+    400188: transform4
+    400190: transform5
+    400192: transform6
+    400194: transform7
+    400196: transform8
+    400198: transform9
     2100000: lambert1
     2100002: Body_PBS
     2300000: //RootNode
