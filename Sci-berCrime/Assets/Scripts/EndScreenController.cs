@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class EndScreenController : MonoBehaviour
 {
+    public RoundController m_rcRoundController;
+
     private bool m_bScrollLock;
 
+    public GameObject m_goEndScreen;
     public GameObject m_goRetryButton;
     public GameObject m_goMainMenuButton;
     public GameObject m_goExitButton;
@@ -16,12 +19,15 @@ public class EndScreenController : MonoBehaviour
     private void Awake ()
     {
         m_goCurrentlySelected = m_goRetryButton;
-
+        m_goEndScreen.SetActive(false);
         m_bScrollLock = false;
     }
 
     private void Update ()
     {
+        if (m_rcRoundController.m_bGameOver)
+            m_goEndScreen.SetActive(true);
+
         if (Input.GetAxis("P1 LS Vertical") > 0 && !m_bScrollLock)
         {
             // --------------------Scroll up--------------------
