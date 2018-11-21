@@ -26,80 +26,82 @@ public class EndScreenController : MonoBehaviour
     private void Update ()
     {
         if (m_rcRoundController.m_bGameOver)
+        {
             m_goEndScreen.SetActive(true);
 
-        if (Input.GetAxis("P1 LS Vertical") > 0 && !m_bScrollLock)
-        {
-            // --------------------Scroll up--------------------
-            if (m_goCurrentlySelected == m_goRetryButton)
+            if (Input.GetAxis("P1 LS Vertical") > 0 && !m_bScrollLock)
             {
-                // Deselects the previous ui element
-                DeselectUiElement(m_goRetryButton);
-                // Selects the new ui element
-                SelectItem(m_goExitButton);
-                m_bScrollLock = true;
+                // --------------------Scroll up--------------------
+                if (m_goCurrentlySelected == m_goRetryButton)
+                {
+                    // Deselects the previous ui element
+                    DeselectUiElement(m_goRetryButton);
+                    // Selects the new ui element
+                    SelectItem(m_goExitButton);
+                    m_bScrollLock = true;
+                }
+                else if (m_goCurrentlySelected == m_goMainMenuButton)
+                {
+                    // Deselects the previous ui element
+                    DeselectUiElement(m_goMainMenuButton);
+                    // Selects the new ui element
+                    SelectItem(m_goRetryButton);
+                    m_bScrollLock = true;
+                }
+                else if (m_goCurrentlySelected == m_goExitButton)
+                {
+                    // Deselects the previous ui element
+                    DeselectUiElement(m_goExitButton);
+                    // Selects the new ui element
+                    SelectItem(m_goMainMenuButton);
+                    m_bScrollLock = true;
+                }
             }
-            else if (m_goCurrentlySelected == m_goMainMenuButton)
+            else if (Input.GetAxis("P1 LS Vertical") < 0 && !m_bScrollLock)
             {
-                // Deselects the previous ui element
-                DeselectUiElement(m_goMainMenuButton);
-                // Selects the new ui element
-                SelectItem(m_goRetryButton);
-                m_bScrollLock = true;
+                // --------------------Scroll down--------------------
+                if (m_goCurrentlySelected == m_goRetryButton)
+                {
+                    // Deselects the previous ui element
+                    DeselectUiElement(m_goRetryButton);
+                    // Selects the new ui element
+                    SelectItem(m_goMainMenuButton);
+                    m_bScrollLock = true;
+                }
+                else if (m_goCurrentlySelected == m_goMainMenuButton)
+                {
+                    // Deselects the previous ui element
+                    DeselectUiElement(m_goMainMenuButton);
+                    // Selects the new ui element
+                    SelectItem(m_goExitButton);
+                    m_bScrollLock = true;
+                }
+                else if (m_goCurrentlySelected == m_goExitButton)
+                {
+                    // Deselects the previous ui element
+                    DeselectUiElement(m_goExitButton);
+                    // Selects the new ui element
+                    SelectItem(m_goRetryButton);
+                    m_bScrollLock = true;
+                }
             }
-            else if (m_goCurrentlySelected == m_goExitButton)
-            {
-                // Deselects the previous ui element
-                DeselectUiElement(m_goExitButton);
-                // Selects the new ui element
-                SelectItem(m_goMainMenuButton);
-                m_bScrollLock = true;
-            }
-        }
-        else if (Input.GetAxis("P1 LS Vertical") < 0 && !m_bScrollLock)
-        {
-            // --------------------Scroll down--------------------
-            if (m_goCurrentlySelected == m_goRetryButton)
-            {
-                // Deselects the previous ui element
-                DeselectUiElement(m_goRetryButton);
-                // Selects the new ui element
-                SelectItem(m_goMainMenuButton);
-                m_bScrollLock = true;
-            }
-            else if (m_goCurrentlySelected == m_goMainMenuButton)
-            {
-                // Deselects the previous ui element
-                DeselectUiElement(m_goMainMenuButton);
-                // Selects the new ui element
-                SelectItem(m_goExitButton);
-                m_bScrollLock = true;
-            }
-            else if (m_goCurrentlySelected == m_goExitButton)
-            {
-                // Deselects the previous ui element
-                DeselectUiElement(m_goExitButton);
-                // Selects the new ui element
-                SelectItem(m_goRetryButton);
-                m_bScrollLock = true;
-            }
-        }
 
-        // Select the current button
-        if (Input.GetButtonDown("P1 Button A"))
-        {
-            // Calls the function corresponding to the selected button
-            if (m_goCurrentlySelected == m_goRetryButton)
-                RetryButton();
-            else if (m_goCurrentlySelected == m_goMainMenuButton)
-                MainMenuButton();
-            else if (m_goCurrentlySelected == m_goExitButton)
-                ExitButton();
-        }
+            // Select the current button
+            if (Input.GetButtonDown("P1 Button A"))
+            {
+                // Calls the function corresponding to the selected button
+                if (m_goCurrentlySelected == m_goRetryButton)
+                    RetryButton();
+                else if (m_goCurrentlySelected == m_goMainMenuButton)
+                    MainMenuButton();
+                else if (m_goCurrentlySelected == m_goExitButton)
+                    ExitButton();
+            }
 
-        if (Input.GetAxis("P1 LS Vertical") == 0)
-        {
-            m_bScrollLock = false;
+            if (Input.GetAxis("P1 LS Vertical") == 0)
+            {
+                m_bScrollLock = false;
+            }
         }
     }
 

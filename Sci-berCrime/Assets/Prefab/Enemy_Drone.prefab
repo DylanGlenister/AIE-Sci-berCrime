@@ -165,7 +165,7 @@ MonoBehaviour:
   m_iHealth: 30
   m_iDamage: 15
   m_iReward: 0
-  m_iEnemyType: 0
+  m_iEnemyType: 2
   m_fRange: 0
   m_fTurretTimer: 0
   m_fScuttlerTimer: 0
