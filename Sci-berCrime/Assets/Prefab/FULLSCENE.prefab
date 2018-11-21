@@ -1667,7 +1667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1407502748557104
 GameObject:
   m_ObjectHideFlags: 1
@@ -4133,7 +4133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1920624604891700
 GameObject:
   m_ObjectHideFlags: 1
@@ -10829,13 +10829,13 @@ MonoBehaviour:
   m_rcRoundController: {fileID: 114711534135360518}
   m_bShopEnabled: 0
   m_iWallet: 0
-  m_iHealthUpgradeCost: 50
-  m_iDamageUpgradeCost: 50
-  m_iRPMUpgradeCost: 50
-  m_iAmmoUpgradeCost: 50
-  m_iPiercingUPgradeCost: 50
-  m_iSpreadUpgradeCost: 50
-  m_iExplosiveUpgradeCost: 50
+  m_iHealthUpgradeCost: 100
+  m_iDamageUpgradeCost: 100
+  m_iRPMUpgradeCost: 100
+  m_iAmmoUpgradeCost: 100
+  m_iPiercingUPgradeCost: 200
+  m_iSpreadUpgradeCost: 300
+  m_iExplosiveUpgradeCost: 500
   m_iHealthBuyCost: 50
   m_iAmmoBuyCost: 50
   m_iHealthIncrement: 20
@@ -11039,8 +11039,8 @@ MonoBehaviour:
   m_msMeleeScript: {fileID: 114464285045766552}
   isInShop: 0
   m_bPlayerOne: 1
-  m_iHealth: 200
-  m_iMaxHealth: 200
+  m_iHealth: 100
+  m_iMaxHealth: 100
   m_fMovementSpeed: 50
   m_goAimTarget: {fileID: 1331151049565554}
   m_rbRigidBody: {fileID: 54358573651097298}

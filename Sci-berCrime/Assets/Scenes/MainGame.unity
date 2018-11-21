@@ -153,67 +153,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1404350885420776, guid: c677f5f22540d4148b3dfa8210c65f46, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4978532950754942, guid: c677f5f22540d4148b3dfa8210c65f46, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4978532950754942, guid: c677f5f22540d4148b3dfa8210c65f46, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1919458783476000, guid: c677f5f22540d4148b3dfa8210c65f46, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_iHealthUpgradeCost
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_iDamageUpgradeCost
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_iRPMUpgradeCost
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_iAmmoUpgradeCost
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_iPiercingUPgradeCost
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_iSpreadUpgradeCost
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_iExplosiveUpgradeCost
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114469056058047538, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_iHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114469056058047538, guid: c677f5f22540d4148b3dfa8210c65f46,
-        type: 2}
-      propertyPath: m_iMaxHealth
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c677f5f22540d4148b3dfa8210c65f46, type: 2}
   m_IsPrefabParent: 0
