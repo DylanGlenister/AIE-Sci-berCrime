@@ -33,5 +33,7 @@ public class CameraScript : MonoBehaviour
             + new Vector3(0, m_fPlayerDistance / m_fZoomScalar - m_fZoomOffset, -m_fPlayerDistance / m_fZoomScalar + m_fZoomOffset);
 
         this.transform.position = averagePos / m_fCameraCenterTether + m_goCameraPlane_Pan.transform.position;
+
+
     }
 }
