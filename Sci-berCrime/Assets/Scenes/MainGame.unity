@@ -207,6 +207,11 @@ Prefab:
       objectReference: {fileID: 1895209265}
     - target: {fileID: 114451899422341962, guid: 1dffc9d2aeff2f8489377bfcf24648ce,
         type: 2}
+      propertyPath: m_csCameraScript
+      value: 
+      objectReference: {fileID: 1072377026}
+    - target: {fileID: 114451899422341962, guid: 1dffc9d2aeff2f8489377bfcf24648ce,
+        type: 2}
       propertyPath: m_goPlayerOne
       value: 
       objectReference: {fileID: 1895209266}
@@ -319,6 +324,11 @@ Prefab:
       objectReference: {fileID: 1895209265}
     - target: {fileID: 114290020851881982, guid: 278a2595b62eeeb41a53947ac1cf79f2,
         type: 2}
+      propertyPath: m_csCameraScript
+      value: 
+      objectReference: {fileID: 1072377026}
+    - target: {fileID: 114290020851881982, guid: 278a2595b62eeeb41a53947ac1cf79f2,
+        type: 2}
       propertyPath: m_goPlayerOne
       value: 
       objectReference: {fileID: 1895209266}
@@ -388,6 +398,11 @@ Prefab:
       propertyPath: m_rcRoundController
       value: 
       objectReference: {fileID: 1895209267}
+    - target: {fileID: 114031591392047560, guid: e3bcef551c3a29a48b101e2d3716f8ad,
+        type: 2}
+      propertyPath: m_csCameraScript
+      value: 
+      objectReference: {fileID: 1072377026}
     - target: {fileID: 114031591392047560, guid: e3bcef551c3a29a48b101e2d3716f8ad,
         type: 2}
       propertyPath: m_goPlayerOne
@@ -461,6 +476,11 @@ Prefab:
       objectReference: {fileID: 1895209267}
     - target: {fileID: 114120914707956150, guid: 71d52709f0f8a1f4399e88576759376b,
         type: 2}
+      propertyPath: m_csCameraScript
+      value: 
+      objectReference: {fileID: 1072377026}
+    - target: {fileID: 114120914707956150, guid: 71d52709f0f8a1f4399e88576759376b,
+        type: 2}
       propertyPath: m_goPlayerOne
       value: 
       objectReference: {fileID: 1895209266}
@@ -476,6 +496,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71d52709f0f8a1f4399e88576759376b, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1072377026 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114407032121071928, guid: c677f5f22540d4148b3dfa8210c65f46,
+    type: 2}
+  m_PrefabInternal: {fileID: 155484268}
+  m_Script: {fileID: 11500000, guid: 4f5ba6da3f252ae408c68616713dc890, type: 3}
 --- !u!1 &1289673074
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +738,11 @@ Prefab:
       objectReference: {fileID: 1895209267}
     - target: {fileID: 114755681833461344, guid: 37a2891d9f794a24eb7278330156bfec,
         type: 2}
+      propertyPath: m_csCameraScript
+      value: 
+      objectReference: {fileID: 1072377026}
+    - target: {fileID: 114755681833461344, guid: 37a2891d9f794a24eb7278330156bfec,
+        type: 2}
       propertyPath: m_goPlayerOne
       value: 
       objectReference: {fileID: 1895209266}
@@ -822,6 +853,11 @@ Prefab:
       propertyPath: m_escEnemySpawnController
       value: 
       objectReference: {fileID: 1895209265}
+    - target: {fileID: 114482594499798280, guid: e70b2079e21a7394e90e01f75f0ba765,
+        type: 2}
+      propertyPath: m_csCameraScript
+      value: 
+      objectReference: {fileID: 1072377026}
     - target: {fileID: 114482594499798280, guid: e70b2079e21a7394e90e01f75f0ba765,
         type: 2}
       propertyPath: m_goPlayerOne

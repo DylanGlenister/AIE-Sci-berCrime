@@ -11,6 +11,8 @@ public class CameraScript : MonoBehaviour
     public float m_fZoomOffset = 8f;
     public float m_fCameraCenterTether = 1.2f;
 
+    public Animator m_aAnimatior;
+
     [Header("Camera Objects")]
     public GameObject m_goCameraPlane_Zoom;
     public GameObject m_goCameraPlane_Pan;
@@ -33,7 +35,10 @@ public class CameraScript : MonoBehaviour
             + new Vector3(0, m_fPlayerDistance / m_fZoomScalar - m_fZoomOffset, -m_fPlayerDistance / m_fZoomScalar + m_fZoomOffset);
 
         this.transform.position = averagePos / m_fCameraCenterTether + m_goCameraPlane_Pan.transform.position;
+    }
 
-
+    public void PlayExplosion ()
+    {
+        m_aAnimatior.Play("ExplosionShake");
     }
 }

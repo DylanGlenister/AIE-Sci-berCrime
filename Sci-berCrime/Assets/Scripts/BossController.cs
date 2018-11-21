@@ -5,16 +5,17 @@ using UnityEngine.AI;
 
 public class BossController : MonoBehaviour
 {
+    public ShopController m_scShopController;
+    public BossSpawnController m_bscBossSpawnController;
+    public RoundController m_rcRoundController;
+    public CameraScript m_csCameraScript;
+
     public enum M_btBossType
     {
         Drone,
         Scuttler,
         Turret
     }
-
-    public ShopController m_scShopController;
-    public BossSpawnController m_bscBossSpawnController;
-    public RoundController m_rcRoundController;
 
     public int m_btEnemyType;
 
@@ -47,6 +48,7 @@ public class BossController : MonoBehaviour
         m_scShopController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ShopController>();
         m_rcRoundController = GameObject.FindGameObjectWithTag("GameController").GetComponent<RoundController>();
         m_bscBossSpawnController = GameObject.FindGameObjectWithTag("GameController").GetComponent<BossSpawnController>();
+        m_csCameraScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>();
         m_goCurrentTarget = m_goPlayerOne;
 
         m_bTurretTimer = m_bscBossSpawnController.m_bDefaultTurretTimer;
@@ -54,7 +56,6 @@ public class BossController : MonoBehaviour
         m_bScuttlerTimer = m_bscBossSpawnController.m_bDefaultScuttlerTimer;
 
         m_fPlayerSafeBubbleSize = 1.3f;
-
     }
 
     private void Update()
@@ -382,6 +383,7 @@ public class BossController : MonoBehaviour
                 {
                     // Spawns explosion at death location if killer has upgrade
                     GameObject obj = Instantiate(m_goExplosion, transform.position, transform.rotation);
+                    m_csCameraScript.PlayExplosion();
 
                     if (other.gameObject.GetComponent<Bullet>().m_iExplosive == 1)
                     {

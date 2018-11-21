@@ -2543,7 +2543,7 @@ GameObject:
   - component: {fileID: 81938389427426732}
   m_Layer: 0
   m_Name: MainCamera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4364,7 +4364,7 @@ GameObject:
   - component: {fileID: 95341775324913488}
   m_Layer: 0
   m_Name: CameraDolly
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5551,7 +5551,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008448979215670}
   m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 30, z: -24}
+  m_LocalPosition: {x: 5.5, y: 30, z: -31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4890139555606682}
@@ -6322,7 +6322,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1969141963160822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4110525598136230}
@@ -9178,7 +9178,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $100
 --- !u!114 &114078632800603952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9258,7 +9258,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $400
 --- !u!114 &114093151181538788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9544,7 +9544,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $100
 --- !u!114 &114154228173257792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9577,7 +9577,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $100
 --- !u!114 &114167680064454064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9610,7 +9610,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $100
 --- !u!114 &114175773391771522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10423,7 +10423,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $100
 --- !u!114 &114349493161312378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10777,6 +10777,7 @@ MonoBehaviour:
   m_fZoomScalar: 2
   m_fZoomOffset: 0.5
   m_fCameraCenterTether: 1.25
+  m_aAnimatior: {fileID: 95341775324913488}
   m_goCameraPlane_Zoom: {fileID: 1008448979215670}
   m_goCameraPlane_Pan: {fileID: 1808646617892656}
   m_goPlayerOne: {fileID: 1184658583289034}
@@ -11078,7 +11079,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $100
 --- !u!114 &114476116082220894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11859,7 +11860,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $500
 --- !u!114 &114678350540318344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12004,7 +12005,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $500
 --- !u!114 &114711534135360518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12092,7 +12093,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $300
 --- !u!114 &114744173599912414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12447,7 +12448,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $100
 --- !u!114 &114809747604819382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12532,7 +12533,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $100
 --- !u!114 &114812475392176106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12625,7 +12626,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $300
 --- !u!114 &114822454572199652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12743,7 +12744,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $50
+  m_Text: $400
 --- !u!114 &114865816519439390
 MonoBehaviour:
   m_ObjectHideFlags: 1

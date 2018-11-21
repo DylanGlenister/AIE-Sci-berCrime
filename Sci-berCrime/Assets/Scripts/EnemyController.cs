@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     public ShopController m_scShopController;
     public EnemySpawnController m_escEnemySpawnController;
+    public CameraScript m_csCameraScript;
 
     public enum EnemyType
     {
@@ -45,6 +46,7 @@ public class EnemyController : MonoBehaviour
         m_goPlayerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
         m_scShopController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ShopController>();
         m_escEnemySpawnController = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemySpawnController>();
+        m_csCameraScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>();
         m_goCurrentTarget = m_goPlayerOne;
 
         m_fTurretTimer = m_escEnemySpawnController.m_DefaultTurretTimer;
@@ -103,24 +105,6 @@ public class EnemyController : MonoBehaviour
     {
         if (IsAlive && (m_goPlayerOne || m_goPlayerTwo))
         {
-            //// If one player is dead only target the other player
-            //if (!m_goPlayerOne)
-            //{
-            //    if (m_goCurrentTarget != m_goPlayerTwo)
-            //        m_goCurrentTarget = m_goPlayerTwo;
-
-            //    m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
-            //}
-            //else if (!m_goPlayerTwo)
-            //{
-            //    if (m_goCurrentTarget != m_goPlayerOne)
-            //        m_goCurrentTarget = m_goPlayerOne;
-
-            //    m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
-            //}
-            //else
-            //{
-
             // Scuttler
             if (p_EtEnemyType == EnemyType.Scuttler)
             {
@@ -372,6 +356,7 @@ public class EnemyController : MonoBehaviour
                 {
                     // Spawns explosion at death location if killer has upgrade
                     GameObject obj = Instantiate(m_goExplosion, transform.position, transform.rotation);
+                    m_csCameraScript.PlayExplosion();
 
                     if (other.gameObject.GetComponent<Bullet>().m_iExplosive == 1)
                     {

@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scShopController: {fileID: 0}
   m_escEnemySpawnController: {fileID: 0}
+  m_csCameraScript: {fileID: 0}
   m_iHealth: 30
   m_iDamage: 15
   m_iReward: 0
@@ -174,7 +175,7 @@ MonoBehaviour:
   m_goPlayerOne: {fileID: 0}
   m_goPlayerTwo: {fileID: 0}
   m_goCurrentTarget: {fileID: 0}
-  m_goExplosion: {fileID: 1661961769809686, guid: a191cdb79ccd73243a0501c8407348c3,
+  m_goExplosion: {fileID: 1583879034700904, guid: a191cdb79ccd73243a0501c8407348c3,
     type: 2}
 --- !u!135 &135952883177386382
 SphereCollider:
