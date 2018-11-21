@@ -4,47 +4,42 @@ using UnityEngine;
 
 public class ObjectRenderer : MonoBehaviour
 {
+    // Object References
+    public int distance;
+    private float alpha;
+    private Material m_rObjectRenderer;
 
     // Player references
     public GameObject m_goPlayerOne;
     public GameObject m_goPlayerTwo;
-    
-    // Object References
-    Material m_rObjectRenderer;
-    float alpha;
-    public int distance;
 
-    private void Awake()
+    private void Awake ()
     {
         m_rObjectRenderer = GetComponent<Renderer>().material;
         m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
         m_goPlayerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
-        
     }
 
-    private void Update()
+    private void Update ()
     {
         Vector3 playerOneDistance = transform.position - m_goPlayerOne.transform.position;
         Vector3 playerTwoDistance = transform.position - m_goPlayerTwo.transform.position;
 
-        if (playerOneDistance.magnitude <= distance|| playerTwoDistance.magnitude <= distance && m_rObjectRenderer.color.a != 0.01f)
+        if (playerOneDistance.magnitude <= distance || playerTwoDistance.magnitude <= distance && m_rObjectRenderer.color.a != 0.01f)
         {
             // Object opacity
             // This coroutine sets the object's opacity to 99% over a second
             StartCoroutine(SetOpacity(0.01f, 0.5f));
-
         }
         else if (playerOneDistance.magnitude >= distance && playerTwoDistance.magnitude >= distance && m_rObjectRenderer.color.a < 1.0f)
         {
             // Object opaqueness
-            // This coroutine sets the object's opacity to 0% over a second
+            // This coroutine sets the object's opacity to 100% over a second
             StartCoroutine(SetOpacity(1.0f, 0.5f));
-
         }
-
     }
 
-    IEnumerator SetOpacity(float AlphaValue, float AlphaTime)
+    IEnumerator SetOpacity (float AlphaValue, float AlphaTime)
     {
         // This loops through to animate the fading effect of the objects going transparent
 
