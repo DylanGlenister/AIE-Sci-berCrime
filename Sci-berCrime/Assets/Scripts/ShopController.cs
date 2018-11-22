@@ -308,7 +308,7 @@ public class ShopController : MonoBehaviour
 
     public void HealthBuy (PlayerController pPlayer)
     {
-        if (m_iWallet < m_iHealthBuyCost)
+        if (m_iWallet < m_iHealthBuyCost || pPlayer.m_iHealth == pPlayer.m_iMaxHealth)
             return;
 
         // Updates UI
@@ -333,7 +333,7 @@ public class ShopController : MonoBehaviour
 
     public void AmmoBuy (PlayerController pPlayer)
     {
-        if (m_iWallet < m_iAmmoBuyCost)
+        if (m_iWallet < m_iAmmoBuyCost || pPlayer.GetComponent<GunController>().m_iAmmo == pPlayer.GetComponent<GunController>().m_iMaxAmmo)
             return;
 
         // Updates UI
