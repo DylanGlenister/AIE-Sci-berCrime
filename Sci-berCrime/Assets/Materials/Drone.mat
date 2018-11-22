@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Turret
+  m_Name: Drone
   m_Shader: {fileID: 47, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _SPECGLOSSMAP
   m_LightmapFlags: 1
@@ -35,15 +35,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 3985fe322d23b0647bda9d323e92873d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 238ee93798e6fb249b04ab8902d804c1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: eb1af35f24a5db240b5c9f391ff8388b, type: 3}
+        m_Texture: {fileID: 2800000, guid: a0edadfcb0d00144ea0c2cb5cb82b7ed, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: d2c51dc23b15ec0488c85a489058adcc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0272ac58364e46e409724acf897cba41, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 2800000, guid: d14f4a95ff049b24f81d307538514546, type: 3}
+        m_Texture: {fileID: 2800000, guid: ea83652d2e6e9c94d9f5ed9ab4c4d403, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
