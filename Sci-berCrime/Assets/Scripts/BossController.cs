@@ -68,6 +68,7 @@ public class BossController : MonoBehaviour
             {
                 m_bscBossSpawnController.m_bHasSpawned = false;
             }
+            
         }
 
 
@@ -161,7 +162,7 @@ public class BossController : MonoBehaviour
                             m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
                         }
                     }
-                    if (Vector3.Distance(m_goCurrentTarget.transform.position, m_nmaNavMeshAgent.transform.position) < 2.0f)
+                    if (Vector3.Distance(m_goCurrentTarget.transform.position, m_nmaNavMeshAgent.transform.position) < 5.0f)
                     {
                         m_bScuttlerTimer -= Time.deltaTime;
                         if (m_bScuttlerTimer <= 0)
@@ -409,7 +410,7 @@ public class BossController : MonoBehaviour
             m_bHealth -= pDamage;
         }
 
-        if (m_bHealth < 0)
+        if (m_bHealth <= 0)
         {
             m_scShopController.GetComponent<ShopController>().DepositToWallet(2000);
             m_bHealth = 0;
