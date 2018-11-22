@@ -4363,7 +4363,7 @@ GameObject:
   - component: {fileID: 114407032121071928}
   - component: {fileID: 95341775324913488}
   m_Layer: 0
-  m_Name: CameraDolly
+  m_Name: CameraAnimation
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4430,6 +4430,21 @@ GameObject:
   - component: {fileID: 114326985668886030}
   m_Layer: 0
   m_Name: CurrentAmmo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1985157492802018
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4317732429658392}
+  m_Layer: 0
+  m_Name: CameraDolly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5023,6 +5038,20 @@ Transform:
   m_Father: {fileID: 4202034663120490}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4317732429658392
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1985157492802018}
+  m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
+  m_LocalPosition: {x: 0, y: 23, z: -22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4569677997232104}
+  m_Father: {fileID: 4501399237292602}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!4 &4323725946305430
 Transform:
   m_ObjectHideFlags: 1
@@ -5424,7 +5453,7 @@ Transform:
   - {fileID: 4568333577240728}
   - {fileID: 4219132880574418}
   - {fileID: 4060745503911726}
-  - {fileID: 4569677997232104}
+  - {fileID: 4317732429658392}
   - {fileID: 4744322666609858}
   m_Father: {fileID: 4225490543719254}
   m_RootOrder: 1
@@ -5550,14 +5579,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008448979215670}
-  m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
-  m_LocalPosition: {x: 5.5, y: 30, z: -31}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4890139555606682}
-  m_Father: {fileID: 4501399237292602}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
+  m_Father: {fileID: 4317732429658392}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4591710457328476
 Transform:
   m_ObjectHideFlags: 1
@@ -8790,7 +8819,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 81e7725ee111d164a8fecb621f4d9f33, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -10161,7 +10190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c46719d2d6222479e02ceca2215ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bSpawningEnabled: 1
+  m_bSpawningEnabled: 0
   funMode: 0
   m_fSpawnDelay: 0.25
   m_fDroneSpawnDelay: 0
@@ -10778,6 +10807,7 @@ MonoBehaviour:
   m_fZoomOffset: 0.5
   m_fCameraCenterTether: 1.25
   m_aAnimatior: {fileID: 95341775324913488}
+  m_goCameraDolly: {fileID: 1985157492802018}
   m_goCameraPlane_Zoom: {fileID: 1008448979215670}
   m_goCameraPlane_Pan: {fileID: 1808646617892656}
   m_goPlayerOne: {fileID: 1184658583289034}

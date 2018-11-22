@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(newDir);
 
                 // Melee
-                if (Input.GetButton("P1 Button LB"))
+                if (Input.GetAxis("P1 Triggers") > 0)
                 {
                     m_msMeleeScript.InitiateSwing();
                 }
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
                 this.transform.rotation = Quaternion.LookRotation(newDir);
 
                 // Melee
-                if (Input.GetButton("P2 Button LB"))
+                if (Input.GetAxis("P2 Triggers") > 0)
                 {
                     m_msMeleeScript.InitiateSwing();
                 }
@@ -99,13 +99,13 @@ public class PlayerController : MonoBehaviour
             if (m_bPlayerOne)
             {
                 // Calls a specific update function for the currently active gun
-                if (m_gcGun && m_bIsAlive && Input.GetButton("P1 Button RB"))
+                if (m_gcGun && m_bIsAlive && Input.GetAxis("P1 Triggers") < 0)
                     m_gcGun.ActiveGunUpdate(this);
             }
             else
             {
                 // Calls a specific update function for the currently active gun
-                if (m_gcGun && m_bIsAlive && Input.GetButton("P2 Button RB"))
+                if (m_gcGun && m_bIsAlive && Input.GetAxis("P2 Triggers") < 0)
                     m_gcGun.ActiveGunUpdate(this);
             }
         }

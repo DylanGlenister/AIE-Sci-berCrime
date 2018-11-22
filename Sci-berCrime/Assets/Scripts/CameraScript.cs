@@ -14,6 +14,7 @@ public class CameraScript : MonoBehaviour
     public Animator m_aAnimatior;
 
     [Header("Camera Objects")]
+    public GameObject m_goCameraDolly;
     public GameObject m_goCameraPlane_Zoom;
     public GameObject m_goCameraPlane_Pan;
 
@@ -31,10 +32,12 @@ public class CameraScript : MonoBehaviour
         Vector3 averagePos = m_goPlayerOne.transform.position + m_goPlayerTwo.transform.position;
         averagePos /= 2;
 
-        m_goCameraPlane_Pan.transform.position = m_goCameraPlane_Zoom.transform.position
+        // Applies the zoom to the object
+        m_goCameraPlane_Zoom.transform.position = m_goCameraDolly.transform.position
             + new Vector3(0, m_fPlayerDistance / m_fZoomScalar - m_fZoomOffset, -m_fPlayerDistance / m_fZoomScalar + m_fZoomOffset);
 
-        this.transform.position = averagePos / m_fCameraCenterTether + m_goCameraPlane_Pan.transform.position;
+        // Applies the transform to the object
+        m_goCameraPlane_Pan.transform.position = averagePos / m_fCameraCenterTether + m_goCameraPlane_Zoom.transform.position;
     }
 
     public void PlayExplosion ()
