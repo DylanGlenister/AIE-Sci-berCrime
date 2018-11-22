@@ -4133,7 +4133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1920624604891700
 GameObject:
   m_ObjectHideFlags: 1
@@ -10836,7 +10836,7 @@ MonoBehaviour:
   m_iDamageUpgradeCost: 100
   m_iRPMUpgradeCost: 100
   m_iAmmoUpgradeCost: 100
-  m_iPiercingUPgradeCost: 200
+  m_iPiercingUPgradeCost: 400
   m_iSpreadUpgradeCost: 300
   m_iExplosiveUpgradeCost: 500
   m_iHealthBuyCost: 50
