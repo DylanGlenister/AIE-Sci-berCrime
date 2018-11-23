@@ -54,7 +54,7 @@ public class RoundController : MonoBehaviour
     private void Update()
     {
 
-        if (m_iCurrentRound == 20 && m_bRoundOver == true && (m_goPlayerOne.m_bIsAlive || m_goPlayerTwo.m_bIsAlive))
+        if (m_iCurrentRound == 20 && m_bRoundOver == true && (m_goPlayerOne.IsAlive || m_goPlayerTwo.IsAlive))
             m_bVictory = true;
 
         if (m_bVictory)
@@ -71,7 +71,7 @@ public class RoundController : MonoBehaviour
             SceneManager.LoadScene(1);
         }
 
-        if (!m_goPlayerOne.m_bIsAlive && !m_goPlayerTwo.m_bIsAlive)
+        if (!m_goPlayerOne.IsAlive && !m_goPlayerTwo.IsAlive)
             m_bGameOver = true;
 
         if (m_bGameOver)

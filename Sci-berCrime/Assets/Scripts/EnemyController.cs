@@ -125,16 +125,16 @@ public class EnemyController : MonoBehaviour
                 if (m_goCurrentTarget == m_goPlayerOne)
                 {
                     // Either player one is dead or player two is closer as long as player two is alive
-                    if (!m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive
+                    if (!m_goPlayerOne.gameObject.GetComponent<PlayerController>().IsAlive
                         || (playerTwoDistance.magnitude < playerOneDistance.magnitude
-                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive))
+                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().IsAlive))
                     {
                         //Debug.Log("Target is now player 2");
                         m_goCurrentTarget = m_goPlayerTwo;
                     }
                     // Only paths to target if they aren't already touching the target
                     else if (playerOneDistance.magnitude > m_fPlayerSafeBubbleSize
-                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive)
+                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().IsAlive)
                     {
                         //goes to the target's position
                         m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
@@ -143,16 +143,16 @@ public class EnemyController : MonoBehaviour
                 else
                 {
                     // Either player two is dead or player one is closer as long as player one is alive
-                    if (!m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive
+                    if (!m_goPlayerTwo.gameObject.GetComponent<PlayerController>().IsAlive
                         || (playerOneDistance.magnitude < playerTwoDistance.magnitude
-                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive))
+                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().IsAlive))
                     {
                         //Debug.Log("Target is now player 1");
                         m_goCurrentTarget = m_goPlayerOne;
                     }
                     // Only paths to target if they aren't already touching the target
                     else if (playerTwoDistance.magnitude > m_fPlayerSafeBubbleSize
-                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive)
+                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().IsAlive)
                     {
                         //Goes to target's position
                         m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
@@ -192,9 +192,9 @@ public class EnemyController : MonoBehaviour
                 if (m_goCurrentTarget == m_goPlayerOne)
                 {
                     // Either player one is dead or player two is closer as long as player two is alive
-                    if (!m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive
+                    if (!m_goPlayerOne.gameObject.GetComponent<PlayerController>().IsAlive
                         || (playerTwoDistance.magnitude < playerOneDistance.magnitude
-                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive))
+                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().IsAlive))
                     {
                         //Debug.Log("Target is now player 2");
                         m_goCurrentTarget = m_goPlayerTwo;
@@ -202,7 +202,7 @@ public class EnemyController : MonoBehaviour
                     // Only paths to target if they aren't already touching the target
                     else
                     if (playerOneDistance.magnitude > m_fRange
-                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive)
+                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().IsAlive)
                     {
                         // Moves the enemy in range
                         if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fRange)
@@ -215,9 +215,9 @@ public class EnemyController : MonoBehaviour
                 else
                 {
                     // Either player two is dead or player one is closer as long as player one is alive
-                    if (!m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive
+                    if (!m_goPlayerTwo.gameObject.GetComponent<PlayerController>().IsAlive
                         || (playerOneDistance.magnitude < playerTwoDistance.magnitude
-                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive))
+                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().IsAlive))
                     {
                         //Debug.Log("Target is now player 1");
                         m_goCurrentTarget = m_goPlayerOne;
@@ -225,7 +225,7 @@ public class EnemyController : MonoBehaviour
                     // Only paths to target if they aren't already touching the target
                     else
                     if (playerTwoDistance.magnitude > m_fRange
-                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive)
+                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().IsAlive)
                     {
                         // Moves the enemy in range
                         if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fRange)
@@ -273,9 +273,9 @@ public class EnemyController : MonoBehaviour
                 if (m_goCurrentTarget == m_goPlayerOne)
                 {
                     // Either player one is dead or player two is closer as long as player two is alive
-                    if (!m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive
+                    if (!m_goPlayerOne.gameObject.GetComponent<PlayerController>().IsAlive
                         || (playerTwoDistance.magnitude < playerOneDistance.magnitude
-                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive))
+                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().IsAlive))
                     {
                         //Debug.Log("Target is now player 2");
                         m_goCurrentTarget = m_goPlayerTwo;
@@ -283,7 +283,7 @@ public class EnemyController : MonoBehaviour
                     // Only paths to target if they aren't already touching the target
                     else
                     if (playerOneDistance.magnitude > m_fRange
-                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive)
+                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().IsAlive)
                     {
                         if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fRange)
                         {
@@ -295,9 +295,9 @@ public class EnemyController : MonoBehaviour
                 else
                 {
                     // Either player two is dead or player one is closer as long as player one is alive
-                    if (!m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive
+                    if (!m_goPlayerTwo.gameObject.GetComponent<PlayerController>().IsAlive
                         || (playerOneDistance.magnitude < playerTwoDistance.magnitude
-                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().m_bIsAlive))
+                        && m_goPlayerOne.gameObject.GetComponent<PlayerController>().IsAlive))
                     {
                         //Debug.Log("Target is now player 1");
                         m_goCurrentTarget = m_goPlayerOne;
@@ -305,7 +305,7 @@ public class EnemyController : MonoBehaviour
                     // Only paths to target if they aren't already touching the target
                     else
                     if (playerTwoDistance.magnitude > m_fRange
-                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().m_bIsAlive)
+                        && m_goPlayerTwo.gameObject.GetComponent<PlayerController>().IsAlive)
                     {
                         // Moves the enemy in range
                         if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_fRange)

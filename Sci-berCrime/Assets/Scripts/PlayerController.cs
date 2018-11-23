@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public UIController m_uicUIController;
     public MeleeScript m_msMeleeScript;
 
-    public bool m_bIsAlive { get; set; }
+    public bool IsAlive { get; set; }
 
     public bool isInShop = false;
     public bool m_bPlayerOne;
@@ -27,12 +27,12 @@ public class PlayerController : MonoBehaviour
     private void Awake ()
     {
         m_rbRigidBody = GetComponent<Rigidbody>();
-        m_bIsAlive = true;
+        IsAlive = true;
     }
 
     private void FixedUpdate ()
     {
-        if (m_bIsAlive && !isInShop)
+        if (IsAlive && !isInShop)
         {
             // All controls for player one
             if (m_bPlayerOne)
@@ -89,23 +89,23 @@ public class PlayerController : MonoBehaviour
     {
         if (m_iHealth == 0)
         {
-            m_bIsAlive = false;
+            IsAlive = false;
             // Fix this
             gameObject.SetActive(false);
         }
 
-        if (m_bIsAlive && !isInShop)
+        if (IsAlive && !isInShop)
         {
             if (m_bPlayerOne)
             {
                 // Calls a specific update function for the currently active gun
-                if (m_gcGun && m_bIsAlive && Input.GetAxis("P1 Triggers") < 0)
+                if (m_gcGun && IsAlive && Input.GetAxis("P1 Triggers") < 0)
                     m_gcGun.ActiveGunUpdate(this);
             }
             else
             {
                 // Calls a specific update function for the currently active gun
-                if (m_gcGun && m_bIsAlive && Input.GetAxis("P2 Triggers") < 0)
+                if (m_gcGun && IsAlive && Input.GetAxis("P2 Triggers") < 0)
                     m_gcGun.ActiveGunUpdate(this);
             }
         }
