@@ -31,6 +31,7 @@ public class EnemySpawnController : MonoBehaviour
 
     public int m_iMaxScuttlersAtOnce = 10;
     public int m_iPotentionalMaxScuttlersAtOnce = 200;
+    public int m_iScuttlerDefaultHealth;
     //----------Turret----------
     [Header("Turret")]
     public int m_iCurrentTurretCount;
@@ -42,6 +43,7 @@ public class EnemySpawnController : MonoBehaviour
 
     public int m_iMaxTurretsAtOnce = 20;
     public int m_iPotentionalMaxTurretsAtOnce = 200;
+    public int m_iTurretDefaultHealth;
     //----------Drone----------
     [Header("Drone")]
     public int m_iCurrentDroneCount;
@@ -53,7 +55,8 @@ public class EnemySpawnController : MonoBehaviour
 
     public int m_iMaxDronesAtOnce = 20;
     public int m_iPotentionalMaxDronesAtOnce = 200;
-    
+    public int m_iDroneDefaultHealth;
+
     //---Other---
     [Header("Other")]
     public RoundController m_rcRoundController;
@@ -141,8 +144,11 @@ public class EnemySpawnController : MonoBehaviour
 
                 if (m_fSpawnTimer == 0)
                 {
-                    if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound )
+                    if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound < m_iMaxScuttlersForRound)
+                    {
                         SpawnEnemy(EnemyType.Scuttler);
+                        m_fSpawnTimer = m_fSpawnDelay;
+                    }
                 }
             }
         }
@@ -156,6 +162,7 @@ public class EnemySpawnController : MonoBehaviour
 
                 if (m_fSpawnTimer < 0)
                     m_fSpawnTimer = 0;
+               
 
                 if (m_fSpawnTimer == 0)
                 {
@@ -171,6 +178,7 @@ public class EnemySpawnController : MonoBehaviour
                                 SpawnEnemy(EnemyType.Turret);
                             break;
                     }
+                    m_fSpawnTimer = m_fSpawnDelay;
                 }
             }
         }
@@ -185,6 +193,7 @@ public class EnemySpawnController : MonoBehaviour
                 if (m_fSpawnTimer < 0)
                     m_fSpawnTimer = 0;
 
+               
                 if (m_fSpawnTimer == 0)
                 {
                     int rand = Random.Range(0, 3);
@@ -204,6 +213,7 @@ public class EnemySpawnController : MonoBehaviour
                             break;
                     }
                     m_fSpawnTimer = m_fSpawnDelay;
+                    
                 }
             }
         }
@@ -274,7 +284,7 @@ public class EnemySpawnController : MonoBehaviour
                     m_lgoScuttlerList[i].GetComponent<EnemyController>().m_iEnemyType = 0;
                     m_lgoScuttlerList[i].transform.position = m_goChosenSpawnLocation.transform.position;
                     m_lgoScuttlerList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
-                    m_lgoScuttlerList[i].GetComponent<EnemyController>().m_iHealth = 100;
+                    m_lgoScuttlerList[i].GetComponent<EnemyController>().m_iHealth = m_iScuttlerDefaultHealth * m_rcRoundController.m_iCurrentRound;
                     m_lgoScuttlerList[i].GetComponent<EnemyController>().IsAlive = true;
                     m_lgoScuttlerList[i].SetActive(true);
                     m_lgoScuttlerList[i].GetComponent<NavMeshAgent>().enabled = true;
@@ -294,7 +304,7 @@ public class EnemySpawnController : MonoBehaviour
                     m_lgoDroneList[i].GetComponent<EnemyController>().m_iEnemyType = 2;
                     m_lgoDroneList[i].transform.position = m_goChosenSpawnLocation.transform.position;
                     m_lgoDroneList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
-                    m_lgoDroneList[i].GetComponent<EnemyController>().m_iHealth = 100;
+                    m_lgoDroneList[i].GetComponent<EnemyController>().m_iHealth = m_iDroneDefaultHealth * m_rcRoundController.m_iCurrentRound;
                     m_lgoDroneList[i].GetComponent<EnemyController>().IsAlive = true;
                     m_lgoDroneList[i].SetActive(true);
                     m_lgoDroneList[i].GetComponent<NavMeshAgent>().enabled = true;
@@ -314,7 +324,7 @@ public class EnemySpawnController : MonoBehaviour
                     m_lgoTurretList[i].GetComponent<EnemyController>().m_iEnemyType = 1;
                     m_lgoTurretList[i].transform.position = m_goChosenSpawnLocation.transform.position;
                     m_lgoTurretList[i].transform.rotation = m_goChosenSpawnLocation.transform.rotation;
-                    m_lgoTurretList[i].GetComponent<EnemyController>().m_iHealth = 100;
+                    m_lgoTurretList[i].GetComponent<EnemyController>().m_iHealth = m_iTurretDefaultHealth * m_rcRoundController.m_iCurrentRound;
                     m_lgoTurretList[i].GetComponent<EnemyController>().IsAlive = true;
                     m_lgoTurretList[i].SetActive(true);
                     m_lgoTurretList[i].GetComponent<NavMeshAgent>().enabled = true;

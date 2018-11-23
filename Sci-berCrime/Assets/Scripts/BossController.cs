@@ -30,6 +30,7 @@ public class BossController : MonoBehaviour
     public int m_bHealth;
     public int m_sDamage;
 
+    public float m_bSPEEEEDYBOI;
     public float m_bRange;
     public float m_bDroneTimer;
     public float m_bTurretTimer;
@@ -50,7 +51,7 @@ public class BossController : MonoBehaviour
         m_bscBossSpawnController = GameObject.FindGameObjectWithTag("GameController").GetComponent<BossSpawnController>();
         m_csCameraScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>();
         m_goCurrentTarget = m_goPlayerOne;
-
+        m_bSPEEEEDYBOI = m_bscBossSpawnController.m_bSPEED;
         m_bTurretTimer = m_bscBossSpawnController.m_bDefaultTurretTimer;
         m_bDroneTimer = m_bscBossSpawnController.m_bDefaultDroneTimer;
         m_bScuttlerTimer = m_bscBossSpawnController.m_bDefaultScuttlerTimer;
@@ -60,17 +61,17 @@ public class BossController : MonoBehaviour
 
     private void Update()
     {
-        if (m_bHealth == 0)
+        if (m_bIsAlive && m_bHealth == 0)
         {
             m_bIsAlive = false;
             m_rcRoundController.m_bBossDead = true;
-            if (m_rcRoundController.m_bRoundOver)
-            {
-                m_bscBossSpawnController.m_bHasSpawned = false;
-            }
-            
+            Destroy(gameObject);
         }
 
+        if (m_rcRoundController.m_bRoundOver && m_bIsAlive)
+        {
+            m_bscBossSpawnController.m_bHasSpawned = false;
+        }
 
         if (m_bIsAlive && (m_goPlayerOne || m_goPlayerTwo))
         {
@@ -142,6 +143,7 @@ public class BossController : MonoBehaviour
                         {
                             //goes to the target's position
                             m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
+                            m_nmaNavMeshAgent.speed += m_bSPEEEEDYBOI;
                         }
                     }
                     else
@@ -160,6 +162,7 @@ public class BossController : MonoBehaviour
                         {
                             //Goes to target's position
                             m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
+                            m_nmaNavMeshAgent.speed += m_bSPEEEEDYBOI;
                         }
                     }
                     if (Vector3.Distance(m_goCurrentTarget.transform.position, m_nmaNavMeshAgent.transform.position) < 5.0f)
@@ -217,6 +220,7 @@ public class BossController : MonoBehaviour
                             if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_bRange)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
+                                m_nmaNavMeshAgent.speed += m_bSPEEEEDYBOI;
                                 m_nmaNavMeshAgent.stoppingDistance = m_bRange;
 
                             }
@@ -243,6 +247,7 @@ public class BossController : MonoBehaviour
                             if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_bRange)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
+                                m_nmaNavMeshAgent.speed += m_bSPEEEEDYBOI;
                                 m_nmaNavMeshAgent.stoppingDistance = m_bRange;
 
                             }
@@ -305,6 +310,7 @@ public class BossController : MonoBehaviour
                             if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_bRange)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
+                                m_nmaNavMeshAgent.speed += m_bSPEEEEDYBOI;
                                 m_nmaNavMeshAgent.stoppingDistance = m_bRange;
 
                             }
@@ -330,6 +336,7 @@ public class BossController : MonoBehaviour
                             if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_bRange)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
+                                m_nmaNavMeshAgent.speed += m_bSPEEEEDYBOI;
                                 m_nmaNavMeshAgent.stoppingDistance = m_bRange;
 
                             }
