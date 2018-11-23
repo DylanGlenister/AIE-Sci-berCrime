@@ -297,7 +297,7 @@ public class ShopController : MonoBehaviour
             pPlayer.m_fFireDelay -= m_fRPMIncrement;
         else
             pPlayer.m_fFireDelay = m_fRPMIncrement;
-        UpdateCost(pPlayer);
+        UpdateCost(pPlayer.gameObject.GetComponent<PlayerController>());
     }
 
     // Increases the max ammo the player can carry
@@ -498,27 +498,47 @@ public class ShopController : MonoBehaviour
     {
         if (pPlayer.m_bPlayerOne)
         {
-            m_iP1HealthUpgradeCost *= 5;
-            m_iP1DamageUpgradeCost *= 5;
-            m_iP1RPMUpgradeCost *= 5;
-            m_iP1AmmoUpgradeCost *= 5;
-            m_iP1PiercingUpgradeCost *= 20;
-            m_iP1ExplosiveUpgradeCost *= 20;
-            m_iP1SpreadUpgradeCost *= 20;
-            m_iP1HealthBuyCost *= 5;
-            m_iP1AmmoBuyCost *= 5;
+            m_iP1HealthUpgradeCost *= 2;
+            m_iP1DamageUpgradeCost *= 2;
+            m_iP1RPMUpgradeCost *= 2;
+            m_iP1AmmoUpgradeCost *= 2;
+            m_iP1PiercingUpgradeCost *= 2;
+            m_iP1ExplosiveUpgradeCost *= 2;
+            m_iP1SpreadUpgradeCost *= 2;
+            m_iP1HealthBuyCost *= 2;
+            m_iP1AmmoBuyCost *= 2;
+
+            m_uicUIController.UpdatePlayerOneHealthUpgradeCost(m_iP1HealthUpgradeCost);
+            m_uicUIController.UpdatePlayerOneDamageUpgradeCost(m_iP1DamageUpgradeCost);
+            m_uicUIController.UpdatePlayerOneRPMUpgradeCost(m_iP1RPMUpgradeCost);
+            m_uicUIController.UpdatePlayerOneAmmoUpgradeCost(m_iP1AmmoUpgradeCost);
+            m_uicUIController.UpdatePlayerOneSpreadUpgradeCost(m_iP1SpreadUpgradeCost);
+            m_uicUIController.UpdatePlayerOnePiercingUpgradeCost(m_iP1PiercingUpgradeCost);
+            m_uicUIController.UpdatePlayerOneExplosiveUpgradeCost(m_iP1ExplosiveUpgradeCost);
+            m_uicUIController.UpdatePlayerOneHealthBuyCost(m_iP1HealthBuyCost);
+            m_uicUIController.UpdatePlayerOneAmmoBuyCost(m_iP1AmmoBuyCost);
         }
         else
         {
-            m_iP2HealthUpgradeCost *= 5;
-            m_iP2DamageUpgradeCost *= 5;
-            m_iP2RPMUpgradeCost *= 5;
-            m_iP2AmmoUpgradeCost *= 5;
-            m_iP2PiercingUpgradeCost *= 20;
-            m_iP2ExplosiveUpgradeCost *= 20;
-            m_iP2SpreadUpgradeCost *= 20;
-            m_iP2HealthBuyCost *= 5;
-            m_iP2AmmoBuyCost *= 5;
+            m_iP2HealthUpgradeCost *= 2;
+            m_iP2DamageUpgradeCost *= 2;
+            m_iP2RPMUpgradeCost *= 2;
+            m_iP2AmmoUpgradeCost *= 2;
+            m_iP2PiercingUpgradeCost *= 2;
+            m_iP2ExplosiveUpgradeCost *= 2;
+            m_iP2SpreadUpgradeCost *= 2;
+            m_iP2HealthBuyCost *= 2;
+            m_iP2AmmoBuyCost *= 2;
+
+            m_uicUIController.UpdatePlayerTwoHealthUpgradeCost(m_iP2HealthUpgradeCost);
+            m_uicUIController.UpdatePlayerTwoDamageUpgradeCost(m_iP2DamageUpgradeCost);
+            m_uicUIController.UpdatePlayerTwoRPMUpgradeCost(m_iP2RPMUpgradeCost);
+            m_uicUIController.UpdatePlayerTwoAmmoUpgradeCost(m_iP2AmmoUpgradeCost);
+            m_uicUIController.UpdatePlayerTwoSpreadUpgradeCost(m_iP2SpreadUpgradeCost);
+            m_uicUIController.UpdatePlayerTwoPiercingUpgradeCost(m_iP2PiercingUpgradeCost);
+            m_uicUIController.UpdatePlayerTwoExplosiveUpgradeCost(m_iP2ExplosiveUpgradeCost);
+            m_uicUIController.UpdatePlayerTwoHealthBuyCost(m_iP2HealthBuyCost);
+            m_uicUIController.UpdatePlayerTwoAmmoBuyCost(m_iP2AmmoBuyCost);
         }
 
     }

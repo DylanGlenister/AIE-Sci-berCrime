@@ -10202,6 +10202,7 @@ MonoBehaviour:
   m_iStartMaxScuttlersForRound: 10
   m_iMaxScuttlersAtOnce: 5
   m_iPotentionalMaxScuttlersAtOnce: 200
+  m_iScuttlerDefaultHealth: 150
   m_iCurrentTurretCount: 0
   m_iCurrentTurretsSpawnedThisRound: 0
   m_iCurrentTurretsKilledThisRound: 0
@@ -10209,6 +10210,7 @@ MonoBehaviour:
   m_iStartMaxTurretsForRound: 10
   m_iMaxTurretsAtOnce: 5
   m_iPotentionalMaxTurretsAtOnce: 200
+  m_iTurretDefaultHealth: 250
   m_iCurrentDroneCount: 0
   m_iCurrentDronesSpawnedThisRound: 0
   m_iCurrentDronesKilledThisRound: 0
@@ -10216,6 +10218,7 @@ MonoBehaviour:
   m_iStartMaxDronesForRound: 10
   m_iMaxDronesAtOnce: 5
   m_iPotentionalMaxDronesAtOnce: 200
+  m_iDroneDefaultHealth: 100
   m_rcRoundController: {fileID: 114711534135360518}
   m_goScuttlerPrefab: {fileID: 1633900625771084, guid: 1dffc9d2aeff2f8489377bfcf24648ce,
     type: 2}
@@ -10233,7 +10236,7 @@ MonoBehaviour:
   m_DefaultTurretTimer: 2
   m_DefaultDroneTimer: 1
   m_fDroneRange: 5
-  m_fTurretRange: 20
+  m_fTurretRange: 10
 --- !u!114 &114287230914312776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10862,15 +10865,24 @@ MonoBehaviour:
   m_rcRoundController: {fileID: 114711534135360518}
   m_bShopEnabled: 0
   m_iWallet: 0
-  m_iHealthUpgradeCost: 100
-  m_iDamageUpgradeCost: 100
-  m_iRPMUpgradeCost: 100
-  m_iAmmoUpgradeCost: 100
-  m_iPiercingUPgradeCost: 400
-  m_iSpreadUpgradeCost: 300
-  m_iExplosiveUpgradeCost: 500
-  m_iHealthBuyCost: 50
-  m_iAmmoBuyCost: 50
+  m_iP1HealthUpgradeCost: 0
+  m_iP1DamageUpgradeCost: 0
+  m_iP1RPMUpgradeCost: 0
+  m_iP1AmmoUpgradeCost: 0
+  m_iP1PiercingUpgradeCost: 0
+  m_iP1SpreadUpgradeCost: 0
+  m_iP1ExplosiveUpgradeCost: 0
+  m_iP1HealthBuyCost: 0
+  m_iP1AmmoBuyCost: 0
+  m_iP2HealthUpgradeCost: 0
+  m_iP2DamageUpgradeCost: 0
+  m_iP2RPMUpgradeCost: 0
+  m_iP2AmmoUpgradeCost: 0
+  m_iP2PiercingUpgradeCost: 0
+  m_iP2SpreadUpgradeCost: 0
+  m_iP2ExplosiveUpgradeCost: 0
+  m_iP2HealthBuyCost: 0
+  m_iP2AmmoBuyCost: 0
   m_iHealthIncrement: 20
   m_iDamageIncrement: 20
   m_fRPMIncrement: 0.005
@@ -11033,7 +11045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cMeleeBox: {fileID: 65095772412571960}
   m_bSwingCompleted: 1
-  m_iMeleeDamage: 50
+  m_iMeleeDamage: 200
   m_fMeleeDelay: 0.4
   m_fMeleeTimer: 0
   m_fSwingDurationDelay: 0.15
@@ -11051,7 +11063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cMeleeBox: {fileID: 65225200270509018}
   m_bSwingCompleted: 1
-  m_iMeleeDamage: 50
+  m_iMeleeDamage: 200
   m_fMeleeDelay: 0.4
   m_fMeleeTimer: 0
   m_fSwingDurationDelay: 0.15
@@ -12058,6 +12070,7 @@ MonoBehaviour:
   m_bTimerToggle: 0
   m_bBossDead: 0
   m_bEnemiesDead: 0
+  m_bVictory: 0
   m_iCurrentRound: 0
   m_iMaxRounds: 0
   m_fRoundCountdown: 0
@@ -12380,6 +12393,38 @@ MonoBehaviour:
   m_txtPlayerOneShopAmmo: {fileID: 114531753904671570}
   m_txtPlayerTwoShopHealth: {fileID: 114838463196709226}
   m_txtPlayerTwoShopAmmo: {fileID: 114326985668886030}
+  m_txtP1HealthUpgradeCost: {fileID: 114167680064454064}
+  m_txtP1DamageUpgradeCost: {fileID: 114154228173257792}
+  m_txtP1RPMUpgradeCost: {fileID: 114077849444251366}
+  m_txtP1AmmoUpgradeCost: {fileID: 114796877172107298}
+  m_txtP1PiercingUpgradeCost: {fileID: 114726523989402760}
+  m_txtP1SpreadUpgradeCost: {fileID: 114843178672756754}
+  m_txtP1ExplosiveUpgradeCost: {fileID: 114704269156689044}
+  m_txtP1HealthBuyCost: {fileID: 114983850720213956}
+  m_txtP1AmmoBuyCost: {fileID: 114514871540884212}
+  m_txtP2HealthUpgradeCost: {fileID: 114348837970231178}
+  m_txtP2DamageUpgradeCost: {fileID: 114153457694064436}
+  m_txtP2RPMUpgradeCost: {fileID: 114811655465552990}
+  m_txtP2AmmoUpgradeCost: {fileID: 114469783723643148}
+  m_txtP2PiercingUpgradeCost: {fileID: 114820926467168606}
+  m_txtP2SpreadUpgradeCost: {fileID: 114086243200295060}
+  m_txtP2ExplosiveUpgradeCost: {fileID: 114672068759510716}
+  m_txtP2HealthBuyCost: {fileID: 114192387567186616}
+  m_txtP2AmmoBuyCost: {fileID: 114273733545472316}
+  m_txtP1HealthUpgradeLevel: {fileID: 0}
+  m_txtP1DamageUpgradeLevel: {fileID: 0}
+  m_txtP1RPMUpgradeLevel: {fileID: 0}
+  m_txtP1AmmoUpgradeLevel: {fileID: 0}
+  m_txtP1PiercingUpgradeLevel: {fileID: 0}
+  m_txtP1SpreadUpgradeLevel: {fileID: 0}
+  m_txtP1ExplosiveUpgradeLevel: {fileID: 0}
+  m_txtP2HealthUpgradeLevel: {fileID: 0}
+  m_txtP2DamageUpgradeLevel: {fileID: 0}
+  m_txtP2RPMUpgradeLevel: {fileID: 0}
+  m_txtP2AmmoUpgradeLevel: {fileID: 0}
+  m_txtP2PiercingUpgradeLevel: {fileID: 0}
+  m_txtP2SpreadUpgradeLevel: {fileID: 0}
+  m_txtP2ExplosiveUpgradeLevel: {fileID: 0}
 --- !u!114 &114790246994722260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12805,9 +12850,10 @@ MonoBehaviour:
   m_rcRoundController: {fileID: 114711534135360518}
   m_scShopController: {fileID: 114433196053511726}
   m_bHasSpawned: 0
-  m_iHealthMultiplierScuttler: 3
-  m_iHealthMultiplierDrone: 3
-  m_iHealthMultiplierTurret: 3
+  m_bHealthScuttler: 150000
+  m_bHealthDrone: 750000
+  m_bHealthTurret: 500000
+  m_bSPEED: 20
   m_bDefaultTurretTimer: 0.5
   m_bDefaultDroneTimer: 2
   m_bDefaultScuttlerTimer: 1

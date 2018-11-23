@@ -1237,61 +1237,107 @@ Prefab:
     - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
         type: 2}
       propertyPath: m_bSpawningEnabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
         type: 2}
-      propertyPath: m_iDroneDefaultHealth
+      propertyPath: m_iP1HealthUpgradeCost
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
         type: 2}
-      propertyPath: m_iTurretDefaultHealth
-      value: 250
+      propertyPath: m_iP1DamageUpgradeCost
+      value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
         type: 2}
-      propertyPath: m_fTurretRange
-      value: 10
+      propertyPath: m_iP1RPMUpgradeCost
+      value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
         type: 2}
-      propertyPath: m_iScuttlerDefaultHealth
-      value: 150
+      propertyPath: m_iP1AmmoUpgradeCost
+      value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 114872124237979738, guid: c677f5f22540d4148b3dfa8210c65f46,
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
         type: 2}
-      propertyPath: m_bSPEED
-      value: 20
+      propertyPath: m_iP1PiercingUpgradeCost
+      value: 400
       objectReference: {fileID: 0}
-    - target: {fileID: 114872124237979738, guid: c677f5f22540d4148b3dfa8210c65f46,
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
         type: 2}
-      propertyPath: m_bHealthScuttler
-      value: 150000
+      propertyPath: m_iP1SpreadUpgradeCost
+      value: 300
       objectReference: {fileID: 0}
-    - target: {fileID: 114872124237979738, guid: c677f5f22540d4148b3dfa8210c65f46,
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
         type: 2}
-      propertyPath: m_bHealthTurret
-      value: 500000
+      propertyPath: m_iP1ExplosiveUpgradeCost
+      value: 500
       objectReference: {fileID: 0}
-    - target: {fileID: 114872124237979738, guid: c677f5f22540d4148b3dfa8210c65f46,
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
         type: 2}
-      propertyPath: m_bHealthDrone
-      value: 750000
+      propertyPath: m_iP1HealthBuyCost
+      value: 50
       objectReference: {fileID: 0}
-    - target: {fileID: 114464285045766552, guid: c677f5f22540d4148b3dfa8210c65f46,
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
         type: 2}
-      propertyPath: m_iMeleeDamage
+      propertyPath: m_iP1AmmoBuyCost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iP2HealthUpgradeCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iP2DamageUpgradeCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iP2RPMUpgradeCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iP2AmmoUpgradeCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iP2PiercingUpgradeCost
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iP2SpreadUpgradeCost
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iP2ExplosiveUpgradeCost
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iP2HealthBuyCost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iP2AmmoBuyCost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iHealthIncrement
       value: 200
       objectReference: {fileID: 0}
-    - target: {fileID: 114454076898316626, guid: c677f5f22540d4148b3dfa8210c65f46,
+    - target: {fileID: 114433196053511726, guid: c677f5f22540d4148b3dfa8210c65f46,
         type: 2}
-      propertyPath: m_iMeleeDamage
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 1919458783476000, guid: c677f5f22540d4148b3dfa8210c65f46, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_iDamageIncrement
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c677f5f22540d4148b3dfa8210c65f46, type: 2}
