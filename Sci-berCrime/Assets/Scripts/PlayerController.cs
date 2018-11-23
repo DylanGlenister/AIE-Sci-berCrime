@@ -89,9 +89,7 @@ public class PlayerController : MonoBehaviour
     {
         if (m_iHealth == 0)
         {
-            IsAlive = false;
-            // Fix this
-            gameObject.SetActive(false);
+            ToggleAlive(false);
         }
 
         if (IsAlive && !isInShop)
@@ -126,5 +124,20 @@ public class PlayerController : MonoBehaviour
             m_uicUIController.SetPlayerOneUIHealth(m_iHealth);
         else
             m_uicUIController.SetPlayerTwoUIHealth(m_iHealth);
+    }
+
+    public void ToggleAlive (bool pState)
+    {
+        if (pState)
+        {
+            // Refills health
+            m_iHealth = m_iMaxHealth;
+            // Resets position
+            transform.position = new Vector3(4, 0, -17.5f);
+        }
+        // Sets the player as specified state
+        IsAlive = pState;
+        // Sets model visibility to specified state
+        transform.GetChild(3).gameObject.SetActive(pState);
     }
 }

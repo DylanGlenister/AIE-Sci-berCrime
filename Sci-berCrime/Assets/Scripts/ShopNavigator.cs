@@ -26,7 +26,7 @@ public class ShopNavigator : MonoBehaviour
         if (!m_pcPlayerController.isInShop)
             return;
 
-        if (m_pcPlayerController.m_bPlayerOne)
+        if (m_pcPlayerController.m_bPlayerOne && m_pcPlayerController.IsAlive)
         {
             if (Input.GetAxis("P1 LS Vertical") > 0 && !m_bScrollLock)
             {
@@ -210,7 +210,11 @@ public class ShopNavigator : MonoBehaviour
                 m_bScrollLock = false;
             }
         }
-        else
+        else if (m_pcPlayerController.m_bPlayerOne && !m_pcPlayerController.IsAlive)
+        {
+            m_goCurrentlySelected = m_scShopController.m_goP1HealthBuy;
+        }
+        else if (!m_pcPlayerController.m_bPlayerOne && m_pcPlayerController.IsAlive)
         {
             if (Input.GetAxis("P2 LS Vertical") > 0 && !m_bScrollLock)
             {
@@ -393,6 +397,10 @@ public class ShopNavigator : MonoBehaviour
             {
                 m_bScrollLock = false;
             }
+        }
+        else if (!m_pcPlayerController.m_bPlayerOne && !m_pcPlayerController.IsAlive)
+        {
+            m_goCurrentlySelected = m_scShopController.m_goP2HealthBuy;
         }
     }
 

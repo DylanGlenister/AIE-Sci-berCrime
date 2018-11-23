@@ -206,10 +206,8 @@ public class ShopController : MonoBehaviour
     {
         if (m_iWallet < m_iP1HealthUpgradeCost || m_iWallet < m_iP2HealthUpgradeCost || (pPlayer.m_bPlayerOne && m_sP1HealthUpgradeCap == 0) || (!pPlayer.m_bPlayerOne && m_sP2HealthUpgradeCap == 0))
             return;
-
-
+        
         // Updates UI
-
         if (pPlayer.m_bPlayerOne)
         {
             m_iWallet -= m_iP1HealthUpgradeCost;
@@ -433,10 +431,14 @@ public class ShopController : MonoBehaviour
         if (m_iWallet < m_iP1HealthBuyCost || pPlayer.m_iHealth == pPlayer.m_iMaxHealth)
             return;
 
-
-
-        if (pPlayer.m_iHealth != pPlayer.m_iMaxHealth)
+        if (pPlayer.IsAlive)
+        {
             pPlayer.m_iHealth = pPlayer.m_iMaxHealth;
+        }
+        else
+        {
+            pPlayer.ToggleAlive(true);
+        }
 
         if (pPlayer.m_bPlayerOne)
         {
@@ -445,7 +447,6 @@ public class ShopController : MonoBehaviour
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
             m_uicUIController.SetPlayerOneUIHealth(pPlayer.m_iHealth);
             m_uicUIController.SetPlayerOneShopHealth(pPlayer.m_iHealth);
-            
         }
         else
         {
@@ -454,7 +455,6 @@ public class ShopController : MonoBehaviour
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
             m_uicUIController.SetPlayerTwoUIHealth(pPlayer.m_iHealth);
             m_uicUIController.SetPlayerTwoShopHealth(pPlayer.m_iHealth);
-            
         }
 
         UpdateCost(pPlayer);
@@ -466,8 +466,6 @@ public class ShopController : MonoBehaviour
             return;
 
         // Updates UI
-
-
         if (pPlayer.GetComponent<GunController>().m_iAmmo != pPlayer.GetComponent<GunController>().m_iMaxAmmo)
             pPlayer.GetComponent<GunController>().m_iAmmo = pPlayer.GetComponent<GunController>().m_iMaxAmmo;
 
@@ -478,7 +476,6 @@ public class ShopController : MonoBehaviour
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
             m_uicUIController.SetPlayerOneUIAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
             m_uicUIController.SetPlayerOneShopAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
-            
         }
         else
         {
@@ -487,7 +484,6 @@ public class ShopController : MonoBehaviour
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
             m_uicUIController.SetPlayerTwoUIAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
             m_uicUIController.SetPlayerTwoShopAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
-            
         }
 
         UpdateCost(pPlayer);
@@ -540,7 +536,5 @@ public class ShopController : MonoBehaviour
             m_uicUIController.UpdatePlayerTwoHealthBuyCost(m_iP2HealthBuyCost);
             m_uicUIController.UpdatePlayerTwoAmmoBuyCost(m_iP2AmmoBuyCost);
         }
-
     }
-    
 }
