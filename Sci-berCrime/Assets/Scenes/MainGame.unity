@@ -1239,6 +1239,60 @@ Prefab:
       propertyPath: m_bSpawningEnabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iDroneDefaultHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iTurretDefaultHealth
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_fTurretRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114285865738646812, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iScuttlerDefaultHealth
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 114872124237979738, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_bSPEED
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114872124237979738, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_bHealthScuttler
+      value: 150000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114872124237979738, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_bHealthTurret
+      value: 500000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114872124237979738, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_bHealthDrone
+      value: 750000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114464285045766552, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iMeleeDamage
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454076898316626, guid: c677f5f22540d4148b3dfa8210c65f46,
+        type: 2}
+      propertyPath: m_iMeleeDamage
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919458783476000, guid: c677f5f22540d4148b3dfa8210c65f46, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c677f5f22540d4148b3dfa8210c65f46, type: 2}
   m_IsPrefabParent: 0

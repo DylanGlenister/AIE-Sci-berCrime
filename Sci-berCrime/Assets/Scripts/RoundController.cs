@@ -18,6 +18,7 @@ public class RoundController : MonoBehaviour
     public bool m_bTimerToggle;
     public bool m_bBossDead;
     public bool m_bEnemiesDead;
+    public bool m_bVictory;
 
     [Header("Ints")]
     public int m_iCurrentRound;
@@ -35,6 +36,7 @@ public class RoundController : MonoBehaviour
     {
         m_bRoundOver = false;
         m_bGameOver = false;
+        m_bVictory = false;
 
         m_bBossDead = true;
         m_bEnemiesDead = false;
@@ -51,6 +53,16 @@ public class RoundController : MonoBehaviour
 
     private void Update()
     {
+
+        if (m_iCurrentRound == 20 && m_bRoundOver == true && (m_goPlayerOne.m_bIsAlive || m_goPlayerTwo.m_bIsAlive))
+            m_bVictory = true;
+
+        if (m_bVictory)
+        {
+            m_bGameOver = true;
+            //SceneManager.LoadScene(null); // Insert victory scene
+        }
+
         if (m_bBossDead && m_bEnemiesDead)
             m_bRoundOver = true;
 
