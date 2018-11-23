@@ -10190,7 +10190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c46719d2d6222479e02ceca2215ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bSpawningEnabled: 0
+  m_bSpawningEnabled: 1
   funMode: 0
   m_fSpawnDelay: 0.25
   m_fDroneSpawnDelay: 0
@@ -10202,7 +10202,7 @@ MonoBehaviour:
   m_iStartMaxScuttlersForRound: 10
   m_iMaxScuttlersAtOnce: 5
   m_iPotentionalMaxScuttlersAtOnce: 200
-  m_iScuttlerDefaultHealth: 150
+  m_iScuttlerDefaultHealth: 250
   m_iCurrentTurretCount: 0
   m_iCurrentTurretsSpawnedThisRound: 0
   m_iCurrentTurretsKilledThisRound: 0
@@ -10210,7 +10210,7 @@ MonoBehaviour:
   m_iStartMaxTurretsForRound: 10
   m_iMaxTurretsAtOnce: 5
   m_iPotentionalMaxTurretsAtOnce: 200
-  m_iTurretDefaultHealth: 250
+  m_iTurretDefaultHealth: 150
   m_iCurrentDroneCount: 0
   m_iCurrentDronesSpawnedThisRound: 0
   m_iCurrentDronesKilledThisRound: 0
@@ -10865,26 +10865,26 @@ MonoBehaviour:
   m_rcRoundController: {fileID: 114711534135360518}
   m_bShopEnabled: 0
   m_iWallet: 0
-  m_iP1HealthUpgradeCost: 0
-  m_iP1DamageUpgradeCost: 0
-  m_iP1RPMUpgradeCost: 0
-  m_iP1AmmoUpgradeCost: 0
-  m_iP1PiercingUpgradeCost: 0
-  m_iP1SpreadUpgradeCost: 0
-  m_iP1ExplosiveUpgradeCost: 0
-  m_iP1HealthBuyCost: 0
-  m_iP1AmmoBuyCost: 0
-  m_iP2HealthUpgradeCost: 0
-  m_iP2DamageUpgradeCost: 0
-  m_iP2RPMUpgradeCost: 0
-  m_iP2AmmoUpgradeCost: 0
-  m_iP2PiercingUpgradeCost: 0
-  m_iP2SpreadUpgradeCost: 0
-  m_iP2ExplosiveUpgradeCost: 0
-  m_iP2HealthBuyCost: 0
-  m_iP2AmmoBuyCost: 0
-  m_iHealthIncrement: 20
-  m_iDamageIncrement: 20
+  m_iP1HealthUpgradeCost: 100
+  m_iP1DamageUpgradeCost: 100
+  m_iP1RPMUpgradeCost: 100
+  m_iP1AmmoUpgradeCost: 100
+  m_iP1PiercingUpgradeCost: 400
+  m_iP1SpreadUpgradeCost: 300
+  m_iP1ExplosiveUpgradeCost: 500
+  m_iP1HealthBuyCost: 50
+  m_iP1AmmoBuyCost: 50
+  m_iP2HealthUpgradeCost: 100
+  m_iP2DamageUpgradeCost: 100
+  m_iP2RPMUpgradeCost: 100
+  m_iP2AmmoUpgradeCost: 100
+  m_iP2PiercingUpgradeCost: 400
+  m_iP2SpreadUpgradeCost: 300
+  m_iP2ExplosiveUpgradeCost: 500
+  m_iP2HealthBuyCost: 50
+  m_iP2AmmoBuyCost: 50
+  m_iHealthIncrement: 200
+  m_iDamageIncrement: 15
   m_fRPMIncrement: 0.005
   m_iAmmoIncrement: 500
   m_goP1HealthUpgrade: {fileID: 1309255685879648}
@@ -12397,8 +12397,8 @@ MonoBehaviour:
   m_txtP1DamageUpgradeCost: {fileID: 114154228173257792}
   m_txtP1RPMUpgradeCost: {fileID: 114077849444251366}
   m_txtP1AmmoUpgradeCost: {fileID: 114796877172107298}
-  m_txtP1PiercingUpgradeCost: {fileID: 114726523989402760}
   m_txtP1SpreadUpgradeCost: {fileID: 114843178672756754}
+  m_txtP1PiercingUpgradeCost: {fileID: 114726523989402760}
   m_txtP1ExplosiveUpgradeCost: {fileID: 114704269156689044}
   m_txtP1HealthBuyCost: {fileID: 114983850720213956}
   m_txtP1AmmoBuyCost: {fileID: 114514871540884212}
@@ -12406,8 +12406,8 @@ MonoBehaviour:
   m_txtP2DamageUpgradeCost: {fileID: 114153457694064436}
   m_txtP2RPMUpgradeCost: {fileID: 114811655465552990}
   m_txtP2AmmoUpgradeCost: {fileID: 114469783723643148}
-  m_txtP2PiercingUpgradeCost: {fileID: 114820926467168606}
   m_txtP2SpreadUpgradeCost: {fileID: 114086243200295060}
+  m_txtP2PiercingUpgradeCost: {fileID: 114820926467168606}
   m_txtP2ExplosiveUpgradeCost: {fileID: 114672068759510716}
   m_txtP2HealthBuyCost: {fileID: 114192387567186616}
   m_txtP2AmmoBuyCost: {fileID: 114273733545472316}
@@ -12415,15 +12415,15 @@ MonoBehaviour:
   m_txtP1DamageUpgradeLevel: {fileID: 0}
   m_txtP1RPMUpgradeLevel: {fileID: 0}
   m_txtP1AmmoUpgradeLevel: {fileID: 0}
-  m_txtP1PiercingUpgradeLevel: {fileID: 0}
   m_txtP1SpreadUpgradeLevel: {fileID: 0}
+  m_txtP1PiercingUpgradeLevel: {fileID: 0}
   m_txtP1ExplosiveUpgradeLevel: {fileID: 0}
   m_txtP2HealthUpgradeLevel: {fileID: 0}
   m_txtP2DamageUpgradeLevel: {fileID: 0}
   m_txtP2RPMUpgradeLevel: {fileID: 0}
   m_txtP2AmmoUpgradeLevel: {fileID: 0}
-  m_txtP2PiercingUpgradeLevel: {fileID: 0}
   m_txtP2SpreadUpgradeLevel: {fileID: 0}
+  m_txtP2PiercingUpgradeLevel: {fileID: 0}
   m_txtP2ExplosiveUpgradeLevel: {fileID: 0}
 --- !u!114 &114790246994722260
 MonoBehaviour:

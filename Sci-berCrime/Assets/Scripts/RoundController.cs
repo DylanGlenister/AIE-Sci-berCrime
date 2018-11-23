@@ -47,7 +47,6 @@ public class RoundController : MonoBehaviour
 
         m_iCurrentRound = 1;
         m_iMaxRounds = 10;
-
         m_fRoundCountdown = m_fRoundTimer;
     }
 
@@ -109,7 +108,24 @@ public class RoundController : MonoBehaviour
         {
             // Resets per round variables to start next round
             m_iCurrentRound += 1;
-
+            if(m_iCurrentRound ==2)
+            {
+                m_escEnemySpawnController.m_iStartMaxScuttlersForRound *= 2;
+                m_escEnemySpawnController.m_iStartMaxTurretsForRound = 10;
+                m_escEnemySpawnController.m_iStartMaxDronesForRound = 0;
+            }
+            if(m_iCurrentRound == 3)
+            {
+                m_escEnemySpawnController.m_iStartMaxScuttlersForRound *= 2;
+                m_escEnemySpawnController.m_iStartMaxTurretsForRound *= 2;
+                m_escEnemySpawnController.m_iStartMaxDronesForRound = 10;
+            }
+            else
+            {
+                m_escEnemySpawnController.m_iStartMaxScuttlersForRound *= 2;
+                m_escEnemySpawnController.m_iStartMaxTurretsForRound *= 2;
+                m_escEnemySpawnController.m_iStartMaxDronesForRound *= 2;
+            }
             // Scuttler
             m_escEnemySpawnController.m_iCurrentScuttlerCount = 0;
             m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound = 0;

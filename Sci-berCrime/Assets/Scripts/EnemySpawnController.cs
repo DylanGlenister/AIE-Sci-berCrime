@@ -95,8 +95,8 @@ public class EnemySpawnController : MonoBehaviour
         m_fTurretSpawnDelay = 5;
         m_fDroneSpawnDelay = 3;
         m_iMaxScuttlersForRound = m_iStartMaxScuttlersForRound;
-        m_iMaxDronesForRound = m_iStartMaxDronesForRound;
-        m_iMaxTurretsForRound = m_iStartMaxTurretsForRound;
+        m_iMaxDronesForRound = 0;
+        m_iMaxTurretsForRound = 0;
 
         // Populates the inactive enemies list
         m_lgoScuttlerList = new List<GameObject>();
@@ -135,6 +135,7 @@ public class EnemySpawnController : MonoBehaviour
 
         if (m_rcRoundController.m_iCurrentRound == 1)
         {
+            
             if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound <= m_iMaxScuttlersForRound)
             {
                 m_fSpawnTimer -= Time.deltaTime;
@@ -155,6 +156,7 @@ public class EnemySpawnController : MonoBehaviour
 
         else if (m_rcRoundController.m_iCurrentRound == 2)
         {
+            
             if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound <= m_iMaxScuttlersForRound
             && m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound <= m_iMaxTurretsForRound)
             {
@@ -184,6 +186,7 @@ public class EnemySpawnController : MonoBehaviour
         }
         else
         {
+            
             if (m_iCurrentScuttlerCount < m_iMaxScuttlersAtOnce && m_iCurrentScuttlersSpawnedThisRound <= m_iMaxScuttlersForRound
                 && m_iCurrentTurretCount < m_iMaxTurretsAtOnce && m_iCurrentTurretsSpawnedThisRound <= m_iMaxTurretsForRound
                 && m_iCurrentDroneCount < m_iMaxDronesAtOnce && m_iCurrentDronesSpawnedThisRound <= m_iMaxDronesForRound)
