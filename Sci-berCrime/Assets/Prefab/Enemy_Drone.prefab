@@ -175,7 +175,9 @@ MonoBehaviour:
   m_goPlayerOne: {fileID: 0}
   m_goPlayerTwo: {fileID: 0}
   m_goCurrentTarget: {fileID: 0}
-  m_goExplosion: {fileID: 1583879034700904, guid: a191cdb79ccd73243a0501c8407348c3,
+  m_goExplosionPrefab: {fileID: 1583879034700904, guid: a191cdb79ccd73243a0501c8407348c3,
+    type: 2}
+  m_goLinePrefab: {fileID: 1823041435996052, guid: e94920767df27b941b76bd3ad2422c9b,
     type: 2}
 --- !u!135 &135952883177386382
 SphereCollider:

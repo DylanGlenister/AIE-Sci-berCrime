@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
 
     public int m_iHealth;
     public int m_iDamage;
-    public int m_iReward; //New product by apple;
+    public int m_iReward;    //New product by apple
     public int m_iEnemyType;
 
     public float m_fRange;
@@ -35,24 +35,28 @@ public class EnemyController : MonoBehaviour
     public GameObject m_goPlayerTwo;
     public GameObject m_goCurrentTarget;
 
-    public GameObject m_goExplosion;
+    public GameObject m_goExplosionPrefab;
+    public GameObject m_goLinePrefab;
 
     private NavMeshAgent m_nmaNavMeshAgent;
 
     private void Awake()
     {
-        m_nmaNavMeshAgent = GetComponent<NavMeshAgent>();
-        m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
-        m_goPlayerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
         m_scShopController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ShopController>();
         m_escEnemySpawnController = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemySpawnController>();
         m_csCameraScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>();
+
+        m_goPlayerOne = GameObject.FindGameObjectWithTag("PlayerOne");
+        m_goPlayerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
         m_goCurrentTarget = m_goPlayerOne;
+
+        m_nmaNavMeshAgent = GetComponent<NavMeshAgent>();
+
+        IsAlive = true;
 
         m_fTurretTimer = m_escEnemySpawnController.m_DefaultTurretTimer;
         m_fDroneTimer = m_escEnemySpawnController.m_DefaultDroneTimer;
         m_fScuttlerTimer = m_escEnemySpawnController.m_DefaultScuttlerTimer;
-        IsAlive = true;
     }
 
     private void Update ()
@@ -246,8 +250,9 @@ public class EnemyController : MonoBehaviour
                         else
                             m_goPlayerTwo.GetComponent<PlayerController>().TakeDamage(m_iDamage);
 
-                        // Draws a raycast from the enemy to the player to show they are being shot
-                        Debug.DrawLine(transform.position + new Vector3(0, 1.5f, 0), m_goCurrentTarget.transform.position + new Vector3(0, 1, 0), new Color(0.9f, 0.1f, 0.1f), 0.3f);
+                        // Draws a line from the enemy to the player to show they are being shot
+                        GameObject bulletTrace = Instantiate(m_goLinePrefab);
+                        bulletTrace.GetComponent<Line>().DrawLineToTarget(gameObject, m_goCurrentTarget);
 
                         m_fTurretTimer = m_escEnemySpawnController.m_DefaultTurretTimer;
                     }
@@ -325,8 +330,9 @@ public class EnemyController : MonoBehaviour
                         else
                             m_goPlayerTwo.GetComponent<PlayerController>().TakeDamage(m_iDamage);
 
-                        // Draws a raycast from the enemy to the player to show they are being shot
-                        Debug.DrawLine(transform.position + new Vector3(0, 1.5f, 0), m_goCurrentTarget.transform.position + new Vector3(0, 1, 0), new Color(0.9f, 0.1f, 0.1f), 0.3f);
+                        // Draws a line from the enemy to the player to show they are being shot
+                        GameObject bulletTrace = Instantiate(m_goLinePrefab);
+                        bulletTrace.GetComponent<Line>().DrawLineToTarget(gameObject, m_goCurrentTarget);
 
                         m_fDroneTimer = m_escEnemySpawnController.m_DefaultDroneTimer;
                     }
@@ -355,7 +361,7 @@ public class EnemyController : MonoBehaviour
                 if (other.gameObject.GetComponent<Bullet>().m_iExplosive != 0)
                 {
                     // Spawns explosion at death location if killer has upgrade
-                    GameObject obj = Instantiate(m_goExplosion, transform.position, transform.rotation);
+                    GameObject obj = Instantiate(m_goExplosionPrefab, transform.position, transform.rotation);
                     m_csCameraScript.PlayExplosion();
 
                     if (other.gameObject.GetComponent<Bullet>().m_iExplosive == 1)
@@ -375,7 +381,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // Applies damage to the object
-    public void TakeDamage (int pDamage)
+    public void TakeDamage(int pDamage)
     {
         m_iHealth -= pDamage;
         if (m_iHealth <= 0)
