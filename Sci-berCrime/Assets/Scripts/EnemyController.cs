@@ -90,17 +90,17 @@ public class EnemyController : MonoBehaviour
             if (m_iEnemyType == 0)
             {
                 EnemyMove(EnemyType.Scuttler);
-                m_iReward = 20;
+                m_iReward = 25;
             }
             else if (m_iEnemyType == 1)
             {
                 EnemyMove(EnemyType.Turret);
-                m_iReward = 40;
+                m_iReward = 75;
             }
             else if (m_iEnemyType == 2)
             {
                 EnemyMove(EnemyType.Drone);
-                m_iReward = 30;
+                m_iReward = 50;
             }
         }
     }
