@@ -8,15 +8,25 @@ public class MenuScript : MonoBehaviour
 {
     private bool m_bScrollLock;
 
-    public GameObject m_goStartButton;
-    public GameObject m_goControlsButton;
-    public GameObject m_goCreditsButton;
-    public GameObject m_goExitButton;
+    public GameObject m_goUnselectedStartButton;
+    public GameObject m_goUnselectedCreditsButton;
+    public GameObject m_goUnselectedControlsButton;
+    public GameObject m_goUnselectedExitButton;
+    public GameObject m_goSelectedStartButton;
+    public GameObject m_goSelectedCreditsButton;
+    public GameObject m_goSelectedControlsButton;
+    public GameObject m_goSelectedExitButton;
     public GameObject m_goCurrentlySelected;
 
     private void Awake()
     {
-        m_goCurrentlySelected = m_goStartButton;
+        m_goCurrentlySelected = m_goSelectedStartButton;
+
+        m_goUnselectedStartButton.SetActive(false);
+        m_goSelectedCreditsButton.SetActive(false);
+        m_goSelectedControlsButton.SetActive(false);
+        m_goSelectedExitButton.SetActive(false);
+
         m_bScrollLock = false;
     }
 
@@ -25,72 +35,72 @@ public class MenuScript : MonoBehaviour
         if (Input.GetAxis("P1 LS Vertical") > 0 && !m_bScrollLock)
         {
             // --------------------Scroll up--------------------
-            if (m_goCurrentlySelected == m_goStartButton)
+            if (m_goCurrentlySelected == m_goSelectedStartButton)
             {
                 // Deselects the previous ui element
-                DeselectUiElement(m_goStartButton);
+                DeselectUiElement(m_goSelectedStartButton, m_goUnselectedStartButton);
                 // Selects the new ui element
-                SelectItem(m_goExitButton);
+                SelectItem(m_goSelectedExitButton, m_goUnselectedExitButton);
                 m_bScrollLock = true;
             }
-            else if (m_goCurrentlySelected == m_goControlsButton)
+            else if (m_goCurrentlySelected == m_goSelectedCreditsButton)
             {
                 // Deselects the previous ui element
-                DeselectUiElement(m_goControlsButton);
+                DeselectUiElement(m_goSelectedCreditsButton, m_goUnselectedCreditsButton);
                 // Selects the new ui element
-                SelectItem(m_goStartButton);
+                SelectItem(m_goSelectedStartButton, m_goUnselectedStartButton);
                 m_bScrollLock = true;
             }
-            else if (m_goCurrentlySelected == m_goCreditsButton)
+            else if (m_goCurrentlySelected == m_goSelectedControlsButton)
             {
                 // Deselects the previous ui element
-                DeselectUiElement(m_goCreditsButton);
+                DeselectUiElement(m_goSelectedControlsButton, m_goUnselectedControlsButton);
                 // Selects the new ui element
-                SelectItem(m_goControlsButton);
+                SelectItem(m_goSelectedCreditsButton, m_goUnselectedCreditsButton);
                 m_bScrollLock = true;
             }
-            else if (m_goCurrentlySelected == m_goExitButton)
+            else if (m_goCurrentlySelected == m_goSelectedExitButton)
             {
                 // Deselects the previous ui element
-                DeselectUiElement(m_goExitButton);
+                DeselectUiElement(m_goSelectedExitButton, m_goUnselectedExitButton);
                 // Selects the new ui element
-                SelectItem(m_goCreditsButton);
+                SelectItem(m_goSelectedControlsButton, m_goUnselectedControlsButton);
                 m_bScrollLock = true;
             }
         }
         else if (Input.GetAxis("P1 LS Vertical") < 0 && !m_bScrollLock)
         {
             // --------------------Scroll down--------------------
-            if (m_goCurrentlySelected == m_goStartButton)
+            if (m_goCurrentlySelected == m_goSelectedStartButton)
             {
                 // Deselects the previous ui element
-                DeselectUiElement(m_goStartButton);
+                DeselectUiElement(m_goSelectedStartButton, m_goUnselectedStartButton);
                 // Selects the new ui element
-                SelectItem(m_goControlsButton);
+                SelectItem(m_goSelectedCreditsButton, m_goUnselectedCreditsButton);
                 m_bScrollLock = true;
             }
-            else if (m_goCurrentlySelected == m_goControlsButton)
+            else if (m_goCurrentlySelected == m_goSelectedCreditsButton)
             {
                 // Deselects the previous ui element
-                DeselectUiElement(m_goControlsButton);
+                DeselectUiElement(m_goSelectedCreditsButton, m_goUnselectedCreditsButton);
                 // Selects the new ui element
-                SelectItem(m_goCreditsButton);
+                SelectItem(m_goSelectedControlsButton, m_goUnselectedControlsButton);
                 m_bScrollLock = true;
             }
-            else if (m_goCurrentlySelected == m_goCreditsButton)
+            else if (m_goCurrentlySelected == m_goSelectedControlsButton)
             {
                 // Deselects the previous ui element
-                DeselectUiElement(m_goCreditsButton);
+                DeselectUiElement(m_goSelectedControlsButton, m_goUnselectedControlsButton);
                 // Selects the new ui element
-                SelectItem(m_goExitButton);
+                SelectItem(m_goSelectedExitButton, m_goUnselectedExitButton);
                 m_bScrollLock = true;
             }
-            else if (m_goCurrentlySelected == m_goExitButton)
+            else if (m_goCurrentlySelected == m_goSelectedExitButton)
             {
                 // Deselects the previous ui element
-                DeselectUiElement(m_goExitButton);
+                DeselectUiElement(m_goSelectedExitButton, m_goUnselectedExitButton);
                 // Selects the new ui element
-                SelectItem(m_goStartButton);
+                SelectItem(m_goSelectedStartButton, m_goUnselectedStartButton);
                 m_bScrollLock = true;
             }
         }
@@ -98,13 +108,13 @@ public class MenuScript : MonoBehaviour
         // Select the current button
         if (Input.GetButtonDown("P1 Button A"))
         {
-            if (m_goCurrentlySelected == m_goStartButton)
+            if (m_goCurrentlySelected == m_goSelectedStartButton)
                 StartGame();
-            else if (m_goCurrentlySelected == m_goControlsButton)
+            else if (m_goCurrentlySelected == m_goSelectedControlsButton)
                 ControlsWindow();
-            else if (m_goCurrentlySelected == m_goCreditsButton)
+            else if (m_goCurrentlySelected == m_goSelectedCreditsButton)
                 CreditsWindow();
-            else if (m_goCurrentlySelected == m_goExitButton)
+            else if (m_goCurrentlySelected == m_goSelectedExitButton)
                 ExitGame();
         }
 
@@ -114,28 +124,22 @@ public class MenuScript : MonoBehaviour
         }
     }
 
-    private void SelectItem (GameObject pNewItem)
+    private void SelectItem (GameObject pNewItemSelected, GameObject pNewItemUnselected)
     {
-        SelectUiElement(pNewItem);
-        m_goCurrentlySelected = pNewItem;
+        SelectUiElement(pNewItemSelected, pNewItemUnselected);
+        m_goCurrentlySelected = pNewItemSelected;
     }
 
-    public void SelectUiElement (GameObject pElement)
+    public void SelectUiElement (GameObject pElementSelected, GameObject pElementUnselected)
     {
-        // pElement.transform.GetChild() returns the objects child in the hierarchy in unity
-        // Shows the button
-        pElement.transform.GetChild(0).gameObject.SetActive(true);
-        // Makes the text a dark colour to stand out from the button
-        pElement.transform.GetChild(1).gameObject.GetComponent<Text>().color = new Color(0.196f, 0.196f, 0.196f);
+        pElementUnselected.SetActive(false);
+        pElementSelected.SetActive(true);
     }
 
-    public void DeselectUiElement (GameObject pElement)
+    public void DeselectUiElement (GameObject pElementSelected, GameObject pElementUnselected)
     {
-        // pElement.transform.GetChild() returns the objects child in the hierarchy in unity
-        // Hides the button
-        pElement.transform.GetChild(0).gameObject.SetActive(false);
-        // Makes the text a light colour to stand out from the button
-        pElement.transform.GetChild(1).gameObject.GetComponent<Text>().color = new Color(0.89f, 0.89f, 0.89f);
+        pElementUnselected.SetActive(true);
+        pElementSelected.SetActive(false);
     }
 
     public void StartGame ()
