@@ -212,7 +212,87 @@ public class ShopNavigator : MonoBehaviour
         }
         else if (m_pcPlayerController.m_bPlayerOne && !m_pcPlayerController.IsAlive)
         {
-            m_goCurrentlySelected = m_scShopController.m_goP1HealthBuy;
+            // Locks the player into only selecting healthbuy
+            if (m_goCurrentlySelected == m_scShopController.m_goP1HealthUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP1HealthUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP1HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP1DamageUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP1DamageUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP1HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP1RPMUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP1RPMUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP1HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP1AmmoUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP1AmmoUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP1HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP1SpreadUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP1SpreadUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP1HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP1PiercingUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP1PiercingUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP1HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP1ExplosiveUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP1ExplosiveUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP1HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP1HealthBuy)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP1HealthBuy);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP1HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP1AmmoBuy)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP1AmmoBuy);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP1HealthBuy);
+                m_bScrollLock = true;
+            }
+
+            // Select the current button
+            if (Input.GetButtonDown("P1 Button A"))
+            {
+                // Calls the function corresponding to the selected button
+                if (m_goCurrentlySelected == m_scShopController.m_goP1HealthBuy)
+                    m_scShopController.HealthBuy(m_pcPlayerController);
+            }
         }
         else if (!m_pcPlayerController.m_bPlayerOne && m_pcPlayerController.IsAlive)
         {
@@ -400,7 +480,87 @@ public class ShopNavigator : MonoBehaviour
         }
         else if (!m_pcPlayerController.m_bPlayerOne && !m_pcPlayerController.IsAlive)
         {
-            m_goCurrentlySelected = m_scShopController.m_goP2HealthBuy;
+            // Locks the player into only selecting healthbuy
+            if (m_goCurrentlySelected == m_scShopController.m_goP2HealthUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP2HealthUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP2HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP2DamageUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP2DamageUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP2HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP2RPMUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP2RPMUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP2HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP2AmmoUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP2AmmoUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP2HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP2SpreadUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP2SpreadUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP2HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP2PiercingUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP2PiercingUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP2HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP2ExplosiveUpgrade)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP2ExplosiveUpgrade);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP2HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP2HealthBuy)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP2HealthBuy);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP2HealthBuy);
+                m_bScrollLock = true;
+            }
+            else if (m_goCurrentlySelected == m_scShopController.m_goP2AmmoBuy)
+            {
+                // Deselects the previous ui element
+                m_scShopController.DeselectUiElement(m_scShopController.m_goP2AmmoBuy);
+                // Selects the new ui element
+                SelectItem(m_scShopController.m_goP2HealthBuy);
+                m_bScrollLock = true;
+            }
+
+            // Select the current button
+            if (Input.GetButtonDown("P2 Button A"))
+            {
+                // Calls the function corresponding to the selected button
+                if (m_goCurrentlySelected == m_scShopController.m_goP2HealthBuy)
+                    m_scShopController.HealthBuy(m_pcPlayerController);
+            }
         }
     }
 
