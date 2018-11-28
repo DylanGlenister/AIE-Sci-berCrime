@@ -11,19 +11,27 @@ public class EndScreenController : MonoBehaviour
     private bool m_bScrollLock;
 
     public GameObject m_goEndScreen;
-    public GameObject m_goRetryButton;
-    public GameObject m_goMainMenuButton;
-    public GameObject m_goExitButton;
+    public GameObject m_goUnselectedRetryButton;
+    public GameObject m_goUnselectedMainMenuButton;
+    public GameObject m_goUnselectedExitButton;
+    public GameObject m_goSelectedRetryButton;
+    public GameObject m_goSelectedMainMenuButton;
+    public GameObject m_goSelectedExitButton;
     public GameObject m_goCurrentlySelected;
 
     private void Awake ()
     {
-        m_goCurrentlySelected = m_goRetryButton;
+        m_goCurrentlySelected = m_goSelectedRetryButton;
+
         m_goEndScreen.SetActive(false);
+        m_goUnselectedRetryButton.SetActive(false);
+        m_goSelectedMainMenuButton.SetActive(false);
+        m_goSelectedExitButton.SetActive(false);
+
         m_bScrollLock = false;
     }
 
-    private void Update ()
+    private void Update()
     {
         if (m_rcRoundController.m_bGameOver)
         {
@@ -32,56 +40,56 @@ public class EndScreenController : MonoBehaviour
             if (Input.GetAxis("P1 LS Vertical") > 0 && !m_bScrollLock)
             {
                 // --------------------Scroll up--------------------
-                if (m_goCurrentlySelected == m_goRetryButton)
+                if (m_goCurrentlySelected == m_goSelectedRetryButton)
                 {
                     // Deselects the previous ui element
-                    DeselectUiElement(m_goRetryButton);
+                    DeselectUiElement(m_goSelectedRetryButton, m_goUnselectedRetryButton);
                     // Selects the new ui element
-                    SelectItem(m_goExitButton);
+                    SelectItem(m_goSelectedExitButton, m_goUnselectedExitButton);
                     m_bScrollLock = true;
                 }
-                else if (m_goCurrentlySelected == m_goMainMenuButton)
+                else if (m_goCurrentlySelected == m_goSelectedMainMenuButton)
                 {
                     // Deselects the previous ui element
-                    DeselectUiElement(m_goMainMenuButton);
+                    DeselectUiElement(m_goSelectedMainMenuButton, m_goUnselectedMainMenuButton);
                     // Selects the new ui element
-                    SelectItem(m_goRetryButton);
+                    SelectItem(m_goSelectedRetryButton, m_goUnselectedRetryButton);
                     m_bScrollLock = true;
                 }
-                else if (m_goCurrentlySelected == m_goExitButton)
+                else if (m_goCurrentlySelected == m_goSelectedExitButton)
                 {
                     // Deselects the previous ui element
-                    DeselectUiElement(m_goExitButton);
+                    DeselectUiElement(m_goSelectedExitButton, m_goUnselectedExitButton);
                     // Selects the new ui element
-                    SelectItem(m_goMainMenuButton);
+                    SelectItem(m_goSelectedMainMenuButton, m_goUnselectedMainMenuButton);
                     m_bScrollLock = true;
                 }
             }
             else if (Input.GetAxis("P1 LS Vertical") < 0 && !m_bScrollLock)
             {
                 // --------------------Scroll down--------------------
-                if (m_goCurrentlySelected == m_goRetryButton)
+                if (m_goCurrentlySelected == m_goSelectedRetryButton)
                 {
                     // Deselects the previous ui element
-                    DeselectUiElement(m_goRetryButton);
+                    DeselectUiElement(m_goSelectedRetryButton, m_goUnselectedRetryButton);
                     // Selects the new ui element
-                    SelectItem(m_goMainMenuButton);
+                    SelectItem(m_goSelectedMainMenuButton, m_goUnselectedMainMenuButton);
                     m_bScrollLock = true;
                 }
-                else if (m_goCurrentlySelected == m_goMainMenuButton)
+                else if (m_goCurrentlySelected == m_goSelectedMainMenuButton)
                 {
                     // Deselects the previous ui element
-                    DeselectUiElement(m_goMainMenuButton);
+                    DeselectUiElement(m_goSelectedMainMenuButton, m_goUnselectedMainMenuButton);
                     // Selects the new ui element
-                    SelectItem(m_goExitButton);
+                    SelectItem(m_goSelectedExitButton, m_goUnselectedExitButton);
                     m_bScrollLock = true;
                 }
-                else if (m_goCurrentlySelected == m_goExitButton)
+                else if (m_goCurrentlySelected == m_goSelectedExitButton)
                 {
                     // Deselects the previous ui element
-                    DeselectUiElement(m_goExitButton);
+                    DeselectUiElement(m_goSelectedExitButton, m_goUnselectedExitButton);
                     // Selects the new ui element
-                    SelectItem(m_goRetryButton);
+                    SelectItem(m_goSelectedRetryButton, m_goUnselectedRetryButton);
                     m_bScrollLock = true;
                 }
             }
@@ -89,12 +97,11 @@ public class EndScreenController : MonoBehaviour
             // Select the current button
             if (Input.GetButtonDown("P1 Button A"))
             {
-                // Calls the function corresponding to the selected button
-                if (m_goCurrentlySelected == m_goRetryButton)
+                if (m_goCurrentlySelected == m_goSelectedRetryButton)
                     RetryButton();
-                else if (m_goCurrentlySelected == m_goMainMenuButton)
+                else if (m_goCurrentlySelected == m_goSelectedMainMenuButton)
                     MainMenuButton();
-                else if (m_goCurrentlySelected == m_goExitButton)
+                else if (m_goCurrentlySelected == m_goSelectedExitButton)
                     ExitButton();
             }
 
@@ -105,28 +112,22 @@ public class EndScreenController : MonoBehaviour
         }
     }
 
-    private void SelectItem (GameObject pNewItem)
+    private void SelectItem(GameObject pNewItemSelected, GameObject pNewItemUnselected)
     {
-        SelectUiElement(pNewItem);
-        m_goCurrentlySelected = pNewItem;
+        SelectUiElement(pNewItemSelected, pNewItemUnselected);
+        m_goCurrentlySelected = pNewItemSelected;
     }
 
-    public void SelectUiElement (GameObject pElement)
+    public void SelectUiElement(GameObject pElementSelected, GameObject pElementUnselected)
     {
-        // pElement.transform.GetChild() returns the objects child in the hierarchy in unity
-        // Shows the button
-        pElement.transform.GetChild(0).gameObject.SetActive(true);
-        // Makes the text a dark colour to stand out from the button
-        pElement.transform.GetChild(1).gameObject.GetComponent<Text>().color = new Color(0.196f, 0.196f, 0.196f);
+        pElementUnselected.SetActive(false);
+        pElementSelected.SetActive(true);
     }
 
-    public void DeselectUiElement (GameObject pElement)
+    public void DeselectUiElement(GameObject pElementSelected, GameObject pElementUnselected)
     {
-        // pElement.transform.GetChild() returns the objects child in the hierarchy in unity
-        // Hides the button
-        pElement.transform.GetChild(0).gameObject.SetActive(false);
-        // Makes the text a light colour to stand out from the button
-        pElement.transform.GetChild(1).gameObject.GetComponent<Text>().color = new Color(0.89f, 0.89f, 0.89f);
+        pElementUnselected.SetActive(true);
+        pElementSelected.SetActive(false);
     }
 
     public void RetryButton ()
