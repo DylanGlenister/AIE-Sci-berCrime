@@ -10202,7 +10202,7 @@ MonoBehaviour:
   m_iStartMaxScuttlersForRound: 10
   m_iMaxScuttlersAtOnce: 5
   m_iPotentionalMaxScuttlersAtOnce: 200
-  m_iScuttlerDefaultHealth: 250
+  m_iScuttlerDefaultHealth: 100
   m_iCurrentTurretCount: 0
   m_iCurrentTurretsSpawnedThisRound: 0
   m_iCurrentTurretsKilledThisRound: 0
@@ -10218,13 +10218,13 @@ MonoBehaviour:
   m_iStartMaxDronesForRound: 10
   m_iMaxDronesAtOnce: 5
   m_iPotentionalMaxDronesAtOnce: 200
-  m_iDroneDefaultHealth: 100
+  m_iDroneDefaultHealth: 50
   m_rcRoundController: {fileID: 114711534135360518}
-  m_goScuttlerPrefab: {fileID: 1633900625771084, guid: 1dffc9d2aeff2f8489377bfcf24648ce,
+  m_goScuttlerPrefab: {fileID: 1035019272364856, guid: 1dffc9d2aeff2f8489377bfcf24648ce,
     type: 2}
-  m_goDronePrefab: {fileID: 1539591362826154, guid: 278a2595b62eeeb41a53947ac1cf79f2,
+  m_goDronePrefab: {fileID: 1648415709569836, guid: 278a2595b62eeeb41a53947ac1cf79f2,
     type: 2}
-  m_goTurretPrefab: {fileID: 1285967325517614, guid: e70b2079e21a7394e90e01f75f0ba765,
+  m_goTurretPrefab: {fileID: 1049417363490012, guid: e70b2079e21a7394e90e01f75f0ba765,
     type: 2}
   m_goSpawnLocation1: {fileID: 1760294080284204}
   m_goSpawnLocation2: {fileID: 1559232978401296}
@@ -12074,7 +12074,7 @@ MonoBehaviour:
   m_iCurrentRound: 0
   m_iMaxRounds: 0
   m_fRoundCountdown: 0
-  m_fRoundTimer: 60
+  m_fRoundTimer: 30
   m_goPlayerOne: {fileID: 114469056058047538}
   m_goPlayerTwo: {fileID: 114320048884520048}
 --- !u!114 &114724485678179464
@@ -12860,11 +12860,11 @@ MonoBehaviour:
   m_fbDroneRange: 5
   m_fbTurretRange: 20
   m_goBossSpawnLocation: {fileID: 1267432531366622}
-  m_goScuttlerBossPrefab: {fileID: 1110182113730444, guid: e3bcef551c3a29a48b101e2d3716f8ad,
+  m_goScuttlerBossPrefab: {fileID: 1225712025650048, guid: e3bcef551c3a29a48b101e2d3716f8ad,
     type: 2}
-  m_goTurretBossPrefab: {fileID: 1471377297379904, guid: 71d52709f0f8a1f4399e88576759376b,
+  m_goTurretBossPrefab: {fileID: 1458584106276372, guid: 71d52709f0f8a1f4399e88576759376b,
     type: 2}
-  m_goDroneBossPrefab: {fileID: 1753056736608546, guid: 37a2891d9f794a24eb7278330156bfec,
+  m_goDroneBossPrefab: {fileID: 1063318263698950, guid: 37a2891d9f794a24eb7278330156bfec,
     type: 2}
 --- !u!114 &114890073003978638
 MonoBehaviour:

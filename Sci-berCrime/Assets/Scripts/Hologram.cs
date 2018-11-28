@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hologram : MonoBehaviour
 {
-    public float m_fFadeSpeed;
+    public float m_fFadeSpeed = 0.05f;
     private float m_fFadeTimer;
     private float m_fOpacity;
     private Material m_mObjectRenderer;
@@ -24,10 +24,11 @@ public class Hologram : MonoBehaviour
         // Changes the wave from between -1 and 1 to 0.5 and 1
         m_fOpacity += 1;
         if (m_fOpacity != 0)
-            m_fOpacity /= 4;
-        m_fOpacity += 0.5f;
+            m_fOpacity /= 8;
+        m_fOpacity += 0.75f;
 
         ObjectOpacity.a = m_fOpacity;
+        m_mObjectRenderer.color = ObjectOpacity;
 
         // Counts down the timer used for sine wave and resets if necessary
         m_fFadeTimer -= m_fFadeSpeed;
