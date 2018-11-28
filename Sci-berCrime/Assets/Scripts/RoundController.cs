@@ -110,55 +110,117 @@ public class RoundController : MonoBehaviour
             m_iCurrentRound += 1;
             if(m_iCurrentRound ==2)
             {
-                m_escEnemySpawnController.m_iStartMaxScuttlersForRound *= 2;
+                m_escEnemySpawnController.m_iStartMaxScuttlersForRound += 15;
                 m_escEnemySpawnController.m_iStartMaxTurretsForRound = 10;
                 m_escEnemySpawnController.m_iStartMaxDronesForRound = 0;
+
+                // Scuttler
+                m_escEnemySpawnController.m_iCurrentScuttlerCount = 0;
+                m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound = 0;
+                m_escEnemySpawnController.m_iCurrentScuttlersSpawnedThisRound = 0;
+                m_escEnemySpawnController.m_iMaxScuttlersForRound = m_escEnemySpawnController.m_iStartMaxScuttlersForRound;
+                m_escEnemySpawnController.m_iMaxScuttlersAtOnce += 5;
+                if (m_escEnemySpawnController.m_iMaxScuttlersAtOnce >= 50)
+                {
+                    m_escEnemySpawnController.m_iMaxScuttlersAtOnce = 50;
+                }
+
+                // Turrets
+                m_escEnemySpawnController.m_iCurrentTurretCount = 0;
+                m_escEnemySpawnController.m_iCurrentTurretsKilledThisRound = 0;
+                m_escEnemySpawnController.m_iCurrentTurretsSpawnedThisRound = 0;
+                m_escEnemySpawnController.m_iMaxTurretsForRound = m_escEnemySpawnController.m_iStartMaxTurretsForRound;
+                m_escEnemySpawnController.m_iMaxTurretsAtOnce += 2;
+                if (m_escEnemySpawnController.m_iMaxTurretsAtOnce >= 15)
+                {
+                    m_escEnemySpawnController.m_iMaxTurretsAtOnce = 15;
+                }
+
             }
-            if(m_iCurrentRound == 3)
+            if (m_iCurrentRound == 3)
             {
-                m_escEnemySpawnController.m_iStartMaxScuttlersForRound *= 2;
-                m_escEnemySpawnController.m_iStartMaxTurretsForRound *= 2;
+                m_escEnemySpawnController.m_iStartMaxScuttlersForRound += 15;
+                m_escEnemySpawnController.m_iStartMaxTurretsForRound += 5;
                 m_escEnemySpawnController.m_iStartMaxDronesForRound = 10;
+
+                // Scuttler
+                m_escEnemySpawnController.m_iCurrentScuttlerCount = 0;
+                m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound = 0;
+                m_escEnemySpawnController.m_iCurrentScuttlersSpawnedThisRound = 0;
+                m_escEnemySpawnController.m_iMaxScuttlersForRound = m_escEnemySpawnController.m_iStartMaxScuttlersForRound;
+                m_escEnemySpawnController.m_iMaxScuttlersAtOnce += 5;
+                if (m_escEnemySpawnController.m_iMaxScuttlersAtOnce >= 50)
+                {
+                    m_escEnemySpawnController.m_iMaxScuttlersAtOnce = 50;
+                }
+
+                // Drones
+                m_escEnemySpawnController.m_iCurrentDroneCount = 0;
+                m_escEnemySpawnController.m_iCurrentDronesKilledThisRound = 0;
+                m_escEnemySpawnController.m_iCurrentDronesSpawnedThisRound = 0;
+                m_escEnemySpawnController.m_iMaxDronesForRound = m_escEnemySpawnController.m_iStartMaxDronesForRound;
+                m_escEnemySpawnController.m_iMaxDronesAtOnce += 5;
+                if (m_escEnemySpawnController.m_iMaxDronesAtOnce >= 25)
+                {
+                    m_escEnemySpawnController.m_iMaxDronesAtOnce = 25;
+                }
+
+                // Turrets
+                m_escEnemySpawnController.m_iCurrentTurretCount = 0;
+                m_escEnemySpawnController.m_iCurrentTurretsKilledThisRound = 0;
+                m_escEnemySpawnController.m_iCurrentTurretsSpawnedThisRound = 0;
+                m_escEnemySpawnController.m_iMaxTurretsForRound = m_escEnemySpawnController.m_iStartMaxTurretsForRound;
+                m_escEnemySpawnController.m_iMaxTurretsAtOnce += 2;
+                if (m_escEnemySpawnController.m_iMaxTurretsAtOnce >= 15)
+                {
+                    m_escEnemySpawnController.m_iMaxTurretsAtOnce = 15;
+                }
             }
-            else
+            if (m_iCurrentRound > 3)
             {
-                m_escEnemySpawnController.m_iStartMaxScuttlersForRound *= 2;
-                m_escEnemySpawnController.m_iStartMaxTurretsForRound *= 2;
-                m_escEnemySpawnController.m_iStartMaxDronesForRound *= 2;
-            }
-            // Scuttler
-            m_escEnemySpawnController.m_iCurrentScuttlerCount = 0;
-            m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound = 0;
-            m_escEnemySpawnController.m_iCurrentScuttlersSpawnedThisRound = 0;
-            m_escEnemySpawnController.m_iMaxScuttlersForRound =  m_escEnemySpawnController.m_iStartMaxScuttlersForRound* m_iCurrentRound;
-            m_escEnemySpawnController.m_iMaxScuttlersAtOnce += 5;
-            if (m_escEnemySpawnController.m_iMaxScuttlersAtOnce >= 50)
-            {
-                m_escEnemySpawnController.m_iMaxScuttlersAtOnce = 50;
+                m_escEnemySpawnController.m_iStartMaxScuttlersForRound += 15;
+                m_escEnemySpawnController.m_iStartMaxTurretsForRound += 5;
+                m_escEnemySpawnController.m_iStartMaxDronesForRound += 10;
+                // Scuttler
+                m_escEnemySpawnController.m_iCurrentScuttlerCount = 0;
+                m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound = 0;
+                m_escEnemySpawnController.m_iCurrentScuttlersSpawnedThisRound = 0;
+                m_escEnemySpawnController.m_iMaxScuttlersForRound = m_escEnemySpawnController.m_iStartMaxScuttlersForRound;
+                m_escEnemySpawnController.m_iMaxScuttlersAtOnce += 5;
+                if (m_escEnemySpawnController.m_iMaxScuttlersAtOnce >= 50)
+                {
+                    m_escEnemySpawnController.m_iMaxScuttlersAtOnce = 50;
+                }
+
+                // Drones
+                m_escEnemySpawnController.m_iCurrentDroneCount = 0;
+                m_escEnemySpawnController.m_iCurrentDronesKilledThisRound = 0;
+                m_escEnemySpawnController.m_iCurrentDronesSpawnedThisRound = 0;
+                m_escEnemySpawnController.m_iMaxDronesForRound = m_escEnemySpawnController.m_iStartMaxDronesForRound;
+                m_escEnemySpawnController.m_iMaxDronesAtOnce += 5;
+                if (m_escEnemySpawnController.m_iMaxDronesAtOnce >= 40)
+                {
+                    m_escEnemySpawnController.m_iMaxDronesAtOnce = 40;
+                }
+
+                // Turrets
+                m_escEnemySpawnController.m_iCurrentTurretCount = 0;
+                m_escEnemySpawnController.m_iCurrentTurretsKilledThisRound = 0;
+                m_escEnemySpawnController.m_iCurrentTurretsSpawnedThisRound = 0;
+                m_escEnemySpawnController.m_iMaxTurretsForRound = m_escEnemySpawnController.m_iStartMaxTurretsForRound;
+                m_escEnemySpawnController.m_iMaxTurretsAtOnce += 2;
+                if (m_escEnemySpawnController.m_iMaxTurretsAtOnce >= 30)
+                {
+                    m_escEnemySpawnController.m_iMaxTurretsAtOnce = 30;
+                }
             }
 
-            // Drones
-            m_escEnemySpawnController.m_iCurrentDroneCount = 0;
-            m_escEnemySpawnController.m_iCurrentDronesKilledThisRound = 0;
-            m_escEnemySpawnController.m_iCurrentDronesSpawnedThisRound = 0;
-            m_escEnemySpawnController.m_iMaxDronesForRound = m_escEnemySpawnController.m_iStartMaxDronesForRound * m_iCurrentRound;
-            m_escEnemySpawnController.m_iMaxDronesAtOnce += 5;
-            if (m_escEnemySpawnController.m_iMaxDronesAtOnce >= 25)
+            if (m_iCurrentRound == 5 || m_iCurrentRound == 10 || m_iCurrentRound == 15 || m_iCurrentRound == 20)
             {
-                m_escEnemySpawnController.m_iMaxDronesAtOnce = 25;
+                m_escEnemySpawnController.m_iTurretDefaultHealth *= 2;
+                m_escEnemySpawnController.m_iDroneDefaultHealth *= 2;
+                m_escEnemySpawnController.m_iScuttlerDefaultHealth *= 2;
             }
-
-            // Turrets
-            m_escEnemySpawnController.m_iCurrentTurretCount = 0;
-            m_escEnemySpawnController.m_iCurrentTurretsKilledThisRound = 0;
-            m_escEnemySpawnController.m_iCurrentTurretsSpawnedThisRound = 0;
-            m_escEnemySpawnController.m_iMaxTurretsForRound = m_escEnemySpawnController.m_iStartMaxTurretsForRound * m_iCurrentRound;
-            m_escEnemySpawnController.m_iMaxTurretsAtOnce += 2;
-            if(m_escEnemySpawnController.m_iMaxTurretsAtOnce >= 15)
-            {
-                m_escEnemySpawnController.m_iMaxTurretsAtOnce = 15;
-            }
-
             m_escEnemySpawnController.m_bSpawningEnabled = true;
 
             m_fRoundCountdown = m_fRoundTimer;

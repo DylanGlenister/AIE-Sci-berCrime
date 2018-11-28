@@ -235,8 +235,8 @@ public class EnemyController : MonoBehaviour
                         }
                     }
                 }
-
-                // Drone attacking player
+                m_nmaNavMeshAgent.transform.LookAt(m_goCurrentTarget.transform);
+                // Turret attacking player
                 if (Vector3.Distance(m_goCurrentTarget.transform.position, m_nmaNavMeshAgent.transform.position) < m_fRange)
                 {
                     m_fTurretTimer -= Time.deltaTime;
@@ -315,8 +315,8 @@ public class EnemyController : MonoBehaviour
                         }
                     }
                 }
-
-                // Turret attacking player
+                m_nmaNavMeshAgent.transform.LookAt(m_goCurrentTarget.transform);
+                // Drone attacking player
                 if (Vector3.Distance(m_goCurrentTarget.transform.position, m_nmaNavMeshAgent.transform.position) < m_fRange)
                 {
                     m_fDroneTimer -= Time.deltaTime;
