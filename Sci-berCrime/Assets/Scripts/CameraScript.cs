@@ -24,20 +24,35 @@ public class CameraScript : MonoBehaviour
 
     private void Update ()
     {
-        // Calculates the distance between players
-        m_v3PlayerDifference = m_goPlayerOne.transform.position - m_goPlayerTwo.transform.position;
-        m_fPlayerDistance = m_v3PlayerDifference.magnitude;
+        if (m_goPlayerOne.GetComponent<PlayerController>().IsAlive && m_goPlayerTwo.GetComponent<PlayerController>().IsAlive)
+        {
+            // Calculates the distance between players
+            m_v3PlayerDifference = m_goPlayerOne.transform.position - m_goPlayerTwo.transform.position;
+            m_fPlayerDistance = m_v3PlayerDifference.magnitude;
 
-        // Calculates the midpoint
-        Vector3 averagePos = m_goPlayerOne.transform.position + m_goPlayerTwo.transform.position;
-        averagePos /= 2;
+            // Calculates the midpoint
+            Vector3 averagePos = m_goPlayerOne.transform.position + m_goPlayerTwo.transform.position;
+            averagePos /= 2;
 
-        // Applies the zoom to the object
-        m_goCameraPlane_Zoom.transform.position = m_goCameraDolly.transform.position
-            + new Vector3(0, m_fPlayerDistance / m_fZoomScalar - m_fZoomOffset, -m_fPlayerDistance / m_fZoomScalar + m_fZoomOffset);
+            // Applies the zoom to the object
+            m_goCameraPlane_Zoom.transform.position = m_goCameraDolly.transform.position
+                + new Vector3(0, m_fPlayerDistance / m_fZoomScalar - m_fZoomOffset, -m_fPlayerDistance / m_fZoomScalar + m_fZoomOffset);
 
-        // Applies the transform to the object
-        m_goCameraPlane_Pan.transform.position = averagePos / m_fCameraCenterTether + m_goCameraPlane_Zoom.transform.position;
+            // Applies the transform to the object
+            m_goCameraPlane_Pan.transform.position = averagePos / m_fCameraCenterTether + m_goCameraPlane_Zoom.transform.position;
+        }
+        else if (m_goPlayerOne.GetComponent<PlayerController>().IsAlive && !m_goPlayerTwo.GetComponent<PlayerController>().IsAlive)
+        {
+            m_v3PlayerDifference = m_goPlayerOne.transform.position;
+            m_goCameraPlane_Zoom.transform.position = m_goCameraDolly.transform.position + new Vector3(0, m_fZoomOffset);
+            m_goCameraPlane_Pan.transform.position = m_v3PlayerDifference / m_fCameraCenterTether + m_goCameraPlane_Zoom.transform.position;
+        }
+        else if (!m_goPlayerOne.GetComponent<PlayerController>().IsAlive && m_goPlayerTwo.GetComponent<PlayerController>().IsAlive)
+        {
+            m_v3PlayerDifference = m_goPlayerTwo.transform.position;
+            m_goCameraPlane_Zoom.transform.position = m_goCameraDolly.transform.position + new Vector3(0, m_fZoomOffset);
+            m_goCameraPlane_Pan.transform.position = m_v3PlayerDifference / m_fCameraCenterTether + m_goCameraPlane_Zoom.transform.position;
+        }
     }
 
     public void PlayExplosion ()
