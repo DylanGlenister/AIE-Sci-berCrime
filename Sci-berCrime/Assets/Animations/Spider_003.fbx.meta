@@ -1,0 +1,215 @@
+fileFormatVersion: 2
+guid: a711057708ae4fa488160a6e1e43789e
+timeCreated: 1543375910
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: group1
+    100002: //RootNode
+    100004: Spider_Back_Left_Foreleg
+    100006: Spider_Back_Left_Middle_Leg
+    100008: Spider_Back_Left_Upper_Leg
+    100010: Spider_Back_Right_Foreleg
+    100012: Spider_Back_Right_Middle_Leg
+    100014: Spider_Back_Right_Upper_Leg
+    100016: Spider_Front_Left_Foreleg
+    100018: Spider_Front_Left_Middle_Leg
+    100020: Spider_Front_Left_Upper_Leg
+    100022: Spider_Front_Right_Foreleg
+    100024: Spider_Front_Right_Middle_Leg
+    100026: Spider_Front_Right_Upper_Leg
+    100028: Spider_Middle_Left_Foreleg
+    100030: Spider_Middle_Left_Middle_Leg
+    100032: Spider_Middle_Left_Upper_Leg
+    100034: Spider_Middle_Right_Foreleg
+    100036: Spider_Middle_Right_Middle_Leg
+    100038: Spider_Middle_Right_Upper_Leg
+    400000: group1
+    400002: //RootNode
+    400004: Spider_Back_Left_Foreleg
+    400006: Spider_Back_Left_Middle_Leg
+    400008: Spider_Back_Left_Upper_Leg
+    400010: Spider_Back_Right_Foreleg
+    400012: Spider_Back_Right_Middle_Leg
+    400014: Spider_Back_Right_Upper_Leg
+    400016: Spider_Front_Left_Foreleg
+    400018: Spider_Front_Left_Middle_Leg
+    400020: Spider_Front_Left_Upper_Leg
+    400022: Spider_Front_Right_Foreleg
+    400024: Spider_Front_Right_Middle_Leg
+    400026: Spider_Front_Right_Upper_Leg
+    400028: Spider_Middle_Left_Foreleg
+    400030: Spider_Middle_Left_Middle_Leg
+    400032: Spider_Middle_Left_Upper_Leg
+    400034: Spider_Middle_Right_Foreleg
+    400036: Spider_Middle_Right_Middle_Leg
+    400038: Spider_Middle_Right_Upper_Leg
+    2100000: lambert1
+    2300000: //RootNode
+    2300002: Spider_Back_Left_Foreleg
+    2300004: Spider_Back_Left_Middle_Leg
+    2300006: Spider_Back_Left_Upper_Leg
+    2300008: Spider_Back_Right_Foreleg
+    2300010: Spider_Back_Right_Middle_Leg
+    2300012: Spider_Back_Right_Upper_Leg
+    2300014: Spider_Front_Left_Foreleg
+    2300016: Spider_Front_Left_Middle_Leg
+    2300018: Spider_Front_Left_Upper_Leg
+    2300020: Spider_Front_Right_Foreleg
+    2300022: Spider_Front_Right_Middle_Leg
+    2300024: Spider_Front_Right_Upper_Leg
+    2300026: Spider_Middle_Left_Foreleg
+    2300028: Spider_Middle_Left_Middle_Leg
+    2300030: Spider_Middle_Left_Upper_Leg
+    2300032: Spider_Middle_Right_Foreleg
+    2300034: Spider_Middle_Right_Middle_Leg
+    2300036: Spider_Middle_Right_Upper_Leg
+    3300000: //RootNode
+    3300002: Spider_Back_Left_Foreleg
+    3300004: Spider_Back_Left_Middle_Leg
+    3300006: Spider_Back_Left_Upper_Leg
+    3300008: Spider_Back_Right_Foreleg
+    3300010: Spider_Back_Right_Middle_Leg
+    3300012: Spider_Back_Right_Upper_Leg
+    3300014: Spider_Front_Left_Foreleg
+    3300016: Spider_Front_Left_Middle_Leg
+    3300018: Spider_Front_Left_Upper_Leg
+    3300020: Spider_Front_Right_Foreleg
+    3300022: Spider_Front_Right_Middle_Leg
+    3300024: Spider_Front_Right_Upper_Leg
+    3300026: Spider_Middle_Left_Foreleg
+    3300028: Spider_Middle_Left_Middle_Leg
+    3300030: Spider_Middle_Left_Upper_Leg
+    3300032: Spider_Middle_Right_Foreleg
+    3300034: Spider_Middle_Right_Middle_Leg
+    3300036: Spider_Middle_Right_Upper_Leg
+    4300000: Spider_Body
+    4300002: Spider_Front_Left_Upper_Leg
+    4300004: Spider_Front_Left_Middle_Leg
+    4300006: Spider_Front_Left_Foreleg
+    4300008: Spider_Middle_Left_Upper_Leg
+    4300010: Spider_Middle_Left_Middle_Leg
+    4300012: Spider_Middle_Left_Foreleg
+    4300014: Spider_Front_Right_Upper_Leg
+    4300016: Spider_Front_Right_Middle_Leg
+    4300018: Spider_Front_Right_Foreleg
+    4300020: Spider_Middle_Right_Upper_Leg
+    4300022: Spider_Middle_Right_Middle_Leg
+    4300024: Spider_Middle_Right_Foreleg
+    4300026: Spider_Back_Left_Upper_Leg
+    4300028: Spider_Back_Left_Middle_Leg
+    4300030: Spider_Back_Left_Foreleg
+    4300032: Spider_Back_Right_Upper_Leg
+    4300034: Spider_Back_Right_Middle_Leg
+    4300036: Spider_Back_Right_Foreleg
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

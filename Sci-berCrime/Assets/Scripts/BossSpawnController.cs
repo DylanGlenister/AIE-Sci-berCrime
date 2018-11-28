@@ -25,6 +25,7 @@ public class BossSpawnController : MonoBehaviour
     public int m_bHealthTurret;
 
     // Variables to set for bosses
+    public float m_bSPEED;
 
     public float m_bDefaultTurretTimer;
     public float m_bDefaultDroneTimer;
