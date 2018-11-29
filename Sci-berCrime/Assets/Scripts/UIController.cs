@@ -303,7 +303,7 @@ public class UIController : MonoBehaviour
     // Updates the cost for the ammo buy of player twos
     public void UpdatePlayerTwoAmmoBuyCost (int pValue)
     {
-        m_txtP2AmmoBuyCost.text = pValue.ToString();
+        m_txtP2AmmoBuyCost.text = "$" + pValue.ToString();
     }
 
     //----------Levels----------
