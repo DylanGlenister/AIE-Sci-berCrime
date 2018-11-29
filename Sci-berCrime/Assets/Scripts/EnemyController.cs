@@ -100,7 +100,7 @@ public class EnemyController : MonoBehaviour
             else if (m_iEnemyType == 2)
             {
                 EnemyMove(EnemyType.Drone);
-                m_iReward = 25;
+                m_iReward = 20;
             }
         }
     }

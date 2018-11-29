@@ -65,7 +65,7 @@ public class BossController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (m_rcRoundController.m_bRoundOver && m_bIsAlive)
+        if (m_rcRoundController.m_bRoundOver && !m_bIsAlive)
         {
             m_bscBossSpawnController.m_bHasSpawned = false;
         }
