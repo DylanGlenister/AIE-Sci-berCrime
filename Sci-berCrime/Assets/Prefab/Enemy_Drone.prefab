@@ -164,7 +164,7 @@ MonoBehaviour:
   m_escEnemySpawnController: {fileID: 0}
   m_csCameraScript: {fileID: 0}
   m_iHealth: 30
-  m_iDamage: 15
+  m_iDamage: 20
   m_iReward: 0
   m_iEnemyType: 2
   m_fRange: 0

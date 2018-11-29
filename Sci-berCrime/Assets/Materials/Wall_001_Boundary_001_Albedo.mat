@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Wall_001_Boundary_001_Albedo
   m_Shader: {fileID: 47, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _METALLICGLOSSMAP _SPECGLOSSMAP
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _METALLICGLOSSMAP _NORMALMAP _SPECGLOSSMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: d625174f12b5bef46b4b44a66d891317, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3693bc500b5f1404e8d8567d364194de, type: 3}
+        m_Texture: {fileID: 2800000, guid: cccdefa4cf202dd42a2feb3bd0e26272, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -77,5 +77,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
