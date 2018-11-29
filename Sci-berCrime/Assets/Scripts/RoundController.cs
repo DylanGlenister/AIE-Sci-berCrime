@@ -95,7 +95,12 @@ public class RoundController : MonoBehaviour
 
                 m_uicUIController.SetRoundTimerText(m_fRoundCountdown);
             }
-            
+
+            if (!m_bscBossSpawnController.GetComponent<BossController>().m_bIsAlive)
+            {
+                m_bscBossSpawnController.m_bHasSpawned = false;
+            }
+
             // Checks if the players are ready
             if (Input.GetButtonDown("P1 Button X") || Input.GetKeyDown(KeyCode.N))
                 m_bP1Ready = true;
