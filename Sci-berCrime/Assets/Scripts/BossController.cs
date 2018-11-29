@@ -410,7 +410,7 @@ public class BossController : MonoBehaviour
 
         if (m_bHealth <= 0)
         {
-            m_scShopController.GetComponent<ShopController>().DepositToWallet(2000);
+            m_scShopController.GetComponent<ShopController>().DepositToWallet(20000);
             m_bHealth = 0;
         }
     }
