@@ -247,6 +247,8 @@ public class BossController : MonoBehaviour
                         }
                     }
 
+                    m_nmaNavMeshAgent.transform.LookAt(m_goCurrentTarget.transform);
+
                     if (Vector3.Distance(m_goCurrentTarget.transform.position, m_nmaNavMeshAgent.transform.position) < m_bRange)
                     {
                         m_bDroneTimer -= Time.deltaTime;
@@ -335,6 +337,8 @@ public class BossController : MonoBehaviour
                         }
 
                     }
+                    m_nmaNavMeshAgent.transform.LookAt(m_goCurrentTarget.transform);
+
                     if (Vector3.Distance(m_goCurrentTarget.transform.position, m_nmaNavMeshAgent.transform.position) < m_bRange)
                     {
                         m_bTurretTimer -= Time.deltaTime;
