@@ -59,7 +59,7 @@ public class RoundController : MonoBehaviour
         if (m_bVictory)
         {
             m_bGameOver = true;
-            //SceneManager.LoadScene(null); // Insert victory scene
+            
         }
 
         if (m_bBossDead && m_bEnemiesDead)
@@ -115,8 +115,8 @@ public class RoundController : MonoBehaviour
             m_iCurrentRound += 1;
             if(m_iCurrentRound ==2)
             {
-                m_escEnemySpawnController.m_iStartMaxScuttlersForRound += 15;
-                m_escEnemySpawnController.m_iStartMaxTurretsForRound = 10;
+                m_escEnemySpawnController.m_iStartMaxScuttlersForRound += 20;
+                m_escEnemySpawnController.m_iStartMaxTurretsForRound = 15;
                 m_escEnemySpawnController.m_iStartMaxDronesForRound = 0;
 
                 // Scuttler
@@ -136,17 +136,17 @@ public class RoundController : MonoBehaviour
                 m_escEnemySpawnController.m_iCurrentTurretsSpawnedThisRound = 0;
                 m_escEnemySpawnController.m_iMaxTurretsForRound = m_escEnemySpawnController.m_iStartMaxTurretsForRound;
                 m_escEnemySpawnController.m_iMaxTurretsAtOnce += 2;
-                if (m_escEnemySpawnController.m_iMaxTurretsAtOnce >= 15)
+                if (m_escEnemySpawnController.m_iMaxTurretsAtOnce >= 30)
                 {
-                    m_escEnemySpawnController.m_iMaxTurretsAtOnce = 15;
+                    m_escEnemySpawnController.m_iMaxTurretsAtOnce = 30;
                 }
 
             }
             if (m_iCurrentRound == 3)
             {
-                m_escEnemySpawnController.m_iStartMaxScuttlersForRound += 15;
-                m_escEnemySpawnController.m_iStartMaxTurretsForRound += 5;
-                m_escEnemySpawnController.m_iStartMaxDronesForRound = 10;
+                m_escEnemySpawnController.m_iStartMaxScuttlersForRound += 20;
+                m_escEnemySpawnController.m_iStartMaxTurretsForRound += 15;
+                m_escEnemySpawnController.m_iStartMaxDronesForRound = 20;
 
                 // Scuttler
                 m_escEnemySpawnController.m_iCurrentScuttlerCount = 0;
@@ -165,9 +165,9 @@ public class RoundController : MonoBehaviour
                 m_escEnemySpawnController.m_iCurrentDronesSpawnedThisRound = 0;
                 m_escEnemySpawnController.m_iMaxDronesForRound = m_escEnemySpawnController.m_iStartMaxDronesForRound;
                 m_escEnemySpawnController.m_iMaxDronesAtOnce += 5;
-                if (m_escEnemySpawnController.m_iMaxDronesAtOnce >= 25)
+                if (m_escEnemySpawnController.m_iMaxDronesAtOnce >= 40)
                 {
-                    m_escEnemySpawnController.m_iMaxDronesAtOnce = 25;
+                    m_escEnemySpawnController.m_iMaxDronesAtOnce = 40;
                 }
 
                 // Turrets
@@ -176,16 +176,16 @@ public class RoundController : MonoBehaviour
                 m_escEnemySpawnController.m_iCurrentTurretsSpawnedThisRound = 0;
                 m_escEnemySpawnController.m_iMaxTurretsForRound = m_escEnemySpawnController.m_iStartMaxTurretsForRound;
                 m_escEnemySpawnController.m_iMaxTurretsAtOnce += 2;
-                if (m_escEnemySpawnController.m_iMaxTurretsAtOnce >= 15)
+                if (m_escEnemySpawnController.m_iMaxTurretsAtOnce >= 30)
                 {
-                    m_escEnemySpawnController.m_iMaxTurretsAtOnce = 15;
+                    m_escEnemySpawnController.m_iMaxTurretsAtOnce = 30;
                 }
             }
             if (m_iCurrentRound > 3)
             {
-                m_escEnemySpawnController.m_iStartMaxScuttlersForRound += 15;
-                m_escEnemySpawnController.m_iStartMaxTurretsForRound += 5;
-                m_escEnemySpawnController.m_iStartMaxDronesForRound += 10;
+                m_escEnemySpawnController.m_iStartMaxScuttlersForRound += 25;
+                m_escEnemySpawnController.m_iStartMaxTurretsForRound += 15;
+                m_escEnemySpawnController.m_iStartMaxDronesForRound += 20;
                 // Scuttler
                 m_escEnemySpawnController.m_iCurrentScuttlerCount = 0;
                 m_escEnemySpawnController.m_iCurrentScuttlersKilledThisRound = 0;
