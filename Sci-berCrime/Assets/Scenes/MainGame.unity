@@ -99,15 +99,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.4
     agentHeight: 2
-    agentSlope: 45
+    agentSlope: 35
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.13333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -717,6 +717,33 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1013898324253460, guid: 03ed915147573584eb3bf53ea2f1c09e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65129669655783288, guid: 03ed915147573584eb3bf53ea2f1c09e,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 1.5850432
+      objectReference: {fileID: 0}
+    - target: {fileID: 65129669655783288, guid: 03ed915147573584eb3bf53ea2f1c09e,
+        type: 2}
+      propertyPath: m_Center.x
+      value: 2.3569655
+      objectReference: {fileID: 0}
+    - target: {fileID: 65129669655783288, guid: 03ed915147573584eb3bf53ea2f1c09e,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 2.5103261
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478460640200952, guid: 03ed915147573584eb3bf53ea2f1c09e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149931882390436, guid: 03ed915147573584eb3bf53ea2f1c09e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03ed915147573584eb3bf53ea2f1c09e, type: 2}
   m_IsPrefabParent: 0
@@ -1082,6 +1109,26 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!1 &1690829106 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1581965333763346, guid: 03ed915147573584eb3bf53ea2f1c09e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1350040464}
+--- !u!208 &1690829111
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1690829106}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 7.4750004, y: 12.160001, z: 7.4750004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1712683477
 Prefab:
   m_ObjectHideFlags: 0

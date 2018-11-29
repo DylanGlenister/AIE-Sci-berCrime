@@ -74,29 +74,35 @@ public class BossSpawnController : MonoBehaviour
         {
             GameObject objNewScuttlerBoss = Instantiate(m_goScuttlerBossPrefab);
             BossController scuttlerBossController = objNewScuttlerBoss.GetComponent<BossController>();
+            scuttlerBossController.enabled = false;
             scuttlerBossController.m_btEnemyType = 0;
             objNewScuttlerBoss.transform.position = m_goBossSpawnLocation.transform.position;
+            scuttlerBossController.enabled = true;
             scuttlerBossController.m_bIsAlive = true;
             scuttlerBossController.m_bHealth = m_bHealthScuttler;
             m_bHasSpawned = true;
             if (m_rcRoundController.m_iCurrentRound == 20)
             {
-                scuttlerBossController.m_bHealth = m_bHealthScuttler * 20;
+                scuttlerBossController.m_bHealth = m_bHealthScuttler * 5;
             }
+            
+
         }
 
         if (pBossType == BossType.Turret)
         {
             GameObject objNewTurretBoss = Instantiate(m_goTurretBossPrefab);
             BossController turretBossController = objNewTurretBoss.GetComponent<BossController>();
+            turretBossController.enabled = false;
             turretBossController.m_btEnemyType = 1;
             objNewTurretBoss.transform.position = m_goBossSpawnLocation.transform.position;
+            turretBossController.enabled = true;
             turretBossController.m_bHealth = m_bHealthTurret;
             turretBossController.m_bIsAlive = true;
             m_bHasSpawned = true;
             if(m_rcRoundController.m_iCurrentRound == 20)
             {
-                turretBossController.m_bHealth = m_bHealthTurret * 20;
+                turretBossController.m_bHealth = m_bHealthTurret * 5;
             }
         }
         
@@ -104,13 +110,16 @@ public class BossSpawnController : MonoBehaviour
         {
             GameObject objNewDroneBoss = Instantiate(m_goDroneBossPrefab);
             BossController droneBossController = objNewDroneBoss.GetComponent<BossController>();
+            droneBossController.enabled = false;
             droneBossController.m_btEnemyType = 2;
             objNewDroneBoss.transform.position = m_goBossSpawnLocation.transform.position;
+            droneBossController.enabled = true;
             droneBossController.m_bHealth = m_bHealthDrone;
+            droneBossController.m_bIsAlive = true;
             m_bHasSpawned = true;
             if (m_rcRoundController.m_iCurrentRound == 20)
             {
-                droneBossController.m_bHealth = m_bHealthDrone * 20;
+                droneBossController.m_bHealth = m_bHealthDrone * 5;
             }
         }
         m_rcRoundController.m_bBossDead = false;

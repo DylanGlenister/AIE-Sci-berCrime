@@ -46,7 +46,7 @@ public class RoundController : MonoBehaviour
         m_bTimerToggle = false;
 
         m_iCurrentRound = 1;
-        m_iMaxRounds = 10;
+        m_iMaxRounds = 20;
         m_fRoundCountdown = m_fRoundTimer;
     }
 

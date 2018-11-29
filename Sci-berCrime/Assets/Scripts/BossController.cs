@@ -12,9 +12,9 @@ public class BossController : MonoBehaviour
 
     public enum M_btBossType
     {
-        Drone,
         Scuttler,
-        Turret
+        Turret,
+        Drone
     }
 
     public int m_btEnemyType;
@@ -108,9 +108,6 @@ public class BossController : MonoBehaviour
             }
             else
             {
-
-
-
                 //scuttler
                 if (p_EtEnemyType == M_btBossType.Scuttler)
                 {
@@ -184,7 +181,7 @@ public class BossController : MonoBehaviour
                     }
                 }
                 //drone
-                else if (p_EtEnemyType == M_btBossType.Drone)
+                if (p_EtEnemyType == M_btBossType.Drone)
                 {
                     m_bRange = m_bscBossSpawnController.m_fbDroneRange;
                     // Calculates the distance from the enemy to each player
@@ -210,15 +207,11 @@ public class BossController : MonoBehaviour
                         if (playerOneDistance.magnitude > m_bRange
                             && m_goPlayerOne.gameObject.GetComponent<PlayerController>().IsAlive)
                         {
-
-
                             if (Vector3.Distance(m_nmaNavMeshAgent.transform.position, m_goCurrentTarget.transform.position) > m_bRange)
                             {
                                 m_nmaNavMeshAgent.SetDestination(m_goCurrentTarget.transform.position);
                                 m_nmaNavMeshAgent.stoppingDistance = m_bRange;
-
                             }
-
                         }
                     }
                     else
