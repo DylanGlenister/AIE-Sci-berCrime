@@ -8,14 +8,19 @@ public class MenuScript : MonoBehaviour
 {
     private bool m_bScrollLock;
 
+    public GameObject m_goCreditsWindow;
+    public GameObject m_goControlsWindow;
+    [Header("Unselected")]
     public GameObject m_goUnselectedStartButton;
     public GameObject m_goUnselectedCreditsButton;
     public GameObject m_goUnselectedControlsButton;
     public GameObject m_goUnselectedExitButton;
+    [Header("Selected")]
     public GameObject m_goSelectedStartButton;
     public GameObject m_goSelectedCreditsButton;
     public GameObject m_goSelectedControlsButton;
     public GameObject m_goSelectedExitButton;
+
     public GameObject m_goCurrentlySelected;
 
     private void Awake()
@@ -26,6 +31,9 @@ public class MenuScript : MonoBehaviour
         m_goSelectedCreditsButton.SetActive(false);
         m_goSelectedControlsButton.SetActive(false);
         m_goSelectedExitButton.SetActive(false);
+
+        m_goCreditsWindow.SetActive(false);
+        m_goControlsWindow.SetActive(false);
 
         m_bScrollLock = false;
     }
@@ -110,12 +118,22 @@ public class MenuScript : MonoBehaviour
         {
             if (m_goCurrentlySelected == m_goSelectedStartButton)
                 StartGame();
-            else if (m_goCurrentlySelected == m_goSelectedControlsButton)
-                ControlsWindow();
             else if (m_goCurrentlySelected == m_goSelectedCreditsButton)
                 CreditsWindow();
+            else if (m_goCurrentlySelected == m_goSelectedControlsButton)
+                ControlsWindow();
             else if (m_goCurrentlySelected == m_goSelectedExitButton)
                 ExitGame();
+            else if (m_goCurrentlySelected == m_goCreditsWindow)
+            {
+                m_goCreditsWindow.SetActive(false);
+                m_goCurrentlySelected = m_goSelectedCreditsButton;
+            }
+            else if (m_goCurrentlySelected = m_goControlsWindow)
+            {
+                m_goControlsWindow.SetActive(false);
+                m_goCurrentlySelected = m_goSelectedControlsButton;
+            }
         }
 
         if (Input.GetAxis("P1 LS Vertical") == 0)
@@ -147,14 +165,16 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void ControlsWindow ()
-    {
-        return;
-    }
-
     public void CreditsWindow ()
     {
-        return;
+        m_goCreditsWindow.SetActive(true);
+        m_goCurrentlySelected = m_goCreditsWindow;
+    }
+
+    public void ControlsWindow ()
+    {
+        m_goControlsWindow.SetActive(true);
+        m_goCurrentlySelected = m_goControlsWindow;
     }
 
     public void ExitGame ()

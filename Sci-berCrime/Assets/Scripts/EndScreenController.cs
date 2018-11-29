@@ -11,12 +11,15 @@ public class EndScreenController : MonoBehaviour
     private bool m_bScrollLock;
 
     public GameObject m_goEndScreen;
+    [Header("Unselected")]
     public GameObject m_goUnselectedRetryButton;
     public GameObject m_goUnselectedMainMenuButton;
     public GameObject m_goUnselectedExitButton;
+    [Header("Selected")]
     public GameObject m_goSelectedRetryButton;
     public GameObject m_goSelectedMainMenuButton;
     public GameObject m_goSelectedExitButton;
+
     public GameObject m_goCurrentlySelected;
 
     private void Awake ()
