@@ -384,7 +384,7 @@ public class ShopController : MonoBehaviour
     public void Upgrade_Spread (GunController pPlayer)
     {
         if (((pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne && m_sP1SpreadUpgradeCap == 2) || pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne && m_iWallet < m_iP1SpreadUpgradeCost)
-            && ((!pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne && m_sP2SpreadUpgradeCap == 2) || !pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne && m_iWallet < m_iP2SpreadUpgradeCost))
+            || ((!pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne && m_sP2SpreadUpgradeCap == 2) || !pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne && m_iWallet < m_iP2SpreadUpgradeCost))
             return;
 
         // Updates UI

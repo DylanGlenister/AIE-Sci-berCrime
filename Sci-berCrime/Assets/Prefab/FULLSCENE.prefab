@@ -3929,7 +3929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1920624604891700
 GameObject:
   m_ObjectHideFlags: 1
@@ -10610,15 +10610,20 @@ MonoBehaviour:
   m_rcRoundController: {fileID: 114711534135360518}
   m_scShopController: {fileID: 114433196053511726}
   m_bHasSpawned: 0
-  m_bHealthScuttler: 150000
-  m_bHealthDrone: 750000
-  m_bHealthTurret: 500000
+  m_bHealthScuttler: 5000
+  m_bHealthDrone: 7500
+  m_bHealthTurret: 10000
   m_bDefaultTurretTimer: 0.5
   m_bDefaultDroneTimer: 2
   m_bDefaultScuttlerTimer: 1
   m_fbDroneRange: 5
   m_fbTurretRange: 20
-  m_goBossSpawnLocation: {fileID: 1267432531366622}
+  m_goBossSpawnLocation1: {fileID: 1760294080284204}
+  m_goBossSpawnLocation2: {fileID: 1559232978401296}
+  m_goBossSpawnLocation3: {fileID: 1097740777186390}
+  m_goBossSpawnLocation4: {fileID: 1267432531366622}
+  m_goBossSpawnLocation5: {fileID: 1027492165612784}
+  m_goBossSpawnLocation6: {fileID: 1158596685916910}
   m_goScuttlerBossPrefab: {fileID: 1225712025650048, guid: e3bcef551c3a29a48b101e2d3716f8ad,
     type: 2}
   m_goTurretBossPrefab: {fileID: 1458584106276372, guid: 71d52709f0f8a1f4399e88576759376b,
