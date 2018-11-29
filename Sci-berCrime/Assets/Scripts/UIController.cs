@@ -12,18 +12,23 @@ public class UIController : MonoBehaviour
     public Text m_txtRoundNumber;
     public Text m_txtMoneyAmount;
     public Text m_txtRoundTimer;
+
     [Header("Gameplay: Player One")]
     public Text m_txtPlayerOneUIHealth;
     public Text m_txtPlayerOneUIAmmo;
+
     [Header("Gameplay: Player Two")]
     public Text m_txtPlayerTwoUIHealth;
     public Text m_txtPlayerTwoUIAmmo;
+
     [Header("-------Shop UI-------")]
     public GameObject m_goShopWindow;
     public Text m_txtShopMoney;
+
     [Header("Shop: Player One")]
     public Text m_txtPlayerOneShopHealth;
     public Text m_txtPlayerOneShopAmmo;
+
     [Header("Shop: Player Two")]
     public Text m_txtPlayerTwoShopHealth;
     public Text m_txtPlayerTwoShopAmmo;
@@ -67,6 +72,24 @@ public class UIController : MonoBehaviour
     public Text m_txtP2SpreadUpgradeLevel;
     public Text m_txtP2PiercingUpgradeLevel;
     public Text m_txtP2ExplosiveUpgradeLevel;
+
+    [Header("Player One Max")]
+    public GameObject m_goP1HealthUpgradeMax;
+    public GameObject m_goP1DamageUpgradeMax;
+    public GameObject m_goP1RPMUpgradeMax;
+    public GameObject m_goP1AmmoUpgradeMax;
+    public GameObject m_goP1SpreadUpgradeMax;
+    public GameObject m_goP1PiercingUpgradeMax;
+    public GameObject m_goP1ExplosiveUpgradeMax;
+
+    [Header("Player Two Max")]
+    public GameObject m_goP2HealthUpgradeMax;
+    public GameObject m_goP2DamageUpgradeMax;
+    public GameObject m_goP2RPMUpgradeMax;
+    public GameObject m_goP2AmmoUpgradeMax;
+    public GameObject m_goP2SpreadUpgradeMax;
+    public GameObject m_goP2PiercingUpgradeMax;
+    public GameObject m_goP2ExplosiveUpgradeMax;
 
     private void Awake ()
     {
@@ -281,5 +304,155 @@ public class UIController : MonoBehaviour
     public void UpdatePlayerTwoAmmoBuyCost (int pValue)
     {
         m_txtP2AmmoBuyCost.text = pValue.ToString();
+    }
+
+    //----------Levels----------
+    // Player one
+
+    public void UpdatePlayerOneHealthLevel (int pValue)
+    {
+        m_txtP1HealthUpgradeLevel.text = pValue.ToString();
+    }
+
+    public void UpdatePlayerOneDamageLevel (int pValue)
+    {
+        m_txtP1DamageUpgradeLevel.text = pValue.ToString();
+    }
+
+    public void UpdatePlayerOneRPMLevel (int pValue)
+    {
+        m_txtP1RPMUpgradeLevel.text = pValue.ToString();
+    }
+
+    public void UpdatePlayerOneAmmoLevel (int pValue)
+    {
+        m_txtP1AmmoUpgradeLevel.text = pValue.ToString();
+    }
+
+    public void UpdatePlayerOneSpreadLevel (int pValue)
+    {
+        m_txtP1SpreadUpgradeLevel.text = pValue.ToString();
+    }
+
+    public void UpdatePlayerOnePiercingLevel (int pValue)
+    {
+        m_txtP1PiercingUpgradeLevel.text = pValue.ToString();
+    }
+
+    public void UpdatePlayerOneExplosiveLevel (int pValue)
+    {
+        m_txtP1ExplosiveUpgradeLevel.text = pValue.ToString();
+    }
+
+    // Player two
+
+    public void UpdatePlayerTwoHealthLevel(int pValue)
+    {
+        m_txtP2HealthUpgradeLevel.text = pValue.ToString();
+    }
+
+    public void UpdatePlayerTwoDamageLevel(int pValue)
+    {
+        m_txtP2DamageUpgradeLevel.text = pValue.ToString();
+    }
+
+    public void UpdatePlayerTwoRPMLevel(int pValue)
+    {
+        m_txtP2RPMUpgradeLevel.text = pValue.ToString();
+    }
+
+    public void UpdatePlayerTwoAmmoLevel(int pValue)
+    {
+        m_txtP2AmmoUpgradeLevel.text = pValue.ToString();
+    }
+
+    public void UpdatePlayerTwoSpreadLevel(int pValue)
+    {
+        m_txtP2SpreadUpgradeLevel.text = pValue.ToString();
+    }
+
+    public void UpdatePlayerTwoPiercingLevel(int pValue)
+    {
+        m_txtP2PiercingUpgradeLevel.text = pValue.ToString();
+    }
+
+    public void UpdatePlayerTwoExplosiveLevel(int pValue)
+    {
+        m_txtP2ExplosiveUpgradeLevel.text = pValue.ToString();
+    }
+
+    //----------Max----------
+    // Player one
+
+    public void TogglePlayerOneHealthMax (bool pState)
+    {
+        m_goP1HealthUpgradeMax.SetActive(pState);
+    }
+
+    public void TogglePlayerOneDamageMax(bool pState)
+    {
+        m_goP1DamageUpgradeMax.SetActive(pState);
+    }
+
+    public void TogglePlayerOneRPMMax(bool pState)
+    {
+        m_goP1RPMUpgradeMax.SetActive(pState);
+    }
+
+    public void TogglePlayerOneAmmoMax(bool pState)
+    {
+        m_goP1AmmoUpgradeMax.SetActive(pState);
+    }
+
+    public void TogglePlayerOneSpreadMax(bool pState)
+    {
+        m_goP1SpreadUpgradeMax.SetActive(pState);
+    }
+
+    public void TogglePlayerOnePiercingMax(bool pState)
+    {
+        m_goP1PiercingUpgradeMax.SetActive(pState);
+    }
+
+    public void TogglePlayerOneExplosiveMax(bool pState)
+    {
+        m_goP1ExplosiveUpgradeMax.SetActive(pState);
+    }
+
+    // Player two
+
+    public void TogglePlayerTwoHealthMax(bool pState)
+    {
+        m_goP2HealthUpgradeMax.SetActive(pState);
+    }
+
+    public void TogglePlayerTwoDamageMax(bool pState)
+    {
+        m_goP2DamageUpgradeMax.SetActive(pState);
+    }
+
+    public void TogglePlayerTwoRPMMax(bool pState)
+    {
+        m_goP2RPMUpgradeMax.SetActive(pState);
+    }
+
+    public void TogglePlayerTwoAmmoMax(bool pState)
+    {
+        m_goP2AmmoUpgradeMax.SetActive(pState);
+    }
+
+    public void TogglePlayerTwoSpreadMax(bool pState)
+    {
+        m_goP2SpreadUpgradeMax.SetActive(pState);
+    }
+
+    public void TogglePlayerTwoPiercingMax(bool pState)
+    {
+        m_goP2PiercingUpgradeMax.SetActive(pState);
+    }
+
+    public void TogglePlayerTwoExplosiveMax(bool pState)
+    {
+        m_goP2ExplosiveUpgradeMax.SetActive(pState);
     }
 }

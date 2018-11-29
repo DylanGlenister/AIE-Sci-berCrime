@@ -3929,7 +3929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1920624604891700
 GameObject:
   m_ObjectHideFlags: 1
@@ -3956,10 +3956,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4568333577240728}
   - component: {fileID: 114433196053511726}
-  - component: {fileID: 114781763495063786}
   - component: {fileID: 114711534135360518}
   - component: {fileID: 114285865738646812}
   - component: {fileID: 114872124237979738}
+  - component: {fileID: 114781763495063786}
   - component: {fileID: 114242769215676084}
   m_Layer: 0
   m_Name: GameController
@@ -7602,7 +7602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c46719d2d6222479e02ceca2215ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bSpawningEnabled: 0
+  m_bSpawningEnabled: 1
   funMode: 0
   m_fSpawnDelay: 0.25
   m_fDroneSpawnDelay: 0
@@ -9983,20 +9983,34 @@ MonoBehaviour:
   m_txtP2ExplosiveUpgradeCost: {fileID: 114672068759510716}
   m_txtP2HealthBuyCost: {fileID: 114192387567186616}
   m_txtP2AmmoBuyCost: {fileID: 114273733545472316}
-  m_txtP1HealthUpgradeLevel: {fileID: 0}
-  m_txtP1DamageUpgradeLevel: {fileID: 0}
-  m_txtP1RPMUpgradeLevel: {fileID: 0}
-  m_txtP1AmmoUpgradeLevel: {fileID: 0}
-  m_txtP1SpreadUpgradeLevel: {fileID: 0}
-  m_txtP1PiercingUpgradeLevel: {fileID: 0}
-  m_txtP1ExplosiveUpgradeLevel: {fileID: 0}
-  m_txtP2HealthUpgradeLevel: {fileID: 0}
-  m_txtP2DamageUpgradeLevel: {fileID: 0}
-  m_txtP2RPMUpgradeLevel: {fileID: 0}
-  m_txtP2AmmoUpgradeLevel: {fileID: 0}
-  m_txtP2SpreadUpgradeLevel: {fileID: 0}
-  m_txtP2PiercingUpgradeLevel: {fileID: 0}
-  m_txtP2ExplosiveUpgradeLevel: {fileID: 0}
+  m_txtP1HealthUpgradeLevel: {fileID: 114147163802153268}
+  m_txtP1DamageUpgradeLevel: {fileID: 114702988924970354}
+  m_txtP1RPMUpgradeLevel: {fileID: 114935210681106650}
+  m_txtP1AmmoUpgradeLevel: {fileID: 114811588834459992}
+  m_txtP1SpreadUpgradeLevel: {fileID: 114214941570872418}
+  m_txtP1PiercingUpgradeLevel: {fileID: 114130929080319460}
+  m_txtP1ExplosiveUpgradeLevel: {fileID: 114672236027847350}
+  m_txtP2HealthUpgradeLevel: {fileID: 114372939832005214}
+  m_txtP2DamageUpgradeLevel: {fileID: 114846816007406248}
+  m_txtP2RPMUpgradeLevel: {fileID: 114459890670131088}
+  m_txtP2AmmoUpgradeLevel: {fileID: 114203210271257696}
+  m_txtP2SpreadUpgradeLevel: {fileID: 114231521416899226}
+  m_txtP2PiercingUpgradeLevel: {fileID: 114957471845132252}
+  m_txtP2ExplosiveUpgradeLevel: {fileID: 114136068246606270}
+  m_goP1HealthUpgradeMax: {fileID: 1710988681106440}
+  m_goP1DamageUpgradeMax: {fileID: 1438222910762702}
+  m_goP1RPMUpgradeMax: {fileID: 1510866188294742}
+  m_goP1AmmoUpgradeMax: {fileID: 1596015884318990}
+  m_goP1SpreadUpgradeMax: {fileID: 1291745472406176}
+  m_goP1PiercingUpgradeMax: {fileID: 1828256394425554}
+  m_goP1ExplosiveUpgradeMax: {fileID: 1908025983610404}
+  m_goP2HealthUpgradeMax: {fileID: 1495684782080478}
+  m_goP2DamageUpgradeMax: {fileID: 1191340429278618}
+  m_goP2RPMUpgradeMax: {fileID: 1683885874704418}
+  m_goP2AmmoUpgradeMax: {fileID: 1145745485308284}
+  m_goP2SpreadUpgradeMax: {fileID: 1712788524371868}
+  m_goP2PiercingUpgradeMax: {fileID: 1177343627551066}
+  m_goP2ExplosiveUpgradeMax: {fileID: 1147775199869866}
 --- !u!114 &114784869702899376
 MonoBehaviour:
   m_ObjectHideFlags: 1

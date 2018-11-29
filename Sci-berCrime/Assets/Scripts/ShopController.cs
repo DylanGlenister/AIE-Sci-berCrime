@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class ShopController : MonoBehaviour
 {
     public UIController m_uicUIController;
@@ -11,8 +10,6 @@ public class ShopController : MonoBehaviour
     public PlayerController m_gcPlayerTwo;
     public RoundController m_rcRoundController;
     
-
-
     public bool m_bShopEnabled = false;
     public int m_iWallet = 0;
 
@@ -59,11 +56,10 @@ public class ShopController : MonoBehaviour
     private short m_sP1DamageUpgradeCap = 0;
     private short m_sP1FireRateCap = 0;
     private short m_sP1AmmoUpgradeCap = 0;
-    private short m_sP1PiercingUpgradeCap = 0;
     private short m_sP1SpreadUpgradeCap = 0;
+    private short m_sP1PiercingUpgradeCap = 0;
     private short m_sP1ExplosiveCap = 0;
-
-
+    
     [Header("PlayerTwo")]
     public GameObject m_goP2HealthUpgrade;
     public GameObject m_goP2DamageUpgrade;
@@ -74,15 +70,33 @@ public class ShopController : MonoBehaviour
     public GameObject m_goP2ExplosiveUpgrade;
     public GameObject m_goP2HealthBuy;
     public GameObject m_goP2AmmoBuy;
-
-
+    
     private short m_sP2HealthUpgradeCap = 0;
     private short m_sP2DamageUpgradeCap = 0;
     private short m_sP2FireRateCap = 0;
     private short m_sP2AmmoUpgradeCap = 0;
-    private short m_sP2PiercingUpgradeCap = 0;
     private short m_sP2SpreadUpgradeCap = 0;
+    private short m_sP2PiercingUpgradeCap = 0;
     private short m_sP2ExplosiveCap = 0;
+
+    private void Awake()
+    {
+        m_uicUIController.TogglePlayerOneHealthMax(false);
+        m_uicUIController.TogglePlayerOneDamageMax(false);
+        m_uicUIController.TogglePlayerOneRPMMax(false);
+        m_uicUIController.TogglePlayerOneAmmoMax(false);
+        m_uicUIController.TogglePlayerOneSpreadMax(false);
+        m_uicUIController.TogglePlayerOnePiercingMax(false);
+        m_uicUIController.TogglePlayerOneExplosiveMax(false);
+
+        m_uicUIController.TogglePlayerTwoHealthMax(false);
+        m_uicUIController.TogglePlayerTwoDamageMax(false);
+        m_uicUIController.TogglePlayerTwoRPMMax(false);
+        m_uicUIController.TogglePlayerTwoAmmoMax(false);
+        m_uicUIController.TogglePlayerTwoSpreadMax(false);
+        m_uicUIController.TogglePlayerTwoPiercingMax(false);
+        m_uicUIController.TogglePlayerTwoExplosiveMax(false);
+    }
 
     private void Update()
     {
@@ -219,8 +233,11 @@ public class ShopController : MonoBehaviour
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
             m_uicUIController.SetPlayerOneUIHealth(pPlayer.m_iHealth);
             m_uicUIController.SetPlayerOneShopHealth(pPlayer.m_iHealth);
-            
-            m_sP1HealthUpgradeCap += 1;
+
+            m_sP1HealthUpgradeCap++;
+            m_uicUIController.UpdatePlayerOneHealthLevel(m_sP1HealthUpgradeCap);
+            if (m_sP1HealthUpgradeCap == 10)
+                m_uicUIController.TogglePlayerOneHealthMax(true);
         }
         else
         {
@@ -229,8 +246,11 @@ public class ShopController : MonoBehaviour
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
             m_uicUIController.SetPlayerTwoUIHealth(pPlayer.m_iHealth);
             m_uicUIController.SetPlayerTwoShopHealth(pPlayer.m_iHealth);
-            
-            m_sP2HealthUpgradeCap += 1;
+
+            m_sP2HealthUpgradeCap++;
+            m_uicUIController.UpdatePlayerTwoHealthLevel(m_sP2HealthUpgradeCap);
+            if (m_sP2HealthUpgradeCap == 10)
+                m_uicUIController.TogglePlayerTwoHealthMax(true);
         }
 
         // If players health is at max before upgrade, give them free health to keep at max after upgrade
@@ -239,7 +259,6 @@ public class ShopController : MonoBehaviour
 
         pPlayer.m_iMaxHealth += m_iHealthIncrement;
         UpdateCost(pPlayer, 1);
-
     }
 
     // Increases weapon damage  by 25 points
@@ -255,16 +274,22 @@ public class ShopController : MonoBehaviour
             m_iWallet -= (int)m_iP1DamageUpgradeCost;
             m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
-            
-            m_sP1DamageUpgradeCap += 1;
+
+            m_sP1DamageUpgradeCap++;
+            m_uicUIController.UpdatePlayerOneDamageLevel(m_sP1DamageUpgradeCap);
+            if (m_sP1DamageUpgradeCap == 10)
+                m_uicUIController.TogglePlayerOneDamageMax(true);
         }
         else
         {
             m_iWallet -= (int)m_iP2DamageUpgradeCost;
             m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
-            
-            m_sP2DamageUpgradeCap += 1;
+
+            m_sP2DamageUpgradeCap++;
+            m_uicUIController.UpdatePlayerTwoDamageLevel(m_sP2DamageUpgradeCap);
+            if (m_sP2DamageUpgradeCap == 10)
+                m_uicUIController.TogglePlayerTwoDamageMax(true);
         }
 
         pPlayer.GetComponent<GunController>().m_iDamage += m_iDamageIncrement;
@@ -285,16 +310,22 @@ public class ShopController : MonoBehaviour
             m_iWallet -= (int)m_iP1RPMUpgradeCost;
             m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
-            
-            m_sP1FireRateCap += 1;
+
+            m_sP1FireRateCap++;
+            m_uicUIController.UpdatePlayerOneRPMLevel(m_sP1FireRateCap);
+            if (m_sP1FireRateCap == 50)
+                m_uicUIController.TogglePlayerOneRPMMax(true);
         }
         else
         {
             m_iWallet -= (int)m_iP2RPMUpgradeCost;
             m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
-            
-            m_sP2FireRateCap += 1;
+
+            m_sP2FireRateCap++;
+            m_uicUIController.UpdatePlayerTwoRPMLevel(m_sP2FireRateCap);
+            if (m_sP2FireRateCap == 50)
+                m_uicUIController.TogglePlayerTwoRPMMax(true);
         }
 
         if (pPlayer.m_fFireDelay > (m_fRPMIncrement + m_fRPMIncrement * 0.25f) && pPlayer.m_fFireDelay != m_fRPMIncrement)
@@ -321,8 +352,11 @@ public class ShopController : MonoBehaviour
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
             m_uicUIController.SetPlayerOneUIAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
             m_uicUIController.SetPlayerOneShopAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
-            
-            m_sP1AmmoUpgradeCap += 1;
+
+            m_sP1AmmoUpgradeCap++;
+            m_uicUIController.UpdatePlayerOneAmmoLevel(m_sP1AmmoUpgradeCap);
+            if (m_sP1AmmoUpgradeCap == 50)
+                m_uicUIController.TogglePlayerOneAmmoMax(true);
         }
         else
         {
@@ -331,8 +365,11 @@ public class ShopController : MonoBehaviour
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
             m_uicUIController.SetPlayerTwoUIAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
             m_uicUIController.SetPlayerTwoShopAmmo(pPlayer.GetComponent<GunController>().m_iAmmo);
-            
-            m_sP2AmmoUpgradeCap += 1;
+
+            m_sP2AmmoUpgradeCap++;
+            m_uicUIController.UpdatePlayerTwoAmmoLevel(m_sP2AmmoUpgradeCap);
+            if (m_sP2AmmoUpgradeCap == 50)
+                m_uicUIController.TogglePlayerTwoAmmoMax(true);
         }
 
         // If players ammo is at max before upgrade, give them free ammo to keep at max after upgrade
@@ -341,6 +378,43 @@ public class ShopController : MonoBehaviour
 
         pPlayer.GetComponent<GunController>().m_iMaxAmmo += m_iAmmoIncrement;
         UpdateCost(pPlayer, 1);
+    }
+
+    // Allows the weapon to fire multiple bullets that can hit multiple targets
+    public void Upgrade_Spread (GunController pPlayer)
+    {
+        if (((pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne && m_sP1SpreadUpgradeCap == 2) || pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne && m_iWallet < m_iP1SpreadUpgradeCost)
+            && ((!pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne && m_sP2SpreadUpgradeCap == 2) || !pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne && m_iWallet < m_iP2SpreadUpgradeCost))
+            return;
+
+        // Updates UI
+        if (pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne)
+        {
+            m_iWallet -= (int)m_iP1SpreadUpgradeCost;
+            m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
+            m_uicUIController.SetShopMoneyAmount(m_iWallet);
+
+            m_sP1SpreadUpgradeCap++;
+            m_uicUIController.UpdatePlayerOneSpreadLevel (m_sP1SpreadUpgradeCap);
+            if (m_sP1SpreadUpgradeCap == 2)
+                m_uicUIController.TogglePlayerOneSpreadMax(true);
+        }
+        else
+        {
+            m_iWallet -= (int)m_iP2SpreadUpgradeCost;
+            m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
+            m_uicUIController.SetShopMoneyAmount(m_iWallet);
+
+            m_sP2SpreadUpgradeCap++;
+            m_uicUIController.UpdatePlayerTwoSpreadLevel(m_sP2SpreadUpgradeCap);
+            if (m_sP2SpreadUpgradeCap == 2)
+                m_uicUIController.TogglePlayerTwoSpreadMax(true);
+        }
+
+        if (pPlayer.m_iSpread < 3)
+            pPlayer.m_iSpread += 1;
+
+        UpdateCost(pPlayer.gameObject.GetComponent<PlayerController>(), 2);
     }
 
     // Allows the weapon to fire bullets that pierce targets
@@ -356,16 +430,22 @@ public class ShopController : MonoBehaviour
             m_iWallet -= (int)m_iP1PiercingUpgradeCost;
             m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
-            
-            m_sP1PiercingUpgradeCap += 1;
+
+            m_sP1PiercingUpgradeCap++;
+            m_uicUIController.UpdatePlayerOnePiercingLevel(m_sP1PiercingUpgradeCap);
+            if (m_sP1PiercingUpgradeCap == 2)
+                m_uicUIController.TogglePlayerOnePiercingMax(true);
         }
         else
         {
             m_iWallet -= (int)m_iP2PiercingUpgradeCost;
             m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
-            
-            m_sP2PiercingUpgradeCap += 1;
+
+            m_sP2PiercingUpgradeCap++;
+            m_uicUIController.UpdatePlayerTwoPiercingLevel(m_sP2PiercingUpgradeCap);
+            if (m_sP2PiercingUpgradeCap == 2)
+                m_uicUIController.TogglePlayerTwoPiercingMax(true);
         }
 
         if (pPlayer.m_iPiercing < 3)
@@ -387,51 +467,26 @@ public class ShopController : MonoBehaviour
             m_iWallet -= (int)m_iP1ExplosiveUpgradeCost;
             m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
-            
-            m_sP1ExplosiveCap += 1;
+
+            m_sP1ExplosiveCap++;
+            m_uicUIController.UpdatePlayerOneExplosiveLevel(m_sP1ExplosiveCap);
+            if (m_sP1ExplosiveCap == 2)
+                m_uicUIController.TogglePlayerOneExplosiveMax(true);
         }
         else
         {
             m_iWallet -= (int)m_iP2ExplosiveUpgradeCost;
             m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
             m_uicUIController.SetShopMoneyAmount(m_iWallet);
-            
-            m_sP2ExplosiveCap += 1;
+
+            m_sP2ExplosiveCap++;
+            m_uicUIController.UpdatePlayerTwoExplosiveLevel(m_sP2ExplosiveCap);
+            if (m_sP2ExplosiveCap == 2)
+                m_uicUIController.TogglePlayerTwoExplosiveMax(true);
         }
 
         if (pPlayer.m_iExplosive < 3)
             pPlayer.m_iExplosive += 1;
-
-        UpdateCost(pPlayer.gameObject.GetComponent<PlayerController>(), 2);
-    }
-
-    // Allows the weapon to fire multiple bullets that can hit multiple targets
-    public void Upgrade_Spread(GunController pPlayer)
-    {
-        if (((pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne && m_sP1SpreadUpgradeCap == 2) || m_iWallet < m_iP1SpreadUpgradeCost) 
-            && ((!pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne && m_sP2SpreadUpgradeCap == 2) || m_iWallet < m_iP2SpreadUpgradeCost))
-            return;
-
-        // Updates UI
-        if (pPlayer.gameObject.GetComponent<PlayerController>().m_bPlayerOne)
-        {
-            m_iWallet -= (int)m_iP1SpreadUpgradeCost;
-            m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
-            m_uicUIController.SetShopMoneyAmount(m_iWallet);
-            
-            m_sP1SpreadUpgradeCap += 1;
-        }
-        else
-        {
-            m_iWallet -= (int)m_iP2SpreadUpgradeCost;
-            m_uicUIController.SetGameplayMoneyAmount(m_iWallet);
-            m_uicUIController.SetShopMoneyAmount(m_iWallet);
-            
-            m_sP2SpreadUpgradeCap += 1;
-        }
-
-        if (pPlayer.m_iSpread < 3)
-            pPlayer.m_iSpread += 1;
 
         UpdateCost(pPlayer.gameObject.GetComponent<PlayerController>(), 2);
     }
@@ -507,10 +562,10 @@ public class ShopController : MonoBehaviour
         {
             if (m_iTiers == 1)
             {
-                m_iP1HealthUpgradeCost *= 1.5f;
-                m_iP1DamageUpgradeCost *= 1.5f;
-                m_iP1RPMUpgradeCost *= 1.5f;
-                m_iP1AmmoUpgradeCost *= 1.5f;
+                m_iP1HealthUpgradeCost *= 1.1f;
+                m_iP1DamageUpgradeCost *= 1.1f;
+                m_iP1RPMUpgradeCost *= 1.1f;
+                m_iP1AmmoUpgradeCost *= 1.1f;
 
                 m_uicUIController.UpdatePlayerOneHealthUpgradeCost(Mathf.RoundToInt(m_iP1HealthUpgradeCost));
                 m_uicUIController.UpdatePlayerOneDamageUpgradeCost(Mathf.RoundToInt(m_iP1DamageUpgradeCost));
@@ -519,9 +574,9 @@ public class ShopController : MonoBehaviour
             }
             else if (m_iTiers == 2)
             {
-                m_iP1PiercingUpgradeCost *= 2.5f;
-                m_iP1ExplosiveUpgradeCost *= 2.5f;
-                m_iP1SpreadUpgradeCost *= 2.5f;
+                m_iP1PiercingUpgradeCost *= 2;
+                m_iP1ExplosiveUpgradeCost *= 2;
+                m_iP1SpreadUpgradeCost *= 2;
 
                 m_uicUIController.UpdatePlayerOneSpreadUpgradeCost(Mathf.RoundToInt(m_iP1SpreadUpgradeCost));
                 m_uicUIController.UpdatePlayerOnePiercingUpgradeCost(Mathf.RoundToInt(m_iP1PiercingUpgradeCost));
@@ -530,8 +585,8 @@ public class ShopController : MonoBehaviour
             }
             else if (m_iTiers == 3)
             {
-                m_iP1HealthBuyCost *= 2;
-                m_iP1AmmoBuyCost *= 2;
+                m_iP1HealthBuyCost *= 1.5f;
+                m_iP1AmmoBuyCost *= 1.5f;
 
                 m_uicUIController.UpdatePlayerOneHealthBuyCost(Mathf.RoundToInt(m_iP1HealthBuyCost));
                 m_uicUIController.UpdatePlayerOneAmmoBuyCost(Mathf.RoundToInt(m_iP1AmmoBuyCost));
@@ -541,10 +596,10 @@ public class ShopController : MonoBehaviour
         { 
             if (m_iTiers == 1)
             {
-                m_iP2HealthUpgradeCost *= 1.5f;
-                m_iP2DamageUpgradeCost *= 1.5f;
-                m_iP2RPMUpgradeCost *= 1.5f;
-                m_iP2AmmoUpgradeCost *= 1.5f;
+                m_iP2HealthUpgradeCost *= 1.1f;
+                m_iP2DamageUpgradeCost *= 1.1f;
+                m_iP2RPMUpgradeCost *= 1.1f;
+                m_iP2AmmoUpgradeCost *= 1.1f;
                 
                 m_uicUIController.UpdatePlayerTwoHealthUpgradeCost(Mathf.RoundToInt(m_iP2HealthUpgradeCost));
                 m_uicUIController.UpdatePlayerTwoDamageUpgradeCost(Mathf.RoundToInt(m_iP2DamageUpgradeCost));
@@ -553,9 +608,9 @@ public class ShopController : MonoBehaviour
             }
             else if (m_iTiers == 2)
             {
-                m_iP2PiercingUpgradeCost *= 2.5f;
-                m_iP2ExplosiveUpgradeCost *= 2.5f;
-                m_iP2SpreadUpgradeCost *= 2.5f;
+                m_iP2PiercingUpgradeCost *= 2;
+                m_iP2ExplosiveUpgradeCost *= 2;
+                m_iP2SpreadUpgradeCost *= 2;
 
                 m_uicUIController.UpdatePlayerTwoSpreadUpgradeCost(Mathf.RoundToInt(m_iP2SpreadUpgradeCost));
                 m_uicUIController.UpdatePlayerTwoPiercingUpgradeCost(Mathf.RoundToInt(m_iP2PiercingUpgradeCost));
@@ -563,8 +618,8 @@ public class ShopController : MonoBehaviour
             }
             else if (m_iTiers == 3)
             {
-                m_iP2HealthBuyCost *= 2;
-                m_iP2AmmoBuyCost *= 2;
+                m_iP2HealthBuyCost *= 1.5f;
+                m_iP2AmmoBuyCost *= 1.5f;
 
                 m_uicUIController.UpdatePlayerTwoHealthBuyCost(Mathf.RoundToInt(m_iP2HealthBuyCost));
                 m_uicUIController.UpdatePlayerTwoAmmoBuyCost(Mathf.RoundToInt(m_iP2AmmoBuyCost));
