@@ -2869,6 +2869,7 @@ GameObject:
   - component: {fileID: 20562575660859194}
   - component: {fileID: 124375479089840956}
   - component: {fileID: 81938389427426732}
+  - component: {fileID: 114074389571147804}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: Untagged
@@ -5512,13 +5513,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1526823519624926}
-  m_LocalRotation: {x: 0.3686878, y: 0.6275069, z: -0.439385, w: 0.5265409}
+  m_LocalRotation: {x: -0.010451126, y: 0.8224602, z: -0.5138909, w: 0.24365182}
   m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4501399237292602}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 70, y: 100, z: 0}
+  m_LocalEulerAnglesHint: {x: 57.163002, y: 130.63, z: -29.572}
 --- !u!4 &4219389098058230
 Transform:
   m_ObjectHideFlags: 1
@@ -9624,8 +9625,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.7
+  m_Color: {r: 0.17671035, g: 0.21324891, b: 0.234, a: 1}
+  m_Intensity: 0.84
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -9633,7 +9634,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.516
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -9958,6 +9959,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Max Ammo
+--- !u!114 &114074389571147804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576357181437052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: b6f37882a5d3f2642a730f6294592aed, type: 2}
 --- !u!114 &114076913550647456
 MonoBehaviour:
   m_ObjectHideFlags: 1
