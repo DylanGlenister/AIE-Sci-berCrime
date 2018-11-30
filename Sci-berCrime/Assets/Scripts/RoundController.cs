@@ -96,7 +96,7 @@ public class RoundController : MonoBehaviour
                 m_uicUIController.SetRoundTimerText(m_fRoundCountdown);
             }
 
-            if (!m_bscBossSpawnController.GetComponent<BossController>().m_bIsAlive)
+            if (m_bBossDead)
             {
                 m_bscBossSpawnController.m_bHasSpawned = false;
             }
